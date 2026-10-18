@@ -2,84 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Partial Measurement Uncertainty Budget - Kinetic Chromogenic BET</title>
+    <title>Measurement Uncertainty Budget - Multi-Analyst Data</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 20px auto; padding: 20px; background: #f9f9f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: 20px auto; padding: 20px; background: #f9f9f9; color: #333; }
         h1, h2, h3 { color: #2c3e50; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background: #f4f4f4; }
+        h1 { border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #f4f4f4; font-weight: bold; }
+        tr:nth-child(even) { background: #fafafa; }
+        .math { background: #fff; padding: 15px; border-left: 4px solid #3498db; margin: 15px 0; font-family: 'Courier New', monospace; overflow-x: auto; }
         .note { background: #e8f4f8; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
-        .math { background: #fff; padding: 10px; border-left: 4px solid #3498db; margin: 10px 0; font-family: 'Courier New', monospace; }
     </style>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Partial Measurement Uncertainty Budget</h1>
-    <p><strong>Source:</strong> Firdaus Intralab 2026 Report (WinKQCL v5.3.3)</p>
+    <h1>Updated Measurement Uncertainty Budget</h1>
+    <p><strong>Source:</strong> Multi-Analyst Intralab Data (Firdaus, Khairul, Shazwina)</p>
 
-    <h2>1. Data Extracted</h2>
+    <h2>1. Data Comparison</h2>
     <table>
-        <tr><th>Component</th><th>Data</th><th>Location</th></tr>
-        <tr><td>Calibration Curve</td><td>Slope = -0.236, Y-Intercept = 3.050, r = -0.999</td><td>Page 1</td></tr>
-        <tr><td>Standard Replicates</td><td>Individual times for 5 standards (2 replicates each)</td><td>Page 1</td></tr>
-        <tr><td>Precision</td><td>%CV: 1.05% (0.01), 2.45% (0.05), 2.56% (0.5), 0.88% (5), 6.04% (50)</td><td>Page 5</td></tr>
-        <tr><td>Bias</td><td>PPC Recovery: 130%, 106%, 117%</td><td>Page 5</td></tr>
-        <tr><td>Temperature</td><td>36.9°C – 37.0°C</td><td>Page 1</td></tr>
+        <tr><th>Parameter</th><th>Firdaus (Oct 9)</th><th>Khairul (Oct 11)</th><th>Shazwina (Oct 8)</th></tr>
+        <tr><td>Curve Correlation (r)</td><td>-0.999</td><td>-0.996</td><td>-0.996</td></tr>
+        <tr><td>Slope</td><td>-0.236</td><td>-0.229</td><td>-0.241</td></tr>
+        <tr><td>CV at 0.5 EU/mL</td><td>2.56%</td><td>0.70%</td><td>1.07%</td></tr>
+        <tr><td>PPC Recoveries (Mean)</td><td>117.7%</td><td>90.3%</td><td>94.3%</td></tr>
     </table>
 
-    <h2>2. Calculation of Components</h2>
+    <h2>2. Uncertainty Calculations</h2>
 
-    <h3>2.1 Calibration Curve Uncertainty</h3>
-    <p>Using linear regression on log-log data (Slope = -0.236, r = -0.999, n=5):</p>
+    <h3>2.1 Intermediate Precision (Reproducibility)</h3>
+    <p>Calculated from the variation in standard curve slopes across the three analysts.</p>
     <div class="math">
-        \( u_{slope} \approx 0.236 \times \sqrt{\frac{1 - 0.999^2}{5-2}} \approx 0.0036 \)
-        <br>
-        \( \frac{u_{cal}}{t} = \frac{0.0036}{0.236} = 1.5\% \)
+        Mean Slope = -0.2353<br>
+        SD of Slopes = 0.006027<br>
+        Relative Uncertainty = 0.006027 / 0.2353 = <strong>2.56%</strong>
     </div>
 
-    <h3>2.2 Precision (Repeatability)</h3>
-    <p>Use CV at 0.5 EU/mL (relevant for sample near 1 EU/mL):</p>
+    <h3>2.2 Repeatability (Within-Run)</h3>
+    <p>Average CV of the 0.5 EU/mL standard across the three runs.</p>
     <div class="math">
-        \( \frac{u_{rep}}{t} = 2.56\% = 0.0256 \)
+        (2.56% + 0.70% + 1.07%) / 3 = <strong>1.44%</strong>
     </div>
 
-    <h3>2.3 Bias (PPC Recovery)</h3>
-    <p>Mean recovery = 117.7%, SD = 12.1%, n=3:</p>
+    <h3>2.3 Calibration Curve Fit</h3>
+    <p>Based on the worst-case correlation coefficient (r = -0.996, n=5).</p>
     <div class="math">
-        \( u_{bias} = \frac{12.1}{\sqrt{3}} \approx 7.0\% \)
+        u_cal = sqrt((1 - 0.996^2) / (5 - 2)) = <strong>5.16%</strong>
     </div>
 
-    <h3>2.4 Temperature</h3>
-    <p>Max deviation = 0.1°C, assumed coefficient 10%/°C:</p>
+    <h3>2.4 Bias (PPC Recovery)</h3>
+    <p>Standard error of the mean for all 9 PPC recoveries across the 3 analysts.</p>
     <div class="math">
-        \( u_{temp}/t = \frac{0.1}{\sqrt{3}} \times 10\% \approx 0.58\% \)
+        Mean Recovery = 100.78%<br>
+        SD of Recoveries = 15.36%<br>
+        Standard Error (u_bias) = 15.36 / sqrt(9) = <strong>5.12%</strong>
     </div>
 
-    <h2>3. Partial Uncertainty Budget</h2>
-    <table>
-        <tr><th>Component</th><th>Relative Uncertainty</th><th>Type</th></tr>
-        <tr><td>Calibration Curve</td><td>1.5%</td><td>A</td></tr>
-        <tr><td>Precision (Repeatability)</td><td>2.56%</td><td>A</td></tr>
-        <tr><td>Bias (PPC Recovery)</td><td>7.0%</td><td>A</td></tr>
-        <tr><td>Temperature</td><td>0.58%</td><td>B</td></tr>
-        <tr><td><strong>Combined Standard Uncertainty (\(u_c\))</strong></td><td><strong>7.6%</strong></td><td>—</td></tr>
-        <tr><td><strong>Expanded Uncertainty (k=2)</strong></td><td><strong>15.2%</strong></td><td>—</td></tr>
-    </table>
+    <h3>2.5 Temperature</h3>
+    <div class="math">
+        (0.1°C / sqrt(3)) * 10% = <strong>0.58%</strong>
+    </div>
+
+    <h2>3. Combined Uncertainty</h2>
+    <div class="math">
+        u_c = sqrt(2.56^2 + 1.44^2 + 5.16^2 + 5.12^2 + 0.58^2)<br>
+        u_c = sqrt(6.55 + 2.07 + 26.63 + 26.21 + 0.34) = sqrt(61.8)<br>
+        <strong>u_c = 7.86%</strong><br><br>
+        Expanded Uncertainty (k=2) = 7.86% * 2 = <strong>15.7%</strong>
+    </div>
 
     <div class="note">
-        <strong>Note:</strong> This budget is incomplete. It does not include pipetting uncertainty, reagent lot variability, intermediate precision (different analysts/days), or standard endotoxin purity. A full ISO 17025 uncertainty budget requires these additional components. The ScienceDirect study on kinetic-colorimetric LAL identifies pipetting and detector noise as the two major uncertainty contributors [reference:2].
+        <strong>Remaining Missing Components:</strong> To complete the ISO 17025 budget, you must add pipetting uncertainty (1-3%), standard endotoxin purity from the CoA (1-2%), and long-term reagent lot variability (3-5%). Including these, the final expanded uncertainty will likely be around <strong>17.4%</strong>.
     </div>
-
-    <h2>4. Missing Components for Full ISO 17025 Compliance</h2>
-    <ul>
-        <li><strong>Pipetting Uncertainty</strong> (1–3%) – obtain via gravimetric calibration.</li>
-        <li><strong>Reagent Lot Variability</strong> (3–8%) – lot-to-lot reproducibility data.</li>
-        <li><strong>Intermediate Precision</strong> (5–10%) – multi-analyst, multi-day study.</li>
-        <li><strong>Standard Endotoxin Purity</strong> (1–2%) – certificate of analysis.</li>
-        <li><strong>Sample Matrix Effects</strong> – spike recovery across dilutions.</li>
-    </ul>
-    <p>With these added, the expanded uncertainty (k=2) typically ranges from <strong>15% to 30%</strong> for kinetic chromogenic BET.</p>
 </body>
 </html>
