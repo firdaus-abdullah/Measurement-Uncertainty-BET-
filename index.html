@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measurement Uncertainty Calculation - ELx808</title>
+    <title>Measurement Uncertainty Calculation - ELx808 (Corrected)</title>
     
     <!-- MathJax for rendering mathematical formulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -67,18 +67,14 @@
             background-color: #fafafa;
         }
         .note {
-            background-color: #fff8e1;
-            border-left: 4px solid #ffc107;
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
             padding: 15px;
             margin: 20px 0;
             font-style: italic;
         }
         ul {
             margin-bottom: 15px;
-        }
-        .highlight {
-            font-weight: bold;
-            color: #e74c3c;
         }
         .calculation-step {
             margin-left: 20px;
@@ -90,7 +86,7 @@
 
     <h1>Detailed Calculation of Instrument-Related Measurement Uncertainty</h1>
 
-    <p>Based on the provided reports, we can perform a detailed, step-by-step calculation of the <strong>instrument-related measurement uncertainty</strong> for the ELx808 reader.</p>
+    <p>Based on the provided reports, we can perform a detailed, step-by-step calculation of the <strong>instrument-related measurement uncertainty</strong> for the ELx808 reader. (Note: The slope value has been corrected to 1.672 based on the report).</p>
 
     <p>As established, this does not represent the <em>total</em> uncertainty of the Kinetic Chromogenic BET assay (which requires reagent, standard, and pipetting data), but it provides the exact mathematical derivation for the components present in your documents.</p>
 
@@ -122,27 +118,26 @@
  \frac{u_{rep}}{OD} = 4.6\% = 0.046 
 \]
     </div>
-    <p><em>(Note: For a conservative risk-based approach, you could use the worst-case column CV of 11.9%, but 4.6% represents the typical system precision).</em></p>
 
     <h3>2.2 Photometric Linearity / Calibration (\( u_{lin} \))</h3>
     <ul>
         <li><strong>Source:</strong> Validation of Optical Measurement (Image 1).</li>
-        <li><strong>Data:</strong> Reported Slope = 1.872, Intercept = -0.005, \( R^2 = 1.000 \). The data points (Mean OD vs Concentration) are:
+        <li><strong>Data:</strong> Reported <strong>Slope = 1.672</strong>, Intercept = -0.005, \( R^2 = 1.000 \). The data points (Mean OD vs Concentration) are:
             <br> \( x \) (Conc): 0, 0.0625, 0.125, 0.25, 0.5, 1.0
             <br> \( y \) (Mean OD): 0.023, 0.101, 0.199, 0.415, 0.839, 1.654
         </li>
     </ul>
-    <p><strong>Calculation:</strong> We must calculate the standard error of the regression (\( S_{y.x} \)) based on the reported equation \( y = 1.872x - 0.005 \).</p>
+    <p><strong>Calculation:</strong> We must calculate the standard error of the regression (\( S_{y.x} \)) based on the reported equation \( y = 1.672x - 0.005 \).</p>
     
     <div class="calculation-step">
         <strong>Predicted values (\( \hat{y} \)):</strong>
         <ul>
-            <li>\( x=0 \): \( 1.872(0) - 0.005 = -0.005 \)</li>
-            <li>\( x=0.0625 \): \( 1.872(0.0625) - 0.005 = 0.112 \)</li>
-            <li>\( x=0.125 \): \( 1.872(0.125) - 0.005 = 0.229 \)</li>
-            <li>\( x=0.25 \): \( 1.872(0.25) - 0.005 = 0.463 \)</li>
-            <li>\( x=0.5 \): \( 1.872(0.5) - 0.005 = 0.931 \)</li>
-            <li>\( x=1.0 \): \( 1.872(1.0) - 0.005 = 1.867 \)</li>
+            <li>\( x=0 \): \( 1.672(0) - 0.005 = -0.005 \)</li>
+            <li>\( x=0.0625 \): \( 1.672(0.0625) - 0.005 = 0.0995 \)</li>
+            <li>\( x=0.125 \): \( 1.672(0.125) - 0.005 = 0.204 \)</li>
+            <li>\( x=0.25 \): \( 1.672(0.25) - 0.005 = 0.413 \)</li>
+            <li>\( x=0.5 \): \( 1.672(0.5) - 0.005 = 0.831 \)</li>
+            <li>\( x=1.0 \): \( 1.672(1.0) - 0.005 = 1.667 \)</li>
         </ul>
     </div>
 
@@ -150,20 +145,20 @@
         <strong>Residuals (\( y - \hat{y} \)) and Squared Residuals:</strong>
         <ul>
             <li>\( 0.023 - (-0.005) = 0.028 \rightarrow 0.000784 \)</li>
-            <li>\( 0.101 - 0.112 = -0.011 \rightarrow 0.000121 \)</li>
-            <li>\( 0.199 - 0.229 = -0.030 \rightarrow 0.000900 \)</li>
-            <li>\( 0.415 - 0.463 = -0.048 \rightarrow 0.002304 \)</li>
-            <li>\( 0.839 - 0.931 = -0.092 \rightarrow 0.008464 \)</li>
-            <li>\( 1.654 - 1.867 = -0.213 \rightarrow 0.045369 \)</li>
+            <li>\( 0.101 - 0.0995 = 0.0015 \rightarrow 0.00000225 \)</li>
+            <li>\( 0.199 - 0.204 = -0.005 \rightarrow 0.000025 \)</li>
+            <li>\( 0.415 - 0.413 = 0.002 \rightarrow 0.000004 \)</li>
+            <li>\( 0.839 - 0.831 = 0.008 \rightarrow 0.000064 \)</li>
+            <li>\( 1.654 - 1.667 = -0.013 \rightarrow 0.000169 \)</li>
         </ul>
-        <p><strong>Sum of Squared Residuals (\( SS_{res} \)):</strong> \( 0.057942 \)</p>
+        <p><strong>Sum of Squared Residuals (\( SS_{res} \)):</strong> \( 0.00104825 \)</p>
     </div>
 
     <div class="calculation-step">
         <strong>Standard Error of Regression (\( S_{y.x} \)):</strong>
         <div class="math-block">
             \[
- S_{y.x} = \sqrt{\frac{SS_{res}}{n-2}} = \sqrt{\frac{0.057942}{6-2}} = \sqrt{0.0144855} = 0.12035 
+ S_{y.x} = \sqrt{\frac{SS_{res}}{n-2}} = \sqrt{\frac{0.00104825}{6-2}} = \sqrt{0.000262} = 0.01619 
 \]
         </div>
     </div>
@@ -176,7 +171,7 @@
         </ul>
         <div class="math-block">
             \[
- u_{slope} = \frac{S_{y.x}}{\sqrt{S_{xx}}} = \frac{0.12035}{\sqrt{0.7064}} = \frac{0.12035}{0.8405} = 0.1432 
+ u_{slope} = \frac{S_{y.x}}{\sqrt{S_{xx}}} = \frac{0.01619}{\sqrt{0.7064}} = \frac{0.01619}{0.8405} = 0.01926 
 \]
         </div>
     </div>
@@ -185,12 +180,13 @@
         <strong>Relative Uncertainty of Linearity:</strong>
         <div class="math-block">
             \[
- \frac{u_{lin}}{OD} = \frac{u_{slope}}{\text{Slope}} = \frac{0.1432}{1.872} = 0.0765 \text{ (or } 7.65\% \text{)} 
+ \frac{u_{lin}}{OD} = \frac{u_{slope}}{\text{Slope}} = \frac{0.01926}{1.672} = 0.0115 \text{ (or } 1.15\% \text{)} 
 \]
         </div>
     </div>
+    
     <div class="note">
-        A 7.65% linearity uncertainty is unusually high for a modern reader. The reported slope of 1.872 does not perfectly fit the tabulated mean ODs, especially at 1.0 EU/mL. This calculation reflects the mathematical reality of the provided table.
+        This 1.15% linearity uncertainty is perfectly in line with expectations for a high-quality microplate reader with an \( R^2 = 1.000 \). The previous misread slope of 1.872 caused artificially high residuals.
     </div>
 
     <h3>2.3 Intercept Bias (\( u_{bias} \))</h3>
@@ -225,7 +221,7 @@
     <p><em>Assumption:</em> The LAL kinetic reaction rate changes by approximately 10% per 1°C (a standard conservative biological assumption).</p>
     <div class="math-block">
         \[
- \frac{u_{temp}}{OD} = 0.0577 \times 10\% = 0.00577 \text{ (or } 0.58\% \text{)} 
+ \frac{u_{temp}}{OD} = 0.0577 \times 10\% = 0.0058 \text{ (or } 0.58\% \text{)} 
 \]
     </div>
 
@@ -236,13 +232,13 @@
 
     <div class="math-block">
         \[
- \frac{u_c(OD)}{OD} = \sqrt{ (0.046)^2 + (0.0765)^2 + (0.0034)^2 + (0.0058)^2 } 
+ \frac{u_c(OD)}{OD} = \sqrt{ (0.046)^2 + (0.0115)^2 + (0.0034)^2 + (0.0058)^2 } 
 \]
         \[
- \frac{u_c(OD)}{OD} = \sqrt{ 0.002116 + 0.005852 + 0.000011 + 0.000034 } 
+ \frac{u_c(OD)}{OD} = \sqrt{ 0.002116 + 0.000132 + 0.000012 + 0.000034 } 
 \]
         \[
- \frac{u_c(OD)}{OD} = \sqrt{ 0.008013 } = 0.0895 \text{ (or } 8.95\% \text{)} 
+ \frac{u_c(OD)}{OD} = \sqrt{ 0.002294 } = 0.0479 \text{ (or } 4.79\% \text{)} 
 \]
     </div>
 
@@ -250,7 +246,7 @@
 
     <div class="math-block">
         \[
- U = 8.95\% \times 2 = 17.9\% 
+ U = 4.79\% \times 2 = 9.58\% 
 \]
     </div>
 
@@ -277,8 +273,8 @@
             <tr>
                 <td><strong>Linearity</strong></td>
                 <td>Image 1 (Regression data)</td>
-                <td>\( u_{slope} / 1.872 \)</td>
-                <td><strong>7.65%</strong></td>
+                <td>\( u_{slope} / 1.672 \)</td>
+                <td><strong>1.15%</strong></td>
             </tr>
             <tr>
                 <td><strong>Intercept Bias</strong></td>
@@ -296,20 +292,20 @@
                 <td><strong>Combined Standard (\( u_c \))</strong></td>
                 <td>—</td>
                 <td>Root-sum-square</td>
-                <td><strong>8.95%</strong></td>
+                <td><strong>4.79%</strong></td>
             </tr>
             <tr style="background-color: #e8f4f8;">
                 <td><strong>Expanded (\( k=2 \))</strong></td>
                 <td>—</td>
                 <td>\( u_c \times 2 \)</td>
-                <td><strong>17.9%</strong></td>
+                <td><strong>9.58%</strong></td>
             </tr>
         </tbody>
     </table>
 
     <div class="note">
         <strong>💡 Expert Note for ISO 17025 Accreditation:</strong><br>
-        If you present this to an assessor, they will likely ask why the linearity uncertainty is so high (7.65%). You should investigate the standard curve preparation. If the true instrument linearity is excellent (as R²=1.000 suggests), the large residuals in the table are likely due to <strong>pipetting errors during the validation setup</strong>, not the reader itself. In a full method uncertainty budget, pipetting and reagent variability will be separate, larger components, and this 17.9% instrument-only figure is just one piece of the puzzle.
+        This 9.58% expanded uncertainty represents only the <strong>instrument portion</strong> of the measurement uncertainty. An assessor will still require you to calculate the uncertainty contributions from the calibration curve, standard endotoxin purity, LAL reagent variability, and pipetting errors. The 4.6% repeatability is the dominant factor here, which is typical for microplate-based assays.
     </div>
 
 </body>
