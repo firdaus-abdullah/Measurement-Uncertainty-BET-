@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detailed Multi-Analyst Uncertainty Calculation</title>
+    <title>Updated Multi-Analyst Uncertainty Calculation (4 Analysts)</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: 20px auto; padding: 20px; background: #f9f9f9; color: #333; }
         h1, h2, h3 { color: #2c3e50; }
@@ -17,38 +17,40 @@
     </style>
 </head>
 <body>
-    <h1>Detailed Measurement Uncertainty Calculation (Multi-Analyst)</h1>
-    <p>This document provides the step-by-step mathematical derivation for the uncertainty components using data from three analysts (Firdaus, Khairul, Shazwina).</p>
+    <h1>Updated Measurement Uncertainty Calculation</h1>
+    <p><strong>Data Source:</strong> 4 Analysts (Firdaus, Khairul, Shazwina, Hasan) across 2 different instruments (S/N 195023 and S/N 1403256).</p>
 
     <div class="step-box">
         <h2>1. Intermediate Precision (Reproducibility)</h2>
-        <p>Based on the Standard Curve Slopes: -0.236, -0.229, -0.241</p>
+        <p>Based on the Standard Curve Slopes: -0.236, -0.229, -0.241, -0.213</p>
         <div class="math">
-Mean (x̄) = (-0.236 + -0.229 + -0.241) / 3 = -0.23533
+Mean (x̄) = (-0.236 + -0.229 + -0.241 + -0.213) / 4 = -0.22975
 
 Deviations (x - x̄):
-(-0.236) - (-0.23533) = -0.00067
-(-0.229) - (-0.23533) =  0.00633
-(-0.241) - (-0.23533) = -0.00567
+(-0.236) - (-0.22975) = -0.00625
+(-0.229) - (-0.22975) =  0.00075
+(-0.241) - (-0.22975) = -0.01125
+(-0.213) - (-0.22975) =  0.01675
 
 Squares (x - x̄)²:
-(-0.00067)² = 4.489e-7
-( 0.00633)² = 4.007e-5
-(-0.00567)² = 3.215e-5
+(-0.00625)² = 0.00003906
+( 0.00075)² = 0.00000056
+(-0.01125)² = 0.00012656
+( 0.01675)² = 0.00028056
 
-Sum of Squares = 7.267e-5
-Variance (s²) = 7.267e-5 / (3-1) = 3.6335e-5
-Standard Deviation (s) = √3.6335e-5 = 0.006028
-Relative Uncertainty (u_int) = 0.006028 / 0.23533 = 0.0256 (2.56%)
+Sum of Squares = 0.00044674
+Variance (s²) = 0.00044674 / (4-1) = 0.00014891
+Standard Deviation (s) = √0.00014891 = 0.012203
+Relative Uncertainty (u_int) = 0.012203 / 0.22975 = 0.05311 (5.31%)
         </div>
     </div>
 
     <div class="step-box">
         <h2>2. Repeatability (Within-Run Precision)</h2>
-        <p>Based on CV at 0.5 EU/mL: 2.56%, 0.70%, 1.07%</p>
+        <p>Based on CV at 0.5 EU/mL: 2.56%, 0.70%, 1.07%, 1.51%</p>
         <div class="math">
-Mean CV = (2.56 + 0.70 + 1.07) / 3 = 1.4433%
-Relative Uncertainty (u_rep) = 1.44%
+Mean CV = (2.56 + 0.70 + 1.07 + 1.51) / 4 = 1.46%
+Relative Uncertainty (u_rep) = 1.46%
         </div>
     </div>
 
@@ -67,13 +69,13 @@ u_cal = √0.0026613 = 0.05159 (5.16%)
 
     <div class="step-box">
         <h2>4. Bias (PPC Recovery)</h2>
-        <p>Based on 9 recovery values: 130, 106, 117, 85, 102, 84, 90, 93, 100</p>
+        <p>Based on 12 recovery values across all 4 analysts: 130, 106, 117, 85, 102, 84, 90, 93, 100, 110, 123, 91</p>
         <div class="math">
-Mean = 907 / 9 = 100.778%
-Sum of Squared Deviations = 1853.555
-Variance (s²) = 1853.555 / 8 = 231.694
-Standard Deviation (s) = 15.221%
-Standard Error (u_bias) = 15.221 / √9 = 5.07%
+Mean = 1231 / 12 = 102.583%
+Sum of Squared Deviations = 2488.97
+Variance (s²) = 2488.97 / 11 = 226.27
+Standard Deviation (s) = 15.04%
+Standard Error (u_bias) = 15.04 / √12 = 4.34%
         </div>
     </div>
 
@@ -89,12 +91,12 @@ u_temp = (0.1 / √3) * 10% = 0.58%
         <h2>6. Combined Standard Uncertainty (u_c)</h2>
         <div class="math">
 u_c = √(u_int² + u_rep² + u_cal² + u_bias² + u_temp²)
-u_c = √(2.56² + 1.44² + 5.16² + 5.07² + 0.58²)
-u_c = √(6.5536 + 2.0736 + 26.6256 + 25.7049 + 0.3364)
-u_c = √(61.2941)
-u_c = 7.83%
+u_c = √(5.31² + 1.46² + 5.16² + 4.34² + 0.58²)
+u_c = √(28.196 + 2.132 + 26.626 + 18.836 + 0.336)
+u_c = √(76.126)
+u_c = 8.72%
 
-Expanded Uncertainty (k=2) = 7.83% * 2 = 15.66%
+Expanded Uncertainty (k=2) = 8.72% * 2 = 17.44%
         </div>
     </div>
 </body>
