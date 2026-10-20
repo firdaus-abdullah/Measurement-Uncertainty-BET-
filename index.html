@@ -2,102 +2,183 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Updated Multi-Analyst Uncertainty Calculation (4 Analysts)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micropipette Measurement Uncertainty Analysis</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: 20px auto; padding: 20px; background: #f9f9f9; color: #333; }
-        h1, h2, h3 { color: #2c3e50; }
-        h1 { border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background: #f4f4f4; font-weight: bold; }
-        tr:nth-child(even) { background: #fafafa; }
-        .math { background: #fff; padding: 15px; border-left: 4px solid #3498db; margin: 15px 0; font-family: 'Courier New', monospace; overflow-x: auto; white-space: pre-wrap; }
-        .step-box { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin-bottom: 20px; }
-        .highlight { font-weight: bold; color: #e74c3c; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        .highlight-box {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #d63384;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+        }
+        .emphasis {
+            font-weight: bold;
+            color: #c0392b;
+        }
     </style>
 </head>
 <body>
-    <h1>Updated Measurement Uncertainty Calculation</h1>
-    <p><strong>Data Source:</strong> 4 Analysts (Firdaus, Khairul, Shazwina, Hasan) across 2 different instruments (S/N 195023 and S/N 1403256).</p>
 
-    <div class="step-box">
-        <h2>1. Intermediate Precision (Reproducibility)</h2>
-        <p>Based on the Standard Curve Slopes: -0.236, -0.229, -0.241, -0.213</p>
-        <div class="math">
-Mean (x̄) = (-0.236 + -0.229 + -0.241 + -0.213) / 4 = -0.22975
+<div class="container">
+    <h1>Measurement Uncertainty Analysis: 1000 µL (1 mL) Micropipette</h1>
 
-Deviations (x - x̄):
-(-0.236) - (-0.22975) = -0.00625
-(-0.229) - (-0.22975) =  0.00075
-(-0.241) - (-0.22975) = -0.01125
-(-0.213) - (-0.22975) =  0.01675
+    <h2>1. Can the uncertainty be calculated from the attached report?</h2>
+    <div class="highlight-box">
+        <p><strong>Yes, partially.</strong> The report explicitly provides the <strong>Expanded Uncertainty (U)</strong> for each nominal volume (e.g., <strong>± 0.52 µL</strong> for the 1000 µL / 1 mL setting).</p>
+    </div>
+    <p>However, the report <strong>does not provide a full "Uncertainty Budget"</strong> (the breakdown of individual Type B components like balance resolution, water density, temperature variations, and evaporation). We can, however, reverse-engineer the calculation to verify the lab's math and derive the hidden Type B uncertainty using the raw data provided (Mean, Standard Deviation, and Expanded Uncertainty).</p>
 
-Squares (x - x̄)²:
-(-0.00625)² = 0.00003906
-( 0.00075)² = 0.00000056
-(-0.01125)² = 0.00012656
-( 0.01675)² = 0.00028056
+    <h2>2. Detailed Calculation & Verification (Focusing on 1000 µL / 1 mL)</h2>
+    <p>Here is the data extracted for your 1 mL (1000 µL) test:</p>
+    
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Nominal Volume</td>
+            <td>1000 µL</td>
+        </tr>
+        <tr>
+            <td>Mean Measured Volume</td>
+            <td>997.3963 µL</td>
+        </tr>
+        <tr>
+            <td>Systematic Error (Bias)</td>
+            <td>-2.6037 µL</td>
+        </tr>
+        <tr>
+            <td>Repeatability (Random Error / Standard Deviation, s)</td>
+            <td>0.7364 µL</td>
+        </tr>
+        <tr>
+            <td>Reported Expanded Uncertainty (U)</td>
+            <td>± 0.52 µL</td>
+        </tr>
+    </table>
 
-Sum of Squares = 0.00044674
-Variance (s²) = 0.00044674 / (4-1) = 0.00014891
-Standard Deviation (s) = √0.00014891 = 0.012203
-Relative Uncertainty (u_int) = 0.012203 / 0.22975 = 0.05311 (5.31%)
-        </div>
+    <h3>Step A: Determine the Coverage Factor (k)</h3>
+    <p>In calibration certificates, the standard convention is to use a coverage factor of <strong>k = 2</strong> (representing approximately a 95% confidence level).</p>
+
+    <h3>Step B: Calculate the Combined Standard Uncertainty (u<sub>c</sub>)</h3>
+    <p>The Expanded Uncertainty is derived from the Combined Standard Uncertainty:</p>
+    <div class="formula">
+        U = k × u<sub>c</sub><br>
+        0.52 = 2 × u<sub>c</sub><br>
+        u<sub>c</sub> = 0.26 µL
     </div>
 
-    <div class="step-box">
-        <h2>2. Repeatability (Within-Run Precision)</h2>
-        <p>Based on CV at 0.5 EU/mL: 2.56%, 0.70%, 1.07%, 1.51%</p>
-        <div class="math">
-Mean CV = (2.56 + 0.70 + 1.07 + 1.51) / 4 = 1.46%
-Relative Uncertainty (u_rep) = 1.46%
-        </div>
+    <h3>Step C: Calculate the Type A Uncertainty (Repeatability)</h3>
+    <p>Looking at the data, the lab likely used the <strong>Standard Deviation of the Mean</strong> (s / √n) rather than the standard deviation of a single measurement. Since there are n = 10 measurements:</p>
+    <div class="formula">
+        u<sub>A</sub> = s / √n = 0.7364 / √10 = 0.7364 / 3.1623 = <strong>0.2328 µL</strong>
     </div>
 
-    <div class="step-box">
-        <h2>3. Calibration Curve Fit</h2>
-        <p>Based on worst-case correlation coefficient (r = -0.996) and n = 5 points</p>
-        <div class="math">
-Formula: √((1 - r²) / (n - 2))
-r² = (-0.996)² = 0.992016
-1 - r² = 0.007984
-n - 2 = 3
-0.007984 / 3 = 0.0026613
-u_cal = √0.0026613 = 0.05159 (5.16%)
-        </div>
+    <h3>Step D: Reverse-Engineer the Type B Uncertainty</h3>
+    <p>Type B uncertainty comes from the calibration setup (balance, temperature, evaporation, etc.). We can find it using the root-sum-square formula:</p>
+    <div class="formula">
+        u<sub>c</sub> = √(u<sub>A</sub><sup>2</sup> + u<sub>B</sub><sup>2</sup>)<br>
+        0.26 = √(0.2328<sup>2</sup> + u<sub>B</sub><sup>2</sup>)<br>
+        0.0676 = 0.0542 + u<sub>B</sub><sup>2</sup><br>
+        u<sub>B</sub><sup>2</sup> = 0.0134<br>
+        u<sub>B</sub> = <strong>0.1157 µL</strong>
+    </div>
+    <p><em>(This means the lab's environmental/equipment uncertainty contributes about 0.1157 µL).</em></p>
+
+    <h2>3. Crucial Expert Insight: The "True" Uncertainty for your Lab</h2>
+    <p>The Expanded Uncertainty of <strong>± 0.52 µL</strong> reported by the lab only represents the <em>uncertainty of the calibration process itself</em>. <span class="emphasis">It does not include the systematic error (bias) of the pipette.</span></p>
+    
+    <p>If you use this pipette without applying a correction factor, the actual volume dispensed will be off by approximately <strong>-2.6037 µL</strong>.</p>
+    
+    <p>To calculate the <strong>Total Measurement Uncertainty</strong> for your laboratory's actual pipetting, you must combine the calibration uncertainty with the bias:</p>
+
+    <h3>1. Convert Systematic Error to Standard Uncertainty (Type B)</h3>
+    <p>Assuming a rectangular distribution for the bias:</p>
+    <div class="formula">
+        u<sub>bias</sub> = |-2.6037| / √3 = <strong>1.503 µL</strong>
     </div>
 
-    <div class="step-box">
-        <h2>4. Bias (PPC Recovery)</h2>
-        <p>Based on 12 recovery values across all 4 analysts: 130, 106, 117, 85, 102, 84, 90, 93, 100, 110, 123, 91</p>
-        <div class="math">
-Mean = 1231 / 12 = 102.583%
-Sum of Squared Deviations = 2488.97
-Variance (s²) = 2488.97 / 11 = 226.27
-Standard Deviation (s) = 15.04%
-Standard Error (u_bias) = 15.04 / √12 = 4.34%
-        </div>
+    <h3>2. Calculate Total Combined Standard Uncertainty (u<sub>total</sub>)</h3>
+    <div class="formula">
+        u<sub>total</sub> = √(u<sub>c</sub><sup>2</sup> + u<sub>bias</sub><sup>2</sup>)<br>
+        u<sub>total</sub> = √(0.26<sup>2</sup> + 1.503<sup>2</sup>)<br>
+        u<sub>total</sub> = √(0.0676 + 2.259)<br>
+        u<sub>total</sub> = √2.3266 = <strong>1.525 µL</strong>
     </div>
 
-    <div class="step-box">
-        <h2>5. Temperature</h2>
-        <p>Based on ±0.1°C variation and 10% per °C sensitivity assumption</p>
-        <div class="math">
-u_temp = (0.1 / √3) * 10% = 0.58%
-        </div>
+    <h3>3. Calculate Total Expanded Uncertainty (U<sub>total</sub>)</h3>
+    <div class="formula">
+        U<sub>total</sub> = k × u<sub>total</sub> = 2 × 1.525 = <strong>± 3.05 µL</strong>
     </div>
 
-    <div class="step-box">
-        <h2>6. Combined Standard Uncertainty (u_c)</h2>
-        <div class="math">
-u_c = √(u_int² + u_rep² + u_cal² + u_bias² + u_temp²)
-u_c = √(5.31² + 1.46² + 5.16² + 4.34² + 0.58²)
-u_c = √(28.196 + 2.132 + 26.626 + 18.836 + 0.336)
-u_c = √(76.126)
-u_c = 8.72%
+    <h2>Summary Recommendation</h2>
+    <ul>
+        <li><strong>Can you calculate it?</strong> Yes. The calibration uncertainty is <strong>± 0.52 µL</strong>.</li>
+        <li><strong>Should you use ± 0.52 µL in your SOPs/Uncertainty Budgets?</strong> <span class="emphasis">No.</span> You must include the bias. Your true expanded uncertainty for a single dispense at 1000 µL is approximately <strong>± 3.05 µL</strong> (assuming you do not calibrate the pipette to zero out the -2.60 µL error).</li>
+        <li><strong>Missing Info:</strong> A proper ISO 17025 compliant certificate would include an "Uncertainty Budget" table showing exactly how the 0.1157 µL (Type B) was derived (Balance resolution, water temp, etc.). You may want to request this from the calibration vendor if you need to present a full budget to an auditor.</li>
+    </ul>
 
-Expanded Uncertainty (k=2) = 8.72% * 2 = 17.44%
-        </div>
-    </div>
+</div>
+
 </body>
 </html>
