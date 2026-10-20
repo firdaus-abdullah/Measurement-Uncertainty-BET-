@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micropipette Measurement Uncertainty Analysis - 3 Certificates</title>
+    <title>Measurement Uncertainty: Kinetic Chromogenic BET (ISO 17025)</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,11 +24,11 @@
         h1 {
             color: #2c3e50;
             text-align: center;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 2px solid #8e44ad;
             padding-bottom: 10px;
         }
         h2 {
-            color: #2980b9;
+            color: #8e44ad;
             margin-top: 30px;
             border-bottom: 1px solid #eee;
             padding-bottom: 5px;
@@ -37,9 +37,16 @@
             color: #34495e;
             margin-top: 20px;
         }
+        .alert-box {
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            color: #721c24;
+        }
         .highlight-box {
-            background-color: #e8f4f8;
-            border-left: 5px solid #3498db;
+            background-color: #f4ecf7;
+            border-left: 5px solid #8e44ad;
             padding: 15px;
             margin: 20px 0;
         }
@@ -52,6 +59,7 @@
             font-weight: bold;
             margin: 15px 0;
             color: #d63384;
+            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -64,146 +72,132 @@
         }
         th, td {
             padding: 12px;
-            text-align: center;
+            text-align: left;
         }
         th {
             background-color: #f2f2f2;
             color: #333;
         }
-        td:first-child {
-            text-align: left;
-            font-weight: bold;
-        }
         ul, ol {
             margin-bottom: 20px;
-        }
-        .emphasis {
-            font-weight: bold;
-            color: #c0392b;
-        }
-        .pass {
-            color: #27ae60;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Measurement Uncertainty Analysis: 1000 µL (1 mL) Micropipettes</h1>
+    <h1>BET Uncertainty Analysis: Kinetic Chromogenic Assay</h1>
 
-    <h2>1. Comparative Summary of Calibration Certificates</h2>
-    <p>Below is the comparison of the key data points for the 1000 µL test nominal across the three provided certificates. Note that all three pipettes <strong>pass</strong> the laboratory test limits for Accuracy (± 8.0000 µL) and Repeatability (3.0000 µL).</p>
+    <div class="alert-box">
+        <strong>Missing Attachment:</strong> You did not attach a BET report. Please provide the raw data (onset times, standard curve regression data, and reagent Certificates of Analysis) to calculate your specific uncertainty.
+    </div>
 
+    <h2>1. Can the uncertainty be calculated from a standard BET report?</h2>
+    <div class="highlight-box">
+        <p><strong>Usually, No.</strong> A standard laboratory test report or a kit manufacturer's Certificate of Analysis (CoA) typically only provides the final calculated Endotoxin result (e.g., &lt; 0.05 EU/mL) and the passing criteria. It <em>does not</em> provide the statistical raw data required for an ISO 17025 uncertainty budget.</p>
+        <p>To calculate uncertainty, you must build your own budget using the raw assay data (onset times, regression parameters) and the uncertainty values stated on the CoAs for the Lysate, Control Standard Endotoxin (CSE), and your calibrated pipettes.</p>
+    </div>
+
+    <h2>2. The Measurement Model for Kinetic Chromogenic</h2>
+    <p>In the Kinetic Chromogenic Assay, the instrument measures the time (onset time, \(T\)) it takes for a specific yellow color to develop. The endotoxin concentration (\(C\)) is calculated using a linear regression of the log-log standard curve:</p>
+
+    <div class="formula">
+        log(C) = m × log(T) + b<br>
+        Therefore: C = 10<sup>(m × log(T) + b)</sup>
+    </div>
+    <p><em>Where: m = slope, b = y-intercept, T = onset time.</em></p>
+
+    <h2>3. Detailed Uncertainty Budget Components</h2>
+    <p>To comply with ISO 17025, you must combine Type A (statistical) and Type B (systematic) uncertainties using the root-sum-square method:</p>
+
+    <div class="formula">
+        u<sub>c</sub> = √(u<sub>rep</sub><sup>2</sup> + u<sub>CSE</sub><sup>2</sup> + u<sub>lysate</sub><sup>2</sup> + u<sub>pipette</sub><sup>2</sup> + u<sub>curve</sub><sup>2</sup> + u<sub>instrument</sub><sup>2</sup>)
+    </div>
+
+    <h3>Component 1: Repeatability (Type A)</h3>
+    <p>Calculate the standard deviation of your sample replicates (typically duplicate or triplicate wells).</p>
+    <div class="formula">
+        u<sub>rep</sub> = Standard Deviation of Sample Replicates / √n (number of replicates)
+    </div>
+
+    <h3>Component 2: CSE Concentration (Type B)</h3>
+    <p>Look at the Certificate of Analysis for your Control Standard Endotoxin. It will state a concentration (e.g., 10 EU/vial) and an expanded uncertainty or tolerance (e.g., ± 5%). Convert this to a standard uncertainty.</p>
+    <div class="formula">
+        u<sub>CSE</sub> = (Percentage Uncertainty / 100) × C / √3  (Assuming rectangular distribution)
+    </div>
+
+    <h3>Component 3: Lysate Sensitivity / λ (Type B)</h3>
+    <p>Look at the CoA for your LAL Lysate. It states the labeled sensitivity (e.g., 0.05 EU/mL) and an acceptable range (e.g., 0.025 - 0.10 EU/mL). The uncertainty is derived from how far the actual sensitivity deviates from the label, or the stated tolerance on the CoA.</p>
+
+    <h3>Component 4: Volumetric Dispensing (Type B)</h3>
+    <p>This is where your previous micropipette certificates come in! You must include the uncertainty of the pipettes used to dispense the sample, the lysate, and the CSE. Using the data from your previous prompt, if you dispense 100 µL, use the \(U_{total}\) calculated for 100 µL. (Assuming \(k=2\), \(u_{pipette} = U_{total}/2\)).</p>
+
+    <h3>Component 5: Standard Curve Regression Uncertainty (Type B)</h3>
+    <p>This is often the largest source of uncertainty in KCA. It is the standard error of the regression (residual standard deviation) calculated from the standard curve points.</p>
+    <div class="formula">
+        u<sub>curve</sub> = Standard Error of the Estimate (S<sub>yx</sub>) from the log-log regression
+    </div>
+
+    <h3>Component 6: Instrument / Incubator (Type B)</h3>
+    <p>Includes the temperature stability of the microplate reader (e.g., 37°C ± 1°C) and the photometric accuracy of the absorbance reader. Check the instrument's calibration certificate.</p>
+
+    <h2>4. Example Calculation (Hypothetical)</h2>
+    <p>Assume you are testing a sample and the calculated endotoxin result is <strong>0.100 EU/mL</strong>.</p>
     <table>
         <thead>
             <tr>
-                <th>Parameter (1000 µL)</th>
-                <th>Cert 1<br>(MSRP26072888)</th>
-                <th>Cert 2<br>(MSRP26072890)</th>
-                <th>Cert 3<br>(MSRP26023944)</th>
+                <th>Uncertainty Component</th>
+                <th>Source / Value</th>
+                <th>Standard Uncertainty (u)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Mean Measured Volume</td>
-                <td>997.3963 µL</td>
-                <td>993.9823 µL</td>
-                <td>1002.8697 µL</td>
+                <td>Repeatability (Type A)</td>
+                <td>SD of 3 wells = 0.005 EU/mL</td>
+                <td>0.005 / √3 = <strong>0.00289 EU/mL</strong></td>
             </tr>
             <tr>
-                <td>Systematic Error (Bias)</td>
-                <td>-2.6037 µL</td>
-                <td>-6.0177 µL</td>
-                <td>+2.8697 µL</td>
+                <td>CSE CoA (Type B)</td>
+                <td>± 5% tolerance (Rectangular)</td>
+                <td>0.100 × (5/100) / √3 = <strong>0.00289 EU/mL</strong></td>
             </tr>
             <tr>
-                <td>Repeatability (Std Dev)</td>
-                <td>0.7364 µL</td>
-                <td>0.8969 µL</td>
-                <td>0.5940 µL</td>
+                <td>Lysate CoA (Type B)</td>
+                <td>± 10% tolerance on λ</td>
+                <td>0.100 × (10/100) / √3 = <strong>0.00577 EU/mL</strong></td>
             </tr>
             <tr>
-                <td>Lab Expanded Uncertainty (U)</td>
-                <td>± 0.52 µL</td>
-                <td>± 0.61 µL</td>
-                <td>± 0.44 µL</td>
+                <td>Pipette (Type B)</td>
+                <td>U = ±1.49 µL at 100 µL (k=2)</td>
+                <td>(1.49 / 100) / 2 = 0.00745 (Relative)<br>0.00745 × 0.100 = <strong>0.00075 EU/mL</strong></td>
             </tr>
             <tr>
-                <td>Accuracy Test Limit</td>
-                <td class="pass">PASS</td>
-                <td class="pass">PASS</td>
-                <td class="pass">PASS</td>
+                <td>Standard Curve (Type B)</td>
+                <td>SE of Regression = 0.012</td>
+                <td><strong>0.012 EU/mL</strong></td>
             </tr>
         </tbody>
     </table>
 
-    <h2>2. Detailed Calculations for New Certificates</h2>
-    
-    <h3>Certificate 2: MSRP26072890 (1000 µL)</h3>
-    <p><strong>Step A: Calculate Combined Standard Uncertainty (u<sub>c</sub>)</strong> [Assuming k=2]</p>
+    <p><strong>Step 1: Calculate Combined Standard Uncertainty (\(u_c\))</strong></p>
     <div class="formula">
-        u<sub>c</sub> = U / k = 0.61 / 2 = <strong>0.305 µL</strong>
-    </div>
-    
-    <p><strong>Step B: Calculate Type A Uncertainty (Repeatability)</strong> [n=10]</p>
-    <div class="formula">
-        u<sub>A</sub> = s / √n = 0.8969 / √10 = 0.8969 / 3.1623 = <strong>0.2836 µL</strong>
+        u<sub>c</sub> = √(0.00289² + 0.00289² + 0.00577² + 0.00075² + 0.012²)<br>
+        u<sub>c</sub> = √(0.0000083 + 0.0000083 + 0.0000333 + 0.0000005 + 0.000144)<br>
+        u<sub>c</sub> = √(0.0001944) = <strong>0.0139 EU/mL</strong>
     </div>
 
-    <p><strong>Step C: Reverse-Engineer Type B Uncertainty (Lab Environment/Equipment)</strong></p>
+    <p><strong>Step 2: Calculate Expanded Uncertainty (\(U\))</strong> [k=2 for ~95% confidence]</p>
     <div class="formula">
-        u<sub>c</sub>² = u<sub>A</sub>² + u<sub>B</sub>²<br>
-        0.305² = 0.2836² + u<sub>B</sub>²<br>
-        0.0930 = 0.0804 + u<sub>B</sub>²<br>
-        u<sub>B</sub> = <strong>0.1122 µL</strong>
+        U = 2 × 0.0139 = <strong>± 0.0278 EU/mL</strong>
     </div>
 
-    <p><strong>Step D: Calculate Total Measurement Uncertainty (Including Bias)</strong></p>
-    <p>Assuming a rectangular distribution for the bias (√3):</p>
-    <div class="formula">
-        u<sub>bias</sub> = |-6.0177| / √3 = <strong>3.4743 µL</strong><br><br>
-        u<sub>total</sub> = √(u<sub>c</sub>² + u<sub>bias</sub>²) = √(0.305² + 3.4743²) = √(0.0930 + 12.0708) = <strong>3.4877 µL</strong><br><br>
-        U<sub>total</sub> = k × u<sub>total</sub> = 2 × 3.4877 = <strong>± 6.98 µL</strong>
-    </div>
-
-    <hr>
-
-    <h3>Certificate 3: MSRP26023944 (1000 µL)</h3>
-    <p><strong>Step A: Calculate Combined Standard Uncertainty (u<sub>c</sub>)</strong> [Assuming k=2]</p>
-    <div class="formula">
-        u<sub>c</sub> = U / k = 0.44 / 2 = <strong>0.22 µL</strong>
-    </div>
-    
-    <p><strong>Step B: Calculate Type A Uncertainty (Repeatability)</strong> [n=10]</p>
-    <div class="formula">
-        u<sub>A</sub> = s / √n = 0.5940 / √10 = 0.5940 / 3.1623 = <strong>0.1878 µL</strong>
-    </div>
-
-    <p><strong>Step C: Reverse-Engineer Type B Uncertainty (Lab Environment/Equipment)</strong></p>
-    <div class="formula">
-        u<sub>c</sub>² = u<sub>A</sub>² + u<sub>B</sub>²<br>
-        0.22² = 0.1878² + u<sub>B</sub>²<br>
-        0.0484 = 0.0353 + u<sub>B</sub>²<br>
-        u<sub>B</sub> = <strong>0.1145 µL</strong>
-    </div>
-    <p><em>Notice that the Type B uncertainty (0.1145 µL) is virtually identical to Cert 2 (0.1122 µL) and the original Cert 1 (0.1157 µL), indicating a consistent and stable calibration environment.</em></p>
-
-    <p><strong>Step D: Calculate Total Measurement Uncertainty (Including Bias)</strong></p>
-    <p>Assuming a rectangular distribution for the bias (√3):</p>
-    <div class="formula">
-        u<sub>bias</sub> = |2.8697| / √3 = <strong>1.6568 µL</strong><br><br>
-        u<sub>total</sub> = √(u<sub>c</sub>² + u<sub>bias</sub>²) = √(0.22² + 1.6568²) = √(0.0484 + 2.7450) = <strong>1.6714 µL</strong><br><br>
-        U<sub>total</sub> = k × u<sub>total</sub> = 2 × 1.6714 = <strong>± 3.34 µL</strong>
-    </div>
-
-    <h2>3. Expert Recommendations for Your Laboratory</h2>
+    <h2>5. Expert Recommendations for your SOP</h2>
     <div class="highlight-box">
         <ul>
-            <li><strong>Do not use the Lab's Expanded Uncertainty (U) in your SOPs or Uncertainty Budgets.</strong> The lab's U (e.g., ±0.61 µL) <em>only</em> represents their internal process uncertainty.</li>
-            <li><strong>Always include the Systematic Error (Bias).</strong> If you do not apply a correction factor (e.g., setting the pipette to 1006 µL to dispense 1000 µL), the bias dominates your total uncertainty.</li>
-            <li><strong>Highest Risk:</strong> Certificate 2 (MSRP26072890) has a bias of -6.0177 µL. While it passed the lab's accuracy test limit of ±8.0 µL, its true expanded uncertainty for your lab is <strong>± 6.98 µL</strong>. This is dangerously close to the ±8.0 µL limit. For critical assays (like PCR or qPCR), this pipette should either be adjusted or replaced.</li>
-            <li><strong>Best Performance:</strong> Certificate 3 (MSRP26023944) has the best overall performance, with the lowest repeatability error (0.5940 µL) and a relatively small bias (+2.8697 µL), yielding a total expanded uncertainty of <strong>± 3.34 µL</strong>.</li>
+            <li><strong>Do not use the kit manufacturer's overall uncertainty:</strong> ISO 17025 requires <em>your</em> lab's specific uncertainty, which includes your analysts, your pipettes, your incubator, and your specific standard curve on the day of the test.</li>
+            <li><strong>Control the Standard Curve:</strong> The regression uncertainty (\(u_{curve}\)) usually dominates the budget. Ensure your standard curve has an \(R^2 > 0.980\) and covers the relevant range (e.g., 0.05 to 1.0 EU/mL).</li>
+            <li><strong>Please upload the report:</strong> If you can provide the specific BET raw data (the onset times for the standards and samples), I can perform the exact regression and uncertainty calculations for you.</li>
         </ul>
     </div>
 
