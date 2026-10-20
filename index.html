@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micropipette Measurement Uncertainty Analysis</title>
+    <title>Micropipette Measurement Uncertainty Analysis - 3 Certificates</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,7 +14,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background-color: #fff;
             padding: 30px 40px;
@@ -30,6 +30,8 @@
         h2 {
             color: #2980b9;
             margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
         }
         h3 {
             color: #34495e;
@@ -55,17 +57,22 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            font-size: 0.95em;
         }
         table, th, td {
             border: 1px solid #ddd;
         }
         th, td {
             padding: 12px;
-            text-align: left;
+            text-align: center;
         }
         th {
             background-color: #f2f2f2;
             color: #333;
+        }
+        td:first-child {
+            text-align: left;
+            font-weight: bold;
         }
         ul, ol {
             margin-bottom: 20px;
@@ -74,109 +81,131 @@
             font-weight: bold;
             color: #c0392b;
         }
+        .pass {
+            color: #27ae60;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Measurement Uncertainty Analysis: 1000 µL (1 mL) Micropipette</h1>
+    <h1>Measurement Uncertainty Analysis: 1000 µL (1 mL) Micropipettes</h1>
 
-    <h2>1. Can the uncertainty be calculated from the attached report?</h2>
-    <div class="highlight-box">
-        <p><strong>Yes, partially.</strong> The report explicitly provides the <strong>Expanded Uncertainty (U)</strong> for each nominal volume (e.g., <strong>± 0.52 µL</strong> for the 1000 µL / 1 mL setting).</p>
-    </div>
-    <p>However, the report <strong>does not provide a full "Uncertainty Budget"</strong> (the breakdown of individual Type B components like balance resolution, water density, temperature variations, and evaporation). We can, however, reverse-engineer the calculation to verify the lab's math and derive the hidden Type B uncertainty using the raw data provided (Mean, Standard Deviation, and Expanded Uncertainty).</p>
+    <h2>1. Comparative Summary of Calibration Certificates</h2>
+    <p>Below is the comparison of the key data points for the 1000 µL test nominal across the three provided certificates. Note that all three pipettes <strong>pass</strong> the laboratory test limits for Accuracy (± 8.0000 µL) and Repeatability (3.0000 µL).</p>
 
-    <h2>2. Detailed Calculation & Verification (Focusing on 1000 µL / 1 mL)</h2>
-    <p>Here is the data extracted for your 1 mL (1000 µL) test:</p>
-    
     <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Value</th>
-        </tr>
-        <tr>
-            <td>Nominal Volume</td>
-            <td>1000 µL</td>
-        </tr>
-        <tr>
-            <td>Mean Measured Volume</td>
-            <td>997.3963 µL</td>
-        </tr>
-        <tr>
-            <td>Systematic Error (Bias)</td>
-            <td>-2.6037 µL</td>
-        </tr>
-        <tr>
-            <td>Repeatability (Random Error / Standard Deviation, s)</td>
-            <td>0.7364 µL</td>
-        </tr>
-        <tr>
-            <td>Reported Expanded Uncertainty (U)</td>
-            <td>± 0.52 µL</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Parameter (1000 µL)</th>
+                <th>Cert 1<br>(MSRP26072888)</th>
+                <th>Cert 2<br>(MSRP26072890)</th>
+                <th>Cert 3<br>(MSRP26023944)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mean Measured Volume</td>
+                <td>997.3963 µL</td>
+                <td>993.9823 µL</td>
+                <td>1002.8697 µL</td>
+            </tr>
+            <tr>
+                <td>Systematic Error (Bias)</td>
+                <td>-2.6037 µL</td>
+                <td>-6.0177 µL</td>
+                <td>+2.8697 µL</td>
+            </tr>
+            <tr>
+                <td>Repeatability (Std Dev)</td>
+                <td>0.7364 µL</td>
+                <td>0.8969 µL</td>
+                <td>0.5940 µL</td>
+            </tr>
+            <tr>
+                <td>Lab Expanded Uncertainty (U)</td>
+                <td>± 0.52 µL</td>
+                <td>± 0.61 µL</td>
+                <td>± 0.44 µL</td>
+            </tr>
+            <tr>
+                <td>Accuracy Test Limit</td>
+                <td class="pass">PASS</td>
+                <td class="pass">PASS</td>
+                <td class="pass">PASS</td>
+            </tr>
+        </tbody>
     </table>
 
-    <h3>Step A: Determine the Coverage Factor (k)</h3>
-    <p>In calibration certificates, the standard convention is to use a coverage factor of <strong>k = 2</strong> (representing approximately a 95% confidence level).</p>
-
-    <h3>Step B: Calculate the Combined Standard Uncertainty (u<sub>c</sub>)</h3>
-    <p>The Expanded Uncertainty is derived from the Combined Standard Uncertainty:</p>
-    <div class="formula">
-        U = k × u<sub>c</sub><br>
-        0.52 = 2 × u<sub>c</sub><br>
-        u<sub>c</sub> = 0.26 µL
-    </div>
-
-    <h3>Step C: Calculate the Type A Uncertainty (Repeatability)</h3>
-    <p>Looking at the data, the lab likely used the <strong>Standard Deviation of the Mean</strong> (s / √n) rather than the standard deviation of a single measurement. Since there are n = 10 measurements:</p>
-    <div class="formula">
-        u<sub>A</sub> = s / √n = 0.7364 / √10 = 0.7364 / 3.1623 = <strong>0.2328 µL</strong>
-    </div>
-
-    <h3>Step D: Reverse-Engineer the Type B Uncertainty</h3>
-    <p>Type B uncertainty comes from the calibration setup (balance, temperature, evaporation, etc.). We can find it using the root-sum-square formula:</p>
-    <div class="formula">
-        u<sub>c</sub> = √(u<sub>A</sub><sup>2</sup> + u<sub>B</sub><sup>2</sup>)<br>
-        0.26 = √(0.2328<sup>2</sup> + u<sub>B</sub><sup>2</sup>)<br>
-        0.0676 = 0.0542 + u<sub>B</sub><sup>2</sup><br>
-        u<sub>B</sub><sup>2</sup> = 0.0134<br>
-        u<sub>B</sub> = <strong>0.1157 µL</strong>
-    </div>
-    <p><em>(This means the lab's environmental/equipment uncertainty contributes about 0.1157 µL).</em></p>
-
-    <h2>3. Crucial Expert Insight: The "True" Uncertainty for your Lab</h2>
-    <p>The Expanded Uncertainty of <strong>± 0.52 µL</strong> reported by the lab only represents the <em>uncertainty of the calibration process itself</em>. <span class="emphasis">It does not include the systematic error (bias) of the pipette.</span></p>
+    <h2>2. Detailed Calculations for New Certificates</h2>
     
-    <p>If you use this pipette without applying a correction factor, the actual volume dispensed will be off by approximately <strong>-2.6037 µL</strong>.</p>
+    <h3>Certificate 2: MSRP26072890 (1000 µL)</h3>
+    <p><strong>Step A: Calculate Combined Standard Uncertainty (u<sub>c</sub>)</strong> [Assuming k=2]</p>
+    <div class="formula">
+        u<sub>c</sub> = U / k = 0.61 / 2 = <strong>0.305 µL</strong>
+    </div>
     
-    <p>To calculate the <strong>Total Measurement Uncertainty</strong> for your laboratory's actual pipetting, you must combine the calibration uncertainty with the bias:</p>
-
-    <h3>1. Convert Systematic Error to Standard Uncertainty (Type B)</h3>
-    <p>Assuming a rectangular distribution for the bias:</p>
+    <p><strong>Step B: Calculate Type A Uncertainty (Repeatability)</strong> [n=10]</p>
     <div class="formula">
-        u<sub>bias</sub> = |-2.6037| / √3 = <strong>1.503 µL</strong>
+        u<sub>A</sub> = s / √n = 0.8969 / √10 = 0.8969 / 3.1623 = <strong>0.2836 µL</strong>
     </div>
 
-    <h3>2. Calculate Total Combined Standard Uncertainty (u<sub>total</sub>)</h3>
+    <p><strong>Step C: Reverse-Engineer Type B Uncertainty (Lab Environment/Equipment)</strong></p>
     <div class="formula">
-        u<sub>total</sub> = √(u<sub>c</sub><sup>2</sup> + u<sub>bias</sub><sup>2</sup>)<br>
-        u<sub>total</sub> = √(0.26<sup>2</sup> + 1.503<sup>2</sup>)<br>
-        u<sub>total</sub> = √(0.0676 + 2.259)<br>
-        u<sub>total</sub> = √2.3266 = <strong>1.525 µL</strong>
+        u<sub>c</sub>² = u<sub>A</sub>² + u<sub>B</sub>²<br>
+        0.305² = 0.2836² + u<sub>B</sub>²<br>
+        0.0930 = 0.0804 + u<sub>B</sub>²<br>
+        u<sub>B</sub> = <strong>0.1122 µL</strong>
     </div>
 
-    <h3>3. Calculate Total Expanded Uncertainty (U<sub>total</sub>)</h3>
+    <p><strong>Step D: Calculate Total Measurement Uncertainty (Including Bias)</strong></p>
+    <p>Assuming a rectangular distribution for the bias (√3):</p>
     <div class="formula">
-        U<sub>total</sub> = k × u<sub>total</sub> = 2 × 1.525 = <strong>± 3.05 µL</strong>
+        u<sub>bias</sub> = |-6.0177| / √3 = <strong>3.4743 µL</strong><br><br>
+        u<sub>total</sub> = √(u<sub>c</sub>² + u<sub>bias</sub>²) = √(0.305² + 3.4743²) = √(0.0930 + 12.0708) = <strong>3.4877 µL</strong><br><br>
+        U<sub>total</sub> = k × u<sub>total</sub> = 2 × 3.4877 = <strong>± 6.98 µL</strong>
     </div>
 
-    <h2>Summary Recommendation</h2>
-    <ul>
-        <li><strong>Can you calculate it?</strong> Yes. The calibration uncertainty is <strong>± 0.52 µL</strong>.</li>
-        <li><strong>Should you use ± 0.52 µL in your SOPs/Uncertainty Budgets?</strong> <span class="emphasis">No.</span> You must include the bias. Your true expanded uncertainty for a single dispense at 1000 µL is approximately <strong>± 3.05 µL</strong> (assuming you do not calibrate the pipette to zero out the -2.60 µL error).</li>
-        <li><strong>Missing Info:</strong> A proper ISO 17025 compliant certificate would include an "Uncertainty Budget" table showing exactly how the 0.1157 µL (Type B) was derived (Balance resolution, water temp, etc.). You may want to request this from the calibration vendor if you need to present a full budget to an auditor.</li>
-    </ul>
+    <hr>
+
+    <h3>Certificate 3: MSRP26023944 (1000 µL)</h3>
+    <p><strong>Step A: Calculate Combined Standard Uncertainty (u<sub>c</sub>)</strong> [Assuming k=2]</p>
+    <div class="formula">
+        u<sub>c</sub> = U / k = 0.44 / 2 = <strong>0.22 µL</strong>
+    </div>
+    
+    <p><strong>Step B: Calculate Type A Uncertainty (Repeatability)</strong> [n=10]</p>
+    <div class="formula">
+        u<sub>A</sub> = s / √n = 0.5940 / √10 = 0.5940 / 3.1623 = <strong>0.1878 µL</strong>
+    </div>
+
+    <p><strong>Step C: Reverse-Engineer Type B Uncertainty (Lab Environment/Equipment)</strong></p>
+    <div class="formula">
+        u<sub>c</sub>² = u<sub>A</sub>² + u<sub>B</sub>²<br>
+        0.22² = 0.1878² + u<sub>B</sub>²<br>
+        0.0484 = 0.0353 + u<sub>B</sub>²<br>
+        u<sub>B</sub> = <strong>0.1145 µL</strong>
+    </div>
+    <p><em>Notice that the Type B uncertainty (0.1145 µL) is virtually identical to Cert 2 (0.1122 µL) and the original Cert 1 (0.1157 µL), indicating a consistent and stable calibration environment.</em></p>
+
+    <p><strong>Step D: Calculate Total Measurement Uncertainty (Including Bias)</strong></p>
+    <p>Assuming a rectangular distribution for the bias (√3):</p>
+    <div class="formula">
+        u<sub>bias</sub> = |2.8697| / √3 = <strong>1.6568 µL</strong><br><br>
+        u<sub>total</sub> = √(u<sub>c</sub>² + u<sub>bias</sub>²) = √(0.22² + 1.6568²) = √(0.0484 + 2.7450) = <strong>1.6714 µL</strong><br><br>
+        U<sub>total</sub> = k × u<sub>total</sub> = 2 × 1.6714 = <strong>± 3.34 µL</strong>
+    </div>
+
+    <h2>3. Expert Recommendations for Your Laboratory</h2>
+    <div class="highlight-box">
+        <ul>
+            <li><strong>Do not use the Lab's Expanded Uncertainty (U) in your SOPs or Uncertainty Budgets.</strong> The lab's U (e.g., ±0.61 µL) <em>only</em> represents their internal process uncertainty.</li>
+            <li><strong>Always include the Systematic Error (Bias).</strong> If you do not apply a correction factor (e.g., setting the pipette to 1006 µL to dispense 1000 µL), the bias dominates your total uncertainty.</li>
+            <li><strong>Highest Risk:</strong> Certificate 2 (MSRP26072890) has a bias of -6.0177 µL. While it passed the lab's accuracy test limit of ±8.0 µL, its true expanded uncertainty for your lab is <strong>± 6.98 µL</strong>. This is dangerously close to the ±8.0 µL limit. For critical assays (like PCR or qPCR), this pipette should either be adjusted or replaced.</li>
+            <li><strong>Best Performance:</strong> Certificate 3 (MSRP26023944) has the best overall performance, with the lowest repeatability error (0.5940 µL) and a relatively small bias (+2.8697 µL), yielding a total expanded uncertainty of <strong>± 3.34 µL</strong>.</li>
+        </ul>
+    </div>
 
 </div>
 
