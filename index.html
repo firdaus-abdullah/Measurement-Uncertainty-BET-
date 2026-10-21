@@ -1,206 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micropipette Uncertainty Analysis - Partial Volumes (400 µL & 900 µL)</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #2980b9;
-            margin-top: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        h3 {
-            color: #34495e;
-            margin-top: 20px;
-        }
-        .alert-box {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            color: #856404;
-        }
-        .highlight-box {
-            background-color: #e8f4f8;
-            border-left: 5px solid #3498db;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .formula {
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 4px;
-            padding: 10px 15px;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            margin: 15px 0;
-            color: #d63384;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95em;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-        td:first-child {
-            text-align: left;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BET Measurement Uncertainty Recommendation</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+      margin: 32px auto;
+      max-width: 1100px;
+      padding: 0 20px;
+      color: #222;
+      background: #fff;
+    }
+    h1, h2, h3 {
+      color: #123f6d;
+      margin-top: 1.4em;
+    }
+    h1 {
+      border-bottom: 3px solid #123f6d;
+      padding-bottom: 8px;
+    }
+    h2 {
+      border-bottom: 1px solid #c9d7e6;
+      padding-bottom: 4px;
+    }
+    .callout {
+      background: #f3f7fb;
+      border-left: 5px solid #2e6da4;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .warning {
+      background: #fff5e6;
+      border-left: 5px solid #d9822b;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 14px 0 22px;
+      font-size: 0.95em;
+    }
+    th, td {
+      border: 1px solid #b8c4ce;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+    th {
+      background: #e8eef5;
+      text-align: left;
+    }
+    tr:nth-child(even) td {
+      background: #fafcfe;
+    }
+    code, .formula {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f5f5f5;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .formula {
+      display: block;
+      padding: 10px 12px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    ul, ol {
+      padding-left: 24px;
+    }
+    .small {
+      font-size: 0.92em;
+      color: #555;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Uncertainty Analysis for Partial Volumes (400 µL & 900 µL)</h1>
+  <h1>Recommendation on Measurement Uncertainty for Kinetic Chromogenic Bacterial Endotoxin Test</h1>
 
-    <div class="alert-box">
-        <strong>The Problem:</strong> The calibration certificates only provide data for 100 µL, 500 µL, and 1000 µL. If your laboratory routinely dispenses 400 µL or 900 µL, using the uncertainty from the 1000 µL test point is technically incorrect (and often overly conservative). 
-    </div>
+  <div class="callout">
+    <strong>Recommendation:</strong>
+    No — a complete ISO 17025 measurement uncertainty for the Kinetic Chromogenic Bacterial Endotoxin Test cannot be calculated from the attached calibration certificates alone.
+    The attached files mainly support the <strong>volumetric / dilution Type B uncertainty component</strong> of the BET method.
+  </div>
 
-    <p>To solve this, we use <strong>Linear Interpolation of the Relative Error (%)</strong> to estimate the bias at your specific target volumes. We will use the best-performing pipette (Certificate 3 - MSRP26023944) as our primary example, as its data is the most reliable.</p>
+  <p>
+    You can calculate a partial uncertainty budget for pipette delivery, dilution factors, standard endotoxin serial dilution,
+    sample/PPC spike volumes, and LAL reagent dispense volume. However, you cannot calculate the full BET uncertainty without
+    additional data for CSE assigned potency, LAL reagent variability, LAL reagent water, reader calibration, WinKQCL software,
+    incubation control, plate homogeneity, analyst technique, sample matrix, PPC recovery, and replicate BET assay results.
+  </p>
 
-    <h2>1. Data Points from Certificate 3 (MSRP26023944)</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nominal Volume</th>
-                <th>Systematic Error (Bias)</th>
-                <th>Relative Error (%)</th>
-                <th>Lab Expanded Uncertainty (U)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>100 µL</td>
-                <td>- 1.4975 µL</td>
-                <td>- 1.50 %</td>
-                <td>± 0.14 µL</td>
-            </tr>
-            <tr>
-                <td>500 µL</td>
-                <td>+ 0.3918 µL</td>
-                <td>+ 0.08 %</td>
-                <td>± 0.31 µL</td>
-            </tr>
-            <tr>
-                <td>1000 µL</td>
-                <td>+ 2.8697 µL</td>
-                <td>+ 0.29 %</td>
-                <td>± 0.44 µL</td>
-            </tr>
-        </tbody>
-    </table>
+  <div class="warning">
+    <strong>SOP issues to resolve before issuing a defensible uncertainty budget:</strong>
+    The SOP contains pipette/volume inconsistencies, for example “10 mL using 1 mL pipette”, “3.5 mL” without a stated pipette,
+    and “10 µL using 1 mL pipette”. A 1 mL pipette is not suitable or calibrated for 10 µL.
+  </div>
 
-    <h2>2. Estimating Uncertainty for 400 µL</h2>
-    <p>Since 400 µL falls between the 100 µL and 500 µL calibration points, we interpolate between those two data points.</p>
+  <h2>1. What the certificates give you</h2>
 
-    <h3>Step A: Interpolate Relative Error</h3>
-    <p>The interval is 400 µL (100 to 500). Your target (400 µL) is at the 75% mark of this interval.</p>
-    <div class="formula">
-        Error at 400 µL = Error(100) + [ (400 - 100) / (500 - 100) ] × [ Error(500) - Error(100) ]<br>
-        Error at 400 µL = -1.50% + [ 300 / 400 ] × [ 0.08% - (-1.50%) ]<br>
-        Error at 400 µL = -1.50% + [ 0.75 ] × [ 1.58% ]<br>
-        Error at 400 µL = -1.50% + 1.185% = <strong>-0.315 %</strong>
-    </div>
+  <p>For each pipette certificate, the reported <strong>Expanded Uncertainty, U</strong>, is at approximately <strong>k = 2</strong>:</p>
 
-    <h3>Step B: Calculate Estimated Absolute Bias (µL)</h3>
-    <div class="formula">
-        Estimated Bias = 400 µL × (-0.315 / 100) = <strong>-1.26 µL</strong>
-    </div>
+  <p class="formula">u = U / 2
+u_rel = u / V = U / (2V)</p>
 
-    <h3>Step C: Calculate Total Expanded Uncertainty</h3>
-    <p><em>Note: We conservatively use the Lab U from the nearest larger test point (500 µL, U = ±0.31 µL, u<sub>c</sub> = 0.155 µL).</em></p>
-    <div class="formula">
-        u<sub>bias</sub> = |-1.26| / √3 = 0.727 µL<br><br>
-        u<sub>total</sub> = √(u<sub>c</sub>² + u<sub>bias</sub>²) = √(0.155² + 0.727²) = <strong>0.743 µL</strong><br><br>
-        U<sub>total</sub> = 2 × 0.743 = <strong>± 1.49 µL</strong>
-    </div>
+  <p>Use <strong>U/2</strong>, not U, as the standard uncertainty in the uncertainty budget.</p>
 
-    <hr>
+  <p>Example from the MM1 200 µL certificate:</p>
 
-    <h2>3. Estimating Uncertainty for 900 µL</h2>
-    <p>Since 900 µL falls between the 500 µL and 1000 µL calibration points, we interpolate between those two data points.</p>
+  <p class="formula">U_100µL = 0.065 µL
+u_100 = 0.065 / 2 = 0.0325 µL
+u_rel,100 = 0.0325 / 100 = 0.000325 = 0.0325%</p>
 
-    <h3>Step A: Interpolate Relative Error</h3>
-    <p>The interval is 400 µL (500 to 1000). Your target (900 µL) is at the 80% mark of this interval.</p>
-    <div class="formula">
-        Error at 900 µL = Error(500) + [ (900 - 500) / (1000 - 500) ] × [ Error(1000) - Error(500) ]<br>
-        Error at 900 µL = 0.08% + [ 400 / 500 ] × [ 0.29% - 0.08% ]<br>
-        Error at 900 µL = 0.08% + [ 0.80 ] × [ 0.21% ]<br>
-        Error at 900 µL = 0.08% + 0.168% = <strong>0.248 %</strong>
-    </div>
+  <h2>2. Useful pipette uncertainty values from the attached certificates</h2>
 
-    <h3>Step B: Calculate Estimated Absolute Bias (µL)</h3>
-    <div class="formula">
-        Estimated Bias = 900 µL × (0.248 / 100) = <strong>+2.232 µL</strong>
-    </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Volume used</th>
+        <th>Pipette / certificate</th>
+        <th>U at k=2</th>
+        <th>u = U/2</th>
+        <th>Relative standard uncertainty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>10 µL</td><td>MM7 20 µL, 50% point</td><td>0.017 µL</td><td>0.0085 µL</td><td>0.085%</td></tr>
+      <tr><td>20 µL</td><td>MM7 20 µL, 100% point</td><td>0.021 µL</td><td>0.0105 µL</td><td>0.0525%</td></tr>
+      <tr><td>100 µL</td><td>MM1 200 µL, 50% point</td><td>0.065 µL</td><td>0.0325 µL</td><td>0.0325%</td></tr>
+      <tr><td>183 µL</td><td>MM1 200 µL, use 200 µL U conservatively</td><td>0.079 µL</td><td>0.0395 µL</td><td>0.0216%</td></tr>
+      <tr><td>200 µL</td><td>MM1 200 µL, 100% point</td><td>0.079 µL</td><td>0.0395 µL</td><td>0.0198%</td></tr>
+      <tr><td>500 µL</td><td>MM2 1 mL, 50% point</td><td>0.41 µL</td><td>0.205 µL</td><td>0.0410%</td></tr>
+      <tr><td>900 µL</td><td>MM2 1 mL, use 1000 µL U conservatively</td><td>0.61 µL</td><td>0.305 µL</td><td>0.0339%</td></tr>
+      <tr><td>1000 µL</td><td>MM2 1 mL, 100% point</td><td>0.61 µL</td><td>0.305 µL</td><td>0.0305%</td></tr>
+      <tr><td>100 µL</td><td>MPM1 8-channel, use worst-channel U approx.</td><td>~0.16 µL</td><td>~0.08 µL</td><td>~0.080%</td></tr>
+    </tbody>
+  </table>
 
-    <h3>Step C: Calculate Total Expanded Uncertainty</h3>
-    <p><em>Note: We use the Lab U from the nearest test point (1000 µL, U = ±0.44 µL, u<sub>c</sub> = 0.22 µL).</em></p>
-    <div class="formula">
-        u<sub>bias</sub> = |2.232| / √3 = 1.288 µL<br><br>
-        u<sub>total</sub> = √(u<sub>c</sub>² + u<sub>bias</sub>²) = √(0.22² + 1.288²) = <strong>1.307 µL</strong><br><br>
-        U<sub>total</sub> = 2 × 1.307 = <strong>± 2.61 µL</strong>
-    </div>
+  <p class="small">
+    Notes: For 183 µL, the certificate is at 20/100/200 µL, not 183 µL. Use the 200 µL U conservatively or add a 183 µL calibration point.
+    For 900 µL, 800 µL, 3.5 mL, etc., the exact volume is not covered. Use the nearest higher calibrated volume conservatively or perform gravimetric verification.
+    For MPM1, each channel has its own uncertainty; use channel-specific U for each well. For plate-level uncertainty, include channel-to-channel variation or use the worst channel.
+    Verify certificate validity dates against the test date.
+  </p>
 
-    <h2>4. Important Warning: Cert 2 (MSRP26072890)</h2>
-    <div class="alert-box">
-        If you are using Certificate 2 (MSRP26072890) for your 900 µL testing, you have a much higher risk. 
-        <ul>
-            <li>Its Relative Error at 500 µL is -0.38% and at 1000 µL is -0.60%.</li>
-            <li>Interpolated relative error at 900 µL is roughly <strong>-0.556%</strong>.</li>
-            <li>Estimated bias = -5.00 µL.</li>
-            <li>Total Expanded Uncertainty = <strong>± 5.81 µL</strong>.</li>
-        </ul>
-        Because 900 µL is very close to the maximum volume of the pipette, any mechanical wear is magnified. 
-    </div>
+  <h2>3. Example calculation: sample dilution step 3.2</h2>
 
-    <h2>5. Expert Recommendation for Your SOP</h2>
-    <div class="highlight-box">
-        <p><strong>Do not rely on interpolation for routine testing if you can avoid it.</strong></p>
-        <ol>
-            <li><strong>Request a custom calibration:</strong> When you send your pipettes out for calibration, specifically ask the vendor to test at <strong>400 µL and 900 µL</strong>. Most calibration labs charge the same price but will adjust their test points to match your actual workflow.</li>
-            <li><strong>Perform internal verification:</strong> If you must use the certificate values, perform a quick gravimetric check in-house at 400 µL and 900 µL to confirm the interpolated values are accurate.</li>
-            <li><strong>Use the Interpolated U<sub>total</sub> values:</strong> For your uncertainty budgets, use <strong>± 1.49 µL for 400 µL</strong> and <strong>± 2.61 µL for 900 µL</strong> (based on Cert 3). This is far more accurate than using the 1000 µL limit of ± 3.34 µL for all your tests.</li>
-        </ol>
-    </div>
+  <p>SOP step 3.2: dilute <strong>183 µL</strong> into <strong>3.5 mL LAL reagent water</strong>.</p>
 
-</div>
+  <p>Assume final volume is additive:</p>
+
+  <p class="formula">V_s = 183 µL
+V_w = 3500 µL
+V_f = 3683 µL
+DF = V_s / V_f = 183 / 3683 = 0.04969</p>
+
+  <h3>Volumetric uncertainty</h3>
+
+  <p>For 183 µL using the MM1 200 µL pipette:</p>
+
+  <p class="formula">u_Vs = 0.0395 µL
+u_Vs / V_s = 0.0395 / 183 = 0.000216 = 0.0216%</p>
+
+  <p>For 3.5 mL prepared as 3 × 1000 µL + 1 × 500 µL using the MM2 1 mL pipette:</p>
+
+  <p class="formula">u_1000 = 0.305 µL
+u_500 = 0.205 µL
+u_Vw = sqrt(3 × (0.305)^2 + (0.205)^2) = 0.567 µL
+u_Vw / V_w = 0.567 / 3500 = 0.000162 = 0.0162%</p>
+
+  <p>For <code>DF = V_s / V_f</code>, the relative standard uncertainty is approximately:</p>
+
+  <p class="formula">u_DF / DF = sqrt(
+  [ (V_w / V_f) × (u_Vs / V_s) ]^2
+  + [ u_Vw / V_f ]^2
+)
+
+= sqrt(
+  [ (3500 / 3683) × 0.000216 ]^2
+  + [ 0.567 / 3683 ]^2
+)
+
+= sqrt( (0.000205)^2 + (0.000154)^2 )
+= 0.000257
+= 0.0257%</p>
+
+  <p>So the <strong>standard uncertainty contribution of this dilution</strong> is approximately:</p>
+
+  <p class="formula">u_rel,DF ≈ 0.026%</p>
+
+  <p>Expanded uncertainty at k = 2:</p>
+
+  <p class="formula">U_rel,DF ≈ 0.052%</p>
+
+  <p>This is only the volumetric/dilution component. It is not the BET method uncertainty.</p>
+
+  <h2>4. Example calculation: standard endotoxin serial dilution</h2>
+
+  <p>SOP steps 4.3.1.3–4.3.1.6:</p>
+
+  <ul>
+    <li>0.1 mL of 50 EU/mL into 0.9 mL water → 5 EU/mL</li>
+    <li>0.1 mL of 5 EU/mL into 0.9 mL water → 0.5 EU/mL</li>
+    <li>0.1 mL of 0.5 EU/mL into 0.9 mL water → 0.05 EU/mL</li>
+    <li>0.2 mL of 0.05 EU/mL into 0.8 mL water → 0.01 EU/mL</li>
+  </ul>
+
+  <p>For a 100 µL transfer using the MM2 1 mL pipette at 100 µL:</p>
+
+  <p class="formula">U = 0.17 µL
+u = 0.085 µL
+u / V = 0.085 / 100 = 0.00085 = 0.085%</p>
+
+  <p>For a 900 µL water volume, using 1000 µL U conservatively:</p>
+
+  <p class="formula">U = 0.61 µL
+u = 0.305 µL
+u / V = 0.305 / 900 = 0.000339 = 0.0339%</p>
+
+  <p>For each 0.1 mL into 0.9 mL dilution:</p>
+
+  <p class="formula">u_rel,DF = sqrt( (0.085%)^2 + (0.0339%)^2 ) = 0.0915%</p>
+
+  <p>Three similar 0.1 → 0.9 dilutions give:</p>
+
+  <p class="formula">u_rel,3 dilutions = sqrt( 3 × (0.0915%)^2 ) = 0.158%</p>
+
+  <p>For the 0.2 mL into 0.8 mL dilution, using MM1 200 µL at 200 µL:</p>
+
+  <p class="formula">u_rel,200 = 0.0395 / 200 = 0.0198%</p>
+
+  <p>For 800 µL using MM2 1 mL at 1000 µL U conservatively:</p>
+
+  <p class="formula">u_rel,800 = 0.305 / 800 = 0.0381%</p>
+
+  <p class="formula">u_rel,DF4 = sqrt( (0.0198%)^2 + (0.0381%)^2 ) = 0.0429%</p>
+
+  <p>Total pipetting contribution to standard concentration:</p>
+
+  <p class="formula">u_rel,std pipetting = sqrt( (0.158%)^2 + (0.0429%)^2 ) = 0.164%</p>
+
+  <p>
+    This excludes CSE assigned potency uncertainty, reconstitution volume uncertainty, and LAL reagent variability.
+    Therefore it is only a partial standard-concentration uncertainty.
+  </p>
+
+  <h2>5. Example calculation: PPC spike into a well</h2>
+
+  <p>SOP 4.3.2.3: Add 10 µL of 5 EU/mL standard endotoxin to each PPC well containing 100 µL sample.</p>
+
+  <p>Final spike concentration in the well:</p>
+
+  <p class="formula">C_f = C_s × V_s / (V_m + V_s)
+C_f = 5 × 10 / (100 + 10)
+C_f = 0.4545 EU/mL</p>
+
+  <p>This is <strong>not 0.5 EU/mL</strong>. To obtain 0.5 EU/mL in 100 µL sample with a 10 µL spike, the spike concentration would need to be:</p>
+
+  <p class="formula">C_s = 0.5 × (110 / 10) = 5.5 EU/mL</p>
+
+  <p>or the spike volume would need to be about 11.1 µL if using 5 EU/mL. This SOP discrepancy should be resolved.</p>
+
+  <p>Uncertainty of the final spike concentration, using:</p>
+
+  <ul>
+    <li>10 µL MM7 at 50% point: u/V = 0.085%</li>
+    <li>100 µL sample MM1 at 100 µL: u/V = 0.0325%</li>
+    <li>5 EU/mL standard pipetting uncertainty from first dilution: 0.0915%</li>
+  </ul>
+
+  <p>For <code>C_f = C_s × V_s / (V_m + V_s)</code>:</p>
+
+  <p class="formula">u_Cf / C_f = sqrt(
+  (u_Cs / C_s)^2
+  + [ (V_m / (V_m + V_s)) × (u_Vs / V_s) ]^2
+  + [ u_Vm / (V_m + V_s) ]^2
+)
+
+= sqrt(
+  (0.0915%)^2
+  + [ (100 / 110) × 0.085% ]^2
+  + [ 0.0325 / 110 ]^2
+)
+
+= sqrt(
+  (0.0915)^2
+  + (0.0773)^2
+  + (0.0295)^2
+)
+
+= 0.123%</p>
+
+  <p>So the <strong>partial volumetric standard uncertainty for the PPC well spike</strong> is about:</p>
+
+  <p class="formula">u_rel,PPC ≈ 0.12%
+U_rel,PPC ≈ 0.25% at k = 2</p>
+
+  <p>Again, this excludes CSE CoA uncertainty and LAL/reader/assay variability.</p>
+
+  <h2>6. Example combined volumetric contribution</h2>
+
+  <p>If you combine only the pipetting components for a sample result:</p>
+
+  <ul>
+    <li>sample dilution 183 µL into 3.5 mL: 0.026%</li>
+    <li>100 µL sample into well: 0.0325%</li>
+    <li>100 µL LAL reagent by MPM1: ~0.080%</li>
+    <li>standard concentration pipetting: 0.164%</li>
+  </ul>
+
+  <p class="formula">u_c,volumetric = sqrt(
+  (0.026)^2
+  + (0.0325)^2
+  + (0.080)^2
+  + (0.164)^2
+)
+
+= 0.187%</p>
+
+  <p>Expanded volumetric-only:</p>
+
+  <p class="formula">U_volumetric = 2 × 0.187% = 0.374%</p>
+
+  <div class="warning">
+    This does <strong>not</strong> represent the BET measurement uncertainty. Actual BET uncertainty is usually dominated by
+    LAL reagent, standard curve, reader, incubation, and replicate assay variability, which are not in the attached certificates.
+    Do not report 0.37% as the BET expanded uncertainty.
+  </div>
+
+  <h2>7. Recommended ISO 17025 approach</h2>
+
+  <ol>
+    <li>
+      <strong>Correct the SOP pipette assignments and volumes.</strong>
+      Use a 20 µL pipette for 10 µL, not a 1 mL pipette. Define how 3.5 mL and 10 mL are measured.
+      Clarify whether PPC is spiked in batch or in-well, and correct the 0.5 EU/mL calculation.
+    </li>
+    <li>
+      <strong>Use the actual pipette ID and current certificate.</strong>
+      Use U/2 as standard uncertainty. For volumes not calibrated, either calibrate at that volume or use the conservative
+      nearest-higher volume with justification.
+    </li>
+    <li>
+      <strong>Build a formal uncertainty budget for the BET result <code>C</code> in EU/mL.</strong>
+      Include at least: CSE assigned concentration and reconstitution, serial dilution volumes, sample dilution volumes,
+      sample and LAL dispense volumes, PPC spike volume, LAL reagent lot variability, reader/kinetic calibration,
+      incubation temperature/time, standard curve regression, replicate well repeatability, analyst/intermediate precision,
+      matrix effects, and PPC recovery.
+    </li>
+    <li>
+      <strong>Use validation/replicate data for Type A.</strong>
+      Estimate repeatability <code>s_r</code> and intermediate precision <code>s_R</code> from replicate BET assays at low/mid/high
+      endotoxin levels. Combine with Type B components by quadrature:
+      <p class="formula">u_c = sqrt(u_A^2 + Σ u_B^2)
+U = k × u_c, with k = 2</p>
+    </li>
+    <li>
+      <strong>Report the uncertainty for the actual result.</strong>
+      For example:
+      <p class="formula">C = 0.50 ± U EU/mL, k = 2</p>
+      State that U is the expanded uncertainty for the BET result, not just pipette volume.
+    </li>
+  </ol>
+
+  <div class="callout">
+    <strong>Bottom line:</strong>
+    The attached certificates are sufficient to calculate the <strong>pipette/dilution Type B contribution only</strong>.
+    They are <strong>not sufficient</strong> to calculate the full ISO 17025 measurement uncertainty for the Kinetic Chromogenic BET.
+    You can use the calculations above as the volumetric portion of the budget, but you must add CSE, LAL, reader, curve,
+    incubation, analyst, and replicate-assay components before issuing a full BET uncertainty statement.
+  </div>
 
 </body>
 </html>
