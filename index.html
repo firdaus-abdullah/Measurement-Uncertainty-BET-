@@ -69,15 +69,6 @@
     padding: 10px 15px;
     margin: 15px 0;
   }
-  code {
-    background: #f0f0f0;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 0.95em;
-  }
-  .center {
-    text-align: center;
-  }
   .small {
     font-size: 0.9em;
     color: #555;
@@ -158,7 +149,7 @@ Use <strong>relative standard uncertainties</strong> in the MU budget. Do not us
   <td>TreffLab Transferpette S</td>
   <td>11G45879</td>
   <td><strong>1000 µL</strong></td>
-  <td>1 mL / 500 µL diluent and standard transfers</td>
+  <td>900 µL / 1000 µL / 500 µL diluent and standard transfers</td>
 </tr>
 <tr>
   <td><strong>MM12</strong></td>
@@ -166,7 +157,7 @@ Use <strong>relative standard uncertainties</strong> in the MU budget. Do not us
   <td>Eppendorf Research plus</td>
   <td>J16132L</td>
   <td><strong>1000 µL</strong></td>
-  <td>1 mL / 500 µL diluent and standard transfers</td>
+  <td>900 µL / 1000 µL / 500 µL diluent and standard transfers</td>
 </tr>
 <tr>
   <td><strong>MM29</strong></td>
@@ -174,7 +165,7 @@ Use <strong>relative standard uncertainties</strong> in the MU budget. Do not us
   <td>Eppendorf Research plus</td>
   <td>1117300</td>
   <td><strong>1000 µL</strong></td>
-  <td>1 mL / 500 µL diluent and standard transfers</td>
+  <td>900 µL / 1000 µL / 500 µL diluent and standard transfers</td>
 </tr>
 </tbody>
 </table>
@@ -201,7 +192,7 @@ For the 1 mL pipettes (MM2, MM12, MM29), the <strong>worst-case certificate valu
 </table>
 <p>Use MM7 for the <strong>10 µL PPC spike</strong>.</p>
 <div class="note">
-<strong>Note:</strong> If the SOP currently says “using 1 mL pipette” for 10 µL, this should be corrected because 10 µL is far outside the calibrated range of a 1 mL pipette and will give a much larger uncertainty.
+<strong>Note:</strong> Do not use a 1 mL pipette for the 10 µL PPC spike. The 10 µL volume is outside the calibrated range of a 1 mL pipette.
 </div>
 
 <h3>2.2 MM1 — 200 µL pipette (Certificate: MSRP26072892)</h3>
@@ -218,14 +209,19 @@ For the 1 mL pipettes (MM2, MM12, MM29), the <strong>worst-case certificate valu
 <tr><td>20 µL</td><td>±0.032 µL</td><td>0.016 µL</td><td>0.080%</td></tr>
 <tr><td>100 µL</td><td>±0.065 µL</td><td>0.0325 µL</td><td>0.0325%</td></tr>
 <tr><td>200 µL</td><td>±0.079 µL</td><td>0.0395 µL</td><td>0.0198%</td></tr>
-<tr><td>183 µL (interpolated)</td><td>±0.0766 µL</td><td>0.0383 µL</td><td>0.0209%</td></tr>
 </tbody>
 </table>
 <p>
-For 183 µL, either use the interpolated value above or conservatively use the 200 µL certificate value:
+For the <strong>183 µL</strong> transfer, use MM1 (200 µL pipette) and apply the <strong>200 µL certificate value conservatively</strong>:
 </p>
 <div class="formula">
-<em>u</em><sub>rel</sub>(183) = (0.079/2) / 183 = 0.0216%
+<em>u</em>(183) = 0.079 / 2 = 0.0395 µL
+</div>
+<div class="formula">
+<em>u</em><sub>rel</sub>(183) = 0.0395 / 183 = 0.0216%
+</div>
+<div class="note">
+No interpolation is used. The 200 µL calibration point is used as a conservative estimate for 183 µL.
 </div>
 
 <h3>2.3 MPM1 — 200 µL 8-channel pipette (Certificate: MSRP26072893)</h3>
@@ -264,12 +260,18 @@ The eight channels have different expanded uncertainties. For a conservative MU 
 <tr><td>100 µL</td><td>±0.19 µL</td><td>0.095 µL</td><td>0.095%</td></tr>
 <tr><td>500 µL</td><td>±0.41 µL</td><td>0.205 µL</td><td>0.041%</td></tr>
 <tr><td>1000 µL</td><td>±0.61 µL</td><td>0.305 µL</td><td>0.0305%</td></tr>
-<tr><td>900 µL</td><td>approx. ±0.61 µL conservative</td><td>0.305 µL</td><td>0.0339%</td></tr>
+<tr><td>900 µL</td><td>±0.61 µL (use 1000 µL point)</td><td>0.305 µL</td><td>0.0339%</td></tr>
 </tbody>
 </table>
 <p>
-Use the appropriate pipette for the volume. For example, 100 µL should preferably be delivered with a 200 µL pipette, not a 1 mL pipette.
+For the <strong>900 µL</strong> transfer, use the 1 mL pipette and apply the <strong>1000 µL certificate value conservatively</strong>:
 </p>
+<div class="formula">
+<em>u</em>(900) = 0.61 / 2 = 0.305 µL
+</div>
+<div class="formula">
+<em>u</em><sub>rel</sub>(900) = 0.305 / 900 = 0.0339%
+</div>
 
 <hr>
 
@@ -282,12 +284,12 @@ Use the appropriate pipette for the volume. For example, 100 µL should preferab
 </div>
 <p>Uncertainties:</p>
 <ul>
-  <li><em>V</em><sub>s</sub> = 183 µL:<br>
-    <em>u</em>(<em>V</em><sub>s</sub>) = 0.0383 µL<br>
-    <em>u</em><sub>rel</sub>(<em>V</em><sub>s</sub>) = 0.0383 / 183 = 0.0209%
+  <li><em>V</em><sub>s</sub> = 183 µL delivered by <strong>MM1 200 µL pipette</strong>:<br>
+    <em>u</em>(<em>V</em><sub>s</sub>) = 0.0395 µL<br>
+    <em>u</em><sub>rel</sub>(<em>V</em><sub>s</sub>) = 0.0395 / 183 = 0.0216%
   </li>
   <li><em>V</em><sub>d</sub> = 3.5 mL = 3500 µL.<br>
-    If prepared as 3 × 1000 µL + 500 µL using 1 mL pipettes:
+    Prepared as 3 × 1000 µL + 500 µL using 1 mL pipettes:
   </li>
 </ul>
 <div class="formula">
@@ -298,18 +300,18 @@ Use the appropriate pipette for the volume. For example, 100 µL should preferab
 </div>
 <p>Total volume <em>V</em><sub>tot</sub> = 3683 µL:</p>
 <div class="formula">
-<em>u</em>(<em>V</em><sub>tot</sub>) = √(0.567<sup>2</sup> + 0.0383<sup>2</sup>) = 0.568 µL
+<em>u</em>(<em>V</em><sub>tot</sub>) = √(0.567<sup>2</sup> + 0.0395<sup>2</sup>) = 0.568 µL
 </div>
 <div class="formula">
 <em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.568 / 3683 = 0.0154%
 </div>
 <p>Therefore:</p>
 <div class="formula">
-<em>u</em><sub>rel</sub>(<em>DF</em>) = √( (0.0154%)<sup>2</sup> + (0.0209%)<sup>2</sup> ) = 0.026%
+<em>u</em><sub>rel</sub>(<em>DF</em>) = √( (0.0154%)<sup>2</sup> + (0.0216%)<sup>2</sup> ) = 0.0265%
 </div>
 <p><strong>Recommended MU input for this dilution:</strong></p>
 <div class="formula">
-<em>u</em><sub>rel,DF</sub> ≈ 0.026%
+<em>u</em><sub>rel,DF</sub> ≈ 0.027%
 </div>
 
 <h3>3.2 Final well: 100 µL sample + 100 µL LAL reagent</h3>
@@ -343,9 +345,6 @@ Use the appropriate pipette for the volume. For example, 100 µL should preferab
 <div class="formula">
 <em>u</em><sub>rel,well</sub> ≈ 0.054%
 </div>
-<p>
-If the same pipette and same volume are used for both standards and samples and the MU model assumes cancellation of systematic bias, this component may be reduced. For a conservative ISO 17025 budget, use the value above.
-</p>
 
 <h3>3.3 PPC spike: 10 µL of 5 EU/mL standard into 100 µL sample</h3>
 <p>PPC concentration before LAL reagent addition:</p>
@@ -378,24 +377,25 @@ If the same pipette and same volume are used for both standards and samples and 
 <div class="formula">
 <em>u</em><sub>rel,PPC</sub> ≈ 0.090%
 </div>
-<p>
-Again, use the 20 µL pipette for the 10 µL spike. If a 1 mL pipette is used for 10 µL, the uncertainty will be much larger and not represented by the calibration certificate at 10 µL.
-</p>
 
 <h3>3.4 Standard endotoxin serial dilutions</h3>
-<p>For the serial dilution steps using 0.1 mL + 0.9 mL with 1 mL pipettes:</p>
+<p>
+For the serial dilution steps using 0.1 mL + 0.9 mL:
+</p>
+<ul>
+  <li>100 µL from 1 mL pipette:<br>
+    <em>u</em><sub>rel,100</sub> = 0.095%
+  </li>
+  <li>900 µL from 1 mL pipette, using 1000 µL certificate conservatively:<br>
+    <em>u</em><sub>rel,900</sub> = 0.305 / 900 = 0.0339%
+  </li>
+</ul>
 <div class="formula">
-<em>u</em><sub>rel,100</sub> = 0.095%
-</div>
-<div class="formula">
-<em>u</em><sub>rel,900</sub> = 0.0339%
-</div>
-<div class="formula">
-<em>u</em><sub>rel,per dilution</sub> = √( (0.095%)<sup>2</sup> + (0.0339%)<sup>2</sup> ) = 0.100%
+<em>u</em><sub>rel,per dilution</sub> = √( (0.095%)<sup>2</sup> + (0.0339%)<sup>2</sup> ) = 0.101%
 </div>
 <p>For three such dilutions:</p>
 <div class="formula">
-<em>u</em><sub>rel,3 dil</sub> = √( 3 × (0.100%)<sup>2</sup> ) = 0.173%
+<em>u</em><sub>rel,3 dil</sub> = √( 3 × (0.101%)<sup>2</sup> ) = 0.175%
 </div>
 <p>For the final 0.2 mL + 0.8 mL dilution:</p>
 <div class="formula">
@@ -409,15 +409,12 @@ Again, use the 20 µL pipette for the 10 µL spike. If a 1 mL pipette is used fo
 </div>
 <p>Combined standard-curve pipetting contribution:</p>
 <div class="formula">
-<em>u</em><sub>rel,std curve</sub> = √( (0.173%)<sup>2</sup> + (0.058%)<sup>2</sup> ) = 0.182%
+<em>u</em><sub>rel,std curve</sub> = √( (0.175%)<sup>2</sup> + (0.058%)<sup>2</sup> ) = 0.184%
 </div>
-<p>So the micropipette contribution from standard-curve preparation is approximately:</p>
+<p><strong>Recommended MU input for standard-curve preparation:</strong></p>
 <div class="formula">
 <em>u</em><sub>rel,std curve</sub> ≈ 0.18%
 </div>
-<p>
-If appropriate pipettes are used—e.g. 200 µL pipette for 100 µL and 1 mL pipette for 900 µL—this can be reduced to approximately 0.09%.
-</p>
 
 <hr>
 
@@ -432,27 +429,27 @@ If appropriate pipettes are used—e.g. 200 µL pipette for 100 µL and 1 mL pip
 </tr>
 </thead>
 <tbody>
-<tr><td>Sample dilution 183 µL into 3.5 mL</td><td>MM1</td><td>183 µL</td><td><strong>0.021–0.026%</strong></td></tr>
-<tr><td>Diluent 3.5 mL</td><td>1 mL pipettes</td><td>3.5 mL</td><td><strong>0.016%</strong></td></tr>
-<tr><td>Combined dilution factor</td><td>MM1 + 1 mL</td><td>—</td><td><strong>0.026%</strong></td></tr>
-<tr><td>Sample into well</td><td>MM1</td><td>100 µL</td><td><strong>0.033%</strong></td></tr>
+<tr><td>Sample dilution</td><td>MM1 (200 µL)</td><td>183 µL</td><td><strong>0.022%</strong></td></tr>
+<tr><td>Diluent</td><td>1 mL pipettes</td><td>3.5 mL</td><td><strong>0.016%</strong></td></tr>
+<tr><td>Combined dilution factor</td><td>MM1 + 1 mL</td><td>183 µL + 3.5 mL</td><td><strong>0.027%</strong></td></tr>
+<tr><td>Sample into well</td><td>MM1 (200 µL)</td><td>100 µL</td><td><strong>0.033%</strong></td></tr>
 <tr><td>LAL reagent into well</td><td>MPM1 8-channel</td><td>100 µL</td><td><strong>0.080%</strong> worst channel</td></tr>
 <tr><td>Final sample + reagent volume ratio</td><td>MM1 + MPM1</td><td>100 + 100 µL</td><td><strong>0.054%</strong></td></tr>
-<tr><td>PPC spike</td><td>MM7</td><td>10 µL</td><td><strong>0.085%</strong></td></tr>
+<tr><td>PPC spike</td><td>MM7 (20 µL)</td><td>10 µL</td><td><strong>0.085%</strong></td></tr>
 <tr><td>PPC concentration</td><td>MM7 + MM1</td><td>10 µL + 100 µL</td><td><strong>0.090%</strong></td></tr>
 <tr><td>Standard serial dilution</td><td>1 mL pipettes</td><td>100 + 900 µL per step</td><td><strong>~0.10% per step</strong>; combined ~<strong>0.18%</strong></td></tr>
 <tr><td>1 mL transfer</td><td>1 mL pipettes</td><td>1000 µL</td><td><strong>0.031%</strong></td></tr>
 <tr><td>500 µL transfer</td><td>1 mL pipettes</td><td>500 µL</td><td><strong>0.041%</strong></td></tr>
-<tr><td>100 µL with 1 mL pipette</td><td>1 mL pipettes</td><td>100 µL</td><td><strong>0.095%</strong> — not recommended if 200 µL pipette available</td></tr>
+<tr><td>900 µL transfer</td><td>1 mL pipettes</td><td>900 µL</td><td><strong>0.034%</strong></td></tr>
 </tbody>
 </table>
 
 <hr>
 
 <h2>5. Combined Micropipette Contribution</h2>
-<p>For the sample result, if only the sample dilution and final well volume ratio are included:</p>
+<p>For the sample result, including sample dilution and final well volume ratio:</p>
 <div class="formula">
-<em>u</em><sub>rel,sample micropipette</sub> = √( (0.026%)<sup>2</sup> + (0.054%)<sup>2</sup> ) = 0.060%
+<em>u</em><sub>rel,sample micropipette</sub> = √( (0.027%)<sup>2</sup> + (0.054%)<sup>2</sup> ) = 0.060%
 </div>
 <p>Expanded for micropipette only:</p>
 <div class="formula">
@@ -460,10 +457,10 @@ If appropriate pipettes are used—e.g. 200 µL pipette for 100 µL and 1 mL pip
 </div>
 <p>If standard-curve pipetting is also included as a micropipette component:</p>
 <div class="formula">
-<em>u</em><sub>rel,total micropipette</sub> = √( (0.060%)<sup>2</sup> + (0.182%)<sup>2</sup> ) = 0.192%
+<em>u</em><sub>rel,total micropipette</sub> = √( (0.060%)<sup>2</sup> + (0.184%)<sup>2</sup> ) = 0.194%
 </div>
 <div class="formula">
-<em>U</em><sub>rel</sub> = 2(0.192%) = 0.38%
+<em>U</em><sub>rel</sub> = 2(0.194%) = 0.39%
 </div>
 <p>For PPC:</p>
 <div class="formula">
@@ -472,39 +469,28 @@ If appropriate pipettes are used—e.g. 200 µL pipette for 100 µL and 1 mL pip
 <div class="formula">
 <em>U</em><sub>rel,PPC</sub> = 0.18%
 </div>
-<p>
-These are small compared with typical BET assay variability. The final combined MU should be dominated by LAL assay repeatability, standard curve fit, incubation/reader performance, and analyst technique.
-</p>
 
 <hr>
 
 <h2>6. Practical Recommendations</h2>
 <div class="recommendation">
 <ol>
-  <li><strong>Use MM7 20 µL for the 10 µL PPC spike</strong>, not a 1 mL pipette.</li>
-  <li><strong>Use MM1 200 µL for 100 µL sample/standard wells and for 183 µL dilution</strong>, not a 1 mL pipette.</li>
-  <li><strong>Use MPM1 8-channel only at 100 µL</strong> for reagent addition; use the worst-channel uncertainty for conservative MU.</li>
-  <li>For volumes between calibration points, use <strong>linear interpolation</strong> between adjacent certificate volumes or the <strong>largest <em>u</em><sub>rel</sub></strong> among bracketing volumes.</li>
+  <li><strong>183 µL:</strong> use <strong>MM1 200 µL pipette</strong>. Apply the 200 µL certificate value conservatively.</li>
+  <li><strong>900 µL:</strong> use <strong>1 mL pipette (MM2/MM12/MM29)</strong>. Apply the 1000 µL certificate value conservatively.</li>
+  <li><strong>10 µL PPC spike:</strong> use <strong>MM7 20 µL pipette</strong>, not a 1 mL pipette.</li>
+  <li><strong>100 µL sample/standard wells:</strong> use <strong>MM1 200 µL pipette</strong>, not a 1 mL pipette.</li>
+  <li><strong>100 µL LAL reagent:</strong> use <strong>MPM1 8-channel pipette</strong>; use worst-channel uncertainty conservatively.</li>
   <li>Report micropipette uncertainty as <strong>relative standard uncertainty</strong> and combine in quadrature.</li>
-  <li>Add separate components for:
-    <ul>
-      <li>pipetting repeatability by analyst, if not covered by calibration;</li>
-      <li>temperature/viscosity/tip effects;</li>
-      <li>reader/instrument;</li>
-      <li>standard endotoxin purity and reconstitution;</li>
-      <li>LAL reagent variability;</li>
-      <li>assay repeatability.</li>
-    </ul>
-  </li>
+  <li>Add separate MU components for reader, incubation temperature, standard endotoxin, LAL reagent, analyst, and assay repeatability.</li>
 </ol>
 </div>
 
 <p><strong>Recommended conservative micropipette inputs for the BET MU budget:</strong></p>
 <ul>
-  <li>Dilution factor: <em>u</em><sub>rel</sub> = 0.026%</li>
-  <li>Final sample/reagent ratio: <em>u</em><sub>rel</sub> = 0.054%</li>
-  <li>PPC concentration: <em>u</em><sub>rel</sub> = 0.090%</li>
-  <li>Standard curve pipetting: <em>u</em><sub>rel</sub> ≈ 0.18% if using 1 mL pipettes; lower if correct-volume pipettes are used.</li>
+  <li>Dilution factor (183 µL with 200 µL pipette + 3.5 mL with 1 mL pipettes): <em>u</em><sub>rel</sub> ≈ <strong>0.027%</strong></li>
+  <li>Final sample/reagent volume ratio: <em>u</em><sub>rel</sub> ≈ <strong>0.054%</strong></li>
+  <li>PPC concentration: <em>u</em><sub>rel</sub> ≈ <strong>0.090%</strong></li>
+  <li>Standard curve pipetting (100 µL + 900 µL using 1 mL pipettes): <em>u</em><sub>rel</sub> ≈ <strong>0.18%</strong></li>
 </ul>
 
 </body>
