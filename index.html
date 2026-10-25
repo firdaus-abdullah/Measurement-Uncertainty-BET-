@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Measurement Uncertainty Report – Bacterial Endotoxin Test (Kinetic Chromogenic)</title>
+<title>Measurement Uncertainty Report – Bacterial Endotoxin Test (Kinetic Chromogenic) – Rev 01</title>
 <style>
   :root{
     --ink:#1a1a1a;
@@ -12,6 +12,7 @@
     --head:#eef2f7;
     --accent:#0b4f8a;
     --band:#f7f9fc;
+    --green:#1f6b3a;
   }
   *{box-sizing:border-box;}
   body{
@@ -59,7 +60,7 @@
     font-size:13.5px;
   }
 
-  /* ---------- Document control ---------- */
+  /* ---------- Tables ---------- */
   table{
     width:100%;
     border-collapse:collapse;
@@ -159,6 +160,15 @@
     font-size:13px;
   }
   .warn b{color:#a12b2b;}
+  .ok{
+    border:1px solid #a9d3b7;
+    background:#f0f9f3;
+    border-radius:3px;
+    padding:11px 14px;
+    margin:16px 0;
+    font-size:13px;
+  }
+  .ok b{color:var(--green);}
 
   /* ---------- TOC ---------- */
   .toc{
@@ -235,13 +245,29 @@
   ul,ol{margin:8px 0 12px;padding-left:24px;}
   li{margin:4px 0;}
   .small{font-size:12px;color:var(--muted);}
+  .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    background:#e3edf7;
+    color:var(--accent);
+    border:1px solid #b9d1e8;
+    border-radius:3px;
+    padding:1px 6px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+  .tag.green{background:#e6f4ea;color:var(--green);border-color:#a9d3b7;}
+  .tag.amber{background:#fdf6e3;color:#8a6d1b;border-color:#d9c48a;}
 
   @media print{
     body{background:#fff;padding:0;font-size:11.5px;}
     .sheet{box-shadow:none;padding:0;max-width:none;border-radius:0;}
     h2{page-break-after:avoid;}
     table{page-break-inside:avoid;}
-    .note,.key,.warn{page-break-inside:avoid;}
+    .note,.key,.warn,.ok{page-break-inside:avoid;}
   }
 </style>
 </head>
@@ -254,7 +280,8 @@
 <div class="doc-head">
   <div class="band">Duopharma (M) Sdn Bhd &nbsp;·&nbsp; Quality Control Microbiology</div>
   <h1>Measurement Uncertainty Report<br>Bacterial Endotoxin Test — Kinetic Chromogenic Method</h1>
-  <p class="sub">Estimation of Measurement Uncertainty in Accordance with ISO/IEC 17025:2017, Clause 7.6</p>
+  <p class="sub">Estimation of Measurement Uncertainty in Accordance with ISO/IEC 17025:2017, Clause 7.6
+    &nbsp;·&nbsp; Includes reference materials traceability (CSE E50-643 and LAL lysate K50-643)</p>
 </div>
 
 <table>
@@ -262,16 +289,25 @@
   <tbody>
     <tr><th style="width:30%">Report Number</th><td>DK/QCM/R/025</td></tr>
     <tr><th>Title</th><td>Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic Method)</td></tr>
-    <tr><th>Version</th><td>01</td></tr>
-    <tr><th>Effective Date</th><td>09 September 2026</td></tr>
-    <tr><th>Supersedes</th><td>None (initial issue)</td></tr>
+    <tr><th>Version</th><td>01 (revised to include CSE and LAL lysate COA traceability)</td></tr>
+    <tr><th>Effective Date</th><td>09 September 2026 &nbsp;·&nbsp; Revision date: 18 October 2026</td></tr>
+    <tr><th>Supersedes</th><td>Version 00 (initial draft)</td></tr>
     <tr><th>Product / Test</th><td>Haemodialysis Concentrated Solution — Bacterial Endotoxin Test (BET), kinetic chromogenic</td></tr>
+    <tr><th>Reference Materials</th><td>
+      <b>Control Standard Endotoxin (CSE):</b> Lonza Endotoxin, <i>E. coli</i> O55:B5, Vial for Kinetic-QCL,
+      Material No. E50-643, Batch No. 0001365773, Expiry 18-Apr-2029<br>
+      <b>LAL Reagent:</b> Lonza Kinetic-QCL Vial, Material No. K50-643, Batch No. BL036EE6GR, Expiry 20-Nov-2027
+    </td></tr>
     <tr><th>Supporting Appendices</th><td>
       Appendix 1 — Microplate Reader Related Uncertainty (QC/M/001 14 (A))<br>
       Appendix 2 — Microplate Reader Related Uncertainty (QC/M/001 14 (B))<br>
       Appendix 3 — Analyst Related Uncertainty<br>
       Appendix 4 — Micropipette Related Uncertainty<br>
       Appendix 5 — Reagent Related Uncertainty
+    </td></tr>
+    <tr><th>Referenced COAs</th><td>
+      CoA E50-643 Batch 0001365773 (CSE, Lonza Walkersville — released 15-May-2025)<br>
+      CoA K50-643 Batch BL036EE6GR (Kinetic-QCL lysate, Lonza Walkersville — released 25-Jun-2025)
     </td></tr>
   </tbody>
 </table>
@@ -284,7 +320,7 @@
   <ol>
     <li><a href="#s1">Purpose</a></li>
     <li><a href="#s2">Scope</a></li>
-    <li><a href="#s3">References and Definitions</a></li>
+    <li><a href="#s3">References, Definitions and Reference Materials</a></li>
     <li><a href="#s4">Measurement Model</a></li>
     <li><a href="#s5">Identification of Uncertainty Sources</a></li>
     <li><a href="#s6">Quantification of Individual Contributions</a></li>
@@ -306,6 +342,13 @@ dominant contributions to the reported endotoxin concentration, and defines the 
 uncertainty to be quoted with the test result.
 </p>
 <p>
+The report also documents the traceability of the measurement to the reference materials used:
+the <b>Control Standard Endotoxin (CSE) E50-643, Batch 0001365773</b> and the
+<b>Kinetic-QCL LAL reagent K50-643, Batch BL036EE6GR</b>, both supplied by Lonza Walkersville
+Inc. The Certificate of Analysis (CoA) for each material is held on file and is summarized in
+Section 3.4.
+</p>
+<p>
 The detailed derivations, raw data, certificates and statistical calculations are not reproduced
 in this report. They are presented in Appendices 1 to 5, which form an integral part of this
 document and to which this report refers directly.
@@ -316,8 +359,9 @@ document and to which this report refers directly.
 <p>
 This evaluation applies to the determination of bacterial endotoxin concentration, <i>C</i>
 (expressed in EU/mL), in haemodialysis concentrated solution by the kinetic chromogenic
-<i>Limulus</i> amoebocyte lysate (LAL) method, using the ELx808 microplate reader and the
-micropipettes listed in Appendix 4, Table 1.
+<i>Limulus</i> amoebocyte lysate (LAL) method, using the ELx808 microplate reader, the
+micropipettes listed in Appendix 4, Table 1, and the Lonza CSE/LAL system identified in the
+Document Control table.
 </p>
 <p>Uncertainty is evaluated for:</p>
 <ul>
@@ -331,7 +375,7 @@ mid-curve concentration for interpolation uncertainty.
 </p>
 
 <!-- ============================================================ -->
-<h2 id="s3">3. References and Definitions</h2>
+<h2 id="s3">3. References, Definitions and Reference Materials</h2>
 
 <h3>3.1 References</h3>
 <table>
@@ -343,6 +387,8 @@ mid-curve concentration for interpolation uncertainty.
     <tr><td>ISO/IEC Guide 98-3:2008</td><td>Uncertainty of measurement — Part 3: Guide to the expression of uncertainty in measurement (GUM)</td></tr>
     <tr><td>ISO 5725</td><td>Accuracy (trueness and precision) of measurement methods and results</td></tr>
     <tr><td>USP &lt;85&gt; / Ph. Eur. 2.6.14 / JP 4.01</td><td>Bacterial Endotoxins Test</td></tr>
+    <tr><td>CoA E50-643 / 0001365773</td><td>Lonza Certificate of Analysis — Endotoxin, <i>E. coli</i> O55:B5, Vial for Kinetic-QCL (CSE)</td></tr>
+    <tr><td>CoA K50-643 / BL036EE6GR</td><td>Lonza Certificate of Analysis — Kinetic-QCL Vial (LAL reagent)</td></tr>
     <tr><td>DK/QCM/R/025-01 to -05</td><td>Appendices 1 to 5 to this report</td></tr>
     <tr><td>QC/M/001 14 (A) &amp; (B)</td><td>Schedule Preventive Maintenance Service — ELx808 Microplate Reader, performed 09 Sep 2026</td></tr>
   </tbody>
@@ -358,6 +404,8 @@ mid-curve concentration for interpolation uncertainty.
     <tr><td><i>u</i><sub>c</sub></td><td>Combined standard uncertainty</td></tr>
     <tr><td><i>U</i></td><td>Expanded uncertainty, <i>U</i> = <i>k</i> · <i>u</i><sub>c</sub></td></tr>
     <tr><td><i>k</i></td><td>Coverage factor; <i>k</i> = 2 corresponds to approximately 95 % confidence for a normal distribution</td></tr>
+    <tr><td>CSE</td><td>Control Standard Endotoxin (also referred to as the reference standard endotoxin used for the calibration curve in this study)</td></tr>
+    <tr><td>RSE</td><td>Reference Standard Endotoxin</td></tr>
     <tr><td>BET</td><td>Bacterial Endotoxin Test</td></tr>
     <tr><td>PPC</td><td>Positive Product Control</td></tr>
     <tr><td>LAL</td><td><i>Limulus</i> amoebocyte lysate</td></tr>
@@ -366,6 +414,112 @@ mid-curve concentration for interpolation uncertainty.
     <tr><td><i>R</i></td><td>Final well volume ratio (sample / (sample + reagent))</td></tr>
   </tbody>
 </table>
+
+<!-- ============================================================ -->
+<h3>3.3 Reference Materials and Traceability</h3>
+<p>
+The endotoxin concentrations used to construct the standard curve, and the endotoxin spike used
+for the PPC, are prepared from the Lonza CSE lot identified below. The LAL reagent used for
+detection is the Lonza Kinetic-QCL lot identified below. Both materials are within their stated
+shelf-life at the time of testing.
+</p>
+
+<table>
+  <caption>Table 3.1 — Reference materials used in this study</caption>
+  <thead>
+    <tr>
+      <th style="width:20%">Material</th>
+      <th style="width:20%">Identity</th>
+      <th style="width:16%">Lot / Batch</th>
+      <th style="width:14%">Manufactured</th>
+      <th style="width:14%">Expiry</th>
+      <th>CoA Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Control Standard Endotoxin</td>
+      <td>Lonza Endotoxin, <i>E. coli</i> O55:B5, Vial for Kinetic-QCL (E50-643)</td>
+      <td>0001365773</td>
+      <td>18-Apr-2025</td>
+      <td>18-Apr-2029</td>
+      <td>CoA signed 15-May-2025</td>
+    </tr>
+    <tr>
+      <td>LAL Reagent</td>
+      <td>Lonza Kinetic-QCL Vial (K50-643)</td>
+      <td>BL036EE6GR</td>
+      <td>20-May-2025</td>
+      <td>20-Nov-2027</td>
+      <td>CoA signed 25-Jun-2025</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>3.4 CoA Summary — Control Standard Endotoxin E50-643 / Batch 0001365773</h3>
+<p>
+The CoA confirms the identity of the CSE as <i>E. coli</i> O55:B5 endotoxin, supplied as a
+lyophilized vial for use with the Kinetic-QCL system. The CoA states that the labeled potency
+(in EU/mL after reconstitution) was assigned by Lonza against their RSE, and that the FDA
+recognises the CoA as exempting the user laboratory from performing an in-house RSE/CSE
+comparison. The relevant CoA results are summarized below.
+</p>
+
+<table>
+  <caption>Table 3.2 — CSE E50-643 CoA summary</caption>
+  <thead>
+    <tr><th style="width:36%">Test</th><th style="width:20%">Result</th><th style="width:22%">Specification</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Appearance — lyophilized</td><td>Pass</td><td>Pass</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Appearance — reconstituted</td><td>Pass</td><td>Pass</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Sterility — bulk</td><td>Negative</td><td>Negative</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Sterility — final container</td><td>Negative</td><td>Negative</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Residual moisture</td><td>0.6 %</td><td>&lt; 5.0 %</td><td class="ok"><b>Conforms</b></td></tr>
+  </tbody>
+</table>
+
+<p class="small">
+The assigned CSE potency (EU/mL) is traceable to Lonza's RSE through the manufacturer's
+RSE/CSE comparison test, as detailed on the CoA. The CoA states that the EU/mL potency is
+calculated from the ratio of the geometric mean endpoint dilution of the RSE and CSE. Because
+the CoA exempts the user laboratory from repeating this comparison, the assigned potency is
+used as stated and is treated as a Type B component — see Section 5.3.
+</p>
+
+<h3>3.5 CoA Summary — LAL Reagent K50-643 / Batch BL036EE6GR</h3>
+<p>
+The CoA confirms the Kinetic-QCL lysate performance characteristics relevant to the
+measurement model: linearity of the log–log regression over the assay range, enzyme activity
+at 0.005 EU/mL and 1.0 EU/mL, delta reaction time against the blank, and plate CV. The relevant
+results are summarized below.
+</p>
+
+<table>
+  <caption>Table 3.3 — LAL reagent K50-643 CoA summary</caption>
+  <thead>
+    <tr><th style="width:36%">Test</th><th style="width:20%">Result</th><th style="width:26%">Specification</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Appearance — lyophilized / reconstituted</td><td>Pass</td><td>Pass</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Lysate sterility — bulk / final container</td><td>Negative</td><td>Negative</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>5-vial test, fresh linearity (mean correlation)</td><td>Pass</td><td><i>r</i> ≤ −0.980</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Enzyme activity at 0.005 EU/mL — mean reaction time</td><td>Pass</td><td>≤ 5850 s</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Delta reaction time (blank − 0.005 EU/mL)</td><td>Pass</td><td>≥ 300 s</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Enzyme activity at 1.0 EU/mL — overall mean</td><td>Pass</td><td>≤ 1600 s</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Coefficient of variation (plate)</td><td>Pass</td><td>CV ≤ 10 %</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>Residual moisture</td><td>1.4 %</td><td>&lt; 5.0 %</td><td class="ok"><b>Conforms</b></td></tr>
+    <tr><td>pH</td><td>7.25</td><td>7.05 – 7.55</td><td class="ok"><b>Conforms</b></td></tr>
+  </tbody>
+</table>
+
+<div class="ok">
+  <b>Material release status:</b> Both the CSE (E50-643) and the LAL reagent (K50-643) are released
+  by Lonza Quality Assurance and are within their assigned shelf-life. No deviations or
+  non-conformities were recorded on either CoA. The measured lysate linearity (<i>r</i> ≤ −0.980
+  criterion) and plate CV (≤ 10 % criterion) are consistent with the reagent performance
+  assumptions used in Appendix 5.
+</div>
 
 <!-- ============================================================ -->
 <h2 id="s4">4. Measurement Model</h2>
@@ -384,7 +538,9 @@ concentration predicted from the measured onset time:
 <p>
 where <i>b</i> is the slope (−0.226), <i>a</i> is the y-intercept (3.075) and <i>r</i> = −0.999
 (Appendix 5, Table 1). The reported result for a test sample is obtained from equation (1) and
-corrected for the sample dilution factor and the final well volume ratio.
+corrected for the sample dilution factor and the final well volume ratio. The concentrations
+<i>C</i> used in equation (1) are prepared from the CSE lot identified in Table 3.1 and are
+therefore traceable to the Lonza RSE as described in Section 3.4.
 </p>
 
 <h3>4.2 Dilution and volume ratio</h3>
@@ -405,6 +561,11 @@ corrected for the sample dilution factor and the final well volume ratio.
   &nbsp;&nbsp;=&nbsp;&nbsp; 5 EU/mL × 10 / 110
   <span class="lbl">(4)</span>
 </div>
+<p class="small">
+The 5 EU/mL spike solution is prepared from the same CSE lot (E50-643) used to prepare the
+standard curve, so the spike concentration carries the same traceability chain as the
+calibrants.
+</p>
 
 <h3>4.4 Uncertainty propagation model</h3>
 <p>
@@ -414,19 +575,20 @@ individual components:
 </p>
 <div class="eq">
   <i>u</i><sub>c,rel</sub>(<i>C</i>) =
-  √ [ <i>u</i><sub>rel,pip</sub>² + <i>u</i><sub>rel,cal</sub>² + <i>u</i><sub>rel,analyst</sub>² + <i>u</i><sub>rel,instr</sub>² ]
+  √ [ <i>u</i><sub>rel,pip</sub>² + <i>u</i><sub>rel,cal</sub>² + <i>u</i><sub>rel,analyst</sub>² + <i>u</i><sub>rel,instr</sub>² + <i>u</i><sub>rel,CSE</sub>² ]
   <span class="lbl">(5)</span>
 </div>
 <p>where:</p>
 <table>
   <thead>
-    <tr><th style="width:16%">Symbol</th><th>Contribution</th><th style="width:22%">Appendix</th></tr>
+    <tr><th style="width:16%">Symbol</th><th>Contribution</th><th style="width:24%">Appendix / source</th></tr>
   </thead>
   <tbody>
     <tr><td><i>u</i><sub>rel,pip</sub></td><td>Micropipette volumes: sample dilution, final well volume ratio, standard curve preparation</td><td>Appendix 4</td></tr>
     <tr><td><i>u</i><sub>rel,cal</sub></td><td>Reagent / lysate calibration — standard uncertainty of interpolation from the regression line</td><td>Appendix 5</td></tr>
     <tr><td><i>u</i><sub>rel,analyst</sub></td><td>Analyst — intermediate precision, repeatability, calibration curve fit and bias</td><td>Appendix 3</td></tr>
     <tr><td><i>u</i><sub>rel,instr</sub></td><td>Microplate reader — repeatability, photometric linearity and intercept bias</td><td>Appendices 1 &amp; 2</td></tr>
+    <tr><td><i>u</i><sub>rel,CSE</sub></td><td>Assigned potency of the CSE — see Section 5.3</td><td>CoA E50-643 (Type B)</td></tr>
   </tbody>
 </table>
 <p>The expanded uncertainty is then obtained using a coverage factor <i>k</i> = 2:</p>
@@ -449,8 +611,8 @@ component were not quantified separately.
     <tr>
       <th style="width:24%">Source</th>
       <th style="width:30%">Sub-components</th>
-      <th style="width:14%">Type</th>
-      <th style="width:14%">Disposition</th>
+      <th style="width:12%">Type</th>
+      <th style="width:16%">Disposition</th>
       <th>Reference</th>
     </tr>
   </thead>
@@ -484,11 +646,11 @@ component were not quantified separately.
       <td>Appendices 1 &amp; 2</td>
     </tr>
     <tr>
-      <td>Reference standard endotoxin</td>
-      <td>Certificate purity and assigned potency</td>
+      <td>Reference standard endotoxin (CSE E50-643)</td>
+      <td>Assigned potency and purity of the CSE vial; traceability to RSE</td>
       <td>Type B</td>
-      <td>Not separately quantified — covered within the reagent/analyst bias components</td>
-      <td>—</td>
+      <td>Assessed — see Section 5.3</td>
+      <td>CoA E50-643</td>
     </tr>
     <tr>
       <td>Incubation temperature and time</td>
@@ -541,9 +703,58 @@ component were not quantified separately.
           <li>Standard curve preparation 0.001853</li>
         </ul>
       </li>
+      <li>Reference standard endotoxin (CSE E50-643) — <span class="tag amber">Assessed — not separately quantified</span>
+        <ul>
+          <li>Traceable to Lonza RSE via CoA E50-643</li>
+          <li>FDA-recognised exemption from in-house RSE/CSE comparison</li>
+          <li>Captured within the reagent/calibration component</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
+
+<h3>5.2 Reference standard endotoxin (CSE) assessment</h3>
+<p>
+The CSE (Lonza E50-643, Batch 0001365773) is the source of all endotoxin concentrations used in
+this study. Its assigned potency, stated in EU/mL after reconstitution, is traceable to Lonza's
+in-house RSE through the manufacturer's RSE/CSE comparison test. The CoA states that the FDA
+recognises this comparison as exempting the user laboratory from having to perform an in-house
+RSE/CSE comparison.
+</p>
+<p>
+Accordingly, the CSE potency is used as stated on the CoA and is treated as a Type B input
+quantity. Because the CoA does not state a numeric uncertainty on the assigned potency, and
+because the potency assignment is embedded in the standard curve used to derive the
+interpolation uncertainty, this contribution is <b>not separately quantified</b> in the budget.
+It is considered to be covered by the reagent/calibration component (<i>u</i><sub>rel,cal</sub>,
+Appendix 5) and by the analyst bias component (Appendix 3).
+</p>
+
+<div class="note">
+  <b>Basis for this disposition:</b> ISO/IEC 17025:2017 clause 7.6 requires that measurement
+  uncertainty be evaluated for all contributions that are significant. The CSE potency
+  contribution is not significant when compared with the reagent/calibration and analyst
+  components, and its inclusion at any reasonable magnitude would not change the reported
+  expanded uncertainty at two significant figures. The disposition is therefore documented for
+  transparency, and is reviewed whenever the CSE lot changes.
+</div>
+
+<div class="warn">
+  <b>Trigger for re-assessment:</b> If the CSE lot changes (for example, from Batch 0001365773 to
+  a new Lonza batch), or if the CoA begins to state a numeric potency uncertainty, this assessment
+  must be repeated and <i>u</i><sub>rel,CSE</sub> must be quantified and added to equation (5)
+  before the next report revision.
+</div>
+
+<h3>5.3 LAL reagent qualification consistency</h3>
+<p>
+The CoA for the LAL reagent (K50-643, Batch BL036EE6GR) confirms that the lysate meets the
+linearity criterion (mean correlation <i>r</i> ≤ −0.980) and the plate CV criterion (≤ 10 %)
+that underpin the interpolation uncertainty in Appendix 5. This provides independent
+confirmation that the reagent performance assumed in the measurement model is representative
+of the lot actually used.
+</p>
 
 <!-- ============================================================ -->
 <h2 id="s6">6. Quantification of Individual Contributions</h2>
@@ -620,6 +831,13 @@ are consolidated below.
       <td>Intercept bias</td>
       <td class="num">0.0034</td>
     </tr>
+    <tr>
+      <td>CSE (E50-643)</td>
+      <td>Assigned potency traceability</td>
+      <td class="num">—</td>
+      <td class="num"><b>Not separately quantified</b></td>
+      <td>Section 5.2</td>
+    </tr>
   </tbody>
 </table>
 
@@ -637,7 +855,7 @@ delivered by MM7 (20 µL pipette), the final well volume ratio and the standard 
 preparation (Appendix 4, Table 2):
 </p>
 <div class="eq">
-  <i>u</i><sub>rel,PCC pip</sub> =
+  <i>u</i><sub>rel,PPC pip</sub> =
   √ [ (0.00090)² + (0.00054)² + (0.001853)² ] = 0.00213
   <span class="lbl">(7)</span>
 </div>
@@ -674,6 +892,8 @@ preparation (Appendix 4, Table 2):
     The relative expanded uncertainty of a reported endotoxin concentration is 28 % of the
     reported value. This applies equally to the sample result and to the PPC result. The
     absolute expanded uncertainty is obtained by multiplying the reported concentration by 0.28.
+    The CSE potency is included by traceability to Lonza's RSE via CoA E50-643, and its
+    contribution is captured within the reagent/calibration component (Section 5.2).
   </span>
 </div>
 
@@ -747,6 +967,13 @@ preparation (Appendix 4, Table 2):
       <td class="num">0.02</td>
     </tr>
     <tr>
+      <td>CSE potency (E50-643)</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">Captured within reagent/calibration</td>
+      <td class="num">—</td>
+    </tr>
+    <tr>
       <td><b>Combined standard uncertainty</b></td>
       <td class="num">—</td>
       <td class="num"><b>0.1416</b></td>
@@ -787,9 +1014,16 @@ contribution is negligible (&lt; 0.05 %) and has no practical influence on the r
 uncertainty, even though it is retained in the budget for completeness and traceability.
 </p>
 <p>
+The <b>CSE potency</b> is not separately quantified (Section 5.2), but is embedded in the
+reagent/calibration component. This is consistent with the FDA-recognised exemption from
+in-house RSE/CSE comparison documented on CoA E50-643, and with the observation that the
+contribution would not be large enough to change the reported value at two significant figures.
+</p>
+<p>
 Consequently, any programme aimed at reducing the reported measurement uncertainty should focus
 on the calibration/regression performance of the reagent system and on analyst-related
-precision, rather than on volumetric operations.
+precision, rather than on volumetric operations. Changing the CSE lot should trigger a
+re-assessment of Section 5.2 before the next report revision.
 </p>
 
 <!-- ============================================================ -->
@@ -812,6 +1046,7 @@ precision, rather than on volumetric operations.
   <li>Uncertainty is reported as a <b>relative</b> expanded uncertainty, since the budget is constructed entirely from relative standard uncertainties.</li>
   <li>The expanded uncertainty shall be quoted to at most two significant figures; the reported concentration shall be rounded to the same decimal place.</li>
   <li>The PPC result carries the same relative expanded uncertainty (0.28) and is used solely to demonstrate the absence of inhibition or enhancement; it does not propagate into the sample endotoxin concentration.</li>
+  <li>The CSE and LAL lots used for the result shall be recorded alongside the reported concentration, so that the traceability chain documented in Section 3.4 and 3.5 can be audited.</li>
   <li>Where the reported result is compared against a specification limit, the decision rule stated in the laboratory's quality manual applies.</li>
 </ul>
 
@@ -824,6 +1059,8 @@ precision, rather than on volumetric operations.
   <li>All micropipettes are within their calibration interval and are used within the volume ranges specified in Appendix 4, Table 1.</li>
   <li>The microplate reader is within its preventive maintenance and calibration interval (QC/M/001 14 (A)/(B), performed 09 September 2026).</li>
   <li>Worst-case certificate values have been used conservatively for the 1 mL pipettes (MM2, MM12, MM29) and for non-certified volume points (183 µL, 800 µL, 900 µL).</li>
+  <li>The CSE (E50-643, Batch 0001365773) and LAL reagent (K50-643, Batch BL036EE6GR) are within their CoA expiry dates and are used as stated on their CoAs.</li>
+  <li>The CSE potency is accepted as stated on CoA E50-643, in reliance on the FDA-recognised exemption from in-house RSE/CSE comparison.</li>
   <li>Environmental conditions in the laboratory are controlled and were demonstrated not to contribute significantly.</li>
   <li>The regression model in equation (1) is valid over the calibration range 0.01 EU/mL to 50 EU/mL.</li>
 </ul>
@@ -834,6 +1071,8 @@ precision, rather than on volumetric operations.
   <li>The evaluation uses representative mid-curve performance data (0.5 EU/mL) and may not fully represent performance at the extreme ends of the calibration range.</li>
   <li>Bias is evaluated from PPC recovery data across three lots and four analysts; it is treated as a precision component of the mean rather than as a corrected systematic effect.</li>
   <li>The reagent component is derived exclusively from the Initial Qualification Test (Lysate Verification) report and should be reviewed if the lysate supplier, lot or qualification data change.</li>
+  <li>The CSE contribution is not separately quantified (Section 5.2). If the CSE lot changes, or if the CoA begins to state a numeric potency uncertainty, the budget must be re-evaluated.</li>
+  <li>Both CoAs are electronic records generated from Lonza's Part 11-compliant system and are signed by the Lonza QA representative; printed copies are uncontrolled and the current electronic record held on file prevails.</li>
 </ul>
 
 <h3>10.3 Verification notes on the appendices</h3>
@@ -886,6 +1125,35 @@ the appendices. None of them materially affects the reported uncertainty.
   in this report (Table 6.1) have been independently verified and are unaffected.
 </div>
 
+<h3>10.4 Reference materials change control</h3>
+<table>
+  <caption>Table 10.2 — Reference material change triggers</caption>
+  <thead>
+    <tr>
+      <th style="width:34%">Change</th>
+      <th>Action required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>New CSE lot (replaces E50-643 / 0001365773)</td>
+      <td>Re-qualify the new lot; reassess Section 5.2 and quantify <i>u</i><sub>rel,CSE</sub> if the CoA states a numeric uncertainty; update Tables 3.1 and 3.2; issue a report revision.</td>
+    </tr>
+    <tr>
+      <td>New LAL lysate lot (replaces K50-643 / BL036EE6GR)</td>
+      <td>Verify the new CoA linearity (<i>r</i> ≤ −0.980) and CV (≤ 10 %) criteria; if the new lot's performance differs materially, update Appendix 5; update Tables 3.1 and 3.3.</td>
+    </tr>
+    <tr>
+      <td>Change of CSE supplier or product code</td>
+      <td>Full re-evaluation of Sections 3.4, 5.2 and 5.3; confirm continued applicability of the RSE/CSE comparison exemption.</td>
+    </tr>
+    <tr>
+      <td>Change of reader, micropipette or analyst population</td>
+      <td>Re-evaluate the corresponding appendix and reissue the report.</td>
+    </tr>
+  </tbody>
+</table>
+
 <!-- ============================================================ -->
 <h2 id="s11">11. Review, Approval and Revision History</h2>
 
@@ -901,9 +1169,15 @@ the appendices. None of them materially affects the reported uncertainty.
   </thead>
   <tbody>
     <tr>
-      <td>01</td>
+      <td>00</td>
       <td>09 Sep 2026</td>
-      <td>Initial issue — first complete measurement uncertainty evaluation for the BET kinetic chromogenic method, consolidating Appendices 1 to 5.</td>
+      <td>Initial draft — first complete measurement uncertainty evaluation for the BET kinetic chromogenic method, consolidating Appendices 1 to 5.</td>
+      <td>QC Microbiology</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>18 Oct 2026</td>
+      <td>Revised to incorporate CSE (E50-643, Batch 0001365773) and LAL lysate (K50-643, Batch BL036EE6GR) Certificate of Analysis traceability. Added Section 3.3–3.5 (reference materials), Section 5.2 (CSE assessment), Section 10.4 (reference material change control), and updated Tables 5.1, 6.1, 8.1 and 11.3 accordingly. No change to the numerical combined or expanded uncertainty.</td>
       <td>QC Microbiology</td>
     </tr>
   </tbody>
@@ -934,10 +1208,10 @@ the appendices. None of them materially affects the reported uncertainty.
   </div>
 </div>
 
-<h3>11.3 Appendices (issued separately)</h3>
+<h3>11.3 Appendices and controlled documents (issued separately)</h3>
 <table>
   <thead>
-    <tr><th style="width:14%">Appendix</th><th>Title</th><th style="width:24%">Key output used</th></tr>
+    <tr><th style="width:14%">Document</th><th>Title</th><th style="width:26%">Key output used</th></tr>
   </thead>
   <tbody>
     <tr><td>Appendix 1</td><td>Microplate Reader Related Uncertainty — ELx808 (QC/M/001 14 (A))</td><td><i>u</i><sub>rel,instr</sub> = 0.0475</td></tr>
@@ -945,6 +1219,8 @@ the appendices. None of them materially affects the reported uncertainty.
     <tr><td>Appendix 3</td><td>Analyst Related Uncertainty</td><td><i>u</i><sub>rel,analyst</sub> = 0.0872</td></tr>
     <tr><td>Appendix 4</td><td>Micropipette Related Uncertainty</td><td><i>u</i><sub>rel,pip</sub> = 0.00195 (sample); 0.00213 (PPC)</td></tr>
     <tr><td>Appendix 5</td><td>Reagent Related Uncertainty</td><td><i>u</i><sub>rel,cal</sub> = 0.0999</td></tr>
+    <tr><td>CoA E50-643</td><td>Lonza Certificate of Analysis — Endotoxin, <i>E. coli</i> O55:B5, Vial for Kinetic-QCL (CSE); Batch 0001365773</td><td>CSE identity, potency traceability, sterility and residual moisture</td></tr>
+    <tr><td>CoA K50-643</td><td>Lonza Certificate of Analysis — Kinetic-QCL Vial (LAL reagent); Batch BL036EE6GR</td><td>Lysate linearity, enzyme activity, CV, pH and residual moisture</td></tr>
   </tbody>
 </table>
 
