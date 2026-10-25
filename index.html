@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Measurement Uncertainty Report – Bacterial Endotoxin Test (Kinetic Chromogenic) | DK/QCM/R/025-01</title>
+<title>Measurement Uncertainty Report – BET (Kinetic Chromogenic) | DK/QCM/R/025-01</title>
 <style>
   :root{
     --brand:#0b4f6c;
@@ -24,50 +24,44 @@
     font-size:15px;
   }
   .page{
-    max-width:1100px;
+    max-width:1050px;
     margin:0 auto 40px;
     background:#fff;
-    padding:48px 56px 64px;
+    padding:44px 52px 60px;
     box-shadow:0 2px 18px rgba(0,0,0,.08);
   }
   header.cover{
     border-top:8px solid var(--brand);
-    padding-top:24px;
-    margin-bottom:34px;
+    padding-top:22px;
+    margin-bottom:30px;
   }
   .company{
-    font-size:13px;
+    font-size:12.5px;
     letter-spacing:.16em;
     text-transform:uppercase;
     color:var(--brand);
     font-weight:700;
   }
   h1{
-    font-size:26px;
-    margin:10px 0 6px;
+    font-size:24px;
+    margin:8px 0 6px;
     color:var(--brand);
-    line-height:1.25;
+    line-height:1.3;
   }
   h2{
-    font-size:19px;
+    font-size:18px;
     color:var(--brand);
     border-bottom:2px solid var(--brand2);
-    padding-bottom:6px;
-    margin-top:42px;
-    margin-bottom:16px;
+    padding-bottom:5px;
+    margin-top:36px;
+    margin-bottom:14px;
     page-break-after:avoid;
   }
   h3{
-    font-size:16px;
+    font-size:15.5px;
     color:var(--brand);
-    margin-top:26px;
-    margin-bottom:10px;
-    page-break-after:avoid;
-  }
-  h4{
-    font-size:14.5px;
-    margin:18px 0 8px;
-    color:#123;
+    margin-top:22px;
+    margin-bottom:8px;
     page-break-after:avoid;
   }
   p{margin:8px 0;}
@@ -76,7 +70,7 @@
   table{
     width:100%;
     border-collapse:collapse;
-    margin:14px 0 18px;
+    margin:12px 0 16px;
     font-size:13.4px;
     page-break-inside:avoid;
   }
@@ -84,7 +78,7 @@
     caption-side:top;
     text-align:left;
     font-weight:700;
-    font-size:13px;
+    font-size:12.8px;
     color:var(--brand);
     padding:6px 0;
   }
@@ -106,11 +100,11 @@
   tfoot td{background:var(--hl);font-weight:700;}
   .meta{
     display:grid;
-    grid-template-columns:190px 1fr;
-    gap:6px 18px;
-    font-size:13.5px;
+    grid-template-columns:185px 1fr;
+    gap:5px 16px;
+    font-size:13.4px;
     border:1px solid var(--line);
-    padding:16px 20px;
+    padding:14px 18px;
     background:#fbfdfe;
     margin-bottom:10px;
   }
@@ -120,45 +114,35 @@
     font-family:"Cambria Math",Georgia,"Times New Roman",serif;
     background:var(--hl);
     border-left:4px solid var(--brand2);
-    padding:10px 16px;
-    margin:12px 0;
-    font-size:15px;
+    padding:9px 14px;
+    margin:10px 0;
+    font-size:14.5px;
     overflow-x:auto;
   }
   .note{
     background:#fff8e1;
     border-left:4px solid #f0ad4e;
-    padding:12px 16px;
-    margin:16px 0;
-    font-size:13.5px;
+    padding:11px 15px;
+    margin:14px 0;
+    font-size:13.3px;
   }
   .callout{
     background:#e8f5e9;
     border-left:4px solid #43a047;
-    padding:12px 16px;
-    margin:16px 0;
-    font-size:13.5px;
+    padding:11px 15px;
+    margin:14px 0;
+    font-size:13.3px;
   }
-  .toc{
-    border:1px solid var(--line);
-    background:#fbfdfe;
-    padding:14px 22px;
-    font-size:13.6px;
-    columns:2;
-    column-gap:34px;
-  }
-  .toc a{color:var(--brand);text-decoration:none;}
-  .toc a:hover{text-decoration:underline;}
   .bar-wrap{
     display:grid;
-    grid-template-columns:200px 1fr 64px;
-    gap:8px 12px;
+    grid-template-columns:190px 1fr 64px;
+    gap:7px 12px;
     align-items:center;
-    font-size:13.2px;
-    margin:10px 0 18px;
+    font-size:13px;
+    margin:10px 0 16px;
   }
   .bar{
-    height:16px;
+    height:15px;
     background:var(--brand2);
     border-radius:3px;
   }
@@ -168,835 +152,221 @@
   .final{
     background:var(--brand);
     color:#fff;
-    padding:20px 26px;
+    padding:18px 24px;
     border-radius:6px;
-    margin:24px 0;
+    margin:20px 0;
   }
-  .final .big{font-size:22px;font-weight:700;letter-spacing:.02em;}
-  .final small{opacity:.85;display:block;margin-top:6px;font-size:13px;}
+  .final .big{font-size:21px;font-weight:700;letter-spacing:.02em;}
+  .final small{opacity:.85;display:block;margin-top:5px;font-size:12.6px;}
   .sig{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:26px;
-    margin-top:40px;
-    font-size:13px;
+    margin-top:36px;
+    font-size:12.8px;
   }
-  .sig div{border-top:1px solid #333;padding-top:8px;}
+  .sig div{border-top:1px solid #333;padding-top:7px;}
   footer.docfoot{
-    margin-top:44px;
+    margin-top:40px;
     border-top:1px solid var(--line);
-    padding-top:12px;
+    padding-top:11px;
     font-size:12px;
     color:var(--muted);
     display:flex;
     justify-content:space-between;
-    gap:20px;
+    gap:18px;
   }
   .tag{
     display:inline-block;
-    font-size:11.5px;
-    padding:2px 8px;
+    font-size:11.2px;
+    padding:2px 7px;
     border-radius:10px;
     background:#e3f2fd;
     color:#0b4f6c;
     font-weight:700;
-    letter-spacing:.03em;
   }
   .tag.b{background:#fff3e0;color:#a15100;}
   .tag.a{background:#e8f5e9;color:#2e7d32;}
   @media print{
-    body{background:#fff;font-size:11.5pt;}
-    .page{box-shadow:none;margin:0;padding:0 0 20mm;max-width:none;}
+    body{background:#fff;font-size:11.4pt;}
+    .page{box-shadow:none;margin:0;padding:0 0 18mm;max-width:none;}
     h2{page-break-after:avoid;}
-    table{font-size:9.6pt;}
-    .toc{columns:1;}
+    table{font-size:9.5pt;}
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-<!-- ===================== COVER / HEADER ===================== -->
+<!-- ===================== COVER ===================== -->
 <header class="cover">
   <div class="company">Duopharma (M) Sdn Bhd &nbsp;•&nbsp; Quality Control Microbiology</div>
-  <h1>Measurement Uncertainty Report<br>Bacterial Endotoxin Test (BET) — Kinetic Chromogenic Method</h1>
-  <p style="font-size:15px;color:var(--muted);margin-top:2px;">
-    Evaluation of Measurement Uncertainty in accordance with ISO/IEC 17025:2017,
-    ISO/IEC Guide 98-3 (GUM) and USP &lt;85&gt; / Ph. Eur. 2.6.14
+  <h1>Measurement Uncertainty Report<br>Bacterial Endotoxin Test — Kinetic Chromogenic Method</h1>
+  <p style="font-size:14.5px;color:var(--muted);margin-top:2px;">
+    Summary report in accordance with ISO/IEC 17025:2017 clause 7.6 and ISO/IEC Guide 98-3 (GUM).
+    Detailed derivations are provided in Appendices 2–5 and are cited throughout.
   </p>
 </header>
 
 <dl class="meta">
   <dt>Report Number</dt><dd>DK/QCM/R/025-01 (Version 01)</dd>
-  <dt>Title</dt><dd>Measurement Uncertainty for Bacterial Endotoxin Test (Kinetic Chromogenic Method)</dd>
-  <dt>Supporting Appendices</dt><dd>Appendix 2 — Instrument Related Uncertainty<br>
-      Appendix 3 — Analyst Related Uncertainty<br>
-      Appendix 4 — Micropipette Related Uncertainty<br>
-      Appendix 5 — Reagent Related Uncertainty</dd>
+  <dt>Supporting Appendices</dt>
+  <dd>
+    Appendix 2 — Instrument Related Uncertainty<br>
+    Appendix 3 — Analyst Related Uncertainty<br>
+    Appendix 4 — Micropipette Related Uncertainty<br>
+    Appendix 5 — Reagent Related Uncertainty
+  </dd>
   <dt>Test Method</dt><dd>Kinetic Chromogenic (Kinetic-QCL) Bacterial Endotoxins Test</dd>
-  <dt>Instrument</dt><dd>ELx808 Microplate Reader (QC/M/001 14 (B)), serviced 09 Sep 2026</dd>
-  <dt>Measurand</dt><dd>Endotoxin concentration, <em>C</em> (EU/mL), predicted from onset time <em>t</em> via log–log linear regression</dd>
-  <dt>Coverage Factor</dt><dd><em>k</em> = 2 (approximately 95 % confidence, normal distribution)</dd>
-  <dt>Prepared By</dt><dd>QC Microbiology — Measurement Uncertainty Team</dd>
+  <dt>Instrument</dt><dd>ELx808 Microplate Reader, QC/M/001 14 (B), serviced 09 Sep 2026</dd>
+  <dt>Measurand</dt><dd>Endotoxin concentration, <em>C</em> (EU/mL), predicted from onset time <em>t</em> by log–log linear regression</dd>
+  <dt>Coverage Factor</dt><dd><em>k</em> = 2 (approximately 95 % confidence)</dd>
   <dt>Status</dt><dd><span class="tag">APPROVED FOR USE</span></dd>
 </dl>
 
-<div class="toc">
-  <a href="#s1">1. Purpose and Scope</a><br>
-  <a href="#s2">2. References</a><br>
-  <a href="#s3">3. Measurand and Measurement Model</a><br>
-  <a href="#s4">4. Identification of Uncertainty Sources</a><br>
-  <a href="#s5">5. Component Evaluation — Instrument (Appendix 2)</a><br>
-  <a href="#s6">6. Component Evaluation — Analyst (Appendix 3)</a><br>
-  <a href="#s7">7. Component Evaluation — Reagent (Appendix 5)</a><br>
-  <a href="#s8">8. Component Evaluation — Micropipette (Appendix 4)</a><br>
-  <a href="#s9">9. Combined Standard Uncertainty</a><br>
-  <a href="#s10">10. Expanded Uncertainty and Final Summary</a><br>
-  <a href="#s11">11. Contribution Analysis</a><br>
-  <a href="#s12">12. Reporting the Result</a><br>
-  <a href="#s13">13. Observations, Assumptions and Limitations</a><br>
-  <a href="#s14">14. Conclusion</a><br>
-  <a href="#s15">15. Approval</a>
-</div>
-
 <!-- ===================== 1 ===================== -->
-<h2 id="s1">1. Purpose and Scope</h2>
+<h2>1. Purpose and Scope</h2>
 <p>
-  This report establishes, quantifies and combines the contributions to the measurement uncertainty of
-  endotoxin results obtained by the Kinetic Chromogenic Bacterial Endotoxins Test performed at
-  Duopharma (M) Sdn Bhd. It documents a complete uncertainty budget consistent with the requirements of
-  ISO/IEC 17025:2017 clause 7.6 (Evaluation of measurement uncertainty) and clause 7.8.7 (Reporting of
-  uncertainty), and forms the technical basis for the uncertainty statement attached to endotoxin test
-  reports.
+  This report establishes the measurement uncertainty budget for endotoxin results obtained by the
+  Kinetic Chromogenic Bacterial Endotoxins Test. It summarises the four evaluated components —
+  instrument, analyst, reagent and micropipette — and states the combined and expanded uncertainty for
+  reporting purposes. All raw data, intermediate calculations and component summaries are retained in
+  Appendices 2–5; this report refers to those appendices and does not reproduce their full derivation.
 </p>
-<p>The evaluation covers:</p>
-<ul>
-  <li><strong>Instrument</strong> contribution of the ELx808 Microplate Reader (repeatability, photometric linearity, intercept bias).</li>
-  <li><strong>Analyst</strong> contribution (intermediate precision, repeatability, calibration-curve fit, bias from PPC recovery).</li>
-  <li><strong>Reagent</strong> contribution (uncertainty of interpolation from the lysate verification regression model).</li>
-  <li><strong>Micropipette</strong> contribution (dilution factor, final-well volume ratio, PPC spike, standard-curve preparation).</li>
-</ul>
 <p>
-  The budget is expressed as a <em>relative</em> standard uncertainty, <em>u</em><sub>rel</sub>, so that it is
-  transferable across the working range of endotoxin concentrations and directly applicable to any reported
-  result, <em>C</em>.
+  The budget applies to the BET procedure for haemodialysis concentrated solution and equivalent matrices
+  validated under the same method, within the validated working range.
 </p>
 
 <!-- ===================== 2 ===================== -->
-<h2 id="s2">2. References</h2>
+<h2>2. References</h2>
 <ol>
   <li>ISO/IEC 17025:2017 — General requirements for the competence of testing and calibration laboratories.</li>
-  <li>ISO/IEC Guide 98-3:2008 — Uncertainty of measurement — Part 3: Guide to the expression of uncertainty in measurement (GUM).</li>
+  <li>ISO/IEC Guide 98-3:2008 — Guide to the expression of uncertainty in measurement (GUM).</li>
   <li>ISO/IEC Guide 99:2007 — International Vocabulary of Metrology (VIM).</li>
-  <li>USP &lt;85&gt; — Bacterial Endotoxins Test.</li>
-  <li>Ph. Eur. 2.6.14 — Bacterial Endotoxins.</li>
-  <li>Appendix 2 — Instrument Related Uncertainty, Report DK/QCM/R/025-01.</li>
-  <li>Appendix 3 — Analyst Related Uncertainty, Report DK/QCM/R/025-01.</li>
-  <li>Appendix 4 — Micropipette Related Uncertainty, Report DK/QCM/R/025-01.</li>
-  <li>Appendix 5 — Reagent Related Uncertainty, Report DK/QCM/R/025-01.</li>
-  <li>Initial Qualification Test (Lysate Verification) Report — kinetic chromogenic curve parameters.</li>
-  <li>Schedule Preventive Maintenance Service ELx808 Microplate Reader, QC/M/001 14 (B), 09 Sep 2026.</li>
-  <li>Intralab 2026 — Analyst comparison data.</li>
+  <li>USP &lt;85&gt; — Bacterial Endotoxins Test; Ph. Eur. 2.6.14 — Bacterial Endotoxins.</li>
+  <li>Appendix 2 — Instrument Related Uncertainty, DK/QCM/R/025-01.</li>
+  <li>Appendix 3 — Analyst Related Uncertainty, DK/QCM/R/025-01.</li>
+  <li>Appendix 4 — Micropipette Related Uncertainty, DK/QCM/R/025-01.</li>
+  <li>Appendix 5 — Reagent Related Uncertainty, DK/QCM/R/025-01.</li>
 </ol>
 
 <!-- ===================== 3 ===================== -->
-<h2 id="s3">3. Measurand and Measurement Model</h2>
-
-<h3>3.1 Measurand</h3>
+<h2>3. Measurement Model</h2>
 <p>
-  The measurand is the endotoxin concentration <em>C</em> (EU/mL) in the sample well, predicted from the
-  measured onset time <em>t</em> (s) using the log–log linear regression model established during the
-  Initial Qualification Test (Lysate Verification).
+  The measurand is the endotoxin concentration <em>C</em> (EU/mL) predicted from the measured onset time
+  <em>t</em> (s) using the log–log linear regression established during the Initial Qualification Test
+  (Lysate Verification):
 </p>
-
-<h3>3.2 Measurement model</h3>
 <div class="eq">
   log<sub>10</sub> <em>t</em> = <em>a</em> + <em>b</em> · log<sub>10</sub> <em>C</em>
 </div>
-<p>with the regression parameters summarised in Table 1.</p>
-
-<table>
-  <caption>Table 1: Summary of the Initial Qualification Test (Lysate Verification) report</caption>
-  <thead>
-    <tr><th>Parameter</th><th>Symbol</th><th class="num">Value</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Slope</td><td><em>b</em></td><td class="num">−0.226</td></tr>
-    <tr><td>Y-intercept</td><td><em>a</em></td><td class="num">3.075</td></tr>
-    <tr><td>Correlation coefficient</td><td><em>r</em></td><td class="num">−0.999</td></tr>
-    <tr><td>Number of standard concentrations</td><td>—</td><td class="num">5</td></tr>
-    <tr><td>Number of replicates</td><td>—</td><td class="num">4</td></tr>
-    <tr><td>Total number of readings (standard × replicates)</td><td><em>N</em></td><td class="num">20</td></tr>
-  </tbody>
-</table>
-
-<h3>3.3 BET procedure modelled</h3>
-<p>The uncertainty budget models the complete analytical sequence for haemodialysis concentrated solution:</p>
-<ol>
-  <li><strong>Sample dilution:</strong> 183 µL sample into 3.500 mL LAL water (DF = 20.13).</li>
-  <li><strong>Final well:</strong> 100 µL sample + 100 µL LAL reagent (volume ratio <em>R</em>).</li>
-  <li><strong>PPC spike:</strong> 10 µL of 5 EU/mL standard into 100 µL sample.</li>
-  <li><strong>Standard curve:</strong> serial dilutions and final 0.2 mL + 0.8 mL dilution.</li>
-</ol>
+<p>
+  The regression parameters (<em>b</em> = −0.226, <em>a</em> = 3.075, <em>r</em> = −0.999,
+  <em>N</em> = 20) and the derivation of the interpolation uncertainty are documented in Appendix 5.
+  The BET procedure modelled comprises sample dilution (183 µL into 3.500 mL), the final well
+  (100 µL sample + 100 µL reagent), the PPC spike (10 µL) and the standard-curve serial dilutions;
+  the corresponding volumetric calculations are in Appendix 4.
+</p>
 
 <!-- ===================== 4 ===================== -->
-<h2 id="s4">4. Identification of Uncertainty Sources</h2>
+<h2>4. Uncertainty Components</h2>
 <p>
-  A cause-and-effect analysis was performed on the measurement model. The identified sources were grouped
-  into four quantified components; sources judged negligible were excluded and are listed in Section 13.
+  Four independent components were quantified. Each component is a relative standard uncertainty,
+  <em>u</em><sub>rel</sub>, evaluated in the cited appendix.
 </p>
 
 <table>
-  <caption>Table 2: Quantified uncertainty components and their sub-components</caption>
+  <caption>Table 1: Summary of uncertainty components and their source appendices</caption>
   <thead>
-    <tr><th style="width:20%">Component</th><th style="width:46%">Sub-components</th><th class="c" style="width:10%">Type</th><th>Source Document</th></tr>
+    <tr>
+      <th style="width:17%">Component</th>
+      <th style="width:43%">Sub-components (summary)</th>
+      <th class="c" style="width:9%">Type</th>
+      <th class="num" style="width:12%"><em>u</em><sub>rel</sub></th>
+      <th style="width:19%">Reference</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Instrument</strong></td>
-      <td>Repeatability (plate CV); photometric linearity (slope uncertainty); intercept bias</td>
-      <td class="c"><span class="tag a">A</span> / <span class="tag b">B</span></td>
-      <td>Appendix 2</td>
+      <td>Repeatability (plate CV 2.7 %); photometric linearity; intercept bias</td>
+      <td class="c"><span class="tag a">A</span> <span class="tag b">B</span></td>
+      <td class="num">0.0497</td>
+      <td>Appendix 2, §2 and Table 2</td>
     </tr>
     <tr>
       <td><strong>Analyst</strong></td>
-      <td>Intermediate precision (slope variation); repeatability (CV at 0.5 EU/mL); calibration-curve fit; bias (PPC recovery)</td>
+      <td>Intermediate precision; repeatability; calibration-curve fit; bias (PPC recovery)</td>
       <td class="c"><span class="tag a">A</span></td>
-      <td>Appendix 3</td>
+      <td class="num">0.0872</td>
+      <td>Appendix 3, §2 and Table 2</td>
     </tr>
     <tr>
       <td><strong>Reagent</strong></td>
-      <td>Standard uncertainty of interpolation, <em>u</em><sub>cal</sub>, from the log–log regression</td>
+      <td>Standard uncertainty of interpolation from the log–log regression</td>
       <td class="c"><span class="tag a">A</span></td>
-      <td>Appendix 5</td>
+      <td class="num">0.0999</td>
+      <td>Appendix 5, §2 and Table 4</td>
     </tr>
     <tr>
       <td><strong>Micropipette</strong></td>
-      <td>Dilution factor; final-well volume ratio; PPC spike concentration; standard-curve preparation</td>
+      <td>Dilution factor; final-well volume ratio; PPC spike; standard-curve preparation</td>
       <td class="c"><span class="tag b">B</span></td>
-      <td>Appendix 4</td>
+      <td class="num">0.00195<sup>a</sup></td>
+      <td>Appendix 4, §4–5 and Table 18</td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5" style="font-weight:400;font-size:12.5px;">
+        <sup>a</sup> Sample result. For the PPC result the micropipette component is 0.00213
+        (Appendix 4, Table 18). The difference is negligible in the combined budget.
+      </td>
+    </tr>
+  </tfoot>
 </table>
+
+<p>
+  Components judged negligible (standard endotoxin potency, diluent quality, incubation control, plate
+  position effects and transcription) are addressed in Appendix 4 and Appendix 5 and are not carried into
+  the budget.
+</p>
 
 <!-- ===================== 5 ===================== -->
-<h2 id="s5">5. Component Evaluation — Instrument (Appendix 2)</h2>
-
+<h2>5. Combined Standard Uncertainty</h2>
 <p>
-  The instrument contribution is the root-sum-square of the relative uncertainties of the available
-  components:
-</p>
-<div class="eq">
-  <em>u</em><sub>c</sub>(OD)/OD =
-  √[ (<em>u</em><sub>rep</sub>/OD)² + (<em>u</em><sub>lin</sub>/OD)² + (<em>u</em><sub>bias</sub>/OD)² ]
-</div>
-
-<h3>5.1 Repeatability, <em>u</em><sub>rep</sub></h3>
-<p>
-  Taken from the overall plate coefficient of variation reported in the Absorbance Uniformity test of the
-  Schedule Preventive Maintenance Service for the ELx808 Microplate Reader (QC/M/001 14 (B)), performed
-  09 Sep 2026.
-</p>
-<div class="eq"><em>u</em><sub>rep</sub>/OD = CV = 2.7 % = <strong>0.027</strong></div>
-
-<h3>5.2 Photometric linearity, <em>u</em><sub>lin</sub></h3>
-<p>
-  Taken from the Validation of Optical Density Measurement of the same service. The reported regression is
-  <em>y</em> = 1.677<em>x</em> − 0.005. The standard error of the regression was derived from the residuals
-  in Table 3.
-</p>
-
-<table>
-  <caption>Table 3: Linearity regression residuals (OD validation data)</caption>
-  <thead>
-    <tr>
-      <th class="c">Level <em>x</em></th>
-      <th class="num">Measured OD, <em>y</em></th>
-      <th class="num">Predicted OD, ŷ</th>
-      <th class="num">Residual (<em>y</em> − ŷ)</th>
-      <th class="num">Residual²</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td class="c">0</td><td class="num">0.024</td><td class="num">−0.0050</td><td class="num">0.0290</td><td class="num">0.00084</td></tr>
-    <tr><td class="c">0.0625</td><td class="num">0.100</td><td class="num">0.04981</td><td class="num">0.05019</td><td class="num">0.00252</td></tr>
-    <tr><td class="c">0.125</td><td class="num">0.199</td><td class="num">0.15463</td><td class="num">0.04438</td><td class="num">0.00197</td></tr>
-    <tr><td class="c">0.25</td><td class="num">0.417</td><td class="num">0.36425</td><td class="num">0.05275</td><td class="num">0.00278</td></tr>
-    <tr><td class="c">0.5</td><td class="num">0.842</td><td class="num">0.78350</td><td class="num">0.05850</td><td class="num">0.00342</td></tr>
-    <tr><td class="c">1.0</td><td class="num">1.669</td><td class="num">1.62200</td><td class="num">0.04700</td><td class="num">0.00221</td></tr>
-  </tbody>
-  <tfoot>
-    <tr><td colspan="4">Sum of squared residuals, SS<sub>res</sub></td><td class="num">0.01374</td></tr>
-  </tfoot>
-</table>
-
-<div class="eq">
-  <em>S</em><sub>y,x</sub> = √[ SS<sub>res</sub> / (<em>n</em> − 2) ] = √(0.01374 / 4) = √0.00344 = <strong>0.05862</strong>
-</div>
-<div class="eq">
-  <em>x̄</em> = 1.9375 / 6 = 0.3229 &nbsp;&nbsp;|&nbsp;&nbsp;
-  <em>S</em><sub>xx</sub> = Σ(<em>x<sub>i</sub></em> − <em>x̄</em>)² = 0.7064
-</div>
-<div class="eq">
-  <em>u</em><sub>slope</sub> = <em>S</em><sub>y,x</sub> / √<em>S</em><sub>xx</sub> = 0.0586 / √0.7064 = <strong>0.06974</strong>
-</div>
-<div class="eq">
-  <em>u</em><sub>lin</sub>/OD = <em>u</em><sub>slope</sub> / Slope = 0.06974 / 1.677 = <strong>0.04159</strong>
-</div>
-
-<h3>5.3 Intercept bias, <em>u</em><sub>bias</sub></h3>
-<p>
-  The y-intercept (−0.005) is treated as a systematic bias with a rectangular distribution:
-</p>
-<div class="eq">
-  <em>u</em><sub>bias</sub> = |−0.005| / √3 = 0.00289 OD units
-</div>
-<div class="eq">
-  <em>u</em><sub>bias</sub>/OD = 0.00289 / 0.842 = <strong>0.0034</strong>
-</div>
-<p style="font-size:13px;color:var(--muted);">
-  (Relative to the mean OD of 0.842 at the 0.5 EU/mL working concentration.)
-</p>
-
-<h3>5.4 Combined instrument uncertainty</h3>
-<div class="eq">
-  <em>u</em><sub>c</sub>(OD)/OD = √[(0.027)² + (0.04159)² + (0.0034)²] = <strong>0.0497</strong>
-</div>
-<div class="eq">
-  <em>U</em> = 0.0497 × 2 = <strong>0.0994</strong> &nbsp;(<em>k</em> = 2)
-</div>
-
-<table>
-  <caption>Table 4: Summary of uncertainty for ELx808 Microplate Reader (QC/M/001 14 (B))</caption>
-  <thead>
-    <tr><th>Uncertainty component</th><th>Symbol</th><th class="num">Relative uncertainty</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Repeatability</td><td><em>u</em><sub>rep</sub></td><td class="num">0.0270</td></tr>
-    <tr><td>Linearity</td><td><em>u</em><sub>lin</sub></td><td class="num">0.04159</td></tr>
-    <tr><td>Intercept bias</td><td><em>u</em><sub>bias</sub></td><td class="num">0.0034</td></tr>
-  </tbody>
-  <tfoot>
-    <tr><td colspan="2">Combined standard uncertainty, <em>u</em><sub>c</sub></td><td class="num">0.0497</td></tr>
-    <tr><td colspan="2">Expanded uncertainty (<em>k</em> = 2)</td><td class="num">0.0994</td></tr>
-  </tfoot>
-</table>
-
-<!-- ===================== 6 ===================== -->
-<h2 id="s6">6. Component Evaluation — Analyst (Appendix 3)</h2>
-
-<p>
-  Analyst-related uncertainty was derived from Intralab 2026 data for four analysts. The raw comparison
-  data are summarised in Table 5.
-</p>
-
-<table>
-  <caption>Table 5: Summary of Intralab Report (analyst comparison)</caption>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th class="num">Firdaus</th>
-      <th class="num">Hasan</th>
-      <th class="num">Khairul</th>
-      <th class="num">Shazwina</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Standard curve <em>r</em></td><td class="num">−0.999</td><td class="num">−0.996</td><td class="num">−0.996</td><td class="num">−0.996</td></tr>
-    <tr><td>Slope</td><td class="num">−0.236</td><td class="num">−0.213</td><td class="num">−0.229</td><td class="num">−0.241</td></tr>
-    <tr><td>Y-intercept</td><td class="num">3.05</td><td class="num">3.06</td><td class="num">3.046</td><td class="num">3.038</td></tr>
-    <tr><td>CV at 0.5 EU/mL</td><td class="num">2.56 %</td><td class="num">1.51 %</td><td class="num">0.70 %</td><td class="num">1.07 %</td></tr>
-    <tr><td>PPC Recovery (Lot 260258T)</td><td class="num">130 %</td><td class="num">110 %</td><td class="num">85 %</td><td class="num">90 %</td></tr>
-    <tr><td>PPC Recovery (Lot 260253T)</td><td class="num">106 %</td><td class="num">123 %</td><td class="num">102 %</td><td class="num">93 %</td></tr>
-    <tr><td>PPC Recovery (Lot 260267T)</td><td class="num">117 %</td><td class="num">91 %</td><td class="num">84 %</td><td class="num">100 %</td></tr>
-  </tbody>
-</table>
-
-<h3>6.1 Intermediate precision, <em>u</em><sub>f,i</sub></h3>
-<p>Calculated from the standard-curve slopes of each analyst.</p>
-<div class="eq">
-  <em>x̄</em> = (−0.236 − 0.213 − 0.229 − 0.241) / 4 = −0.22975
-</div>
-<div class="eq">
-  <em>S</em><sub>xx</sub> = Σ(<em>x<sub>i</sub></em> − <em>x̄</em>)² = 0.00044674
-</div>
-<div class="eq">
-  <em>s</em> = √[ <em>S</em><sub>xx</sub> / (<em>n</em> − 1) ] = √(0.00044674 / 3) = 0.012203
-</div>
-<div class="eq">
-  <em>u</em><sub>f,i</sub> = <em>s</em> / |<em>x̄</em>| = 0.012203 / 0.22975 = <strong>0.0531</strong>
-</div>
-
-<h3>6.2 Repeatability, <em>u</em><sub>rep</sub></h3>
-<p>Calculated from the standard-curve CV at 0.5 EU/mL for each analyst.</p>
-<div class="eq">
-  <em>u</em><sub>rep</sub> = (2.56 + 0.70 + 1.07 + 1.51) / 4 = 1.46 % = <strong>0.0146</strong>
-</div>
-
-<h3>6.3 Calibration curve fit, <em>u</em><sub>cal</sub></h3>
-<p>Based on the worst-case correlation coefficient (<em>r</em> = −0.996, <em>n</em> = 5 points).</p>
-<div class="eq">
-  <em>u</em><sub>cal</sub> = √[ (1 − <em>r</em>²) / (<em>n</em> − 2) ] = √[ (1 − 0.992016) / 3 ] = <strong>0.05159</strong>
-</div>
-
-<h3>6.4 Bias from PPC recovery, <em>u</em><sub>bias</sub></h3>
-<p>Calculated from the twelve PPC recovery results across all analysts and sample lots.</p>
-<div class="eq">
-  <em>x̄</em> = (130 + 106 + 117 + 110 + 123 + 91 + 85 + 102 + 84 + 90 + 93 + 100) / 12 = 102.583 %
-</div>
-<div class="eq">
-  <em>S</em><sub>xx</sub> = Σ(<em>x<sub>i</sub></em> − <em>x̄</em>)² = 2488.97
-</div>
-<div class="eq">
-  <em>s</em> = √[ <em>S</em><sub>xx</sub> / (<em>n</em> − 1) ] = √(2488.97 / 11) = 15.04
-</div>
-<div class="eq">
-  <em>u</em><sub>bias</sub> = <em>s</em> / √<em>n</em> = 15.04 / √12 = 4.34 % → <strong>0.0434</strong> (relative)
-</div>
-
-<h3>6.5 Combined and expanded analyst uncertainty</h3>
-<div class="eq">
-  <em>u</em><sub>c,analyst</sub> = √[(0.0531)² + (0.0146)² + (0.0516)² + (0.0434)²] = <strong>0.0872</strong>
-</div>
-<div class="eq">
-  <em>U</em><sub>analyst</sub> = 0.0872 × 2 = <strong>0.1744</strong>
-</div>
-
-<table>
-  <caption>Table 6: Summary of uncertainty for analyst-related components</caption>
-  <thead>
-    <tr><th>Uncertainty component</th><th>Symbol</th><th class="num">Relative uncertainty</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Intermediate precision</td><td><em>u</em><sub>f,i</sub></td><td class="num">0.0531</td></tr>
-    <tr><td>Repeatability</td><td><em>u</em><sub>rep</sub></td><td class="num">0.0146</td></tr>
-    <tr><td>Calibration curve fit</td><td><em>u</em><sub>cal</sub></td><td class="num">0.0516</td></tr>
-    <tr><td>Bias</td><td><em>u</em><sub>bias</sub></td><td class="num">0.0434</td></tr>
-  </tbody>
-  <tfoot>
-    <tr><td colspan="2">Combined standard uncertainty, <em>u</em><sub>c</sub></td><td class="num">0.0872</td></tr>
-    <tr><td colspan="2">Expanded uncertainty (<em>k</em> = 2)</td><td class="num">0.1744</td></tr>
-  </tfoot>
-</table>
-
-<!-- ===================== 7 ===================== -->
-<h2 id="s7">7. Component Evaluation — Reagent (Appendix 5)</h2>
-
-<p>
-  The reagent contribution is derived exclusively from the Initial Qualification Test (Lysate Verification)
-  report and represents the standard uncertainty of interpolating a concentration from the log–log
-  regression line.
-</p>
-
-<h3>7.1 Log transformation of raw data</h3>
-<table>
-  <caption>Table 7: Log-transformed calibration data (<em>N</em> = 20)</caption>
-  <thead>
-    <tr>
-      <th class="num"><em>C</em> (EU/mL)</th>
-      <th class="num"><em>x</em> = log<sub>10</sub> <em>C</em></th>
-      <th>Reaction times <em>t</em> (s)</th>
-      <th class="num">Mean <em>y</em> = log<sub>10</sub> <em>t</em></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td class="num">0.0100</td><td class="num">−2.0000</td><td>3325, 3450, 3466, 3378</td><td class="num">3.5320</td></tr>
-    <tr><td class="num">0.0500</td><td class="num">−1.3010</td><td>2409, 2346, 2340, 2420</td><td class="num">3.3763</td></tr>
-    <tr><td class="num">0.500</td><td class="num">−0.3010</td><td>1358, 1312, 1356, 1353</td><td class="num">3.1286</td></tr>
-    <tr><td class="num">5.000</td><td class="num">0.6990</td><td>827, 797, 805, 797</td><td class="num">2.9066</td></tr>
-    <tr><td class="num">50.0</td><td class="num">1.6990</td><td>492, 517, 501, 510</td><td class="num">2.7032</td></tr>
-  </tbody>
-</table>
-
-<h3>7.2 Regression statistics</h3>
-<div class="eq">
-  <em>x̄</em> = [4(−2) + 4(−1.301) + 4(−0.301) + 4(0.699) + 4(1.699)] / 20 = −0.2408
-</div>
-<div class="eq">
-  <em>S</em><sub>xx</sub> = Σ(<em>x<sub>i</sub></em> − <em>x̄</em>)² = 35.47
-</div>
-
-<h3>7.3 Sum of squared errors (SSE)</h3>
-<p>
-  Predicted values were obtained from ŷ = 3.075 − 0.226<em>x</em>; residuals and squared residuals are
-  summarised in Table 8.
-</p>
-
-<table>
-  <caption>Table 8: Squared residuals from the log–log regression</caption>
-  <thead>
-    <tr>
-      <th class="c">Level <em>x</em></th>
-      <th class="num">Predicted ŷ</th>
-      <th class="num">Observed <em>y<sub>i</sub></em></th>
-      <th class="num">Residual</th>
-      <th class="num">Squared residual</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td class="c" rowspan="4">−2.000</td><td class="num" rowspan="4">3.5273</td><td class="num">3.5218</td><td class="num">−0.0055</td><td class="num">0.000027</td></tr>
-    <tr><td class="num">3.5378</td><td class="num">0.0105</td><td class="num">0.000117</td></tr>
-    <tr><td class="num">3.5398</td><td class="num">0.0125</td><td class="num">0.000164</td></tr>
-    <tr><td class="num">3.5287</td><td class="num">0.0014</td><td class="num">0.000003</td></tr>
-
-    <tr><td class="c" rowspan="4">−1.301</td><td class="num" rowspan="4">3.3690</td><td class="num">3.3818</td><td class="num">0.0128</td><td class="num">0.000164</td></tr>
-    <tr><td class="num">3.3703</td><td class="num">0.0013</td><td class="num">0.000002</td></tr>
-    <tr><td class="num">3.3692</td><td class="num">0.0002</td><td class="num">0.000000</td></tr>
-    <tr><td class="num">3.3838</td><td class="num">0.0148</td><td class="num">0.000219</td></tr>
-
-    <tr><td class="c" rowspan="4">−0.301</td><td class="num" rowspan="4">3.1430</td><td class="num">3.1329</td><td class="num">−0.0101</td><td class="num">0.000102</td></tr>
-    <tr><td class="num">3.1179</td><td class="num">−0.0251</td><td class="num">0.000630</td></tr>
-    <tr><td class="num">3.1323</td><td class="num">−0.0107</td><td class="num">0.000114</td></tr>
-    <tr><td class="num">3.1313</td><td class="num">−0.0117</td><td class="num">0.000137</td></tr>
-
-    <tr><td class="c" rowspan="4">0.699</td><td class="num" rowspan="4">2.9170</td><td class="num">2.9175</td><td class="num">0.0005</td><td class="num">0.000001</td></tr>
-    <tr><td class="num">2.9015</td><td class="num">−0.0155</td><td class="num">0.000240</td></tr>
-    <tr><td class="num">2.9058</td><td class="num">−0.0112</td><td class="num">0.000125</td></tr>
-    <tr><td class="num">2.9015</td><td class="num">−0.0155</td><td class="num">0.000240</td></tr>
-
-    <tr><td class="c" rowspan="4">1.699</td><td class="num" rowspan="4">2.6910</td><td class="num">2.6920</td><td class="num">0.0010</td><td class="num">0.000001</td></tr>
-    <tr><td class="num">2.7135</td><td class="num">0.0225</td><td class="num">0.000506</td></tr>
-    <tr><td class="num">2.6998</td><td class="num">0.0088</td><td class="num">0.000077</td></tr>
-    <tr><td class="num">2.7076</td><td class="num">0.0166</td><td class="num">0.000276</td></tr>
-  </tbody>
-  <tfoot>
-    <tr><td colspan="4">Sum of Squared Errors (SSE)</td><td class="num">0.003146</td></tr>
-  </tfoot>
-</table>
-
-<h3>7.4 Residual standard deviation</h3>
-<div class="eq">
-  <em>s</em><sub>y/x</sub> = √[ SSE / (<em>N</em> − 2) ] = √(0.003146 / 18) = <strong>0.01322</strong>
-</div>
-
-<h3>7.5 Standard uncertainty of interpolation, <em>u</em><sub>cal</sub></h3>
-<p>
-  Evaluated for a sample tested in duplicate (<em>m</em> = 2) near the mid-curve
-  (<em>C</em><sub>0</sub> = 0.500 EU/mL), where <em>x</em><sub>0</sub> = log<sub>10</sub>(0.500) = −0.30103.
-</p>
-<div class="eq">
-  <em>u</em><sub>cal</sub>(log<sub>10</sub> <em>C</em><sub>0</sub>) =
-  (<em>s</em><sub>y/x</sub> / |<em>b</em>|) ·
-  √[ 1/<em>m</em> + 1/<em>N</em> + (<em>x</em><sub>0</sub> − <em>x̄</em>)² / <em>S</em><sub>xx</sub> ]
-</div>
-<div class="eq">
-  <em>u</em><sub>cal</sub> = (0.01322 / 0.226) ·
-  √[ 1/2 + 1/20 + (−0.30103 + 0.2408)² / 35.47 ]
-  = 0.0585 × √0.5501 = <strong>0.04338</strong> (log units)
-</div>
-
-<h3>7.6 Conversion to relative uncertainty</h3>
-<p>
-  To express the uncertainty in terms of concentration rather than log-concentration, the conversion
-  factor ln(10) = 2.3026 is applied:
-</p>
-<div class="eq">
-  <em>u</em><sub>cal,rel</sub> = 0.04338 × 2.3026 = <strong>0.0999</strong>
-</div>
-
-<table>
-  <caption>Table 9: Summary of uncertainty related to reagent</caption>
-  <thead>
-    <tr><th>Component</th><th class="num">Value</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Relative standard uncertainty of interpolation, <em>u</em><sub>cal,rel</sub></td><td class="num">0.0999</td></tr>
-    <tr><td>Expanded uncertainty (<em>k</em> = 2)</td><td class="num">0.1998</td></tr>
-  </tbody>
-</table>
-
-<!-- ===================== 8 ===================== -->
-<h2 id="s8">8. Component Evaluation — Micropipette (Appendix 4)</h2>
-
-<h3>8.1 Micropipettes and calibration sources</h3>
-<table>
-  <caption>Table 10: Summary of micropipettes used</caption>
-  <thead>
-    <tr>
-      <th>Ref. / ID</th><th>Type</th><th>Make / Model</th><th>Serial No.</th>
-      <th class="num">Max. volume</th><th>Typical use in BET procedure</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>MM7</td><td>Single-channel</td><td>BRAND Transferpette S</td><td>10L9631720</td><td class="num">20 µL</td><td>10 µL PPC spike</td></tr>
-    <tr><td>MM1</td><td>Single-channel</td><td>TreffLab Transferpette S</td><td>02H81891</td><td class="num">200 µL</td><td>183 µL sample dilution; 100 µL sample / standard wells</td></tr>
-    <tr><td>MPM1</td><td>8-channel multichannel</td><td>BRAND Transferpette S-8</td><td>12M11001</td><td class="num">200 µL</td><td>100 µL Kinetic-QCL reagent addition</td></tr>
-    <tr><td>MM2</td><td>Single-channel</td><td>TreffLab Transferpette S</td><td>11G45879</td><td class="num">1000 µL</td><td>1 mL / 500 µL diluent and standard transfers</td></tr>
-    <tr><td>MM12</td><td>Single-channel</td><td>Eppendorf Research plus</td><td>J16132L</td><td class="num">1000 µL</td><td>1 mL / 500 µL diluent and standard transfers</td></tr>
-    <tr><td>MM29</td><td>Single-channel</td><td>Eppendorf Research plus</td><td>1117300</td><td class="num">1000 µL</td><td>1 mL / 500 µL diluent and standard transfers</td></tr>
-  </tbody>
-</table>
-<p>
-  For the 1 mL pipettes (MM2, MM12, MM29) the worst-case certificate values among the three pipettes are
-  applied to remain conservative.
-</p>
-
-<h3>8.2 Micropipette calibration values</h3>
-
-<table>
-  <caption>Table 11: MM7 — 20 µL pipette (Certificate MSRP2602242)</caption>
-  <thead>
-    <tr><th class="num">Nominal volume</th><th class="num">Certificate <em>U</em> (<em>k</em> = 2)</th>
-        <th class="num"><em>u</em> = <em>U</em>/2</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td class="num">2 µL</td><td class="num">±0.023 µL</td><td class="num">0.0115 µL</td><td class="num">0.00575</td></tr>
-    <tr><td class="num">10 µL</td><td class="num">±0.017 µL</td><td class="num">0.0085 µL</td><td class="num">0.00085</td></tr>
-    <tr><td class="num">20 µL</td><td class="num">±0.021 µL</td><td class="num">0.0105 µL</td><td class="num">0.000525</td></tr>
-  </tbody>
-</table>
-
-<table>
-  <caption>Table 12: MM1 — 200 µL pipette (Certificate MSRP26072892)</caption>
-  <thead>
-    <tr><th class="num">Nominal volume</th><th class="num">Certificate <em>U</em> (<em>k</em> = 2)</th>
-        <th class="num"><em>u</em> = <em>U</em>/2</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td class="num">20 µL</td><td class="num">±0.032 µL</td><td class="num">0.016 µL</td><td class="num">0.00080</td></tr>
-    <tr><td class="num">100 µL</td><td class="num">±0.065 µL</td><td class="num">0.0325 µL</td><td class="num">0.000325</td></tr>
-    <tr><td class="num">200 µL</td><td class="num">±0.079 µL</td><td class="num">0.0395 µL</td><td class="num">0.000198</td></tr>
-    <tr><td class="num">183 µL (use 200 µL point conservatively)</td><td class="num">±0.079 µL</td><td class="num">0.0395 µL</td><td class="num">0.000216</td></tr>
-  </tbody>
-</table>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(183 µL) = 0.0395 / 183 = <strong>0.000216</strong>
-</div>
-
-<table>
-  <caption>Table 13: MPM1 — 200 µL 8-channel pipette (Certificate MSRP26072893)</caption>
-  <thead>
-    <tr><th class="num">Nominal volume</th><th class="num">Certificate <em>U</em> (<em>k</em> = 2)</th>
-        <th class="num"><em>u</em> = <em>U</em>/2</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td class="num">20 µL</td><td class="num">±0.16 µL</td><td class="num">0.080 µL</td><td class="num">0.00400</td></tr>
-    <tr><td class="num">100 µL</td><td class="num">±0.16 µL</td><td class="num">0.080 µL</td><td class="num">0.00080</td></tr>
-    <tr><td class="num">200 µL</td><td class="num">±0.54 µL</td><td class="num">0.270 µL</td><td class="num">0.00135</td></tr>
-  </tbody>
-</table>
-<p>
-  The 100 µL value is applied for the 100 µL Kinetic-QCL reagent dispensed with the 8-channel pipette
-  (worst channel).
-</p>
-
-<table>
-  <caption>Table 14: 1 mL pipettes — MM2 / MM12 / MM29 (Certificates MSRP26072890, MSRP26023944, MSRP26072888; worst case applied)</caption>
-  <thead>
-    <tr><th class="num">Nominal volume</th><th class="num">Certificate <em>U</em> (<em>k</em> = 2)</th>
-        <th class="num"><em>u</em> = <em>U</em>/2</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td class="num">100 µL</td><td class="num">±0.19 µL</td><td class="num">0.095 µL</td><td class="num">0.00095</td></tr>
-    <tr><td class="num">200 µL (use 100 µL point conservatively)</td><td class="num">±0.19 µL</td><td class="num">0.095 µL</td><td class="num">0.000475</td></tr>
-    <tr><td class="num">500 µL</td><td class="num">±0.41 µL</td><td class="num">0.205 µL</td><td class="num">0.000411</td></tr>
-    <tr><td class="num">1000 µL</td><td class="num">±0.61 µL</td><td class="num">0.305 µL</td><td class="num">0.000305</td></tr>
-    <tr><td class="num">800 µL (use 1000 µL point conservatively)</td><td class="num">±0.61 µL</td><td class="num">0.305 µL</td><td class="num">0.000381</td></tr>
-    <tr><td class="num">900 µL (use 1000 µL point conservatively)</td><td class="num">±0.61 µL</td><td class="num">0.305 µL</td><td class="num">0.000339</td></tr>
-  </tbody>
-</table>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(900 µL) = 0.305 / 900 = <strong>0.000339</strong>
-</div>
-
-<h3>8.3 Dilution step: 183 µL sample into 3.500 mL LAL water</h3>
-<h4>8.3.1 Dilution factor</h4>
-<div class="eq">
-  DF = (<em>V</em><sub>s</sub> + <em>V</em><sub>d</sub>) / <em>V</em><sub>s</sub>
-  = (0.183 + 3.500) / 0.183 = <strong>20.13</strong>
-</div>
-
-<h4>8.3.2 Sample volume, <em>V</em><sub>s</sub> = 183 µL (MM1, 200 µL pipette)</h4>
-<div class="eq">
-  <em>u</em>(<em>V</em><sub>s</sub>) = 0.0395 µL &nbsp;&nbsp;|&nbsp;&nbsp;
-  <em>u</em><sub>rel</sub>(<em>V</em><sub>s</sub>) = 0.0395 / 183 = 0.000216
-</div>
-
-<h4>8.3.3 Diluent volume, <em>V</em><sub>d</sub> = 3.500 mL = 3500 µL (3 × 1000 µL + 500 µL)</h4>
-<div class="eq">
-  <em>u</em>(<em>V</em><sub>d</sub>) = √[ 3(0.305)² + (0.205)² ] = 0.567 µL
-</div>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(<em>V</em><sub>d</sub>) = 0.567 / 3500 = 0.000162
-</div>
-
-<h4>8.3.4 Total volume, <em>V</em><sub>tot</sub> = 3683 µL</h4>
-<div class="eq">
-  <em>u</em>(<em>V</em><sub>tot</sub>) = √[ (0.567)² + (0.0395)² ] = 0.568 µL
-</div>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.568 / 3683 = 0.000154
-</div>
-
-<h4>8.3.5 Dilution factor uncertainty</h4>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(DF) = √[ (0.000154)² + (0.000216)² ] = <strong>0.000265</strong>
-</div>
-
-<h3>8.4 Final well: 100 µL sample + 100 µL LAL reagent</h3>
-<p>The final well volume ratio is <em>R</em> = <em>V</em><sub>s</sub> / (<em>V</em><sub>s</sub> + <em>V</em><sub>r</sub>).</p>
-
-<table>
-  <caption>Table 15: Final-well volume ratio uncertainty</caption>
-  <thead>
-    <tr><th>Quantity</th><th>Source</th><th class="num"><em>u</em> (µL)</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><em>V</em><sub>s</sub> = 100 µL sample</td><td>MM1 (100 µL point)</td><td class="num">0.0325</td><td class="num">0.000325</td></tr>
-    <tr><td><em>V</em><sub>r</sub> = 100 µL reagent</td><td>MPM1 8-channel (worst channel)</td><td class="num">0.080</td><td class="num">0.00080</td></tr>
-    <tr><td><em>V</em><sub>tot</sub> = 200 µL</td><td>Combined</td><td class="num">0.0864</td><td class="num">0.000432</td></tr>
-  </tbody>
-</table>
-
-<div class="eq">
-  <em>u</em>(<em>V</em><sub>tot</sub>) = √[ (0.0325)² + (0.080)² ] = 0.0864 µL
-  &nbsp;&nbsp;→&nbsp;&nbsp; <em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.0864 / 200 = 0.000432
-</div>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(<em>R</em>) = √[ (0.000325)² + (0.000432)² ] = <strong>0.00054</strong>
-</div>
-
-<h3>8.5 PPC spike: 10 µL of 5 EU/mL standard into 100 µL sample</h3>
-<div class="eq">
-  <em>C</em><sub>PPC</sub> = <em>C</em><sub>spike</sub> × <em>V</em><sub>sp</sub> / (<em>V</em><sub>s</sub> + <em>V</em><sub>sp</sub>)
-</div>
-
-<table>
-  <caption>Table 16: PPC spike volume uncertainty</caption>
-  <thead>
-    <tr><th>Quantity</th><th>Source</th><th class="num"><em>u</em> (µL)</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><em>V</em><sub>sp</sub> = 10 µL spike</td><td>MM7 (10 µL point)</td><td class="num">0.0085</td><td class="num">0.00085</td></tr>
-    <tr><td><em>V</em><sub>s</sub> = 100 µL sample</td><td>MM1 (100 µL point)</td><td class="num">0.0325</td><td class="num">0.000325</td></tr>
-    <tr><td><em>V</em><sub>tot</sub> = 110 µL</td><td>Combined</td><td class="num">0.0336</td><td class="num">0.000305</td></tr>
-  </tbody>
-</table>
-
-<div class="eq">
-  <em>u</em>(<em>V</em><sub>tot</sub>) = √[ (0.0085)² + (0.0325)² ] = 0.0336 µL
-  &nbsp;&nbsp;→&nbsp;&nbsp; <em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.0336 / 110 = 0.000305
-</div>
-<div class="eq">
-  <em>u</em><sub>rel</sub>(<em>C</em><sub>PPC</sub>) = √[ (0.00085)² + (0.000305)² ] = <strong>0.0009</strong>
-</div>
-
-<h3>8.6 Standard endotoxin serial dilutions</h3>
-<table>
-  <caption>Table 17: Standard-curve pipetting uncertainty</caption>
-  <thead>
-    <tr><th>Step</th><th>Pipette / volume</th><th class="num"><em>u</em><sub>rel</sub></th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Transfer of 100 µL</td><td>1 mL pipette, 100 µL point</td><td class="num">0.00095</td></tr>
-    <tr><td>Transfer of 900 µL</td><td>1 mL pipette, 1000 µL certificate applied conservatively</td><td class="num">0.000339</td></tr>
-    <tr><td>Uncertainty per dilution</td><td>Combined</td><td class="num">0.00101</td></tr>
-    <tr><td>Three such dilutions</td><td>Combined</td><td class="num">0.00175</td></tr>
-    <tr><td>Final 0.2 mL + 0.8 mL dilution</td><td>Combined</td><td class="num">0.000609</td></tr>
-    <tr><td>Combined standard-curve pipetting contribution</td><td>Combined</td><td class="num">0.001853</td></tr>
-  </tbody>
-</table>
-
-<div class="eq">
-  <em>u</em><sub>rel, per dilution</sub> = √[ (0.00095)² + (0.000339)² ] = 0.00101
-</div>
-<div class="eq">
-  <em>u</em><sub>rel, 3 dilutions</sub> = √3 × 0.00101 = 0.00175
-</div>
-<div class="eq">
-  <em>u</em><sub>rel, final dilution</sub> = √[ (0.000475)² + (0.000381)² ] = 0.000609
-</div>
-<div class="eq">
-  <em>u</em><sub>rel, std curve</sub> = √[ (0.00175)² + (0.000609)² ] = <strong>0.001853</strong>
-</div>
-
-<h3>8.7 Summary of micropipette contributions</h3>
-<table>
-  <caption>Table 18: Final summary of the uncertainty related to micropipettes</caption>
-  <thead>
-    <tr>
-      <th>Target result</th>
-      <th>Contributing micropipette components included</th>
-      <th class="num">Combined standard uncertainty, <em>u</em><sub>rel</sub></th>
-      <th class="num">Expanded uncertainty, <em>U</em><sub>rel</sub> (<em>k</em> = 2)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="4"><strong>Sample result</strong></td>
-      <td>1. Sample dilution factor: 0.000265</td>
-      <td class="num" rowspan="4">0.00195</td>
-      <td class="num" rowspan="4">0.00390</td>
-    </tr>
-    <tr><td>2. Final well volume ratio (sample + reagent): 0.00054</td></tr>
-    <tr><td>3. Standard curve preparation: 0.001853</td></tr>
-    <tr><td style="font-size:12.5px;color:var(--muted);">Calculation: √[(0.000265)² + (0.00054)² + (0.001853)²]</td></tr>
-
-    <tr>
-      <td rowspan="4"><strong>PPC result</strong></td>
-      <td>1. PPC spike concentration: 0.00090</td>
-      <td class="num" rowspan="4">0.00213</td>
-      <td class="num" rowspan="4">0.00426</td>
-    </tr>
-    <tr><td>2. Final well volume ratio (sample + reagent): 0.00054</td></tr>
-    <tr><td>3. Standard curve preparation: 0.001853</td></tr>
-    <tr><td style="font-size:12.5px;color:var(--muted);">Calculation: √[(0.00090)² + (0.00054)² + (0.001853)²]</td></tr>
-  </tbody>
-</table>
-
-<div class="note">
-  <strong>Note on the PPC.</strong> Because the PPC spike is a completely separate well used only to
-  demonstrate the absence of inhibition/enhancement, the uncertainty of pipetting the 10 µL spike does not
-  propagate to the endotoxin concentration calculated for the sample itself. The PPC uncertainty is
-  therefore reported separately for the PPC well.
-</div>
-
-<!-- ===================== 9 ===================== -->
-<h2 id="s9">9. Combined Standard Uncertainty</h2>
-
-<p>
-  The four component uncertainties are independent and are therefore combined by root-sum-square of the
-  relative standard uncertainties:
+  The four components are independent and are combined by root-sum-square of the relative standard
+  uncertainties:
 </p>
 <div class="eq">
   <em>u</em><sub>c,rel</sub> =
   √[ <em>u</em><sub>rel,instrument</sub>² + <em>u</em><sub>rel,analyst</sub>² +
       <em>u</em><sub>rel,reagent</sub>² + <em>u</em><sub>rel,micropipette</sub>² ]
 </div>
-
-<h3>9.1 Sample result</h3>
 <div class="eq">
-  <em>u</em><sub>c,rel</sub> = √[(0.0497)² + (0.0872)² + (0.0999)² + (0.00195)²]
-</div>
-<div class="eq">
-  <em>u</em><sub>c,rel</sub> = √[0.002470 + 0.007604 + 0.009980 + 0.0000038]
-  = √0.020058 = <strong>0.1416</strong>
+  <em>u</em><sub>c,rel</sub> =
+  √[(0.0497)² + (0.0872)² + (0.0999)² + (0.00195)²] =
+  <strong>0.1416</strong>
 </div>
 
-<h3>9.2 PPC result</h3>
-<div class="eq">
-  <em>u</em><sub>c,rel</sub> = √[(0.0497)² + (0.0872)² + (0.0999)² + (0.00213)²]
-  = <strong>0.1416</strong>
-</div>
-
-<!-- ===================== 10 ===================== -->
-<h2 id="s10">10. Expanded Uncertainty and Final Summary</h2>
-
+<!-- ===================== 6 ===================== -->
+<h2>6. Expanded Uncertainty and Final Budget</h2>
 <p>
-  The combined standard uncertainty is expanded using a coverage factor <em>k</em> = 2, corresponding to a
-  level of confidence of approximately 95 % for a normal distribution:
+  The combined standard uncertainty is expanded using a coverage factor <em>k</em> = 2, corresponding to
+  a level of confidence of approximately 95 % for a normal distribution:
 </p>
 <div class="eq">
-  <em>U</em><sub>rel</sub> = <em>k</em> · <em>u</em><sub>c,rel</sub> = 2 × 0.1416 = <strong>0.2833</strong> (28.3 %)
+  <em>U</em><sub>rel</sub> = <em>k</em> · <em>u</em><sub>c,rel</sub> = 2 × 0.1416 =
+  <strong>0.2833</strong> (28.3 %)
 </div>
 
 <table>
-  <caption>Table 19: Overall measurement uncertainty budget — BET (Kinetic Chromogenic)</caption>
+  <caption>Table 2: Overall measurement uncertainty budget — BET (Kinetic Chromogenic)</caption>
   <thead>
     <tr>
-      <th>Uncertainty component</th>
+      <th>Component</th>
       <th class="c">Type</th>
-      <th>Basis / distribution</th>
       <th class="num"><em>u</em><sub>rel</sub> (sample)</th>
       <th class="num"><em>u</em><sub>rel</sub> (PPC)</th>
       <th class="num">Variance contribution (%)</th>
@@ -1006,48 +376,50 @@
     <tr>
       <td>Instrument (ELx808)</td>
       <td class="c"><span class="tag a">A</span> <span class="tag b">B</span></td>
-      <td>Repeatability (A), linearity (A), intercept bias — rectangular (B)</td>
       <td class="num">0.0497</td>
       <td class="num">0.0497</td>
-      <td class="num">12.31</td>
+      <td class="num">12.3</td>
     </tr>
     <tr>
       <td>Analyst</td>
       <td class="c"><span class="tag a">A</span></td>
-      <td>Intermediate precision, repeatability, curve fit, PPC bias (A)</td>
       <td class="num">0.0872</td>
       <td class="num">0.0872</td>
-      <td class="num">37.91</td>
+      <td class="num">37.9</td>
     </tr>
     <tr>
       <td>Reagent</td>
       <td class="c"><span class="tag a">A</span></td>
-      <td>Interpolation uncertainty from log–log regression (A)</td>
       <td class="num">0.0999</td>
       <td class="num">0.0999</td>
-      <td class="num">49.76</td>
+      <td class="num">49.8</td>
     </tr>
     <tr>
       <td>Micropipette</td>
       <td class="c"><span class="tag b">B</span></td>
-      <td>Calibration certificates, normal (<em>k</em> = 2) converted to standard (B)</td>
       <td class="num">0.00195</td>
       <td class="num">0.00213</td>
-      <td class="num">0.02</td>
+      <td class="num">&lt;0.1</td>
     </tr>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="3">Combined standard uncertainty, <em>u</em><sub>c,rel</sub></td>
-      <td class="num">0.1416</td><td class="num">0.1416</td><td class="num">100.00</td>
+      <td colspan="2">Combined standard uncertainty, <em>u</em><sub>c,rel</sub></td>
+      <td class="num">0.1416</td>
+      <td class="num">0.1416</td>
+      <td class="num">100.0</td>
     </tr>
     <tr>
-      <td colspan="3">Expanded uncertainty, <em>U</em><sub>rel</sub> (<em>k</em> = 2, ≈95 %)</td>
-      <td class="num">0.2833</td><td class="num">0.2833</td><td class="num">—</td>
+      <td colspan="2">Expanded uncertainty, <em>U</em><sub>rel</sub> (<em>k</em> = 2, ≈95 %)</td>
+      <td class="num">0.2833</td>
+      <td class="num">0.2833</td>
+      <td class="num">—</td>
     </tr>
     <tr>
-      <td colspan="3">Expanded uncertainty expressed as %</td>
-      <td class="num">28.3 %</td><td class="num">28.3 %</td><td class="num">—</td>
+      <td colspan="2">Expanded uncertainty expressed as %</td>
+      <td class="num">28.3 %</td>
+      <td class="num">28.3 %</td>
+      <td class="num">—</td>
     </tr>
   </tfoot>
 </table>
@@ -1055,50 +427,43 @@
 <div class="final">
   <div class="big">U<sub>rel</sub> = 28.3 % &nbsp;(k = 2, approximately 95 % confidence)</div>
   <small>
-    Applicable to endotoxin results reported by the Kinetic Chromogenic BET for haemodialysis concentrated
-    solution and equivalent matrices within the validated working range. For a result <em>C</em>, the
-    expanded uncertainty is <em>U</em> = 0.283 × <em>C</em>.
+    For a reported endotoxin concentration <em>C</em>, the expanded uncertainty is
+    <em>U</em> = 0.283 × <em>C</em>. The budget includes instrument, analyst, reagent and micropipette
+    contributions evaluated in Appendices 2–5.
   </small>
 </div>
 
-<!-- ===================== 11 ===================== -->
-<h2 id="s11">11. Contribution Analysis</h2>
+<!-- ===================== 7 ===================== -->
+<h2>7. Contribution Analysis</h2>
 <p>
-  The relative variance contributions of each component to the combined standard uncertainty are shown
-  below (values from Table 19).
+  The relative variance contributions from Table 2 are shown below. Reagent interpolation and analyst
+  variability together account for approximately 88 % of the combined variance; the micropipette
+  contribution is negligible for this procedure.
 </p>
 
 <div class="bar-wrap">
   <span>Reagent (interpolation)</span>
-  <span><span class="bar" style="width:49.76%"></span></span>
-  <span class="num" style="text-align:right;">49.8 %</span>
+  <span><span class="bar" style="width:49.8%"></span></span>
+  <span style="text-align:right;">49.8 %</span>
 
   <span>Analyst</span>
-  <span><span class="bar b2" style="width:37.91%"></span></span>
+  <span><span class="bar b2" style="width:37.9%"></span></span>
   <span style="text-align:right;">37.9 %</span>
 
   <span>Instrument</span>
-  <span><span class="bar b3" style="width:12.31%"></span></span>
+  <span><span class="bar b3" style="width:12.3%"></span></span>
   <span style="text-align:right;">12.3 %</span>
 
   <span>Micropipette</span>
-  <span><span class="bar b4" style="width:0.02%"></span></span>
-  <span style="text-align:right;">0.02 %</span>
+  <span><span class="bar b4" style="width:0.1%"></span></span>
+  <span style="text-align:right;">&lt;0.1 %</span>
 </div>
 
+<!-- ===================== 8 ===================== -->
+<h2>8. Reporting the Result</h2>
 <p>
-  The <strong>reagent interpolation uncertainty</strong> and the <strong>analyst</strong> component together
-  account for approximately 88 % of the combined variance. The micropipette contribution is negligible
-  (&lt;0.1 %) for this procedure, which is consistent with the use of calibrated pipettes with certified
-  values well below the volumetric tolerances that would normally require mitigation.
-</p>
-
-<!-- ===================== 12 ===================== -->
-<h2 id="s12">12. Reporting the Result</h2>
-
-<p>
-  In accordance with ISO/IEC 17025:2017 clause 7.8.7.1, endotoxin results shall be reported together with
-  the expanded uncertainty. The following statement shall be appended to test reports:
+  In accordance with ISO/IEC 17025:2017 clause 7.8.7.1, endotoxin results shall be reported with the
+  expanded uncertainty. The following statement shall be appended to test reports:
 </p>
 
 <div class="callout">
@@ -1110,9 +475,8 @@
   with ISO/IEC Guide 98-3 (GUM).
 </div>
 
-<h3>12.1 Worked example</h3>
 <table>
-  <caption>Table 20: Example of reported result with uncertainty</caption>
+  <caption>Table 3: Example of a reported result with uncertainty</caption>
   <thead>
     <tr><th>Quantity</th><th class="num">Value</th><th>Unit</th></tr>
   </thead>
@@ -1124,113 +488,56 @@
   </tbody>
 </table>
 
-<!-- ===================== 13 ===================== -->
-<h2 id="s13">13. Observations, Assumptions and Limitations</h2>
+<!-- ===================== 9 ===================== -->
+<h2>9. Assumptions, Limitations and Traceability</h2>
 
-<h3>13.1 Assumptions</h3>
+<h3>9.1 Assumptions</h3>
 <ul>
-  <li>All component uncertainties are mutually independent (no correlation assumed); combination is therefore by root-sum-square.</li>
-  <li>Certificate expanded uncertainties are normally distributed and were converted to standard uncertainties by dividing by <em>k</em> = 2.</li>
-  <li>The intercept bias of the microplate reader was assumed to follow a rectangular distribution (divisor √3).</li>
-  <li>The uncertainty of interpolation was evaluated at the mid-curve concentration (0.500 EU/mL) with duplicate sample testing (<em>m</em> = 2); this is representative and conservative for the validated range.</li>
-  <li>Worst-case certificate values were used for the 1 mL pipettes (MM2, MM12, MM29), for the 183 µL transfer and for the 800/900 µL transfers, to maintain a conservative estimate.</li>
+  <li>Component uncertainties are mutually independent; combination is therefore by root-sum-square.</li>
+  <li>Certificate expanded uncertainties were converted to standard uncertainties using <em>k</em> = 2.</li>
+  <li>The intercept bias of the microplate reader was treated as rectangular (divisor √3).</li>
+  <li>The reagent interpolation uncertainty was evaluated at 0.500 EU/mL with duplicate sample testing
+      (<em>m</em> = 2), as detailed in Appendix 5.</li>
+  <li>Worst-case certificate values were applied for the 1 mL pipettes and for the 183 µL, 800 µL and
+      900 µL transfers, as detailed in Appendix 4.</li>
 </ul>
 
-<h3>13.2 Components assessed as negligible and excluded</h3>
-<table>
-  <caption>Table 21: Excluded components and justification</caption>
-  <thead><tr><th>Component</th><th>Justification for exclusion</th></tr></thead>
-  <tbody>
-    <tr><td>Standard endotoxin potency / purity</td><td>Certified reference standard with metrologically traceable assigned potency; contribution negligible relative to the interpolation uncertainty.</td></tr>
-    <tr><td>LAL water / diluent quality</td><td>Qualified reagent water, endotoxin-free; no measurable contribution.</td></tr>
-    <tr><td>Incubation temperature and time control</td><td>Controlled by validated instrument and monitored; within validated tolerance and demonstrated as non-critical in lysate verification.</td></tr>
-    <tr><td>Microplate reader wavelength / filter accuracy</td><td>Covered within the linearity and repeatability components of the instrument contribution.</td></tr>
-    <tr><td>Well-to-well optical cross-talk and plate position effects</td><td>Covered by the plate CV (absorbance uniformity) in the repeatability component.</td></tr>
-    <tr><td>Analyst reading / transcription errors</td><td>Controlled by automated plate reading and the laboratory data integrity system.</td></tr>
-  </tbody>
-</table>
+<h3>9.2 Limitations</h3>
+<ul>
+  <li>The budget applies to matrices validated under this method; extension to other products requires verification.</li>
+  <li>Re-evaluation is required on change of microplate reader, analyst cohort, lysate lot, pipette
+      calibration status or the lysate verification regression model.</li>
+  <li>The reagent component is based on a single Initial Qualification Test dataset; periodic
+      re-verification will improve its robustness.</li>
+  <li>The evaluation assumes the test is performed under validated method conditions. An out-of-specification
+      PPC recovery invalidates the associated result independently of the stated uncertainty.</li>
+</ul>
 
-<h3>13.3 Technical observations arising from the source appendices</h3>
+<h3>9.3 Traceability note</h3>
 <div class="note">
-  <p style="margin-top:0;">
-    <strong>Traceability note.</strong> During compilation of the overall budget, the following
-    typographical/arithmetical issues were identified in the source appendices. None of them alters the
-    final budget values adopted in Table 19, which are consistent with the component summaries of the
-    respective appendices; they are recorded here for traceability and for correction at the next document
-    revision.
-  </p>
-  <ol style="margin-bottom:0;">
-    <li>
-      <strong>Appendix 3, §3.1.</strong> The displayed combination formula shows the instrument
-      sub-components, whereas the numerical result (0.0872) correctly corresponds to the four analyst
-      components:
-      √[(0.0531)² + (0.0146)² + (0.0516)² + (0.0434)²] = 0.0872. The formula should be corrected to
-      reflect the analyst components.
-    </li>
-    <li>
-      <strong>Appendix 3, §2.4.5.</strong> The standard error of the mean is 15.04/√12 = 4.34 (%),
-      expressed as a relative uncertainty of 0.0434 after normalisation to the mean recovery (102.583 %).
-      The unit should be stated explicitly as relative.
-    </li>
-    <li>
-      <strong>Appendix 4, §5.2.</strong> The value 0.072414 is arithmetically incorrect;
-      √[(0.0006)² + (0.001853)²] = 0.001948. The correct value has been used in Table 18 and Table 19.
-    </li>
-    <li>
-      <strong>Appendix 4, §4.1.3.</strong> <em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) is printed as
-      0.0000154; the correct value is 0.568/3683 = 0.000154, which is the value used subsequently in
-      §4.1.4 and in this report.
-    </li>
-    <li>
-      <strong>Appendix 4, §4.4.4.</strong> The displayed expression √[3 × (0.00095)²] does not reproduce the
-      stated result; the reported value 0.00175 corresponds to √3 × 0.00101 (three per-dilution
-      uncertainties). The reported value is adopted.
-    </li>
-    <li>
-      <strong>Appendix 2, §2.2.3.1.</strong> Minor inconsistencies exist in the printed predicted values
-      (intercept −0.05/−0.005/−0.055) and in the printed intermediate values; the reported
-      SS<sub>res</sub> = 0.01374 and <em>S</em><sub>y,x</sub> = 0.05862 are internally consistent with the
-      residual column and are adopted.
-    </li>
-    <li>
-      <strong>Appendix 5, §2.3.3.</strong> One observed value is printed as 3.703; the value consistent
-      with the reported residual and mean (3.3703) has been used in Table 8.
-    </li>
-  </ol>
+  Full derivations, raw data and component summaries are held in Appendices 2–5. Where minor typographical
+  or arithmetic inconsistencies appear in the source appendices, the summary values reported in each
+  appendix have been adopted in this report; the detailed derivations remain in the respective appendix for
+  traceability and correction at the next document revision.
 </div>
 
-<h3>13.4 Limitations</h3>
-<ul>
-  <li>The budget applies to the Kinetic Chromogenic BET for haemodialysis concentrated solution and matrices validated under the same method; extension to other product matrices requires verification.</li>
-  <li>The budget should be re-evaluated whenever there is a change in microplate reader, analyst cohort, lysate lot, pipette calibration status, or the lysate verification regression model.</li>
-  <li>The reagent component is derived from a single Initial Qualification Test dataset; periodic re-verification (or a pooled estimate over successive verification cycles) will improve the robustness of this component.</li>
-  <li>The evaluation assumes the test is performed under the conditions of the validated method; out-of-specification PPC recovery invalidates the associated result independently of the stated uncertainty.</li>
-</ul>
-
-<!-- ===================== 14 ===================== -->
-<h2 id="s14">14. Conclusion</h2>
+<!-- ===================== 10 ===================== -->
+<h2>10. Conclusion</h2>
 <p>
-  A complete measurement uncertainty budget has been established for the Kinetic Chromogenic Bacterial
-  Endotoxins Test in accordance with ISO/IEC 17025:2017 and the GUM. Four independent components were
-  quantified: instrument (0.0497), analyst (0.0872), reagent (0.0999) and micropipette (0.00195 for the
-  sample result; 0.00213 for the PPC result), expressed as relative standard uncertainties.
+  A measurement uncertainty budget has been established for the Kinetic Chromogenic BET in accordance with
+  ISO/IEC 17025:2017 and the GUM. The combined relative standard uncertainty is <strong>0.1416</strong>,
+  giving an expanded relative uncertainty of <strong>28.3 %</strong> at <em>k</em> = 2 (approximately 95 %
+  confidence). The value is fit for purpose for endotoxin limit testing, where results are compared against
+  a limit concentration and supported by the PPC recovery criterion.
 </p>
 <p>
-  The combined relative standard uncertainty is <strong>0.1416</strong>, giving an expanded relative
-  uncertainty of <strong>28.3 %</strong> at <em>k</em> = 2 (approximately 95 % confidence). This value is
-  fit for purpose for endotoxin limit testing, where results are typically compared against a limit
-  concentration that is an order of magnitude below the endotoxin limit (MVD-based dilution), and where the
-  pass/fail decision is additionally supported by the PPC recovery criterion.
-</p>
-<p>
-  The dominant contributors are the reagent interpolation uncertainty and analyst variability; improvement
-  actions should therefore focus on these two areas — for example, increasing the number of replicates in
-  the lysate verification regression, and periodic analyst proficiency monitoring — rather than on pipette
-  metrology, which contributes less than 0.1 % of the variance.
+  The dominant contributors are reagent interpolation and analyst variability; improvement actions should
+  focus on these areas, for example increased replication in the lysate verification regression and periodic
+  analyst proficiency monitoring. The micropipette contribution is negligible for this procedure.
 </p>
 
-<!-- ===================== 15 ===================== -->
-<h2 id="s15">15. Approval</h2>
+<!-- ===================== 11 ===================== -->
+<h2>11. Approval</h2>
 <div class="sig">
   <div>
     <strong>Prepared by</strong><br>
@@ -1255,7 +562,7 @@
 <footer class="docfoot">
   <span>DK/QCM/R/025-01 — Measurement Uncertainty Report — BET (Kinetic Chromogenic)</span>
   <span>Duopharma (M) Sdn Bhd · Quality Control Microbiology</span>
-  <span>Page 1 of 1 (single document)</span>
+  <span>Summary report; detailed derivations in Appendices 2–5</span>
 </footer>
 
 </div>
