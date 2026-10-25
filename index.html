@@ -1,336 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MU Budget — Initial Qualification Test (Lysate Verification)</title>
-
-<!-- ===================== MATHJAX LIBRARY ===================== -->
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true
-    },
-    svg: {
-      fontCache: 'global'
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Measurement Uncertainty Assessment – Lysate Verification Report</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1f2933;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #ffffff;
     }
-  };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<!-- =========================================================== -->
-
-<style>
-  :root{
-    --ink:#1a1a1a; --muted:#555; --line:#c9c9c9; --bg:#f7f8fa;
-    --accent:#0b5ed7; --warn:#b45309; --warnbg:#fff7ed; --okbg:#ecfdf5;
-    --repbg:#eff6ff;
-  }
-  *{box-sizing:border-box}
-  body{
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    color:var(--ink); background:#fff; line-height:1.55;
-    margin:0 auto; padding:32px 40px; max-width:1080px; font-size:14.5px;
-  }
-  h1{font-size:22px; margin:0 0 4px; letter-spacing:.2px}
-  h2{font-size:17px; margin:34px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--accent)}
-  h3{font-size:15px; margin:22px 0 8px; color:#0b3a82}
-  h4{font-size:14px; margin:16px 0 6px}
-  p{margin:8px 0}
-  small{color:var(--muted)}
-  code,.mono{font-family:Consolas,"Courier New",monospace; font-size:13px}
-  .doc-head{
-    border:1px solid var(--line); border-radius:8px; padding:18px 22px;
-    background:var(--bg); margin-bottom:26px;
-  }
-  .doc-head table{width:100%; border-collapse:collapse; font-size:13.5px}
-  .doc-head td{padding:3px 6px; vertical-align:top}
-  .doc-head td:first-child{color:var(--muted); width:190px}
-  table.data{
-    width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:13.5px;
-  }
-  table.data th, table.data td{
-    border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top;
-  }
-  table.data th{background:#e8eef7; font-weight:600}
-  table.data tr:nth-child(even) td{background:#fbfcfe}
-  .num{text-align:right; font-variant-numeric:tabular-nums}
-  .center{text-align:center}
-  .tag{
-    display:inline-block; font-size:11px; font-weight:700; padding:2px 7px;
-    border-radius:10px; letter-spacing:.3px; white-space:nowrap;
-  }
-  .tag.rep{background:var(--repbg); color:#1d4ed8; border:1px solid #bfdbfe}
-  .callout{
-    border-left:4px solid var(--accent); background:#f0f6ff;
-    padding:12px 16px; margin:16px 0; border-radius:0 6px 6px 0;
-  }
-  .callout.warn{border-left-color:var(--warn); background:var(--warnbg)}
-  .callout.ok{border-left-color:#059669; background:var(--okbg)}
-  .formula{
-    background:#f4f6f9; border:1px solid var(--line); border-radius:6px;
-    padding:12px 16px; margin:12px 0; font-size:14px; overflow-x:auto;
-  }
-  .figure{
-    border:1px solid var(--line); border-radius:6px; padding:14px; margin:14px 0;
-    background:#fafbfd; text-align:center;
-  }
-  .figure .caption{font-size:12.5px; color:var(--muted); margin-top:8px}
-  ul,ol{margin:8px 0 8px 22px; padding:0}
-  li{margin:4px 0}
-  .footer{font-size:12px; color:var(--muted); margin-top:30px; border-top:1px solid var(--line); padding-top:10px}
-  @media print{
-    body{padding:0; max-width:none; font-size:12px}
-    h2{page-break-after:avoid}
-    table{page-break-inside:avoid}
-  }
-</style>
+    h1, h2, h3 {
+      color: #0b3d5c;
+      margin-top: 28px;
+    }
+    h1 {
+      border-bottom: 3px solid #0b3d5c;
+      padding-bottom: 8px;
+    }
+    .callout {
+      border-left: 6px solid #b91c1c;
+      background: #fef2f2;
+      padding: 14px 18px;
+      margin: 18px 0;
+    }
+    .note {
+      border-left: 6px solid #0b3d5c;
+      background: #eff6ff;
+      padding: 14px 18px;
+      margin: 18px 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 18px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 9px 11px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    code, .formula {
+      background: #f1f5f9;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: Consolas, "Courier New", monospace;
+    }
+    .formula-block {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-family: Consolas, "Courier New", monospace;
+      overflow-x: auto;
+    }
+    ul, ol {
+      padding-left: 26px;
+    }
+    .status-pass {
+      color: #166534;
+      font-weight: bold;
+    }
+    .status-fail {
+      color: #b91c1c;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 34px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 12px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+  </style>
 </head>
 <body>
 
-<!-- ===================== DOCUMENT HEADER ===================== -->
-<div class="doc-head">
-  <h1>Measurement Uncertainty Budget — Initial Qualification Test</h1>
-  <p style="margin:2px 0 12px; color:#0b3a82; font-weight:600;">
-    Kinetic Chromogenic BET (Standard Curve Calibration &amp; System Repeatability)
-  </p>
+  <h1>Measurement Uncertainty Assessment for Kinetic Chromogenic Bacterial Endotoxin Test</h1>
+
+  <p><strong>Context:</strong> Review of the attached Lysate Verification / Initial Qualification Test report (Lysate Lot BL036EE6GR, CSE Lot 0001365773, Water Lot 0001430633) against ISO 17025 measurement uncertainty requirements.</p>
+
+  <div class="callout">
+    <strong>Conclusion:</strong> No, a complete and defensible ISO 17025 measurement uncertainty budget cannot be calculated solely from the attached lysate verification report. The report provides useful qualification and precision data, but it lacks several critical uncertainty components required for a full ISO 17025 uncertainty statement.
+  </div>
+
+  <h2>1. What the Attached Report Provides</h2>
+
+  <p>The lysate verification report contains useful information that can contribute to an uncertainty budget, but it is not itself a measurement uncertainty report.</p>
+
   <table>
-    <tr><td>Document No.</td><td><strong>MU-BET-KC-001</strong> (Rev. 02 — Qualification Only)</td></tr>
-    <tr><td>Supporting record</td><td>Lysate Verification / Initial Qualification Test</td></tr>
-    <tr><td>Run date</td><td>11 May 2026, 08:45:33 (UTC+8)</td></tr>
-    <tr><td>Lysate lot</td><td>BL036EE6GR (Exp 20/11/2027)</td></tr>
-    <tr><td>Endotoxin (CSE) lot</td><td>0001365773 (Exp 18/4/2029)</td></tr>
-    <tr><td>Reader</td><td>ELx808, S/N 195023, filter 405 nm, &Delta;t = 150 s, &Delta;mOD = 200</td></tr>
-    <tr><td>Temperature</td><td>36.9 – 37.0 &deg;C</td></tr>
-    <tr><td>Analyst</td><td>HASAN</td></tr>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Data in the report</th>
+        <th>Relevance to measurement uncertainty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Calibration curve parameters</td>
+        <td>Slope = −0.226; Y-intercept = 3.075; correlation coefficient = −0.999</td>
+        <td>Describes the calibration fit. However, the standard error of regression / residuals are not provided.</td>
+      </tr>
+      <tr>
+        <td>Precision data</td>
+        <td>CV = 1.92% at 0.0100 EU/mL; CV = 1.75% at 0.0500 EU/mL</td>
+        <td>Useful as Type A repeatability data at those concentration levels only.</td>
+      </tr>
+      <tr>
+        <td>Environmental control</td>
+        <td>Temperature: 36.9 °C – 37.0 °C</td>
+        <td>Indicates control, but no calibrated uncertainty for incubation temperature is stated.</td>
+      </tr>
+      <tr>
+        <td>Reader parameters</td>
+        <td>Delta t = 150 s; measurement filter = 405 nm; Delta mOD = 200; actual/max reads = 25/40</td>
+        <td>Useful for traceability of method settings, but does not quantify reader noise or detector variability.</td>
+      </tr>
+      <tr>
+        <td>Qualification status</td>
+        <td>Curve parameters and CV specifications: PASS</td>
+        <td>Confirms qualification acceptance criteria were met; not an uncertainty value.</td>
+      </tr>
+    </tbody>
   </table>
-</div>
 
-<div class="callout warn">
-  <strong>Scope Limitation:</strong> This MU budget is strictly limited to the data generated by the <strong>Initial Qualification Test</strong>. It quantifies the uncertainty associated with interpolating a sample's reaction time against the qualified standard curve, as well as the system's within-run repeatability. It does <strong>not</strong> include product-specific recovery, dilution factors, or intermediate precision, which require separate validation studies.
-</div>
+  <h2>2. Critical Data Missing for a Full ISO 17025 Uncertainty Budget</h2>
 
-<!-- ===================== 1. PURPOSE ===================== -->
-<h2>1. Purpose and Scope</h2>
-<p>
-This report documents the measurement uncertainty (MU) budget for the standard curve and system repeatability, derived exclusively from the Initial Qualification Test (Lysate Verification) record. The measurand is the predicted endotoxin concentration \(C\) (in EU/mL) for a given onset time \(t\), based on the log-log linear regression model.
-</p>
+  <p>A complete uncertainty budget requires quantification of all significant sources of uncertainty. The attached report does not contain the necessary data for the following components:</p>
 
-<!-- ===================== 2. METHOD SUMMARY ===================== -->
-<h2>2. Method and Regression Parameters</h2>
-<p>
-The kinetic chromogenic method relates the onset time \(t\) to endotoxin concentration \(C\) through the empirical log–log relationship:
-</p>
-<div class="formula">
-\[ \log_{10} t = a + b \cdot \log_{10} C \]
-</div>
-<p>From the qualification report:</p>
-<table class="data">
-  <thead>
-    <tr><th>Parameter</th><th class="num">Value</th><th>Acceptance Criteria (Report)</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Slope, \(b\)</td><td class="num">−0.226</td><td>−0.400 to −0.100 — PASS</td></tr>
-    <tr><td>Y-intercept, \(a\)</td><td class="num">3.075</td><td>2.500 to 3.500 — PASS</td></tr>
-    <tr><td>Correlation coefficient, \(r\)</td><td class="num">−0.999</td><td>−1.000 to −0.980 — PASS</td></tr>
-    <tr><td>Standard levels</td><td class="num">5</td><td>0.0100 to 50.0 EU/mL</td></tr>
-    <tr><td>Replicates per level</td><td class="num">4</td><td>—</td></tr>
-    <tr><td>Total standard observations, \(N\)</td><td class="num">20</td><td>—</td></tr>
-    <tr><td>Residual standard deviation, \(s_{y/x}\)</td><td class="num">0.0132</td><td>Derived (Appendix A)</td></tr>
-    <tr><td>Mean of \(x=\log_{10} C\), \(\bar x\)</td><td class="num">−0.2408</td><td>Derived (Appendix A)</td></tr>
-    <tr><td>Sum of squares, \(S_{xx}\)</td><td class="num">35.47</td><td>Derived (Appendix A)</td></tr>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Missing component</th>
+        <th>Why it is needed</th>
+        <th>Status in the attached report</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Uncertainty of the CSE / standard endotoxin potency</td>
+        <td>The assigned potency of the reference standard contributes directly to the uncertainty of the result.</td>
+        <td>Not stated on the provided Certificate of Analysis.</td>
+      </tr>
+      <tr>
+        <td>Pipetting / volumetric transfer uncertainty</td>
+        <td>Pipetting of sample, standard, and reagent is a major contributor in kinetic chromogenic LAL assays.</td>
+        <td>No pipette calibration uncertainty or volume precision data provided.</td>
+      </tr>
+      <tr>
+        <td>Detector noise / reader variability</td>
+        <td>Instrument noise in the microplate reader affects reaction-time measurement.</td>
+        <td>Reader settings are given, but no repeatability or noise assessment is provided.</td>
+      </tr>
+      <tr>
+        <td>Full regression statistics</td>
+        <td>The standard error of regression or residuals are needed to estimate uncertainty from the curve fit.</td>
+        <td>Only slope, intercept, and r are provided. Raw replicate data and regression standard error are not included.</td>
+      </tr>
+      <tr>
+        <td>Temperature control uncertainty</td>
+        <td>Incubation temperature affects reaction kinetics.</td>
+        <td>A temperature range is stated, but no calibrated uncertainty is given.</td>
+      </tr>
+    </tbody>
+  </table>
 
-<!-- ===================== 3. UNCERTAINTY COMPONENTS ===================== -->
-<h2>3. Identified Uncertainty Components (Qualification Test Only)</h2>
-<p>Based strictly on the Initial Qualification Test, the following components can be quantified:</p>
-<table class="data">
-  <thead>
-    <tr><th>#</th><th>Source</th><th>Symbol</th><th>Description</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>1</td><td>Standard Curve Calibration</td><td>\(u_{\text{cal}}\)</td><td>Uncertainty of interpolating a concentration from the regression line.</td></tr>
-    <tr><td>2</td><td>System Repeatability</td><td>\(u_{\text{rep}}\)</td><td>Intra-assay variance of the standard replicates (CV).</td></tr>
-  </tbody>
-</table>
-<p><em>Note: In regression statistics, the within-run repeatability is inherently captured in the residual standard deviation (\(s_{y/x}\)), which is used to calculate \(u_{\text{cal}}\). Therefore, \(u_{\text{cal}}\) is the dominant and most appropriate component for this scope.</em></p>
+  <h2>3. How Uncertainty Could Be Calculated if Additional Data Were Available</h2>
 
-<!-- ===================== 4. QUANTIFICATION ===================== -->
-<h2>4. Quantification of Calibration Uncertainty</h2>
-<p>
-The uncertainty of a concentration predicted from the regression line is calculated using the standard formula for the uncertainty of an interpolated value:
-</p>
-<div class="formula">
-\[ u_{\text{cal}}(\log_{10} C_0) = \frac{s_{y/x}}{|b|} \sqrt{ \frac{1}{m} + \frac{1}{N} + \frac{(x_0 - \bar{x})^2}{S_{xx}} } \]
-</div>
-<p>where \(m\) is the number of replicate sample wells, \(N = 20\) the number of standard observations, and \(x_0 = \log_{10} C_0\). The relative standard uncertainty in the reported concentration is:</p>
-<div class="formula">
-\[ u_{\text{cal,rel}}(C_0) = \ln(10) \cdot u_{\text{cal}}(\log_{10} C_0) \]
-</div>
+  <p>If the laboratory collects the missing data, the uncertainty can be estimated using a component-by-component approach consistent with the GUM and LAL-specific literature.</p>
 
-<h3>4.1 Worked example at Mid-Curve (\(C_0 = 0.500\ \mathrm{EU/mL}\))</h3>
-<p>For a sample measured in duplicate (\(m = 2\)):</p>
-<div class="formula">
-\[
-\begin{aligned}
-x_0 &= \log_{10}(0.500) = -0.30103 \\
-x_0 - \bar{x} &= -0.30103 - (-0.2408) = -0.0602 \\
-(x_0 - \bar{x})^2 &= 0.003625 \\
-S_{xx} &= 35.47 \\
-\\
-u_{\text{cal}}(\log_{10}C) &= \left( \frac{0.0132}{0.226} \right) \cdot \sqrt{ \frac{1}{2} + \frac{1}{20} + \frac{0.003625}{35.47} } \\
-&= 0.05841 \cdot \sqrt{ 0.500 + 0.050 + 0.000102 } \\
-&= 0.05841 \cdot 0.7417 \\
-&= 0.04333 \\
-\\
-u_{\text{cal,rel}}(C) &= 2.3026 \cdot 0.04333 \\
-&= 0.0998 \approx 10.0\%
-\end{aligned}
-\]
-</div>
+  <h3>3.1 Calibration curve uncertainty</h3>
 
-<h3>4.2 Calibration Uncertainty Across the Curve</h3>
-<p>Using the above formula, the relative standard uncertainty for different sample concentrations is:</p>
-<table class="data">
-  <thead>
-    <tr><th class="center">\(C_0\) (EU/mL)</th><th class="num">\(m = 1\) (Single well)</th><th class="num">\(m = 2\) (Duplicate)</th><th class="num">\(m = 4\) (Quadruplicate)</th></tr>
-  </thead>
-  <tbody>
-    <tr><td class="center">0.0100</td><td class="num">14.4 %</td><td class="num">10.8 %</td><td class="num">8.4 %</td></tr>
-    <tr><td class="center">0.0500</td><td class="num">14.0 %</td><td class="num">10.3 %</td><td class="num">7.8 %</td></tr>
-    <tr><td class="center">0.500</td><td class="num">13.8 %</td><td class="num">10.0 %</td><td class="num">7.4 %</td></tr>
-    <tr><td class="center">5.00</td><td class="num">14.0 %</td><td class="num">10.2 %</td><td class="num">7.7 %</td></tr>
-    <tr><td class="center">50.0</td><td class="num">14.5 %</td><td class="num">10.9 %</td><td class="num">8.6 %</td></tr>
-  </tbody>
-</table>
+  <p>Obtain the raw reaction times for each standard replicate. Calculate the standard error of the regression, often denoted <em>S</em><sub>y.x</sub>. The standard uncertainty from the curve at a given concentration can then be estimated from the regression standard error and the number of data points.</p>
 
-<!-- ===================== 5. BUDGET TABLE ===================== -->
-<h2>5. Measurement Uncertainty Budget</h2>
-<p>The following budget uses the mid-curve estimate with duplicate sample wells (\(m = 2\)).</p>
+  <h3>3.2 Precision / repeatability</h3>
 
-<table class="data">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Uncertainty component</th>
-      <th>Symbol</th>
-      <th class="num">\(u_{\text{rel}}\) (%)</th>
-      <th class="num">\(u_{\text{rel}}^2\) (%&sup2;)</th>
-      <th>Source / basis</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td><td>Standard-curve calibration (includes repeatability)</td><td>\(u_{\text{cal}}\)</td>
-      <td class="num">10.0</td><td class="num">100.0</td>
-      <td><span class="tag rep">FROM REPORT</span> \(m = 2\), \(C = 0.5\) EU/mL</td>
-    </tr>
-    <tr style="font-weight:700; background:#e8eef7;">
-      <td colspan="3">Combined relative standard uncertainty, \(u_{c,\text{rel}}\)</td>
-      <td class="num">10.0</td>
-      <td class="num">100.0</td>
-      <td>\(\sqrt{\sum u^2}\)</td>
-    </tr>
-    <tr style="font-weight:700; background:#dbeafe;">
-      <td colspan="3">Expanded uncertainty, \(U = 2 \cdot u_c\)</td>
-      <td class="num" colspan="2" style="text-align:right;">20.0 %</td>
-      <td>\(k = 2\) (&asymp;95 %)</td>
-    </tr>
-  </tbody>
-</table>
+  <p>The CV% values in the report can be converted to a standard uncertainty for the tested concentration levels:</p>
 
-<!-- ===================== 6. UNCERTAINTY STATEMENT ===================== -->
-<h2>6. Uncertainty Statement (Qualification Only)</h2>
-<div class="callout ok">
-  <p style="margin:0 0 8px;">
-    Based strictly on the Initial Qualification Test, for a sample interpolated near the mid-point of the standard curve (0.5 EU/mL) using duplicate wells, the relative <strong>combined standard uncertainty</strong> is:
-  </p>
-  <p style="font-size:16px; margin:10px 0; text-align:center;">
-    \[ u_{c,\text{rel}}(C) = 10.0\% \]
-  </p>
-  <p style="margin:6px 0;">The <strong>expanded relative uncertainty</strong> at approximately 95 % confidence is:</p>
-  <p style="font-size:16px; margin:10px 0; text-align:center;">
-    \[ U_{\text{rel}} = k \cdot u_{c,\text{rel}} = 2 \times 10.0\% = 20.0\% \]
-  </p>
-</div>
+  <div class="formula-block">
+    u = (CV% × Concentration) / 100
+  </div>
 
-<p>
-<strong>Important:</strong> This statement represents only the <strong>calibration and system repeatability uncertainty</strong> derived from the qualification data. To report a full ISO 17025 MU for a customer sample, this value must be combined (via root-sum-square) with uncertainties for sample dilution, product-matrix recovery, and intermediate precision.
-</p>
+  <p>For example, using the reported CV values:</p>
 
-<!-- ===================== APPENDIX A ===================== -->
-<h2>Appendix A — Derivation of \(s_{y/x}\), \(\bar x\), \(S_{xx}\)</h2>
+  <ul>
+    <li>At 0.0100 EU/mL with CV = 1.92%: <code>u = (1.92 × 0.0100) / 100 = 0.000192 EU/mL</code></li>
+    <li>At 0.0500 EU/mL with CV = 1.75%: <code>u = (1.75 × 0.0500) / 100 = 0.000875 EU/mL</code></li>
+  </ul>
 
-<h3>A.1 Standard data (from the report)</h3>
-<table class="data">
-  <thead>
-    <tr>
-      <th class="center">\(C\) (EU/mL)</th><th class="center">\(x = \log_{10} C\)</th>
-      <th>Reaction times (s)</th>
-      <th class="num">\(\log_{10} t\) values</th>
-      <th class="num">mean \(\log_{10} t\)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="center">0.0100</td><td class="center">−2.000</td>
-      <td class="mono">3325, 3450, 3466, 3378</td>
-      <td class="num mono">3.5218, 3.5378, 3.5398, 3.5287</td>
-      <td class="num">3.5320</td>
-    </tr>
-    <tr>
-      <td class="center">0.0500</td><td class="center">−1.301</td>
-      <td class="mono">2409, 2346, 2340, 2420</td>
-      <td class="num mono">3.3818, 3.3703, 3.3692, 3.3838</td>
-      <td class="num">3.3763</td>
-    </tr>
-    <tr>
-      <td class="center">0.500</td><td class="center">−0.301</td>
-      <td class="mono">1358, 1312, 1356, 1353</td>
-      <td class="num mono">3.1329, 3.1179, 3.1323, 3.1313</td>
-      <td class="num">3.1286</td>
-    </tr>
-    <tr>
-      <td class="center">5.00</td><td class="center">0.699</td>
-      <td class="mono">827, 797, 805, 797</td>
-      <td class="num mono">2.9175, 2.9015, 2.9058, 2.9015</td>
-      <td class="num">2.9066</td>
-    </tr>
-    <tr>
-      <td class="center">50.0</td><td class="center">1.699</td>
-      <td class="mono">492, 517, 501, 510</td>
-      <td class="num mono">2.6920, 2.7135, 2.6998, 2.7076</td>
-      <td class="num">2.7032</td>
-    </tr>
-  </tbody>
-</table>
+  <p><strong>Limitation:</strong> These values only cover the concentration levels tested. For a full budget, precision should be assessed across the entire working range.</p>
 
-<h3>A.2 Residual standard deviation</h3>
-<div class="formula">
-\[
-\begin{aligned}
-SSE &= \sum (\log_{10} t_i - \hat{y}_i)^2 \approx 0.003146 \\
-df &= N - 2 = 20 - 2 = 18 \\
-s_{y/x} &= \sqrt{\frac{SSE}{18}} \approx 0.01322
-\end{aligned}
-\]
-</div>
+  <h3>3.3 Pipetting and detector noise</h3>
 
-<h3>A.3 \(S_{xx}\)</h3>
-<div class="formula">
-\[
-\begin{aligned}
-\bar{x} &= -0.2408 \\
-S_{xx} &= \sum (x_i - \bar{x})^2 \approx 35.47
-\end{aligned}
-\]
-</div>
+  <p>Pipetting uncertainty can be estimated from pipette calibration data and volume precision. Detector noise can be estimated from repeated blank or standard readings. These components can then be combined with the calibration curve parameters to estimate the measurement relative standard deviation as a function of endotoxin concentration.</p>
 
-<div class="footer">
-  <strong>MU-BET-KC-001 Rev. 02 (Qualification Only)</strong> — Prepared for internal review under ISO/IEC 17025:2017 clause 7.6.
-  Retain with the Lysate Verification record S/N 195023 (run 11 May 2026).
-</div>
+  <h3>3.4 Combining the components</h3>
+
+  <p>Individual standard uncertainties are combined to give the combined standard uncertainty:</p>
+
+  <div class="formula-block">
+    u<sub>c</sub> = √(u<sub>1</sub><sup>2</sup> + u<sub>2</sub><sup>2</sup> + u<sub>3</sub><sup>2</sup> + …)
+  </div>
+
+  <p>The expanded uncertainty is obtained by multiplying the combined standard uncertainty by a coverage factor, typically <em>k</em> = 2 for approximately 95% confidence:</p>
+
+  <div class="formula-block">
+    U = k × u<sub>c</sub>
+  </div>
+
+  <h2>4. Context from Scientific Literature</h2>
+
+  <p>Published research on measurement uncertainty for chromogenic LAL assays has reported that final expanded measurement uncertainties can be substantial. One key study reported expanded uncertainties at 95% confidence ranging from approximately <strong>90% to 127%</strong> of the bacterial endotoxin content for kinetic-chromogenic assays. A laboratory’s calculated uncertainty should be compared against such published ranges for reasonableness.</p>
+
+  <div class="note">
+    <strong>Important:</strong> The qualification PASS status in the lysate verification report confirms that the curve and precision met predefined acceptance criteria. It does <strong>not</strong> constitute a measurement uncertainty budget under ISO 17025.
+  </div>
+
+  <h2>5. Recommendation and Next Steps</h2>
+
+  <ol>
+    <li>
+      <strong>Do not issue an ISO 17025 measurement uncertainty statement based solely on this report.</strong>
+      It would be incomplete and non-compliant.
+    </li>
+    <li>
+      <strong>Use the report as a starting point.</strong>
+      The precision data and curve parameters are useful inputs.
+    </li>
+    <li>
+      <strong>Collect the missing data:</strong>
+      <ul>
+        <li>Uncertainty of the CSE potency from the certificate or supplier.</li>
+        <li>Pipette calibration uncertainty data.</li>
+        <li>Reader noise / detector repeatability assessment.</li>
+        <li>Raw standard-curve replicate data to calculate regression statistics.</li>
+        <li>Calibrated uncertainty for incubation temperature.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Develop a formal uncertainty budget</strong> following the GUM approach or the LAL-specific literature. Verify the budget during method validation and monitor it with routine QC data.
+    </li>
+  </ol>
+
+  <h2>6. Final Statement</h2>
+
+  <p>The attached lysate verification report is a valuable <strong>qualification document</strong>, but it is <strong>not a measurement uncertainty report</strong>. A complete ISO 17025 uncertainty budget requires additional targeted data collection beyond what is presented in this Initial Qualification Test.</p>
+
+  <footer>
+    Prepared as a technical review of the provided lysate verification and certificate documents. This assessment does not replace the laboratory’s formal validation, uncertainty budget, or ISO 17025 accreditation documentation.
+  </footer>
 
 </body>
 </html>
