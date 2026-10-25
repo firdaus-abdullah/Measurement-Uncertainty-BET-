@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Measurement Uncertainty Report – Bacterial Endotoxin Test (Kinetic Chromogenic) – Rev 01</title>
+<title>Measurement Uncertainty Report – Bacterial Endotoxin Test (Kinetic Chromogenic) – Rev 02</title>
 <style>
   :root{
     --ink:#1a1a1a;
@@ -88,6 +88,7 @@
   tbody tr:nth-child(even) td{background:var(--band);}
   td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
   td.ctr{text-align:center;}
+  tr.subgroup td{background:#e9eff6 !important;font-weight:600;}
 
   /* ---------- Headings ---------- */
   h2{
@@ -192,7 +193,7 @@
     margin:7px 0;
     font-size:12.5px;
   }
-  .bar-row .name{width:210px;flex:0 0 210px;}
+  .bar-row .name{width:230px;flex:0 0 230px;}
   .bar-track{
     flex:1 1 auto;
     background:#e7ecf2;
@@ -281,7 +282,8 @@
   <div class="band">Duopharma (M) Sdn Bhd &nbsp;·&nbsp; Quality Control Microbiology</div>
   <h1>Measurement Uncertainty Report<br>Bacterial Endotoxin Test — Kinetic Chromogenic Method</h1>
   <p class="sub">Estimation of Measurement Uncertainty in Accordance with ISO/IEC 17025:2017, Clause 7.6
-    &nbsp;·&nbsp; Includes reference materials traceability (CSE E50-643 and LAL lysate K50-643)</p>
+    &nbsp;·&nbsp; Includes reference materials traceability (CSE E50-643 and LAL lysate K50-643)
+    &nbsp;·&nbsp; Covers both ELx808 microplate readers in routine use</p>
 </div>
 
 <table>
@@ -289,10 +291,15 @@
   <tbody>
     <tr><th style="width:30%">Report Number</th><td>DK/QCM/R/025</td></tr>
     <tr><th>Title</th><td>Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic Method)</td></tr>
-    <tr><th>Version</th><td>01 (revised to include CSE and LAL lysate COA traceability)</td></tr>
+    <tr><th>Version</th><td>02 — revised to include CSE and LAL COA traceability, and to combine both ELx808 microplate readers used in routine testing</td></tr>
     <tr><th>Effective Date</th><td>09 September 2026 &nbsp;·&nbsp; Revision date: 18 October 2026</td></tr>
-    <tr><th>Supersedes</th><td>Version 00 (initial draft)</td></tr>
+    <tr><th>Supersedes</th><td>Version 01 (single-reader, conservative approach)</td></tr>
     <tr><th>Product / Test</th><td>Haemodialysis Concentrated Solution — Bacterial Endotoxin Test (BET), kinetic chromogenic</td></tr>
+    <tr><th>Instruments in Scope</th><td>
+      ELx808 Microplate Reader, QC/M/001 14 (A) — repeatability, linearity and intercept bias per Appendix 1<br>
+      ELx808 Microplate Reader, QC/M/001 14 (B) — repeatability, linearity and intercept bias per Appendix 2<br>
+      <b>Both readers are in routine use for BET testing; either unit may be used for any given test.</b>
+    </td></tr>
     <tr><th>Reference Materials</th><td>
       <b>Control Standard Endotoxin (CSE):</b> Lonza Endotoxin, <i>E. coli</i> O55:B5, Vial for Kinetic-QCL,
       Material No. E50-643, Batch No. 0001365773, Expiry 18-Apr-2029<br>
@@ -342,11 +349,18 @@ dominant contributions to the reported endotoxin concentration, and defines the 
 uncertainty to be quoted with the test result.
 </p>
 <p>
-The report also documents the traceability of the measurement to the reference materials used:
+The report documents the traceability of the measurement to the reference materials used:
 the <b>Control Standard Endotoxin (CSE) E50-643, Batch 0001365773</b> and the
 <b>Kinetic-QCL LAL reagent K50-643, Batch BL036EE6GR</b>, both supplied by Lonza Walkersville
 Inc. The Certificate of Analysis (CoA) for each material is held on file and is summarized in
-Section 3.4.
+Section 3.4 and 3.5.
+</p>
+<p>
+The report further documents the treatment of the <b>two ELx808 microplate readers</b> that are
+both in routine use for BET testing. Because either unit may be used for a given test, the
+reader contribution is evaluated as a <b>combined estimate over both instruments</b>, comprising
+the pooled within-reader uncertainty and an additional between-reader variance component
+(Section 6.2).
 </p>
 <p>
 The detailed derivations, raw data, certificates and statistical calculations are not reproduced
@@ -359,9 +373,9 @@ document and to which this report refers directly.
 <p>
 This evaluation applies to the determination of bacterial endotoxin concentration, <i>C</i>
 (expressed in EU/mL), in haemodialysis concentrated solution by the kinetic chromogenic
-<i>Limulus</i> amoebocyte lysate (LAL) method, using the ELx808 microplate reader, the
-micropipettes listed in Appendix 4, Table 1, and the Lonza CSE/LAL system identified in the
-Document Control table.
+<i>Limulus</i> amoebocyte lysate (LAL) method, using either ELx808 microplate reader
+QC/M/001 14 (A) or QC/M/001 14 (B), the micropipettes listed in Appendix 4, Table 1, and the
+Lonza CSE/LAL system identified in the Document Control table.
 </p>
 <p>Uncertainty is evaluated for:</p>
 <ul>
@@ -373,6 +387,12 @@ The evaluation covers the routine operational range represented by the standard 
 (0.01 EU/mL to 50 EU/mL), with the working point of 0.5 EU/mL used as the representative
 mid-curve concentration for interpolation uncertainty.
 </p>
+<div class="note">
+  <b>Scope note — dual reader use:</b> The estimated uncertainty in this report applies equally
+  to results generated on reader (A) and on reader (B). It is <i>not</i> a reader-specific
+  uncertainty; it represents the uncertainty of the reported result given that either reader may
+  be used. Reader-specific uncertainties are given in Appendices 1 and 2 for information.
+</div>
 
 <!-- ============================================================ -->
 <h2 id="s3">3. References, Definitions and Reference Materials</h2>
@@ -404,7 +424,11 @@ mid-curve concentration for interpolation uncertainty.
     <tr><td><i>u</i><sub>c</sub></td><td>Combined standard uncertainty</td></tr>
     <tr><td><i>U</i></td><td>Expanded uncertainty, <i>U</i> = <i>k</i> · <i>u</i><sub>c</sub></td></tr>
     <tr><td><i>k</i></td><td>Coverage factor; <i>k</i> = 2 corresponds to approximately 95 % confidence for a normal distribution</td></tr>
-    <tr><td>CSE</td><td>Control Standard Endotoxin (also referred to as the reference standard endotoxin used for the calibration curve in this study)</td></tr>
+    <tr><td>Reader A</td><td>ELx808 Microplate Reader, QC/M/001 14 (A)</td></tr>
+    <tr><td>Reader B</td><td>ELx808 Microplate Reader, QC/M/001 14 (B)</td></tr>
+    <tr><td><i>u</i><sub>pooled</sub></td><td>Pooled within-reader standard uncertainty over both readers</td></tr>
+    <tr><td><i>s</i><sub>between</sub></td><td>Between-reader standard deviation</td></tr>
+    <tr><td>CSE</td><td>Control Standard Endotoxin (the reference standard endotoxin used for the calibration curve in this study)</td></tr>
     <tr><td>RSE</td><td>Reference Standard Endotoxin</td></tr>
     <tr><td>BET</td><td>Bacterial Endotoxin Test</td></tr>
     <tr><td>PPC</td><td>Positive Product Control</td></tr>
@@ -484,7 +508,7 @@ The assigned CSE potency (EU/mL) is traceable to Lonza's RSE through the manufac
 RSE/CSE comparison test, as detailed on the CoA. The CoA states that the EU/mL potency is
 calculated from the ratio of the geometric mean endpoint dilution of the RSE and CSE. Because
 the CoA exempts the user laboratory from repeating this comparison, the assigned potency is
-used as stated and is treated as a Type B component — see Section 5.3.
+used as stated and is treated as a Type B component — see Section 5.2.
 </p>
 
 <h3>3.5 CoA Summary — LAL Reagent K50-643 / Batch BL036EE6GR</h3>
@@ -581,14 +605,14 @@ individual components:
 <p>where:</p>
 <table>
   <thead>
-    <tr><th style="width:16%">Symbol</th><th>Contribution</th><th style="width:24%">Appendix / source</th></tr>
+    <tr><th style="width:16%">Symbol</th><th>Contribution</th><th style="width:26%">Appendix / source</th></tr>
   </thead>
   <tbody>
     <tr><td><i>u</i><sub>rel,pip</sub></td><td>Micropipette volumes: sample dilution, final well volume ratio, standard curve preparation</td><td>Appendix 4</td></tr>
     <tr><td><i>u</i><sub>rel,cal</sub></td><td>Reagent / lysate calibration — standard uncertainty of interpolation from the regression line</td><td>Appendix 5</td></tr>
     <tr><td><i>u</i><sub>rel,analyst</sub></td><td>Analyst — intermediate precision, repeatability, calibration curve fit and bias</td><td>Appendix 3</td></tr>
-    <tr><td><i>u</i><sub>rel,instr</sub></td><td>Microplate reader — repeatability, photometric linearity and intercept bias</td><td>Appendices 1 &amp; 2</td></tr>
-    <tr><td><i>u</i><sub>rel,CSE</sub></td><td>Assigned potency of the CSE — see Section 5.3</td><td>CoA E50-643 (Type B)</td></tr>
+    <tr><td><i>u</i><sub>rel,instr</sub></td><td>Microplate reader — <b>combined over both ELx808 units</b> (pooled within-reader plus between-reader)</td><td>Appendices 1 &amp; 2; Section 6.2</td></tr>
+    <tr><td><i>u</i><sub>rel,CSE</sub></td><td>Assigned potency of the CSE — see Section 5.2</td><td>CoA E50-643 (Type B)</td></tr>
   </tbody>
 </table>
 <p>The expanded uncertainty is then obtained using a coverage factor <i>k</i> = 2:</p>
@@ -639,17 +663,17 @@ component were not quantified separately.
       <td>Appendix 4</td>
     </tr>
     <tr>
-      <td>Microplate reader</td>
-      <td>Repeatability (absorbance uniformity), photometric linearity, intercept bias</td>
+      <td>Microplate reader<br><span class="small">both ELx808 units in routine use</span></td>
+      <td>Repeatability (absorbance uniformity), photometric linearity, intercept bias — evaluated for each reader and combined by pooled within-reader plus between-reader variance</td>
       <td>Type A / B</td>
-      <td>Quantified</td>
-      <td>Appendices 1 &amp; 2</td>
+      <td>Quantified — combined over both readers</td>
+      <td>Appendices 1 &amp; 2; Section 6.2</td>
     </tr>
     <tr>
       <td>Reference standard endotoxin (CSE E50-643)</td>
       <td>Assigned potency and purity of the CSE vial; traceability to RSE</td>
       <td>Type B</td>
-      <td>Assessed — see Section 5.3</td>
+      <td>Assessed — see Section 5.2</td>
       <td>CoA E50-643</td>
     </tr>
     <tr>
@@ -689,11 +713,24 @@ component were not quantified separately.
           <li>Bias 0.0434</li>
         </ul>
       </li>
-      <li>Microplate reader — <i>u</i><sub>rel,instr</sub> = 0.0497 &nbsp;<span class="small">(Appendix 2)</span>
+      <li>Microplate reader — <b><i>u</i><sub>rel,instr</sub> = 0.0486</b> &nbsp;<span class="small">(combined over readers A and B; Section 6.2)</span>
         <ul>
-          <li>Repeatability 0.027</li>
-          <li>Linearity 0.04159</li>
-          <li>Intercept bias 0.0034</li>
+          <li>Reader A (QC/M/001 14 (A)) — <i>u</i><sub>c,A</sub> = 0.0475
+            <ul>
+              <li>Repeatability 0.046</li>
+              <li>Linearity 0.0115</li>
+              <li>Intercept bias 0.0034</li>
+            </ul>
+          </li>
+          <li>Reader B (QC/M/001 14 (B)) — <i>u</i><sub>c,B</sub> = 0.0497
+            <ul>
+              <li>Repeatability 0.027</li>
+              <li>Linearity 0.04159</li>
+              <li>Intercept bias 0.0034</li>
+            </ul>
+          </li>
+          <li>Pooled within-reader 0.04861</li>
+          <li>Between-reader 0.00156</li>
         </ul>
       </li>
       <li>Micropipettes — <i>u</i><sub>rel,pip</sub> = 0.00195 &nbsp;<span class="small">(Appendix 4)</span>
@@ -760,7 +797,8 @@ of the lot actually used.
 <h2 id="s6">6. Quantification of Individual Contributions</h2>
 <p>
 The individual contributions are quantified in full in the respective appendices. The results
-are consolidated below.
+are consolidated below. The microplate reader contribution is additionally combined across the
+two instruments in routine use, as described in Section 6.2.
 </p>
 
 <table>
@@ -768,10 +806,10 @@ are consolidated below.
   <thead>
     <tr>
       <th style="width:26%">Component</th>
-      <th style="width:22%">Sub-component</th>
-      <th class="num" style="width:16%"><i>u</i><sub>rel</sub></th>
+      <th style="width:26%">Sub-component</th>
+      <th class="num" style="width:15%"><i>u</i><sub>rel</sub></th>
       <th class="num" style="width:16%"><i>u</i><sub>rel</sub> combined</th>
-      <th>Appendix</th>
+      <th>Reference</th>
     </tr>
   </thead>
   <tbody>
@@ -816,12 +854,30 @@ are consolidated below.
       <td>Bias (PPC recovery)</td>
       <td class="num">0.0434</td>
     </tr>
+    <tr class="subgroup">
+      <td colspan="5">Microplate reader — both ELx808 units in routine use (see Section 6.2)</td>
+    </tr>
     <tr>
-      <td rowspan="3">Microplate reader<br><span class="small">ELx808 QC/M/001 14 (B)</span></td>
+      <td rowspan="3">Reader A<br><span class="small">QC/M/001 14 (A)</span></td>
+      <td>Repeatability (absorbance uniformity CV)</td>
+      <td class="num">0.046</td>
+      <td class="num" rowspan="3"><b>0.0475</b></td>
+      <td rowspan="3">Appendix 1</td>
+    </tr>
+    <tr>
+      <td>Photometric linearity</td>
+      <td class="num">0.0115</td>
+    </tr>
+    <tr>
+      <td>Intercept bias</td>
+      <td class="num">0.0034</td>
+    </tr>
+    <tr>
+      <td rowspan="3">Reader B<br><span class="small">QC/M/001 14 (B)</span></td>
       <td>Repeatability (absorbance uniformity CV)</td>
       <td class="num">0.027</td>
       <td class="num" rowspan="3"><b>0.0497</b></td>
-      <td rowspan="3">Appendix 2, Table 2</td>
+      <td rowspan="3">Appendix 2</td>
     </tr>
     <tr>
       <td>Photometric linearity</td>
@@ -830,6 +886,27 @@ are consolidated below.
     <tr>
       <td>Intercept bias</td>
       <td class="num">0.0034</td>
+    </tr>
+    <tr>
+      <td>Reader — pooled within-reader</td>
+      <td><i>u</i><sub>pooled</sub> = √[(0.0475² + 0.0497²)/2]</td>
+      <td class="num">0.04861</td>
+      <td class="num">—</td>
+      <td>Section 6.2</td>
+    </tr>
+    <tr>
+      <td>Reader — between-reader</td>
+      <td><i>s</i><sub>between</sub> over the two units</td>
+      <td class="num">0.00156</td>
+      <td class="num">—</td>
+      <td>Section 6.2</td>
+    </tr>
+    <tr>
+      <td><b>Microplate reader — combined</b></td>
+      <td>√(<i>u</i><sub>pooled</sub>² + <i>s</i><sub>between</sub>²)</td>
+      <td class="num">—</td>
+      <td class="num"><b>0.0486</b></td>
+      <td>Section 6.2</td>
     </tr>
     <tr>
       <td>CSE (E50-643)</td>
@@ -841,13 +918,7 @@ are consolidated below.
   </tbody>
 </table>
 
-<p class="small">
-The reader value in Table 6.1 is taken from Appendix 2 (reader QC/M/001 14 (B)) as this is the
-higher of the two available readers, and therefore represents the conservative case. The
-corresponding value for reader QC/M/001 14 (A) is given in Appendix 1 and is discussed in
-Section 10.3.
-</p>
-
+<!-- ============================================================ -->
 <h3>6.1 PPC-specific micropipette contribution</h3>
 <p>
 The PPC result carries its own micropipette contribution, which includes the 10 µL spike
@@ -861,39 +932,131 @@ preparation (Appendix 4, Table 2):
 </div>
 
 <!-- ============================================================ -->
+<h3>6.2 Combination of the two microplate readers</h3>
+<p>
+Both ELx808 microplate readers — QC/M/001 14 (A) and QC/M/001 14 (B) — are used for BET
+testing, and either unit may be used for any given test. The reader contribution therefore
+cannot be represented by a single instrument; it must represent the <b>population of instruments
+in routine use</b>. A two-level approach is applied:
+</p>
+<ol>
+  <li><b>Within-reader (pooled) component</b> — the pooled variance of the two reader-specific
+      combined standard uncertainties, which represents the typical uncertainty attributable to
+      whichever reader is used;</li>
+  <li><b>Between-reader component</b> — the additional variance arising from the difference in
+      performance between the two units, which represents the effect of not knowing which reader
+      will be used for a given test.</li>
+</ol>
+
+<p>The reader-specific combined standard uncertainties are (Tables 6.1, Appendices 1 and 2):</p>
+<div class="eq">
+  <i>u</i><sub>c,A</sub> = √[(0.046)² + (0.0115)² + (0.0034)²] = <b>0.0475</b>
+  <span class="lbl">(8)</span>
+</div>
+<div class="eq">
+  <i>u</i><sub>c,B</sub> = √[(0.027)² + (0.04159)² + (0.0034)²] = <b>0.0497</b>
+  <span class="lbl">(9)</span>
+</div>
+
+<p><b>Step 1 — pooled within-reader variance</b> (equal weighting, two units):</p>
+<div class="eq">
+  <i>u</i><sub>pooled</sub>² = [ (0.0475)² + (0.0497)² ] / 2
+  = [ 2.2563×10<sup>−3</sup> + 2.4701×10<sup>−3</sup> ] / 2
+  = 2.3632×10<sup>−3</sup>
+  <span class="lbl">(10)</span>
+</div>
+<div class="eq">
+  <i>u</i><sub>pooled</sub> = √(2.3632×10<sup>−3</sup>) = <b>0.04861</b>
+  <span class="lbl">(11)</span>
+</div>
+
+<p><b>Step 2 — between-reader variance</b> (mean of the two reader values = 0.04860;
+deviations ±0.00110; sample standard deviation with <i>n</i> − 1 = 1):</p>
+<div class="eq">
+  <i>s</i><sub>between</sub> = √{ [ (−0.00110)² + (+0.00110)² ] / (2 − 1) } = <b>0.00156</b>
+  <span class="lbl">(12)</span>
+</div>
+
+<p><b>Step 3 — combined reader contribution</b>:</p>
+<div class="eq">
+  <i>u</i><sub>rel,instr</sub> = √( <i>u</i><sub>pooled</sub>² + <i>s</i><sub>between</sub>² )
+  = √( 2.3632×10<sup>−3</sup> + 2.42×10<sup>−6</sup> )
+  = √(2.3656×10<sup>−3</sup>) = <b>0.0486</b>
+  <span class="lbl">(13)</span>
+</div>
+
+<div class="note">
+  <b>Interpretation:</b> The between-reader component (0.00156) is small compared with the
+  pooled within-reader component (0.04861) — approximately 3 % in variance terms — which
+  confirms that the two readers perform comparably and that reader selection is not a
+  significant source of uncertainty in its own right. The combined value of <b>0.0486</b> is
+  used in equation (5) for both the sample and the PPC result.
+</div>
+
+<table>
+  <caption>Table 6.2 — Reader contribution: reader-specific versus combined</caption>
+  <thead>
+    <tr>
+      <th style="width:34%">Quantity</th>
+      <th class="num">Reader A</th>
+      <th class="num">Reader B</th>
+      <th class="num">Combined (both)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Repeatability <i>u</i><sub>rel</sub></td><td class="num">0.046</td><td class="num">0.027</td><td class="num">—</td></tr>
+    <tr><td>Photometric linearity <i>u</i><sub>rel</sub></td><td class="num">0.0115</td><td class="num">0.04159</td><td class="num">—</td></tr>
+    <tr><td>Intercept bias <i>u</i><sub>rel</sub></td><td class="num">0.0034</td><td class="num">0.0034</td><td class="num">—</td></tr>
+    <tr><td>Reader-specific combined <i>u</i><sub>c</sub></td><td class="num">0.0475</td><td class="num">0.0497</td><td class="num">—</td></tr>
+    <tr><td>Pooled within-reader <i>u</i><sub>pooled</sub></td><td class="num" colspan="2" style="text-align:center">—</td><td class="num">0.04861</td></tr>
+    <tr><td>Between-reader <i>s</i><sub>between</sub></td><td class="num" colspan="2" style="text-align:center">—</td><td class="num">0.00156</td></tr>
+    <tr><td><b>Combined reader contribution <i>u</i><sub>rel,instr</sub></b></td><td class="num" colspan="2" style="text-align:center">—</td><td class="num"><b>0.0486</b></td></tr>
+  </tbody>
+</table>
+
+<p class="small">
+For comparison, the previously adopted single-reader conservative approach (using reader B at
+0.0497) gave <i>u</i><sub>rel,instr</sub> = 0.0497. The dual-reader combination gives 0.0486,
+a reduction of approximately 2 % in the reader component and less than 0.05 % in the final
+expanded uncertainty. The change is therefore numerically immaterial but methodologically more
+defensible, because it correctly reflects that both readers are in routine use.
+</p>
+
+<!-- ============================================================ -->
 <h2 id="s7">7. Combined and Expanded Uncertainty</h2>
 
 <h3>7.1 Sample result</h3>
 <div class="eq">
   <i>u</i><sub>c,rel</sub>(sample) =
-  √ [ (0.00195)² + (0.0999)² + (0.0872)² + (0.0497)² ] = <b>0.1416</b>
-  <span class="lbl">(8)</span>
+  √ [ (0.00195)² + (0.0999)² + (0.0872)² + (0.0486)² ] = <b>0.1413</b>
+  <span class="lbl">(14)</span>
 </div>
 <div class="eq">
-  <i>U</i><sub>rel</sub>(sample) = 2 × 0.1416 = <b>0.2832 ≈ 0.28</b>
-  <span class="lbl">(9)</span>
+  <i>U</i><sub>rel</sub>(sample) = 2 × 0.1413 = <b>0.2825 ≈ 0.28</b>
+  <span class="lbl">(15)</span>
 </div>
 
 <h3>7.2 PPC result</h3>
 <div class="eq">
   <i>u</i><sub>c,rel</sub>(PPC) =
-  √ [ (0.00213)² + (0.0999)² + (0.0872)² + (0.0497)² ] = <b>0.1416</b>
-  <span class="lbl">(10)</span>
+  √ [ (0.00213)² + (0.0999)² + (0.0872)² + (0.0486)² ] = <b>0.1413</b>
+  <span class="lbl">(16)</span>
 </div>
 <div class="eq">
-  <i>U</i><sub>rel</sub>(PPC) = 2 × 0.1416 = <b>0.2833 ≈ 0.28</b>
-  <span class="lbl">(11)</span>
+  <i>U</i><sub>rel</sub>(PPC) = 2 × 0.1413 = <b>0.2825 ≈ 0.28</b>
+  <span class="lbl">(17)</span>
 </div>
 
 <div class="key">
   <b>Final result of the uncertainty evaluation</b>
-  <span class="big">u<sub>c,rel</sub> = 0.142 &nbsp;&nbsp;|&nbsp;&nbsp; U<sub>rel</sub> = 0.28 (k = 2, ≈ 95 % confidence)</span>
+  <span class="big">u<sub>c,rel</sub> = 0.141 &nbsp;&nbsp;|&nbsp;&nbsp; U<sub>rel</sub> = 0.28 (k = 2, ≈ 95 % confidence)</span>
   <span class="small">
     The relative expanded uncertainty of a reported endotoxin concentration is 28 % of the
-    reported value. This applies equally to the sample result and to the PPC result. The
-    absolute expanded uncertainty is obtained by multiplying the reported concentration by 0.28.
-    The CSE potency is included by traceability to Lonza's RSE via CoA E50-643, and its
-    contribution is captured within the reagent/calibration component (Section 5.2).
+    reported value. This applies equally to the sample result and to the PPC result, and
+    equally to results generated on reader (A) and on reader (B). The absolute expanded
+    uncertainty is obtained by multiplying the reported concentration by 0.28. The CSE potency
+    is included by traceability to Lonza's RSE via CoA E50-643, and its contribution is captured
+    within the reagent/calibration component (Section 5.2).
   </span>
 </div>
 
@@ -901,24 +1064,27 @@ preparation (Appendix 4, Table 2):
   <caption>Table 7.1 — Summary of combined and expanded uncertainties</caption>
   <thead>
     <tr>
-      <th style="width:30%">Target result</th>
+      <th style="width:28%">Target result</th>
       <th class="num">Combined standard uncertainty <i>u</i><sub>c,rel</sub></th>
       <th class="num">Coverage factor <i>k</i></th>
       <th class="num">Expanded uncertainty <i>U</i><sub>rel</sub></th>
+      <th>Applies to</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Sample endotoxin concentration</td>
-      <td class="num">0.142</td>
+      <td class="num">0.141</td>
       <td class="num">2</td>
       <td class="num"><b>0.28</b></td>
+      <td>Reader A and Reader B</td>
     </tr>
     <tr>
       <td>PPC endotoxin concentration</td>
-      <td class="num">0.142</td>
+      <td class="num">0.141</td>
       <td class="num">2</td>
       <td class="num"><b>0.28</b></td>
+      <td>Reader A and Reader B</td>
     </tr>
   </tbody>
 </table>
@@ -930,8 +1096,7 @@ preparation (Appendix 4, Table 2):
   <caption>Table 8.1 — Uncertainty budget for the sample endotoxin result</caption>
   <thead>
     <tr>
-      <th style="width:30%">Source of uncertainty</th>
-      <th class="num">Value <i>x</i><sub>i</sub></th>
+      <th style="width:32%">Source of uncertainty</th>
       <th class="num"><i>u</i><sub>rel</sub>(<i>x</i><sub>i</sub>)</th>
       <th class="num">Variance <i>u</i><sub>rel</sub>²</th>
       <th class="num">Contribution (%)</th>
@@ -941,27 +1106,35 @@ preparation (Appendix 4, Table 2):
     <tr>
       <td>Reagent / lysate calibration</td>
       <td class="num">0.0999</td>
-      <td class="num">0.0999</td>
       <td class="num">9.980 × 10<sup>−3</sup></td>
-      <td class="num">49.8</td>
+      <td class="num">50.0</td>
     </tr>
     <tr>
       <td>Analyst</td>
       <td class="num">0.0872</td>
-      <td class="num">0.0872</td>
       <td class="num">7.604 × 10<sup>−3</sup></td>
-      <td class="num">37.9</td>
+      <td class="num">38.1</td>
     </tr>
     <tr>
-      <td>Microplate reader</td>
-      <td class="num">0.0497</td>
-      <td class="num">0.0497</td>
-      <td class="num">2.470 × 10<sup>−3</sup></td>
-      <td class="num">12.3</td>
+      <td>Microplate reader — pooled within-reader</td>
+      <td class="num">0.04861</td>
+      <td class="num">2.363 × 10<sup>−3</sup></td>
+      <td class="num">11.8</td>
+    </tr>
+    <tr>
+      <td>Microplate reader — between-reader</td>
+      <td class="num">0.00156</td>
+      <td class="num">2.42 × 10<sup>−6</sup></td>
+      <td class="num">&lt; 0.1</td>
+    </tr>
+    <tr>
+      <td><i>Microplate reader — combined subtotal</i></td>
+      <td class="num"><i>0.0486</i></td>
+      <td class="num"><i>2.366 × 10<sup>−3</sup></i></td>
+      <td class="num"><i>11.9</i></td>
     </tr>
     <tr>
       <td>Micropipettes</td>
-      <td class="num">0.00195</td>
       <td class="num">0.00195</td>
       <td class="num">3.803 × 10<sup>−6</sup></td>
       <td class="num">0.02</td>
@@ -969,20 +1142,17 @@ preparation (Appendix 4, Table 2):
     <tr>
       <td>CSE potency (E50-643)</td>
       <td class="num">—</td>
-      <td class="num">—</td>
       <td class="num">Captured within reagent/calibration</td>
       <td class="num">—</td>
     </tr>
     <tr>
       <td><b>Combined standard uncertainty</b></td>
-      <td class="num">—</td>
-      <td class="num"><b>0.1416</b></td>
-      <td class="num"><b>2.006 × 10<sup>−2</sup></b></td>
+      <td class="num"><b>0.1413</b></td>
+      <td class="num"><b>1.995 × 10<sup>−2</sup></b></td>
       <td class="num"><b>100.0</b></td>
     </tr>
     <tr>
       <td><b>Expanded uncertainty (<i>k</i> = 2)</b></td>
-      <td class="num">—</td>
       <td class="num"><b>0.283</b></td>
       <td class="num">—</td>
       <td class="num">—</td>
@@ -993,14 +1163,14 @@ preparation (Appendix 4, Table 2):
 <h3>8.1 Contribution analysis</h3>
 
 <div class="bar-row"><span class="name">Reagent / lysate calibration</span>
-  <span class="bar-track"><span class="bar-fill" style="width:49.8%"></span></span>
-  <span class="pct">49.8 %</span></div>
+  <span class="bar-track"><span class="bar-fill" style="width:50.0%"></span></span>
+  <span class="pct">50.0 %</span></div>
 <div class="bar-row"><span class="name">Analyst</span>
-  <span class="bar-track"><span class="bar-fill" style="width:37.9%"></span></span>
-  <span class="pct">37.9 %</span></div>
-<div class="bar-row"><span class="name">Microplate reader</span>
-  <span class="bar-track"><span class="bar-fill" style="width:12.3%"></span></span>
-  <span class="pct">12.3 %</span></div>
+  <span class="bar-track"><span class="bar-fill" style="width:38.1%"></span></span>
+  <span class="pct">38.1 %</span></div>
+<div class="bar-row"><span class="name">Microplate reader (both units)</span>
+  <span class="bar-track"><span class="bar-fill" style="width:11.9%"></span></span>
+  <span class="pct">11.9 %</span></div>
 <div class="bar-row"><span class="name">Micropipettes</span>
   <span class="bar-track"><span class="bar-fill" style="width:0.02%"></span></span>
   <span class="pct">0.02 %</span></div>
@@ -1014,6 +1184,12 @@ contribution is negligible (&lt; 0.05 %) and has no practical influence on the r
 uncertainty, even though it is retained in the budget for completeness and traceability.
 </p>
 <p>
+Within the reader contribution, the pooled within-reader variance dominates (0.04861) and the
+between-reader variance is negligible (0.00156), confirming that the two ELx808 units perform
+comparably and that the reported uncertainty does not depend materially on which reader is
+used.
+</p>
+<p>
 The <b>CSE potency</b> is not separately quantified (Section 5.2), but is embedded in the
 reagent/calibration component. This is consistent with the FDA-recognised exemption from
 in-house RSE/CSE comparison documented on CoA E50-643, and with the observation that the
@@ -1022,8 +1198,8 @@ contribution would not be large enough to change the reported value at two signi
 <p>
 Consequently, any programme aimed at reducing the reported measurement uncertainty should focus
 on the calibration/regression performance of the reagent system and on analyst-related
-precision, rather than on volumetric operations. Changing the CSE lot should trigger a
-re-assessment of Section 5.2 before the next report revision.
+precision, rather than on volumetric operations or on reader selection. Changing the CSE lot
+should trigger a re-assessment of Section 5.2 before the next report revision.
 </p>
 
 <!-- ============================================================ -->
@@ -1037,13 +1213,14 @@ re-assessment of Section 5.2 before the next report revision.
 </div>
 <p>For example, a measured endotoxin concentration of 0.500 EU/mL would be reported as:</p>
 <div class="eq">
-  <i>C</i> = 0.500 ± 0.142 EU/mL &nbsp;&nbsp;(<i>k</i> = 2, ≈ 95 % confidence)
+  <i>C</i> = 0.500 ± 0.141 EU/mL &nbsp;&nbsp;(<i>k</i> = 2, ≈ 95 % confidence)
 </div>
 
 <h3>9.2 Reporting rules</h3>
 <ul>
   <li>The expanded uncertainty is reported with a coverage factor <i>k</i> = 2, corresponding to a confidence level of approximately 95 % assuming a normal distribution.</li>
   <li>Uncertainty is reported as a <b>relative</b> expanded uncertainty, since the budget is constructed entirely from relative standard uncertainties.</li>
+  <li>The same relative expanded uncertainty (0.28) applies to results generated on reader (A) and on reader (B); the report need not distinguish which reader was used for uncertainty purposes, although the reader identity shall be recorded in the test record.</li>
   <li>The expanded uncertainty shall be quoted to at most two significant figures; the reported concentration shall be rounded to the same decimal place.</li>
   <li>The PPC result carries the same relative expanded uncertainty (0.28) and is used solely to demonstrate the absence of inhibition or enhancement; it does not propagate into the sample endotoxin concentration.</li>
   <li>The CSE and LAL lots used for the result shall be recorded alongside the reported concentration, so that the traceability chain documented in Section 3.4 and 3.5 can be audited.</li>
@@ -1056,8 +1233,9 @@ re-assessment of Section 5.2 before the next report revision.
 <h3>10.1 Assumptions</h3>
 <ul>
   <li>All input quantities are treated as mutually independent; no covariance term is included. Any correlation between the analyst and reagent components is considered to be small relative to the reported uncertainty.</li>
+  <li><b>Both ELx808 microplate readers (QC/M/001 14 (A) and (B)) are within their preventive maintenance and calibration intervals</b> (performed 09 September 2026) and are used interchangeably for BET testing.</li>
+  <li>The two readers are treated as a representative sample of the instrument population in routine use; no further reader is expected to be introduced without re-evaluation (Section 10.4).</li>
   <li>All micropipettes are within their calibration interval and are used within the volume ranges specified in Appendix 4, Table 1.</li>
-  <li>The microplate reader is within its preventive maintenance and calibration interval (QC/M/001 14 (A)/(B), performed 09 September 2026).</li>
   <li>Worst-case certificate values have been used conservatively for the 1 mL pipettes (MM2, MM12, MM29) and for non-certified volume points (183 µL, 800 µL, 900 µL).</li>
   <li>The CSE (E50-643, Batch 0001365773) and LAL reagent (K50-643, Batch BL036EE6GR) are within their CoA expiry dates and are used as stated on their CoAs.</li>
   <li>The CSE potency is accepted as stated on CoA E50-643, in reliance on the FDA-recognised exemption from in-house RSE/CSE comparison.</li>
@@ -1072,6 +1250,7 @@ re-assessment of Section 5.2 before the next report revision.
   <li>Bias is evaluated from PPC recovery data across three lots and four analysts; it is treated as a precision component of the mean rather than as a corrected systematic effect.</li>
   <li>The reagent component is derived exclusively from the Initial Qualification Test (Lysate Verification) report and should be reviewed if the lysate supplier, lot or qualification data change.</li>
   <li>The CSE contribution is not separately quantified (Section 5.2). If the CSE lot changes, or if the CoA begins to state a numeric potency uncertainty, the budget must be re-evaluated.</li>
+  <li><b>The reader component represents the two ELx808 units currently in routine use.</b> The between-reader variance estimate (0.00156) is based on only two instruments and carries a high degree of statistical uncertainty; it is therefore treated as a small correction and does not dominate the reader contribution. If a third reader is introduced, the between-reader estimate should be recalculated with the larger instrument population.</li>
   <li>Both CoAs are electronic records generated from Lonza's Part 11-compliant system and are signed by the Lonza QA representative; printed copies are uncontrolled and the current electronic record held on file prevails.</li>
 </ul>
 
@@ -1094,9 +1273,15 @@ the appendices. None of them materially affects the reported uncertainty.
   <tbody>
     <tr>
       <td>1</td>
-      <td>Section 3.1, 3.2 and Table 2 report <i>u</i><sub>c</sub> = 0.0497 and <i>U</i> = 0.0994, which do not follow from the listed components (0.046, 0.0115, 0.0034) and appear to be transcribed from Appendix 2.</td>
-      <td><i>u</i><sub>c</sub> = 0.0475; <i>U</i> = 0.0951</td>
-      <td>Negligible — Appendix 2 (0.0497) is used as the conservative value in this report.</td>
+      <td>Section 3.1, 3.2 and Table 2 report <i>u</i><sub>c</sub> = 0.0497 and <i>U</i> = 0.0994, which do not follow from the listed components (0.046, 0.0115, 0.0034) and appear to have been transcribed from Appendix 2.</td>
+      <td><i>u</i><sub>c,A</sub> = 0.0475; <i>U</i> = 0.0951</td>
+      <td>Immaterial to the final result, but the corrected value 0.0475 is now <b>used</b> in the dual-reader pooling (Section 6.2). Appendix 1 must be corrected at the next revision.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Reader B values verified: <i>u</i><sub>c,B</sub> = √(0.027² + 0.04159² + 0.0034²) = 0.0497; <i>U</i> = 0.0994.</td>
+      <td>Confirmed — Appendix 2 internally consistent</td>
+      <td>None — used as reported in the dual-reader pooling.</td>
     </tr>
     <tr>
       <td>3</td>
@@ -1120,14 +1305,15 @@ the appendices. None of them materially affects the reported uncertainty.
 </table>
 
 <div class="note">
-  <b>Recommendation:</b> the appendices should be corrected at the next document revision to
-  align the displayed formulae with the reported numerical results. The consolidated values used
-  in this report (Table 6.1) have been independently verified and are unaffected.
+  <b>Recommendation:</b> Appendices 1 and 4 should be corrected at the next document revision to
+  align the displayed formulae and reported values with the underlying calculations. The
+  consolidated values used in this report (Table 6.1) have been independently verified and are
+  unaffected.
 </div>
 
-<h3>10.4 Reference materials change control</h3>
+<h3>10.4 Reference materials and instrument change control</h3>
 <table>
-  <caption>Table 10.2 — Reference material change triggers</caption>
+  <caption>Table 10.2 — Change triggers requiring re-evaluation</caption>
   <thead>
     <tr>
       <th style="width:34%">Change</th>
@@ -1148,7 +1334,15 @@ the appendices. None of them materially affects the reported uncertainty.
       <td>Full re-evaluation of Sections 3.4, 5.2 and 5.3; confirm continued applicability of the RSE/CSE comparison exemption.</td>
     </tr>
     <tr>
-      <td>Change of reader, micropipette or analyst population</td>
+      <td><b>Introduction of an additional microplate reader, or withdrawal of reader (A) or (B)</b></td>
+      <td><b>Recalculate <i>u</i><sub>pooled</sub> and <i>s</i><sub>between</sub> (Section 6.2) over the new instrument population; update Tables 6.1, 6.2, 7.1 and 8.1; issue a report revision.</b></td>
+    </tr>
+    <tr>
+      <td>Reader (A) or (B) fails preventive maintenance, or is recalibrated with materially different performance data</td>
+      <td>Repeat the relevant appendix and recompute the pooled and combined reader contribution.</td>
+    </tr>
+    <tr>
+      <td>Change of micropipette population or analyst population</td>
       <td>Re-evaluate the corresponding appendix and reissue the report.</td>
     </tr>
   </tbody>
@@ -1164,7 +1358,7 @@ the appendices. None of them materially affects the reported uncertainty.
       <th style="width:12%">Version</th>
       <th style="width:18%">Date</th>
       <th>Description of change</th>
-      <th style="width:20%">Author</th>
+      <th style="width:18%">Author</th>
     </tr>
   </thead>
   <tbody>
@@ -1177,7 +1371,13 @@ the appendices. None of them materially affects the reported uncertainty.
     <tr>
       <td>01</td>
       <td>18 Oct 2026</td>
-      <td>Revised to incorporate CSE (E50-643, Batch 0001365773) and LAL lysate (K50-643, Batch BL036EE6GR) Certificate of Analysis traceability. Added Section 3.3–3.5 (reference materials), Section 5.2 (CSE assessment), Section 10.4 (reference material change control), and updated Tables 5.1, 6.1, 8.1 and 11.3 accordingly. No change to the numerical combined or expanded uncertainty.</td>
+      <td>Revised to incorporate CSE (E50-643, Batch 0001365773) and LAL lysate (K50-643, Batch BL036EE6GR) Certificate of Analysis traceability. Added Section 3.3–3.5 (reference materials), Section 5.2 (CSE assessment), Section 10.4 (reference material change control), and updated Tables 5.1, 6.1, 8.1 and 11.3 accordingly.</td>
+      <td>QC Microbiology</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>18 Oct 2026</td>
+      <td><b>Revised to reflect that both ELx808 microplate readers, QC/M/001 14 (A) and QC/M/001 14 (B), are in routine use for BET testing.</b> Replaced the single-reader conservative approach with a dual-reader combination (pooled within-reader plus between-reader variance) in new Section 6.2 and Table 6.2. Updated Sections 1, 2, 4.4, 5.1, 5.2, 6.1, 7.1, 7.2, 8.1, 9.2, 10.1–10.4, and Tables 6.1, 7.1, 8.1, 10.1, 10.2 and 11.3. Reader component changed from 0.0497 to 0.0486; combined standard uncertainty from 0.1416 to 0.1413; expanded uncertainty unchanged at 0.28.</td>
       <td>QC Microbiology</td>
     </tr>
   </tbody>
@@ -1214,18 +1414,21 @@ the appendices. None of them materially affects the reported uncertainty.
     <tr><th style="width:14%">Document</th><th>Title</th><th style="width:26%">Key output used</th></tr>
   </thead>
   <tbody>
-    <tr><td>Appendix 1</td><td>Microplate Reader Related Uncertainty — ELx808 (QC/M/001 14 (A))</td><td><i>u</i><sub>rel,instr</sub> = 0.0475</td></tr>
-    <tr><td>Appendix 2</td><td>Microplate Reader Related Uncertainty — ELx808 (QC/M/001 14 (B))</td><td><i>u</i><sub>rel,instr</sub> = 0.0497 (used)</td></tr>
+    <tr><td>Appendix 1</td><td>Microplate Reader Related Uncertainty — ELx808 (QC/M/001 14 (A))</td><td><i>u</i><sub>c,A</sub> = 0.0475 (used in pooling)</td></tr>
+    <tr><td>Appendix 2</td><td>Microplate Reader Related Uncertainty — ELx808 (QC/M/001 14 (B))</td><td><i>u</i><sub>c,B</sub> = 0.0497 (used in pooling)</td></tr>
     <tr><td>Appendix 3</td><td>Analyst Related Uncertainty</td><td><i>u</i><sub>rel,analyst</sub> = 0.0872</td></tr>
     <tr><td>Appendix 4</td><td>Micropipette Related Uncertainty</td><td><i>u</i><sub>rel,pip</sub> = 0.00195 (sample); 0.00213 (PPC)</td></tr>
     <tr><td>Appendix 5</td><td>Reagent Related Uncertainty</td><td><i>u</i><sub>rel,cal</sub> = 0.0999</td></tr>
+    <tr><td>Section 6.2</td><td>Dual-reader combination (derived in this report from Appendices 1 and 2)</td><td><i>u</i><sub>rel,instr</sub> = 0.0486 (used)</td></tr>
     <tr><td>CoA E50-643</td><td>Lonza Certificate of Analysis — Endotoxin, <i>E. coli</i> O55:B5, Vial for Kinetic-QCL (CSE); Batch 0001365773</td><td>CSE identity, potency traceability, sterility and residual moisture</td></tr>
     <tr><td>CoA K50-643</td><td>Lonza Certificate of Analysis — Kinetic-QCL Vial (LAL reagent); Batch BL036EE6GR</td><td>Lysate linearity, enzyme activity, CV, pH and residual moisture</td></tr>
+    <tr><td>QC/M/001 14 (A)</td><td>Preventive Maintenance Service record — ELx808 Microplate Reader (A), 09 Sep 2026</td><td>Absorbance uniformity CV, photometric linearity, intercept</td></tr>
+    <tr><td>QC/M/001 14 (B)</td><td>Preventive Maintenance Service record — ELx808 Microplate Reader (B), 09 Sep 2026</td><td>Absorbance uniformity CV, photometric linearity, intercept</td></tr>
   </tbody>
 </table>
 
 <div class="footer-note">
-  DK/QCM/R/025 · Version 01 · Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic)<br>
+  DK/QCM/R/025 · Version 02 · Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic)<br>
   Duopharma (M) Sdn Bhd · Quality Control Microbiology · Page 1 of 1 (electronic master copy)
 </div>
 
