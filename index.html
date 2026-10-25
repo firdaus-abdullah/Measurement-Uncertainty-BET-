@@ -90,7 +90,7 @@
     Kinetic Chromogenic BET (Standard Curve Calibration &amp; System Repeatability)
   </p>
   <table>
-    <tr><td>Document No.</td><td><strong>MU-BET-KC-001</strong> (Rev. 03 — Detailed Derivation)</td></tr>
+    <tr><td>Document No.</td><td><strong>MU-BET-KC-001</strong> (Rev. 04 — Full Derivation)</td></tr>
     <tr><td>Supporting record</td><td>Lysate Verification / Initial Qualification Test</td></tr>
     <tr><td>Run date</td><td>11 May 2026, 08:45:33 (UTC+8)</td></tr>
     <tr><td>Lysate lot</td><td>BL036EE6GR (Exp 20/11/2027)</td></tr>
@@ -198,20 +198,165 @@ The kinetic chromogenic method relates the onset time \(t\) to endotoxin concent
 </table>
 
 <h3>Step 2: Calculate Regression Statistics</h3>
-<p>To calculate uncertainty, we need three statistical values derived from the table above:</p>
-<ol>
-  <li><strong>Mean of all \(x\) values (\(\bar{x}\)):</strong>
-    <br>\[ \bar{x} = \frac{4(-2) + 4(-1.301) + 4(-0.301) + 4(0.699) + 4(1.699)}{20} = \mathbf{-0.2408} \]
-  </li>
-  <li><strong>Sum of Squares for \(x\) (\(S_{xx}\)):</strong>
-    <br>\[ S_{xx} = \sum (x_i - \bar{x})^2 = \mathbf{35.47} \]
-  </li>
-  <li><strong>Residual Standard Deviation (\(s_{y/x}\)):</strong>
-    <br>This represents the average scatter of the points around the regression line. Using the reported equation \(\hat{y} = 3.075 - 0.226x\), the Sum of Squared Errors (\(SSE\)) is calculated as \(0.003146\).
-    <br>With \(N=20\) data points and 2 parameters (slope and intercept), degrees of freedom = \(N - 2 = 18\).
-    <br>\[ s_{y/x} = \sqrt{\frac{SSE}{18}} = \sqrt{\frac{0.003146}{18}} = \mathbf{0.01322} \]
-  </li>
-</ol>
+<p>To calculate uncertainty, we need three statistical values derived from the data. First, we find the Mean of all \(x\) values (\(\bar{x}\)) and the Sum of Squares for \(x\) (\(S_{xx}\)):</p>
+<div class="formula">
+\[
+\bar{x} = \frac{4(-2) + 4(-1.301) + 4(-0.301) + 4(0.699) + 4(1.699)}{20} = \mathbf{-0.2408}
+\]
+\[
+S_{xx} = \sum (x_i - \bar{x})^2 = \mathbf{35.47}
+\]
+</div>
+
+<h4>Calculating the Sum of Squared Errors (SSE)</h4>
+<p>
+To find the Residual Standard Deviation (\(s_{y/x}\)), we must first calculate the SSE, which measures how far the observed data points scatter from the regression line. 
+Using the equation provided in the report: \(\hat{y} = 3.075 - 0.226x\), we calculate the predicted value (\(\hat{y}_i\)) for every concentration level, then find the residual \((y_i - \hat{y}_i)\) and square it:
+</p>
+
+<table class="data">
+  <thead>
+    <tr>
+      <th class="center">Level<br>\(x = \log_{10}C\)</th>
+      <th class="num">Predicted<br>\(\hat{y} = 3.075 - 0.226x\)</th>
+      <th class="num">Observed<br>\(y_i\)</th>
+      <th class="num">Residual<br>\((y_i - \hat{y})\)</th>
+      <th class="num">Squared Residual<br>\((y_i - \hat{y})^2\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Level 1 -->
+    <tr>
+      <td class="center" rowspan="4">−2.000</td>
+      <td class="num" rowspan="4">3.5270</td>
+      <td class="num">3.5218</td>
+      <td class="num">−0.0052</td>
+      <td class="num">0.000027</td>
+    </tr>
+    <tr>
+      <td class="num">3.5378</td>
+      <td class="num">0.0108</td>
+      <td class="num">0.000117</td>
+    </tr>
+    <tr>
+      <td class="num">3.5398</td>
+      <td class="num">0.0128</td>
+      <td class="num">0.000164</td>
+    </tr>
+    <tr>
+      <td class="num">3.5287</td>
+      <td class="num">0.0017</td>
+      <td class="num">0.000003</td>
+    </tr>
+
+    <!-- Level 2 -->
+    <tr>
+      <td class="center" rowspan="4">−1.301</td>
+      <td class="num" rowspan="4">3.3690</td>
+      <td class="num">3.3818</td>
+      <td class="num">0.0128</td>
+      <td class="num">0.000164</td>
+    </tr>
+    <tr>
+      <td class="num">3.3703</td>
+      <td class="num">0.0013</td>
+      <td class="num">0.000002</td>
+    </tr>
+    <tr>
+      <td class="num">3.3692</td>
+      <td class="num">0.0002</td>
+      <td class="num">0.000000</td>
+    </tr>
+    <tr>
+      <td class="num">3.3838</td>
+      <td class="num">0.0148</td>
+      <td class="num">0.000219</td>
+    </tr>
+
+    <!-- Level 3 -->
+    <tr>
+      <td class="center" rowspan="4">−0.301</td>
+      <td class="num" rowspan="4">3.1430</td>
+      <td class="num">3.1329</td>
+      <td class="num">−0.0101</td>
+      <td class="num">0.000102</td>
+    </tr>
+    <tr>
+      <td class="num">3.1179</td>
+      <td class="num">−0.0251</td>
+      <td class="num">0.000630</td>
+    </tr>
+    <tr>
+      <td class="num">3.1323</td>
+      <td class="num">−0.0107</td>
+      <td class="num">0.000114</td>
+    </tr>
+    <tr>
+      <td class="num">3.1313</td>
+      <td class="num">−0.0117</td>
+      <td class="num">0.000137</td>
+    </tr>
+
+    <!-- Level 4 -->
+    <tr>
+      <td class="center" rowspan="4">0.699</td>
+      <td class="num" rowspan="4">2.9170</td>
+      <td class="num">2.9175</td>
+      <td class="num">0.0005</td>
+      <td class="num">0.000000</td>
+    </tr>
+    <tr>
+      <td class="num">2.9015</td>
+      <td class="num">−0.0155</td>
+      <td class="num">0.000240</td>
+    </tr>
+    <tr>
+      <td class="num">2.9058</td>
+      <td class="num">−0.0112</td>
+      <td class="num">0.000125</td>
+    </tr>
+    <tr>
+      <td class="num">2.9015</td>
+      <td class="num">−0.0155</td>
+      <td class="num">0.000240</td>
+    </tr>
+
+    <!-- Level 5 -->
+    <tr>
+      <td class="center" rowspan="4">1.699</td>
+      <td class="num" rowspan="4">2.6910</td>
+      <td class="num">2.6920</td>
+      <td class="num">0.0010</td>
+      <td class="num">0.000001</td>
+    </tr>
+    <tr>
+      <td class="num">2.7135</td>
+      <td class="num">0.0225</td>
+      <td class="num">0.000506</td>
+    </tr>
+    <tr>
+      <td class="num">2.6998</td>
+      <td class="num">0.0088</td>
+      <td class="num">0.000077</td>
+    </tr>
+    <tr>
+      <td class="num">2.7076</td>
+      <td class="num">0.0166</td>
+      <td class="num">0.000276</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr style="font-weight:700; background:#e8eef7;">
+      <td colspan="4" class="num">Sum of Squared Errors (SSE) =</td>
+      <td class="num">0.003146</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>With the SSE calculated, we can now find the Residual Standard Deviation (\(s_{y/x}\)). We have \(N=20\) data points and 2 parameters (slope and intercept), leaving 18 degrees of freedom:</p>
+<div class="formula">
+\[ s_{y/x} = \sqrt{\frac{SSE}{N - 2}} = \sqrt{\frac{0.003146}{18}} = \mathbf{0.01322} \]
+</div>
 
 <h3>Step 3: Calculate Standard Uncertainty of Interpolation (\(u_{cal}\))</h3>
 <p>We calculate the uncertainty for a sample tested in <strong>duplicate (\(m=2\))</strong> near the <strong>mid-curve (\(C_0 = 0.500\) EU/mL)</strong>.</p>
@@ -293,7 +438,7 @@ u_{cal,rel} = u_{cal} \times \ln(10) = 0.04338 \times 2.3026 = \mathbf{0.0999}
 </p>
 
 <div class="footer">
-  <strong>MU-BET-KC-001 Rev. 03 (Detailed Derivation)</strong> — Prepared for internal review under ISO/IEC 17025:2017 clause 7.6.
+  <strong>MU-BET-KC-001 Rev. 04 (Full Derivation)</strong> — Prepared for internal review under ISO/IEC 17025:2017 clause 7.6.
   Retain with the Lysate Verification record S/N 195023 (run 11 May 2026).
 </div>
 
