@@ -3,6 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Measurement Uncertainty Budget — Kinetic Chromogenic BET (ISO 17025)</title>
+
+<!-- ===================== MATHJAX LIBRARY ===================== -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- =========================================================== -->
+
 <style>
   :root{
     --ink:#1a1a1a; --muted:#555; --line:#c9c9c9; --bg:#f7f8fa;
@@ -53,8 +70,7 @@
   .callout.ok{border-left-color:#059669; background:var(--okbg)}
   .formula{
     background:#f4f6f9; border:1px solid var(--line); border-radius:6px;
-    padding:12px 16px; margin:12px 0; font-family:Consolas,"Courier New",monospace;
-    font-size:13px; overflow-x:auto; white-space:pre;
+    padding:12px 16px; margin:12px 0; font-size:14px; overflow-x:auto;
   }
   .figure{
     border:1px solid var(--line); border-radius:6px; padding:14px; margin:14px 0;
@@ -98,8 +114,8 @@
     <tr><td>Lysate lot</td><td>BL036EE6GR (Exp 20/11/2027)</td></tr>
     <tr><td>Endotoxin (CSE) lot</td><td>0001365773 (Exp 18/4/2029)</td></tr>
     <tr><td>Water lot</td><td>0001430633 (Exp 11/2/2028)</td></tr>
-    <tr><td>Reader</td><td>ELx808, S/N 195023, filter 405 nm, Δt = 150 s, ΔmOD = 200</td></tr>
-    <tr><td>Temperature</td><td>36.9 – 37.0 °C</td></tr>
+    <tr><td>Reader</td><td>ELx808, S/N 195023, filter 405 nm, &Delta;t = 150 s, &Delta;mOD = 200</td></tr>
+    <tr><td>Temperature</td><td>36.9 – 37.0 &deg;C</td></tr>
     <tr><td>Analyst / Reviewer</td><td>HASAN / FIRDAUS-ABDULLAH</td></tr>
     <tr><td>Status</td><td><span class="tag asm">PARTIAL — components marked “Assumed” require lab-specific data</span></td></tr>
   </table>
@@ -129,10 +145,12 @@ ISO/IEC 17025:2017 clause 7.6 and the Eurachem/CITAC Guide (3rd ed., 2012).
 </p>
 <p>
 The budget is expressed as <strong>relative standard uncertainty</strong> in the reported endotoxin
-concentration, \(u_{c,rel}(C)\), and expanded to \(U = k\cdot u_c\) with \(k = 2\) (≈95 % confidence).
+concentration, \(u_{c,rel}(C)\), and expanded to \(U = k\cdot u_c\) with \(k = 2\) (&asymp;95 % confidence).
 The measurand is:
 </p>
-<div class="formula">C  =  endotoxin concentration in the sample, expressed in EU/mL (or EU/mg where applicable)</div>
+<div class="formula">
+\[ C = \text{endotoxin concentration in the sample, expressed in EU/mL (or EU/mg where applicable)} \]
+</div>
 
 <!-- ===================== 2. REFERENCES ===================== -->
 <h2>2. References</h2>
@@ -149,10 +167,12 @@ The measurand is:
 <!-- ===================== 3. METHOD SUMMARY ===================== -->
 <h2>3. Method Summary (from the report)</h2>
 <p>
-The kinetic chromogenic method relates the <em>onset time</em> \(t\) (time to reach a fixed ΔmOD)
+The kinetic chromogenic method relates the <em>onset time</em> \(t\) (time to reach a fixed &Delta;mOD)
 to endotoxin concentration \(C\) through the empirical log–log relationship:
 </p>
-<div class="formula">log₁₀ t  =  a  +  b · log₁₀ C</div>
+<div class="formula">
+\[ \log_{10} t = a + b \cdot \log_{10} C \]
+</div>
 <p>From the report:</p>
 <table class="data">
   <thead>
@@ -165,8 +185,8 @@ to endotoxin concentration \(C\) through the empirical log–log relationship:
     <tr><td>Standard levels</td><td class="num">5</td><td>0.0100, 0.0500, 0.500, 5.00, 50.0 EU/mL</td><td><span class="tag rep">FROM REPORT</span></td></tr>
     <tr><td>Replicates per level</td><td class="num">4</td><td>—</td><td><span class="tag rep">FROM REPORT</span></td></tr>
     <tr><td>Total standard observations, \(N\)</td><td class="num">20</td><td>—</td><td><span class="tag rep">FROM REPORT</span></td></tr>
-    <tr><td>Residual standard deviation in log₁₀t, \(s_{y/x}\)</td><td class="num">0.0132</td><td>Derived (see Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
-    <tr><td>Mean of \(x=\log_{10}C\), \(\bar x\)</td><td class="num">−0.2408</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Residual standard deviation in \(\log_{10} t\), \(s_{y/x}\)</td><td class="num">0.0132</td><td>Derived (see Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Mean of \(x=\log_{10} C\), \(\bar x\)</td><td class="num">−0.2408</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
     <tr><td>\(S_{xx}=\sum (x_i-\bar x)^2\)</td><td class="num">35.47</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
   </tbody>
 </table>
@@ -176,16 +196,16 @@ to endotoxin concentration \(C\) through the empirical log–log relationship:
 <p>The concentration of endotoxin in the sample is obtained from the measured onset time of the
 sample well(s):</p>
 <div class="formula">
-log₁₀ C_sample  =  ( log₁₀ t_sample − a ) / b
-C_sample  =  10 ^ [ ( log₁₀ t_sample − a ) / b ]
+\[ \log_{10} C_{\text{sample}} = \frac{\log_{10} t_{\text{sample}} - a}{b} \]
+\[ C_{\text{sample}} = 10^{\left( \frac{\log_{10} t_{\text{sample}} - a}{b} \right)} \]
 </div>
 <p>Once obtained, the concentration is corrected for dilution and (where applicable) expressed per
 unit mass or volume of product:</p>
 <div class="formula">
-C_reported  =  C_sample · DF · ( 1 / V_or_m ) · R_recovery⁻¹
+\[ C_{\text{reported}} = C_{\text{sample}} \cdot DF \cdot \left(\frac{1}{V_{\text{or\_m}}}\right) \cdot R_{\text{recovery}}^{-1} \]
 </div>
-<p>where \(DF\) is the total dilution factor, \(V\_or\_m\) the sample volume or mass basis, and
-\(R\) the method recovery (spike recovery in the product matrix).</p>
+<p>where \(DF\) is the total dilution factor, \(V_{\text{or\_m}}\) the sample volume or mass basis, and
+\(R_{\text{recovery}}\) the method recovery (spike recovery in the product matrix).</p>
 
 <!-- ===================== 5. CAUSE-EFFECT ===================== -->
 <h2>5. Uncertainty Source Identification (cause-and-effect)</h2>
@@ -195,54 +215,58 @@ C_reported  =  C_sample · DF · ( 1 / V_or_m ) · R_recovery⁻¹
     <tr><th>#</th><th>Source</th><th>Symbol</th><th>Where it enters</th><th>Data status</th></tr>
   </thead>
   <tbody>
-    <tr><td>1</td><td>Standard-curve fitting</td><td>\(u_{cal}\)</td><td>Calibration of \(t \to C\)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
-    <tr><td>2</td><td>CSE potency / assignment</td><td>\(u_{CSE}\)</td><td>CSE certificate \(U\), \(k\)</td><td><span class="tag asm">ASSUMED</span></td></tr>
-    <tr><td>3</td><td>Dilution and pipetting</td><td>\(u_{dil}\)</td><td>DF; sample and standard dilution chain</td><td><span class="tag asm">ASSUMED</span></td></tr>
-    <tr><td>4</td><td>Sample repeatability</td><td>\(u_{rep}\)</td><td>Replicate sample wells</td><td><span class="tag asm">ASSUMED</span></td></tr>
-    <tr><td>5</td><td>Product-matrix recovery</td><td>\(u_{rec}\)</td><td>Spike recovery in product</td><td><span class="tag asm">ASSUMED</span></td></tr>
-    <tr><td>6</td><td>Incubation temperature</td><td>\(u_{temp}\)</td><td>Reaction time (36.9–37.0 °C)</td><td><span class="tag asm">ASSUMED</span></td></tr>
-    <tr><td>7</td><td>Intermediate precision (analyst, day, reagent lot)</td><td>\(u_{int}\)</td><td>Reproducibility of the full procedure</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>1</td><td>Standard-curve fitting</td><td>\(u_{\text{cal}}\)</td><td>Calibration of \(t \to C\)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>2</td><td>CSE potency / assignment</td><td>\(u_{\text{CSE}}\)</td><td>CSE certificate \(U\), \(k\)</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>3</td><td>Dilution and pipetting</td><td>\(u_{\text{dil}}\)</td><td>\(DF\); sample and standard dilution chain</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>4</td><td>Sample repeatability</td><td>\(u_{\text{rep}}\)</td><td>Replicate sample wells</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>5</td><td>Product-matrix recovery</td><td>\(u_{\text{rec}}\)</td><td>Spike recovery in product</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>6</td><td>Incubation temperature</td><td>\(u_{\text{temp}}\)</td><td>Reaction time (36.9–37.0 &deg;C)</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>7</td><td>Intermediate precision (analyst, day, reagent lot)</td><td>\(u_{\text{int}}\)</td><td>Reproducibility of the full procedure</td><td><span class="tag asm">ASSUMED</span></td></tr>
   </tbody>
 </table>
 
 <!-- ===================== 6. COMPONENT QUANTIFICATION ===================== -->
 <h2>6. Quantification of Individual Components</h2>
 
-<h3>6.1 Standard-curve calibration, \(u_{cal}\)</h3>
+<h3>6.1 Standard-curve calibration, \(u_{\text{cal}}\)</h3>
 <p>
 The uncertainty of a concentration predicted from the regression line is calculated using the
 standard formula for the uncertainty of an interpolated value:
 </p>
 <div class="formula">
-u_cal( log₁₀ C₀ )  =  ( s_y/x / |b| ) · sqrt( 1/m  +  1/N  +  ( x₀ − x̄ )² / S_xx )
+\[ u_{\text{cal}}(\log_{10} C_0) = \frac{s_{y/x}}{|b|} \sqrt{ \frac{1}{m} + \frac{1}{N} + \frac{(x_0 - \bar{x})^2}{S_{xx}} } \]
 </div>
 <p>where \(m\) is the number of replicate sample wells, \(N = 20\) the number of standard
 observations, \(x_0 = \log_{10} C_0\), and the other parameters are given in Section 3.
 The relative standard uncertainty in the reported concentration is:</p>
 <div class="formula">
-u_cal,rel( C₀ )  =  ln(10) · u_cal( log₁₀ C₀ )
+\[ u_{\text{cal,rel}}(C_0) = \ln(10) \cdot u_{\text{cal}}(\log_{10} C_0) \]
 </div>
 
 <h4>Worked example at \(C_0 = 0.500\ \mathrm{EU/mL}\), \(m = 2\) (duplicate wells)</h4>
 <div class="formula">
-x₀            =  log₁₀(0.500)          =  −0.30103
-x₀ − x̄        =  −0.30103 − (−0.2408)  =  −0.0602
-(x₀ − x̄)²     =   0.003625
-S_xx          =   35.47
-
-u_cal(log₁₀C) = (0.0132 / 0.226) · sqrt( 1/2 + 1/20 + 0.003625/35.47 )
-              = 0.05841 · sqrt( 0.500 + 0.050 + 0.000102 )
-              = 0.05841 · 0.7417
-              = 0.04333
-
-u_cal,rel(C)  = 2.3026 · 0.04333
-              = 0.0998   ≈ 10.0 %
+\[
+\begin{aligned}
+x_0 &= \log_{10}(0.500) = -0.30103 \\
+x_0 - \bar{x} &= -0.30103 - (-0.2408) = -0.0602 \\
+(x_0 - \bar{x})^2 &= 0.003625 \\
+S_{xx} &= 35.47 \\
+\\
+u_{\text{cal}}(\log_{10}C) &= \left( \frac{0.0132}{0.226} \right) \cdot \sqrt{ \frac{1}{2} + \frac{1}{20} + \frac{0.003625}{35.47} } \\
+&= 0.05841 \cdot \sqrt{ 0.500 + 0.050 + 0.000102 } \\
+&= 0.05841 \cdot 0.7417 \\
+&= 0.04333 \\
+\\
+u_{\text{cal,rel}}(C) &= 2.3026 \cdot 0.04333 \\
+&= 0.0998 \approx 10.0\%
+\end{aligned}
+\]
 </div>
 
 <p>The calibration-only relative standard uncertainty across the standard curve is:</p>
 <table class="data">
   <thead>
-    <tr><th class="center">C₀ (EU/mL)</th><th class="num">m = 1</th><th class="num">m = 2</th><th class="num">m = 4</th></tr>
+    <tr><th class="center">\(C_0\) (EU/mL)</th><th class="num">\(m = 1\)</th><th class="num">\(m = 2\)</th><th class="num">\(m = 4\)</th></tr>
   </thead>
   <tbody>
     <tr><td class="center">0.0100</td><td class="num">14.4 %</td><td class="num">10.8 %</td><td class="num">8.4 %</td></tr>
@@ -254,81 +278,83 @@ u_cal,rel(C)  = 2.3026 · 0.04333
 </table>
 <p class="mono" style="font-size:12.5px; color:#555;">
 Source of inputs: derived from the 20 standard reaction times in the Lysate Verification report; slope and
-intercept as reported. The budget below uses <strong>m = 2, mid-curve</strong> ⇒ \(u_{cal,rel} = 10.0 \%\).
+intercept as reported. The budget below uses <strong>\(m = 2\), mid-curve</strong> &rArr; \(u_{\text{cal,rel}} = 10.0 \%\).
 </p>
 
-<h3>6.2 CSE potency / assignment, \(u_{CSE}\) <span class="tag asm">ASSUMED</span></h3>
+<h3>6.2 CSE potency / assignment, \(u_{\text{CSE}}\) <span class="tag asm">ASSUMED</span></h3>
 <p>Convert the certificate expanded uncertainty to a standard uncertainty:</p>
-<div class="formula">u_CSE  =  U_CSE / k_cert</div>
+<div class="formula">
+\[ u_{\text{CSE}} = \frac{U_{\text{CSE}}}{k_{\text{cert}}} \]
+</div>
 <p>
-Typical CSE certificates state \(U = 5\,\%\) at \(k = 2\), giving \(u_{CSE} = 2.5\,\%\).
+Typical CSE certificates state \(U = 5\,\%\) at \(k = 2\), giving \(u_{\text{CSE}} = 2.5\,\%\).
 The actual value <strong>must be taken from the certificate of the CSE lot in use</strong>.
-For this draft budget, \(u_{CSE,rel} = 2.5\,\%\) is used as an illustrative placeholder.
+For this draft budget, \(u_{\text{CSE,rel}} = 2.5\,\%\) is used as an illustrative placeholder.
 </p>
 
-<h3>6.3 Dilution and pipetting, \(u_{dil}\) <span class="tag asm">ASSUMED</span></h3>
+<h3>6.3 Dilution and pipetting, \(u_{\text{dil}}\) <span class="tag asm">ASSUMED</span></h3>
 <p>
 Dilution uncertainty is dominated by the pipettes/volumetric flasks used in the sample dilution chain.
 For a typical chain of three dilution steps (e.g., 1:10, 1:10, 1:10), and assuming a relative standard
-uncertainty of ≈2.5 % per step (from calibration certificate + temperature + operator), the combined
+uncertainty of &asymp;2.5 % per step (from calibration certificate + temperature + operator), the combined
 dilution uncertainty is:
 </p>
 <div class="formula">
-u_dil,rel  =  sqrt( 3 × 2.5² % )  ≈  4.3 %
+\[ u_{\text{dil,rel}} = \sqrt{ 3 \times (2.5\%)^2 } \approx 4.3\% \]
 </div>
 <p>Replace with your own gravimetric / certificate-based value.</p>
 
-<h3>6.4 Sample repeatability, \(u_{rep}\) <span class="tag asm">ASSUMED</span></h3>
+<h3>6.4 Sample repeatability, \(u_{\text{rep}}\) <span class="tag asm">ASSUMED</span></h3>
 <p>
 For product samples, the within-run repeatability of the reported EU/mL (or EU/mg) is normally obtained
-from <strong>n ≥ 6 independent replicate determinations</strong> on the same sample:
+from <strong>\(n \ge 6\) independent replicate determinations</strong> on the same sample:
 </p>
 <div class="formula">
-u_rep,rel  =  RSD_replicates / sqrt( n )
+\[ u_{\text{rep,rel}} = \frac{RSD_{\text{replicates}}}{\sqrt{n}} \]
 </div>
 <p>
 For this draft, a product-sample RSD of <strong>15 %</strong> (typical for BET in complex matrices) with
-<strong>n = 6</strong> replicates is used, giving \(u_{rep,rel} = 15\,\% / \sqrt{6} \approx 6.1\,\%\).
+<strong>\(n = 6\)</strong> replicates is used, giving \(u_{\text{rep,rel}} = 15\,\% / \sqrt{6} \approx 6.1\,\%\).
 If the reported result is the <em>mean</em> of the replicates, use the standard uncertainty of the mean.
 For a single reported well, use the full RSD (15 %).
 <strong>This component must be replaced by your actual product data.</strong>
 </p>
 
-<h3>6.5 Product-matrix recovery, \(u_{rec}\) <span class="tag asm">ASSUMED</span></h3>
+<h3>6.5 Product-matrix recovery, \(u_{\text{rec}}\) <span class="tag asm">ASSUMED</span></h3>
 <p>
 Spike recovery is performed in the actual product matrix. If the mean recovery is \(R\) and the
-standard deviation of recoveries across \(n_{rec}\) independent spike determinations is \(s_R\):
+standard deviation of recoveries across \(n_{\text{rec}}\) independent spike determinations is \(s_R\):
 </p>
 <div class="formula">
-u_rec,rel  =  s_R / ( R · sqrt( n_rec ) )
+\[ u_{\text{rec,rel}} = \frac{s_R}{R \cdot \sqrt{n_{\text{rec}}}} \]
 </div>
 <p>
-For this draft: assumed \(s_R = 20\,\%\), \(R = 100\,\%\), \(n_{rec} = 3\) ⇒
-\(u_{rec,rel} \approx 11.5\,\%\).
+For this draft: assumed \(s_R = 20\,\%\), \(R = 100\,\%\), \(n_{\text{rec}} = 3\) &rArr;
+\(u_{\text{rec,rel}} \approx 11.5\,\%\).
 The actual recovery and its standard deviation must come from the product validation study.
 </p>
 
-<h3>6.6 Incubation temperature, \(u_{temp}\) <span class="tag asm">ASSUMED</span></h3>
+<h3>6.6 Incubation temperature, \(u_{\text{temp}}\) <span class="tag asm">ASSUMED</span></h3>
 <p>
-The report records 36.9–37.0 °C, i.e., a half-range of 0.05 °C around 36.95 °C.
-If the temperature sensitivity of the onset time is \(S_T\) (%/°C), then:
+The report records 36.9–37.0 &deg;C, i.e., a half-range of 0.05 &deg;C around 36.95 &deg;C.
+If the temperature sensitivity of the onset time is \(S_T\) (%/&deg;C), then:
 </p>
 <div class="formula">
-u_temp,rel  =  S_T · ( 0.05 / √3 )
+\[ u_{\text{temp,rel}} = S_T \cdot \left( \frac{0.05}{\sqrt{3}} \right) \]
 </div>
 <p>
-For this draft, an illustrative \(S_T = 2\,\%/\text{°C}\) is used, giving \(u_{temp,rel} \approx 0.06\,\%\).
+For this draft, an illustrative \(S_T = 2\,\%/\text{&deg;C}\) is used, giving \(u_{\text{temp,rel}} \approx 0.06\,\%\).
 A conservative placeholder of <strong>1.0 %</strong> is used in the budget.
 The value should be confirmed from manufacturer data or an in-house temperature-challenge study.
 </p>
 
-<h3>6.7 Intermediate precision, \(u_{int}\) <span class="tag asm">ASSUMED</span></h3>
+<h3>6.7 Intermediate precision, \(u_{\text{int}}\) <span class="tag asm">ASSUMED</span></h3>
 <p>
 Reproducibility contributions from different analysts, days and reagent lots (beyond within-run
 repeatability) are estimated from an intermediate-precision study:
 </p>
 <div class="formula">
-u_int,rel  =  RSD_intermediate
+\[ u_{\text{int,rel}} = RSD_{\text{intermediate}} \]
 </div>
 <p>
 A placeholder of <strong>8.0 %</strong> is used in the draft budget.
@@ -346,66 +372,66 @@ proportional to the square of each component.</p>
       <th>#</th>
       <th>Uncertainty component</th>
       <th>Symbol</th>
-      <th class="num">u<sub>rel</sub> (%)</th>
-      <th class="num">u<sub>rel</sub>² (%²)</th>
+      <th class="num">\(u_{\text{rel}}\) (%)</th>
+      <th class="num">\(u_{\text{rel}}^2\) (%&sup2;)</th>
       <th class="num">% of total variance</th>
       <th>Source / basis</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td><td>Standard-curve calibration</td><td>\(u_{cal}\)</td>
+      <td>1</td><td>Standard-curve calibration</td><td>\(u_{\text{cal}}\)</td>
       <td class="num">10.0</td><td class="num">100.0</td><td class="num">18.3</td>
-      <td><span class="tag rep">FROM REPORT</span> m = 2, C = 0.5 EU/mL</td>
+      <td><span class="tag rep">FROM REPORT</span> \(m = 2\), \(C = 0.5\) EU/mL</td>
     </tr>
     <tr>
-      <td>2</td><td>CSE potency / assignment</td><td>\(u_{CSE}\)</td>
+      <td>2</td><td>CSE potency / assignment</td><td>\(u_{\text{CSE}}\)</td>
       <td class="num">2.5</td><td class="num">6.25</td><td class="num">1.1</td>
-      <td><span class="tag asm">ASSUMED</span> U = 5 %, k = 2</td>
+      <td><span class="tag asm">ASSUMED</span> \(U = 5\,\%\), \(k = 2\)</td>
     </tr>
     <tr>
-      <td>3</td><td>Dilution / pipetting</td><td>\(u_{dil}\)</td>
+      <td>3</td><td>Dilution / pipetting</td><td>\(u_{\text{dil}}\)</td>
       <td class="num">4.3</td><td class="num">18.5</td><td class="num">3.4</td>
-      <td><span class="tag asm">ASSUMED</span> 3 steps × 2.5 % RSS</td>
+      <td><span class="tag asm">ASSUMED</span> 3 steps &times; 2.5 % RSS</td>
     </tr>
     <tr>
-      <td>4</td><td>Sample repeatability</td><td>\(u_{rep}\)</td>
+      <td>4</td><td>Sample repeatability</td><td>\(u_{\text{rep}}\)</td>
       <td class="num">6.1</td><td class="num">37.2</td><td class="num">6.8</td>
-      <td><span class="tag asm">ASSUMED</span> RSD 15 %, n = 6</td>
+      <td><span class="tag asm">ASSUMED</span> RSD 15 %, \(n = 6\)</td>
     </tr>
     <tr>
-      <td>5</td><td>Product-matrix recovery</td><td>\(u_{rec}\)</td>
+      <td>5</td><td>Product-matrix recovery</td><td>\(u_{\text{rec}}\)</td>
       <td class="num">11.5</td><td class="num">132.3</td><td class="num">24.2</td>
-      <td><span class="tag asm">ASSUMED</span> s_R = 20 %, n = 3</td>
+      <td><span class="tag asm">ASSUMED</span> \(s_R = 20\,\%\), \(n = 3\)</td>
     </tr>
     <tr>
-      <td>6</td><td>Incubation temperature</td><td>\(u_{temp}\)</td>
+      <td>6</td><td>Incubation temperature</td><td>\(u_{\text{temp}}\)</td>
       <td class="num">1.0</td><td class="num">1.0</td><td class="num">0.2</td>
       <td><span class="tag asm">ASSUMED</span> conservative</td>
     </tr>
     <tr>
-      <td>7</td><td>Intermediate precision</td><td>\(u_{int}\)</td>
+      <td>7</td><td>Intermediate precision</td><td>\(u_{\text{int}}\)</td>
       <td class="num">8.0</td><td class="num">64.0</td><td class="num">11.7</td>
       <td><span class="tag asm">ASSUMED</span> RSD 8 %</td>
     </tr>
     <tr style="font-weight:700; background:#e8eef7;">
-      <td colspan="3">Combined relative standard uncertainty, \(u_{c,rel}\)</td>
+      <td colspan="3">Combined relative standard uncertainty, \(u_{c,\text{rel}}\)</td>
       <td class="num">—</td>
       <td class="num">359.3</td>
       <td class="num">100.0</td>
-      <td>sqrt(Σ u²)</td>
+      <td>\(\sqrt{\sum u^2}\)</td>
     </tr>
     <tr style="font-weight:700; background:#dbeafe;">
       <td colspan="3">Expanded uncertainty, \(U = 2 \cdot u_c\)</td>
-      <td class="num" colspan="3" style="text-align:right;">≈ 37.9 %</td>
-      <td>k = 2 (≈95 %)</td>
+      <td class="num" colspan="3" style="text-align:right;">&asymp; 37.9 %</td>
+      <td>\(k = 2\) (&asymp;95 %)</td>
     </tr>
   </tbody>
 </table>
 
 <p class="mono" style="font-size:12.5px; color:#555;">
-Note: the sum of the variance column is 100 + 6.25 + 18.49 + 37.21 + 132.25 + 1.00 + 64.00 = <strong>359.20</strong>.
-\(u_{c,rel} = \sqrt{359.20} \approx 18.95 \%\). \(U_{rel} = 2 \times 18.95 \% = 37.9 \%\).
+Note: the sum of the variance column is \(100 + 6.25 + 18.49 + 37.21 + 132.25 + 1.00 + 64.00 = \textbf{359.20}\).
+\(u_{c,\text{rel}} = \sqrt{359.20} \approx 18.95 \%\). \(U_{\text{rel}} = 2 \times 18.95 \% = 37.9 \%\).
 The row values above are rounded to one decimal; the combined value is computed from the unrounded squares.
 </p>
 
@@ -459,20 +485,20 @@ The row values above are rounded to one decimal; the combined value is computed 
     and interpolation in the 0.0100–50.0 EU/mL calibrated range near 0.5 EU/mL, the relative
     <strong>combined standard uncertainty</strong> is:
   </p>
-  <p class="mono" style="font-size:15px; margin:6px 0;">
-    u<sub>c,rel</sub>(C)  ≈  19.0 %
+  <p style="font-size:16px; margin:10px 0; text-align:center;">
+    \[ u_{c,\text{rel}}(C) \approx 19.0\% \]
   </p>
   <p style="margin:6px 0;">The <strong>expanded relative uncertainty</strong> at approximately 95 % confidence is:</p>
-  <p class="mono" style="font-size:15px; margin:6px 0;">
-    U<sub>rel</sub>  =  k · u<sub>c,rel</sub>  =  2 × 19.0 %  ≈  37.9 %
+  <p style="font-size:16px; margin:10px 0; text-align:center;">
+    \[ U_{\text{rel}} = k \cdot u_{c,\text{rel}} = 2 \times 19.0\% \approx 37.9\% \]
   </p>
   <p style="margin:8px 0 0;">
-    Reported as: <em>C</em> = <em>C</em><sub>measured</sub> ± 37.9 % (relative, k = 2).
+    Reported as: \(C = C_{\text{measured}} \pm 37.9\%\) (relative, \(k = 2\)).
   </p>
 </div>
 
 <p>
-<strong>Status.</strong> This statement is a <strong>draft</strong>. The four components marked
+<strong>Status.</strong> This statement is a <strong>draft</strong>. The components marked
 <span class="tag asm">ASSUMED</span> (CSE, dilution, sample repeatability, recovery, temperature, intermediate precision)
 must be replaced by the laboratory's own validated values. Until then, this statement is
 <strong>not</strong> traceable to the laboratory's product-specific validation data and
@@ -488,15 +514,15 @@ must be replaced by the laboratory's own validated values. Until then, this stat
   <tbody>
     <tr><td>Slope</td><td class="num">−0.226</td><td><span class="tag rep">FROM REPORT</span></td><td>None — traceable to record</td></tr>
     <tr><td>Intercept</td><td class="num">3.075</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
-    <tr><td>r</td><td class="num">−0.999</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
-    <tr><td>N, replicates</td><td class="num">20 (5 × 4)</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
-    <tr><td>s<sub>y/x</sub></td><td class="num">0.0132</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
-    <tr><td>x̄, S<sub>xx</sub></td><td class="num">−0.2408, 35.47</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
-    <tr><td>CSE U, k</td><td class="num">5 %, 2</td><td><span class="tag asm">ASSUMED</span></td><td>Attach CSE certificate; use its U/k</td></tr>
-    <tr><td>Dilution steps / per-step uncertainty</td><td class="num">3 × 2.5 %</td><td><span class="tag asm">ASSUMED</span></td><td>Use pipette certificates + gravimetric data</td></tr>
-    <tr><td>Sample RSD, n</td><td class="num">15 %, 6</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product replicate data</td></tr>
-    <tr><td>Recovery s<sub>R</sub>, n</td><td class="num">20 %, 3</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product spike-recovery data</td></tr>
-    <tr><td>Temperature sensitivity</td><td class="num">2 %/°C</td><td><span class="tag asm">ASSUMED</span></td><td>Manufacturer data or in-house study</td></tr>
+    <tr><td>\(r\)</td><td class="num">−0.999</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
+    <tr><td>\(N\), replicates</td><td class="num">20 (5 &times; 4)</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
+    <tr><td>\(s_{y/x}\)</td><td class="num">0.0132</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
+    <tr><td>\(\bar x\), \(S_{xx}\)</td><td class="num">−0.2408, 35.47</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
+    <tr><td>CSE \(U\), \(k\)</td><td class="num">5 %, 2</td><td><span class="tag asm">ASSUMED</span></td><td>Attach CSE certificate; use its \(U/k\)</td></tr>
+    <tr><td>Dilution steps / per-step uncertainty</td><td class="num">3 &times; 2.5 %</td><td><span class="tag asm">ASSUMED</span></td><td>Use pipette certificates + gravimetric data</td></tr>
+    <tr><td>Sample RSD, \(n\)</td><td class="num">15 %, 6</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product replicate data</td></tr>
+    <tr><td>Recovery \(s_R\), \(n\)</td><td class="num">20 %, 3</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product spike-recovery data</td></tr>
+    <tr><td>Temperature sensitivity</td><td class="num">2 %/&deg;C</td><td><span class="tag asm">ASSUMED</span></td><td>Manufacturer data or in-house study</td></tr>
     <tr><td>Intermediate RSD</td><td class="num">8 %</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with intermediate-precision study</td></tr>
   </tbody>
 </table>
@@ -506,19 +532,19 @@ must be replaced by the laboratory's own validated values. Until then, this stat
 <ol>
   <li>The Lysate Verification report is <strong>not</strong> a product-specific validation report and cannot alone
       support a customer-facing MU statement.</li>
-  <li>The standard-curve component \(u_{cal}\) is <strong>valid only within the calibrated range</strong> 0.0100–50.0 EU/mL.
+  <li>The standard-curve component \(u_{\text{cal}}\) is <strong>valid only within the calibrated range</strong> 0.0100–50.0 EU/mL.
       Results outside this range (including “&lt; lowest standard”) must be reported qualitatively
       (e.g., “less than 0.0100 EU/mL”) and must not carry this MU statement.</li>
   <li>The budget is expressed for <strong>aqueous samples</strong> (water matrix). For product matrices
       (e.g., parenterals, biologicals), the recovery component must be re-derived from that product’s
       own spike-recovery data.</li>
   <li>The budget assumes <strong>duplicate sample wells</strong>. If single-well results are reported,
-      use the m = 1 column of Section 6.1 (u<sub>cal</sub> ≈ 13.8 %), which increases the combined
+      use the \(m = 1\) column of Section 6.1 (\(u_{\text{cal}} \approx 13.8\%\)), which increases the combined
       uncertainty accordingly.</li>
   <li>The CSE, dilution, recovery, sample-repeatability and intermediate-precision components
       are placeholders in this draft. The budget is complete in structure but not in traceability.</li>
   <li>The temperature sensitivity coefficient is assumed; a small temperature-challenge experiment
-      (e.g., 36.5, 37.0, 37.5 °C) is recommended to confirm \(S_T\).</li>
+      (e.g., 36.5, 37.0, 37.5 &deg;C) is recommended to confirm \(S_T\).</li>
   <li>Reassess the budget whenever a new CSE lot, lysate lot, reader, analyst or product matrix
       is introduced, and at least annually.</li>
 </ol>
@@ -549,10 +575,10 @@ must be replaced by the laboratory's own validated values. Until then, this stat
 <table class="data">
   <thead>
     <tr>
-      <th class="center">C (EU/mL)</th><th class="center">x = log₁₀ C</th>
+      <th class="center">\(C\) (EU/mL)</th><th class="center">\(x = \log_{10} C\)</th>
       <th>Reaction times (s)</th>
-      <th class="num">log₁₀ t values</th>
-      <th class="num">mean log₁₀ t</th>
+      <th class="num">\(\log_{10} t\) values</th>
+      <th class="num">mean \(\log_{10} t\)</th>
     </tr>
   </thead>
   <tbody>
@@ -591,43 +617,59 @@ must be replaced by the laboratory's own validated values. Until then, this stat
 
 <h3>A.2 Residual standard deviation</h3>
 <div class="formula">
-SSE  =  Σ (log₁₀ tᵢ − ŷᵢ)²  ≈  0.003146
-df   =  N − 2  =  20 − 2  =  18
-s_y/x  =  √( SSE / 18 )  ≈  0.01322
+\[
+\begin{aligned}
+SSE &= \sum (\log_{10} t_i - \hat{y}_i)^2 \approx 0.003146 \\
+df &= N - 2 = 20 - 2 = 18 \\
+s_{y/x} &= \sqrt{\frac{SSE}{18}} \approx 0.01322
+\end{aligned}
+\]
 </div>
 
-<h3>A.3 S<sub>xx</sub></h3>
+<h3>A.3 \(S_{xx}\)</h3>
 <div class="formula">
-x̄   =  −0.2408
-S_xx  =  Σ (xᵢ − x̄)²  ≈  35.47
+\[
+\begin{aligned}
+\bar{x} &= -0.2408 \\
+S_{xx} &= \sum (x_i - \bar{x})^2 \approx 35.47
+\end{aligned}
+\]
 </div>
 
-<h3>A.4 Worked calibration uncertainty at C = 0.500 EU/mL, m = 2</h3>
+<h3>A.4 Worked calibration uncertainty at \(C = 0.500\) EU/mL, \(m = 2\)</h3>
 <div class="formula">
-u_cal(log₁₀C)  =  (0.01322 / 0.226) · √( 1/2 + 1/20 + (−0.30103 + 0.2408)² / 35.47 )
-               =  0.05850 · √( 0.500 + 0.050 + 0.000102 )
-               =  0.05850 · 0.7417
-               =  0.04338
-u_cal,rel(C)   =  2.3026 · 0.04338  =  0.0999  ≈  10.0 %
+\[
+\begin{aligned}
+u_{\text{cal}}(\log_{10}C) &= \left( \frac{0.01322}{0.226} \right) \cdot \sqrt{ \frac{1}{2} + \frac{1}{20} + \frac{(-0.30103 + 0.2408)^2}{35.47} } \\
+&= 0.05850 \cdot \sqrt{ 0.500 + 0.050 + 0.000102 } \\
+&= 0.05850 \cdot 0.7417 \\
+&= 0.04338 \\
+u_{\text{cal,rel}}(C) &= 2.3026 \cdot 0.04338 = 0.0999 \approx 10.0\%
+\end{aligned}
+\]
 </div>
 
 <!-- ===================== APPENDIX B ===================== -->
 <h2>Appendix B — Calculation of the Combined and Expanded Uncertainty</h2>
 <div class="formula">
-u_c,rel  =  √( u_cal² + u_CSE² + u_dil² + u_rep² + u_rec² + u_temp² + u_int² )
-         =  √( 10.0² + 2.5² + 4.3² + 6.1² + 11.5² + 1.0² + 8.0² )
-         =  √( 100 + 6.25 + 18.49 + 37.21 + 132.25 + 1.00 + 64.00 )
-         =  √( 359.20 )
-         ≈  18.95 %
-
-U_rel (k = 2)  =  2 × 18.95 %  ≈  37.9 %
+\[
+\begin{aligned}
+u_{c,\text{rel}} &= \sqrt{ u_{\text{cal}}^2 + u_{\text{CSE}}^2 + u_{\text{dil}}^2 + u_{\text{rep}}^2 + u_{\text{rec}}^2 + u_{\text{temp}}^2 + u_{\text{int}}^2 } \\
+&= \sqrt{ 10.0^2 + 2.5^2 + 4.3^2 + 6.1^2 + 11.5^2 + 1.0^2 + 8.0^2 } \\
+&= \sqrt{ 100 + 6.25 + 18.49 + 37.21 + 132.25 + 1.00 + 64.00 } \\
+&= \sqrt{ 359.20 } \\
+&\approx 18.95\% \\
+\\
+U_{\text{rel}} (k = 2) &= 2 \times 18.95\% \approx 37.9\%
+\end{aligned}
+\]
 </div>
 
 <p class="mono" style="font-size:12.5px;">
 Note: the sample-repeatability component is entered as the standard uncertainty of the mean of
-6 replicates (15 % / √6 = 6.1 %). If a single well is reported instead, the component becomes 15 %
-and the combined uncertainty rises to ≈ √(100 + 6.25 + 18.49 + 225 + 132.25 + 1 + 64) ≈ 23.4 %,
-with U(k=2) ≈ 46.8 %.
+6 replicates (\(15\% / \sqrt{6} = 6.1\%\)). If a single well is reported instead, the component becomes 15 %
+and the combined uncertainty rises to \(\approx \sqrt{100 + 6.25 + 18.49 + 225 + 132.25 + 1 + 64} \approx 23.4\%\),
+with \(U(k=2) \approx 46.8\%\).
 </p>
 
 <div class="footer">
