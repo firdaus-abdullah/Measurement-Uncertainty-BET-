@@ -2,265 +2,638 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Micropipette Measurement Uncertainty – BET Kinetic Chromogenic</title>
+<title>Measurement Uncertainty Budget — Kinetic Chromogenic BET (ISO 17025)</title>
 <style>
-  body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; max-width: 1250px; margin: 0 auto; padding: 20px; color: #1a1a1a; background: #fff; }
-  h1 { color: #0b3d6b; border-bottom: 3px solid #0b3d6b; padding-bottom: 10px; }
-  h2 { color: #0b3d6b; margin-top: 35px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
-  h3 { color: #1a5a8a; margin-top: 25px; }
-  table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 0.95em; }
-  th, td { border: 1px solid #999; padding: 8px 10px; text-align: left; vertical-align: top; }
-  th { background-color: #e8f0f8; font-weight: bold; color: #0b3d6b; }
-  tr:nth-child(even) td { background-color: #f9fbfd; }
-  .formula { font-family: "Times New Roman", Times, serif; font-size: 1.1em; margin: 12px 0 12px 30px; padding: 8px 12px; background: #f4f7fa; border-left: 4px solid #0b3d6b; }
-  .note { background: #fff8e1; border-left: 4px solid #e6a700; padding: 10px 15px; margin: 15px 0; }
-  .recommendation { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 10px 15px; margin: 15px 0; }
-  .small { font-size: 0.9em; color: #555; }
+  :root{
+    --ink:#1a1a1a; --muted:#555; --line:#c9c9c9; --bg:#f7f8fa;
+    --accent:#0b5ed7; --warn:#b45309; --warnbg:#fff7ed; --okbg:#ecfdf5;
+    --repbg:#eff6ff; --asmbg:#fef9c3;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color:var(--ink); background:#fff; line-height:1.55;
+    margin:0 auto; padding:32px 40px; max-width:1080px; font-size:14.5px;
+  }
+  h1{font-size:22px; margin:0 0 4px; letter-spacing:.2px}
+  h2{font-size:17px; margin:34px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--accent)}
+  h3{font-size:15px; margin:22px 0 8px; color:#0b3a82}
+  h4{font-size:14px; margin:16px 0 6px}
+  p{margin:8px 0}
+  small{color:var(--muted)}
+  code,.mono{font-family:Consolas,"Courier New",monospace; font-size:13px}
+  .doc-head{
+    border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    background:var(--bg); margin-bottom:26px;
+  }
+  .doc-head table{width:100%; border-collapse:collapse; font-size:13.5px}
+  .doc-head td{padding:3px 6px; vertical-align:top}
+  .doc-head td:first-child{color:var(--muted); width:190px}
+  table.data{
+    width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:13.5px;
+  }
+  table.data th, table.data td{
+    border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top;
+  }
+  table.data th{background:#e8eef7; font-weight:600}
+  table.data tr:nth-child(even) td{background:#fbfcfe}
+  .num{text-align:right; font-variant-numeric:tabular-nums}
+  .center{text-align:center}
+  .tag{
+    display:inline-block; font-size:11px; font-weight:700; padding:2px 7px;
+    border-radius:10px; letter-spacing:.3px; white-space:nowrap;
+  }
+  .tag.rep{background:var(--repbg); color:#1d4ed8; border:1px solid #bfdbfe}
+  .tag.asm{background:var(--asmbg); color:#854d0e; border:1px solid #fde047}
+  .callout{
+    border-left:4px solid var(--accent); background:#f0f6ff;
+    padding:12px 16px; margin:16px 0; border-radius:0 6px 6px 0;
+  }
+  .callout.warn{border-left-color:var(--warn); background:var(--warnbg)}
+  .callout.ok{border-left-color:#059669; background:var(--okbg)}
+  .formula{
+    background:#f4f6f9; border:1px solid var(--line); border-radius:6px;
+    padding:12px 16px; margin:12px 0; font-family:Consolas,"Courier New",monospace;
+    font-size:13px; overflow-x:auto; white-space:pre;
+  }
+  .figure{
+    border:1px solid var(--line); border-radius:6px; padding:14px; margin:14px 0;
+    background:#fafbfd; text-align:center;
+  }
+  .figure .caption{font-size:12.5px; color:var(--muted); margin-top:8px}
+  ul,ol{margin:8px 0 8px 22px; padding:0}
+  li{margin:4px 0}
+  .sig{
+    display:flex; gap:40px; margin-top:36px; padding-top:18px;
+    border-top:1px solid var(--line); font-size:13px;
+  }
+  .sig div{flex:1}
+  .sig .line{height:32px; border-bottom:1px solid #333; margin-top:24px}
+  .bar-wrap{background:#e5e7eb; border-radius:4px; height:16px; position:relative; overflow:hidden}
+  .bar{height:100%; background:linear-gradient(90deg,#3b82f6,#0b5ed7)}
+  .footer{font-size:12px; color:var(--muted); margin-top:30px; border-top:1px solid var(--line); padding-top:10px}
+  @media print{
+    body{padding:0; max-width:none; font-size:12px}
+    h2{page-break-after:avoid}
+    table{page-break-inside:avoid}
+    .no-print{display:none}
+  }
+  .legend{margin:10px 0 16px; font-size:13px}
+  .legend span{margin-right:18px}
 </style>
 </head>
 <body>
 
-<h1>Measurement Uncertainty for Bacterial Endotoxin Test (Kinetic Chromogenic) – Micropipette Component</h1>
-
-<div class="note">
-<strong>Note on values:</strong> As requested, the percentage signs (%) have been removed from the relative uncertainty values. For example, a value of <strong>0.026</strong> in this document represents <strong>0.026%</strong>. 
-<br><br>
-<strong>Conservative Approach:</strong> For volumes that fall between calibration points, the absolute standard uncertainty from the <strong>nearest maximum calibration point</strong> is used. This ensures the uncertainty is not underestimated.
+<!-- ===================== DOCUMENT HEADER ===================== -->
+<div class="doc-head">
+  <h1>Measurement Uncertainty Budget Report</h1>
+  <p style="margin:2px 0 12px; color:#0b3a82; font-weight:600;">
+    Kinetic Chromogenic Bacterial Endotoxin Test (BET) — ISO 17025:2017 Clause 7.6
+  </p>
+  <table>
+    <tr><td>Document No.</td><td><strong>MU-BET-KC-001</strong> (Rev. 00 — Draft)</td></tr>
+    <tr><td>Method</td><td>Kinetic Chromogenic LAL, Endotoxin (EU/mL)</td></tr>
+    <tr><td>Supporting record</td><td>Lysate Verification / Initial Qualification Test — S/N 195023</td></tr>
+    <tr><td>Run date</td><td>11 May 2026, 08:45:33 (UTC+8)</td></tr>
+    <tr><td>Lysate lot</td><td>BL036EE6GR (Exp 20/11/2027)</td></tr>
+    <tr><td>Endotoxin (CSE) lot</td><td>0001365773 (Exp 18/4/2029)</td></tr>
+    <tr><td>Water lot</td><td>0001430633 (Exp 11/2/2028)</td></tr>
+    <tr><td>Reader</td><td>ELx808, S/N 195023, filter 405 nm, Δt = 150 s, ΔmOD = 200</td></tr>
+    <tr><td>Temperature</td><td>36.9 – 37.0 °C</td></tr>
+    <tr><td>Analyst / Reviewer</td><td>HASAN / FIRDAUS-ABDULLAH</td></tr>
+    <tr><td>Status</td><td><span class="tag asm">PARTIAL — components marked “Assumed” require lab-specific data</span></td></tr>
+  </table>
 </div>
 
-<h2>1. Scope and Principle</h2>
-<p>This document provides <strong>only the micropipette component</strong> of the measurement uncertainty (MU) for the Kinetic Chromogenic BET. Other components—reader, incubation temperature, standard endotoxin, LAL reagent, analyst, plate, etc.—are added separately.</p>
-<p>From each calibration certificate, the reported expanded uncertainty <em>U</em> is at approximately 95% confidence with coverage factor <em>k</em> = 2:</p>
-<div class="formula"><em>u</em>(<em>V</em>) = <em>U</em> / 2</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>V</em>) = <em>u</em>(<em>V</em>) / <em>V</em></div>
-<p>For independent pipetting operations combined in a dilution or volume ratio:</p>
-<div class="formula"><em>u</em><sub>rel,combined</sub> = √( Σ<sub><em>i</em></sub> <em>u</em><sub>rel,<em>i</em></sub><sup>2</sup> )</div>
+<div class="callout warn">
+  <strong>Important.</strong> The attached Lysate Verification report is an <em>Initial Qualification Test</em>.
+  It supplies the <strong>standard-curve calibration</strong> and <strong>system repeatability</strong> inputs, but it does
+  <strong>not</strong> contain CSE certificate uncertainty, dilution/pipetting data, product-matrix recovery,
+  sample repeatability, or intermediate precision. Components marked
+  <span class="tag asm">ASSUMED</span> in this budget are illustrative placeholders.
+  They <strong>must</strong> be replaced with your laboratory's own validated data before this budget is used
+  to issue a formal ISO 17025 uncertainty statement.
+</div>
 
-<hr>
+<div class="legend">
+  <span><span class="tag rep">FROM REPORT</span> — value derived directly from the attached record</span>
+  <span><span class="tag asm">ASSUMED</span> — placeholder, to be replaced by lab data</span>
+</div>
 
-<h2>2. Summary of Micropipettes and Calibration Values</h2>
+<!-- ===================== 1. PURPOSE ===================== -->
+<h2>1. Purpose and Scope</h2>
+<p>
+This report documents the measurement uncertainty (MU) budget for the quantitative determination
+of bacterial endotoxin by kinetic chromogenic LAL in aqueous samples, in accordance with
+ISO/IEC 17025:2017 clause 7.6 and the Eurachem/CITAC Guide (3rd ed., 2012).
+</p>
+<p>
+The budget is expressed as <strong>relative standard uncertainty</strong> in the reported endotoxin
+concentration, \(u_{c,rel}(C)\), and expanded to \(U = k\cdot u_c\) with \(k = 2\) (≈95 % confidence).
+The measurand is:
+</p>
+<div class="formula">C  =  endotoxin concentration in the sample, expressed in EU/mL (or EU/mg where applicable)</div>
 
-<h3>2.0 Summary of Micropipettes Used</h3>
-<table>
-<thead>
-<tr>
-  <th>Reference No. / ID No.</th>
-  <th>Instrument Type</th>
-  <th>Make / Model</th>
-  <th>Serial No.</th>
-  <th>Maximum Volume</th>
-  <th>Typical Use in BET Procedure</th>
-</tr>
-</thead>
-<tbody>
-<tr><td><strong>MM7</strong></td><td>Single-channel micropipette</td><td>BRAND Transferpette S</td><td>10L96317</td><td><strong>20 µL</strong></td><td>10 µL PPC spike</td></tr>
-<tr><td><strong>MM1</strong></td><td>Single-channel micropipette</td><td>TreffLab Transferpette S</td><td>02H81891</td><td><strong>200 µL</strong></td><td>183 µL sample dilution; 100 µL sample / standard wells</td></tr>
-<tr><td><strong>MPM1</strong></td><td>8-channel multichannel micropipette</td><td>BRAND Transferpette S-8</td><td>12M11001</td><td><strong>200 µL</strong></td><td>100 µL Kinetic-QCL reagent addition</td></tr>
-<tr><td><strong>MM2</strong></td><td>Single-channel micropipette</td><td>TreffLab Transferpette S</td><td>11G45879</td><td><strong>1000 µL</strong></td><td>900 µL / 1000 µL / 500 µL transfers</td></tr>
-<tr><td><strong>MM12</strong></td><td>Single-channel micropipette</td><td>Eppendorf Research plus</td><td>J16132L</td><td><strong>1000 µL</strong></td><td>900 µL / 1000 µL / 500 µL transfers</td></tr>
-<tr><td><strong>MM29</strong></td><td>Single-channel micropipette</td><td>Eppendorf Research plus</td><td>1117300</td><td><strong>1000 µL</strong></td><td>900 µL / 1000 µL / 500 µL transfers</td></tr>
-</tbody>
-</table>
-<p class="small">For MM2, MM12 and MM29, the worst-case certificate values among the three 1 mL pipettes are used conservatively.</p>
-
-<h3>2.1 MM7 — 20 µL pipette (Certificate: MSRP26022642)</h3>
-<table>
-<thead><tr><th>Nominal volume</th><th>Certificate <em>U</em> (<em>k</em>=2)</th><th><em>u</em> = <em>U</em>/2</th><th><em>u</em><sub>rel</sub></th></tr></thead>
-<tbody>
-<tr><td>2 µL</td><td>±0.023 µL</td><td>0.0115 µL</td><td>0.575</td></tr>
-<tr><td>10 µL</td><td>±0.017 µL</td><td>0.0085 µL</td><td>0.085</td></tr>
-<tr><td>20 µL</td><td>±0.021 µL</td><td>0.0105 µL</td><td>0.0525</td></tr>
-</tbody>
-</table>
-<p>Use MM7 for the <strong>10 µL PPC spike</strong>.</p>
-
-<h3>2.2 MM1 — 200 µL pipette (Certificate: MSRP26072892)</h3>
-<table>
-<thead><tr><th>Nominal volume</th><th>Certificate <em>U</em> (<em>k</em>=2)</th><th><em>u</em> = <em>U</em>/2</th><th><em>u</em><sub>rel</sub></th></tr></thead>
-<tbody>
-<tr><td>20 µL</td><td>±0.032 µL</td><td>0.016 µL</td><td>0.080</td></tr>
-<tr><td>100 µL</td><td>±0.065 µL</td><td>0.0325 µL</td><td>0.0325</td></tr>
-<tr><td>200 µL</td><td>±0.079 µL</td><td>0.0395 µL</td><td>0.0198</td></tr>
-<tr><td>183 µL (use 200 µL point conservatively)</td><td>±0.079 µL</td><td>0.0395 µL</td><td><strong>0.0216</strong></td></tr>
-</tbody>
-</table>
-
-<h3>2.3 MPM1 — 200 µL 8-channel pipette (Certificate: MSRP26072893)</h3>
-<p>Use the <strong>worst channel</strong> at the relevant volume for a conservative MU budget.</p>
-<table>
-<thead><tr><th>Volume</th><th>Worst-channel certificate <em>U</em> (<em>k</em>=2)</th><th><em>u</em> = <em>U</em>/2</th><th><em>u</em><sub>rel</sub></th></tr></thead>
-<tbody>
-<tr><td>20 µL</td><td>±0.16 µL</td><td>0.080 µL</td><td>0.400</td></tr>
-<tr><td>100 µL</td><td>±0.16 µL</td><td>0.080 µL</td><td>0.080</td></tr>
-<tr><td>200 µL</td><td>±0.54 µL</td><td>0.270 µL</td><td>0.135</td></tr>
-</tbody>
-</table>
-
-<h3>2.4 1 mL pipettes — MM2 / MM12 / MM29 (Certificates: MSRP26072890, MSRP26023944, MSRP26072888)</h3>
-<p>Use the worst of the three 1 mL pipettes for conservative calculation:</p>
-<table>
-<thead><tr><th>Volume</th><th>Worst certificate <em>U</em> (<em>k</em>=2)</th><th><em>u</em> = <em>U</em>/2</th><th><em>u</em><sub>rel</sub></th></tr></thead>
-<tbody>
-<tr><td>100 µL</td><td>±0.19 µL</td><td>0.095 µL</td><td>0.095</td></tr>
-<tr><td>500 µL</td><td>±0.41 µL</td><td>0.205 µL</td><td>0.041</td></tr>
-<tr><td>900 µL (use 1000 µL point conservatively)</td><td>±0.61 µL</td><td>0.305 µL</td><td><strong>0.0339</strong></td></tr>
-<tr><td>1000 µL</td><td>±0.61 µL</td><td>0.305 µL</td><td>0.0305</td></tr>
-</tbody>
-</table>
-
-<hr>
-
-<h2>3. Worked Calculations for the BET Procedure</h2>
-
-<h3>3.1 Dilution step: 183 µL sample into 3.5 mL LAL water</h3>
-<p>Dilution factor:</p>
-<div class="formula"><em>DF</em> = (0.183 + 3.500) / 0.183 = 20.13</div>
-<p>Uncertainties:</p>
-<ul>
-  <li><em>V</em><sub>s</sub> = 183 µL by MM1 200 µL pipette: <strong>0.0216</strong></li>
-  <li><em>V</em><sub>d</sub> = 3.5 mL = 3500 µL, prepared as 3 × 1000 µL + 500 µL using 1 mL pipettes:</li>
-</ul>
-<div class="formula"><em>u</em>(<em>V</em><sub>d</sub>) = √( 3(0.305)<sup>2</sup> + (0.205)<sup>2</sup> ) = 0.567 µL</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>V</em><sub>d</sub>) = 0.567 / 3500 = 0.0162</div>
-<p>Total volume <em>V</em><sub>tot</sub> = 3683 µL:</p>
-<div class="formula"><em>u</em>(<em>V</em><sub>tot</sub>) = √(0.567<sup>2</sup> + 0.0395<sup>2</sup>) = 0.568 µL</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.568 / 3683 = 0.0154</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>DF</em>) = √(0.0154<sup>2</sup> + 0.0216<sup>2</sup>) = <strong>0.0265</strong></div>
-
-<h3>3.2 Final well: 100 µL sample + 100 µL LAL reagent</h3>
-<div class="formula"><em>R</em> = <em>V</em><sub>s</sub> / (<em>V</em><sub>s</sub> + <em>V</em><sub>r</sub>)</div>
-<ul>
-  <li><em>V</em><sub>s</sub> = 100 µL by MM1: <strong>0.0325</strong></li>
-  <li><em>V</em><sub>r</sub> = 100 µL by MPM1 worst channel: <strong>0.080</strong></li>
-</ul>
-<div class="formula"><em>u</em>(<em>V</em><sub>tot</sub>) = √(0.0325<sup>2</sup> + 0.080<sup>2</sup>) = 0.0864 µL</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.0864 / 200 = 0.0432</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>R</em>) = √(0.0325<sup>2</sup> + 0.0432<sup>2</sup>) = <strong>0.054</strong></div>
-
-<h3>3.3 PPC spike: 10 µL of 5 EU/mL standard into 100 µL sample</h3>
-<div class="formula"><em>C</em><sub>PPC</sub> = <em>C</em><sub>spike</sub> × <em>V</em><sub>sp</sub> / (<em>V</em><sub>s</sub> + <em>V</em><sub>sp</sub>)</div>
-<ul>
-  <li><em>V</em><sub>sp</sub> = 10 µL by MM7: <strong>0.085</strong></li>
-  <li><em>V</em><sub>s</sub> = 100 µL by MM1: <strong>0.0325</strong></li>
-</ul>
-<div class="formula"><em>u</em>(<em>V</em><sub>tot</sub>) = √(0.0085<sup>2</sup> + 0.0325<sup>2</sup>) = 0.0336 µL</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>V</em><sub>tot</sub>) = 0.0336 / 110 = 0.0305</div>
-<div class="formula"><em>u</em><sub>rel</sub>(<em>C</em><sub>PPC</sub>) = √(0.085<sup>2</sup> + 0.0305<sup>2</sup>) = <strong>0.090</strong></div>
-
-<h3>3.4 Standard endotoxin serial dilutions</h3>
-<p>For the serial dilution steps, we apply the conservative "Maximum Volume Rule" for all transfers using the 1 mL pipettes:</p>
-<p><strong>Step A: 0.1 mL + 0.9 mL dilution (Repeated 3 times)</strong></p>
-<ul>
-  <li>100 µL: Use 100 µL certificate point (\(u = 0.095\)) → <em>u</em><sub>rel</sub> = 0.095</li>
-  <li>900 µL: Use 1000 µL certificate point conservatively (\(u = 0.305\)) → <em>u</em><sub>rel</sub> = 0.305 / 900 = 0.0339</li>
-</ul>
-<div class="formula"><em>u</em><sub>rel,per dilution</sub> = √(0.095<sup>2</sup> + 0.0339<sup>2</sup>) = 0.101</div>
-<div class="formula"><em>u</em><sub>rel,3 dil</sub> = √(3 × 0.101<sup>2</sup>) = 0.175</div>
-
-<p><strong>Step B: Final 0.2 mL + 0.8 mL dilution</strong></p>
-<ul>
-  <li>200 µL: Use 500 µL certificate point conservatively (\(u = 0.205\)) → <em>u</em><sub>rel</sub> = 0.205 / 200 = 0.1025</li>
-  <li>800 µL: Use 1000 µL certificate point conservatively (\(u = 0.305\)) → <em>u</em><sub>rel</sub> = 0.305 / 800 = 0.0381</li>
-</ul>
-<div class="formula"><em>u</em><sub>rel,final dilution</sub> = √(0.1025<sup>2</sup> + 0.0381<sup>2</sup>) = 0.109</div>
-
-<p><strong>Total Standard Curve Pipetting Contribution:</strong></p>
-<div class="formula"><em>u</em><sub>rel,std curve</sub> = √(0.175<sup>2</sup> + 0.109<sup>2</sup>) = <strong>0.206</strong></div>
-
-<hr>
-
-<h2>4. Recommended Micropipette MU Inputs for the BET MU Budget</h2>
-<table>
-<thead>
-<tr><th>BET step</th><th>Pipette</th><th>Volume</th><th>Recommended <em>u</em><sub>rel</sub></th></tr>
-</thead>
-<tbody>
-<tr><td>Sample dilution</td><td>MM1 (200 µL)</td><td>183 µL</td><td><strong>0.0216</strong></td></tr>
-<tr><td>Diluent</td><td>1 mL pipettes</td><td>3.5 mL</td><td><strong>0.0162</strong></td></tr>
-<tr><td>Combined dilution factor</td><td>MM1 + 1 mL</td><td>183 µL + 3.5 mL</td><td><strong>0.0265</strong></td></tr>
-<tr><td>Sample into well</td><td>MM1 (200 µL)</td><td>100 µL</td><td><strong>0.0325</strong></td></tr>
-<tr><td>LAL reagent into well</td><td>MPM1 8-channel</td><td>100 µL</td><td><strong>0.080</strong> worst channel</td></tr>
-<tr><td>Final sample + reagent volume ratio</td><td>MM1 + MPM1</td><td>100 + 100 µL</td><td><strong>0.054</strong></td></tr>
-<tr><td>PPC spike</td><td>MM7 (20 µL)</td><td>10 µL</td><td><strong>0.085</strong></td></tr>
-<tr><td>PPC concentration</td><td>MM7 + MM1</td><td>10 µL + 100 µL</td><td><strong>0.090</strong></td></tr>
-<tr><td>Standard serial dilution</td><td>1 mL pipettes</td><td>100 + 900 µL per step</td><td><strong>0.101 per step; 0.175 combined</strong></td></tr>
-<tr><td>1 mL transfer</td><td>1 mL pipettes</td><td>1000 µL</td><td><strong>0.0305</strong></td></tr>
-<tr><td>500 µL transfer</td><td>1 mL pipettes</td><td>500 µL</td><td><strong>0.041</strong></td></tr>
-<tr><td>900 µL transfer</td><td>1 mL pipettes</td><td>900 µL</td><td><strong>0.0339</strong></td></tr>
-</tbody>
-</table>
-
-<hr>
-
-<h2>5. Final Summary of Combined Uncertainty</h2>
-<p>In measurement uncertainty, you only combine uncertainties that affect the calculation of <strong>a single reported result</strong>. Therefore, the Sample Result and the PPC Result are calculated separately. The PPC spike uncertainty is <strong>not</strong> added to the Sample uncertainty because the spike is not added to the sample wells.</p>
-
-<h3>5.1 Final Summary Table</h3>
-<table>
-<thead>
-<tr>
-  <th>Target Result</th>
-  <th>Contributing Micropipette Components Included</th>
-  <th>Combined Standard Uncertainty (<em>u</em><sub>rel</sub>)</th>
-  <th>Expanded Uncertainty (<em>U</em><sub>rel</sub>, <em>k</em>=2)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td rowspan="4"><strong>Sample Result</strong><br>(EU/mL)</td>
-  <td>1. Sample Dilution Factor: <strong>0.0265</strong></td>
-  <td rowspan="4" style="vertical-align: middle; font-size: 1.2em; text-align: center;">
-    <strong>0.215</strong>
-  </td>
-  <td rowspan="4" style="vertical-align: middle; font-size: 1.2em; text-align: center;">
-    <strong>0.43</strong>
-  </td>
-</tr>
-<tr>
-  <td>2. Final Well Volume Ratio (Sample + Reagent): <strong>0.054</strong></td>
-</tr>
-<tr>
-  <td>3. Standard Curve Preparation: <strong>0.206</strong></td>
-</tr>
-<tr>
-  <td><em>Calculation:</em> √(0.0265² + 0.054² + 0.206²)</td>
-</tr>
-<tr>
-  <td rowspan="4"><strong>PPC Result</strong><br>(Recovery %)</td>
-  <td>1. PPC Spike Concentration: <strong>0.090</strong></td>
-  <td rowspan="4" style="vertical-align: middle; font-size: 1.2em; text-align: center;">
-    <strong>0.231</strong>
-  </td>
-  <td rowspan="4" style="vertical-align: middle; font-size: 1.2em; text-align: center;">
-    <strong>0.46</strong>
-  </td>
-</tr>
-<tr>
-  <td>2. Final Well Volume Ratio (Sample + Reagent): <strong>0.054</strong></td>
-</tr>
-<tr>
-  <td>3. Standard Curve Preparation: <strong>0.206</strong></td>
-</tr>
-<tr>
-  <td><em>Calculation:</em> √(0.090² + 0.054² + 0.206²)</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-<h2>6. Practical Recommendations</h2>
-<div class="recommendation">
+<!-- ===================== 2. REFERENCES ===================== -->
+<h2>2. References</h2>
 <ol>
-  <li><strong>183 µL:</strong> use <strong>MM1 200 µL pipette</strong>; apply 200 µL certificate value conservatively.</li>
-  <li><strong>900 µL and 800 µL:</strong> use <strong>1 mL pipette (MM2/MM12/MM29)</strong>; apply 1000 µL certificate value conservatively.</li>
-  <li><strong>10 µL PPC spike:</strong> use <strong>MM7 20 µL pipette</strong>.</li>
-  <li><strong>100 µL sample/standard wells:</strong> use <strong>MM1 200 µL pipette</strong>.</li>
-  <li><strong>100 µL LAL reagent:</strong> use <strong>MPM1 8-channel pipette</strong>; use worst-channel uncertainty conservatively.</li>
-  <li>Keep the Sample and PPC uncertainty calculations separate. Do not add the PPC spike uncertainty to the Sample uncertainty.</li>
-  <li>Add separate MU components for reader, incubation temperature, standard endotoxin, LAL reagent, analyst, and assay repeatability.</li>
+  <li>ISO/IEC 17025:2017 — General requirements for the competence of testing and calibration laboratories, clause 7.6.</li>
+  <li>Eurachem/CITAC Guide CG 4 — <em>Quantifying Uncertainty in Analytical Measurement</em>, 3rd ed. (2012).</li>
+  <li>ISO 5725 — Accuracy (trueness and precision) of measurement methods and results.</li>
+  <li>USP &lt;85&gt; Bacterial Endotoxins Test; Ph. Eur. 2.6.14; JP 4.01.</li>
+  <li>Lysate Verification / Initial Qualification Test record, S/N 195023, run 11 May 2026.</li>
+  <li>Manufacturer CSE certificate of analysis (to be attached).</li>
+  <li>Pipette / volumetric calibration certificates (to be attached).</li>
 </ol>
+
+<!-- ===================== 3. METHOD SUMMARY ===================== -->
+<h2>3. Method Summary (from the report)</h2>
+<p>
+The kinetic chromogenic method relates the <em>onset time</em> \(t\) (time to reach a fixed ΔmOD)
+to endotoxin concentration \(C\) through the empirical log–log relationship:
+</p>
+<div class="formula">log₁₀ t  =  a  +  b · log₁₀ C</div>
+<p>From the report:</p>
+<table class="data">
+  <thead>
+    <tr><th>Parameter</th><th class="num">Value</th><th>Acceptance (report)</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Slope, \(b\)</td><td class="num">−0.226</td><td>−0.400 to −0.100 — PASS</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Y-intercept, \(a\)</td><td class="num">3.075</td><td>2.500 to 3.500 — PASS</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Correlation coefficient, \(r\)</td><td class="num">−0.999</td><td>−1.000 to −0.980 — PASS</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Standard levels</td><td class="num">5</td><td>0.0100, 0.0500, 0.500, 5.00, 50.0 EU/mL</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Replicates per level</td><td class="num">4</td><td>—</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Total standard observations, \(N\)</td><td class="num">20</td><td>—</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Residual standard deviation in log₁₀t, \(s_{y/x}\)</td><td class="num">0.0132</td><td>Derived (see Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>Mean of \(x=\log_{10}C\), \(\bar x\)</td><td class="num">−0.2408</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>\(S_{xx}=\sum (x_i-\bar x)^2\)</td><td class="num">35.47</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+  </tbody>
+</table>
+
+<!-- ===================== 4. MEASUREMENT MODEL ===================== -->
+<h2>4. Measurement Model</h2>
+<p>The concentration of endotoxin in the sample is obtained from the measured onset time of the
+sample well(s):</p>
+<div class="formula">
+log₁₀ C_sample  =  ( log₁₀ t_sample − a ) / b
+C_sample  =  10 ^ [ ( log₁₀ t_sample − a ) / b ]
+</div>
+<p>Once obtained, the concentration is corrected for dilution and (where applicable) expressed per
+unit mass or volume of product:</p>
+<div class="formula">
+C_reported  =  C_sample · DF · ( 1 / V_or_m ) · R_recovery⁻¹
+</div>
+<p>where \(DF\) is the total dilution factor, \(V\_or\_m\) the sample volume or mass basis, and
+\(R\) the method recovery (spike recovery in the product matrix).</p>
+
+<!-- ===================== 5. CAUSE-EFFECT ===================== -->
+<h2>5. Uncertainty Source Identification (cause-and-effect)</h2>
+<p>The uncertainty sources considered in this budget are:</p>
+<table class="data">
+  <thead>
+    <tr><th>#</th><th>Source</th><th>Symbol</th><th>Where it enters</th><th>Data status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Standard-curve fitting</td><td>\(u_{cal}\)</td><td>Calibration of \(t \to C\)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+    <tr><td>2</td><td>CSE potency / assignment</td><td>\(u_{CSE}\)</td><td>CSE certificate \(U\), \(k\)</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>3</td><td>Dilution and pipetting</td><td>\(u_{dil}\)</td><td>DF; sample and standard dilution chain</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>4</td><td>Sample repeatability</td><td>\(u_{rep}\)</td><td>Replicate sample wells</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>5</td><td>Product-matrix recovery</td><td>\(u_{rec}\)</td><td>Spike recovery in product</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>6</td><td>Incubation temperature</td><td>\(u_{temp}\)</td><td>Reaction time (36.9–37.0 °C)</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>7</td><td>Intermediate precision (analyst, day, reagent lot)</td><td>\(u_{int}\)</td><td>Reproducibility of the full procedure</td><td><span class="tag asm">ASSUMED</span></td></tr>
+  </tbody>
+</table>
+
+<!-- ===================== 6. COMPONENT QUANTIFICATION ===================== -->
+<h2>6. Quantification of Individual Components</h2>
+
+<h3>6.1 Standard-curve calibration, \(u_{cal}\)</h3>
+<p>
+The uncertainty of a concentration predicted from the regression line is calculated using the
+standard formula for the uncertainty of an interpolated value:
+</p>
+<div class="formula">
+u_cal( log₁₀ C₀ )  =  ( s_y/x / |b| ) · sqrt( 1/m  +  1/N  +  ( x₀ − x̄ )² / S_xx )
+</div>
+<p>where \(m\) is the number of replicate sample wells, \(N = 20\) the number of standard
+observations, \(x_0 = \log_{10} C_0\), and the other parameters are given in Section 3.
+The relative standard uncertainty in the reported concentration is:</p>
+<div class="formula">
+u_cal,rel( C₀ )  =  ln(10) · u_cal( log₁₀ C₀ )
+</div>
+
+<h4>Worked example at \(C_0 = 0.500\ \mathrm{EU/mL}\), \(m = 2\) (duplicate wells)</h4>
+<div class="formula">
+x₀            =  log₁₀(0.500)          =  −0.30103
+x₀ − x̄        =  −0.30103 − (−0.2408)  =  −0.0602
+(x₀ − x̄)²     =   0.003625
+S_xx          =   35.47
+
+u_cal(log₁₀C) = (0.0132 / 0.226) · sqrt( 1/2 + 1/20 + 0.003625/35.47 )
+              = 0.05841 · sqrt( 0.500 + 0.050 + 0.000102 )
+              = 0.05841 · 0.7417
+              = 0.04333
+
+u_cal,rel(C)  = 2.3026 · 0.04333
+              = 0.0998   ≈ 10.0 %
+</div>
+
+<p>The calibration-only relative standard uncertainty across the standard curve is:</p>
+<table class="data">
+  <thead>
+    <tr><th class="center">C₀ (EU/mL)</th><th class="num">m = 1</th><th class="num">m = 2</th><th class="num">m = 4</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="center">0.0100</td><td class="num">14.4 %</td><td class="num">10.8 %</td><td class="num">8.4 %</td></tr>
+    <tr><td class="center">0.0500</td><td class="num">14.0 %</td><td class="num">10.3 %</td><td class="num">7.8 %</td></tr>
+    <tr><td class="center">0.500</td><td class="num">13.8 %</td><td class="num">10.0 %</td><td class="num">7.4 %</td></tr>
+    <tr><td class="center">5.00</td><td class="num">14.0 %</td><td class="num">10.2 %</td><td class="num">7.7 %</td></tr>
+    <tr><td class="center">50.0</td><td class="num">14.5 %</td><td class="num">10.9 %</td><td class="num">8.6 %</td></tr>
+  </tbody>
+</table>
+<p class="mono" style="font-size:12.5px; color:#555;">
+Source of inputs: derived from the 20 standard reaction times in the Lysate Verification report; slope and
+intercept as reported. The budget below uses <strong>m = 2, mid-curve</strong> ⇒ \(u_{cal,rel} = 10.0 \%\).
+</p>
+
+<h3>6.2 CSE potency / assignment, \(u_{CSE}\) <span class="tag asm">ASSUMED</span></h3>
+<p>Convert the certificate expanded uncertainty to a standard uncertainty:</p>
+<div class="formula">u_CSE  =  U_CSE / k_cert</div>
+<p>
+Typical CSE certificates state \(U = 5\,\%\) at \(k = 2\), giving \(u_{CSE} = 2.5\,\%\).
+The actual value <strong>must be taken from the certificate of the CSE lot in use</strong>.
+For this draft budget, \(u_{CSE,rel} = 2.5\,\%\) is used as an illustrative placeholder.
+</p>
+
+<h3>6.3 Dilution and pipetting, \(u_{dil}\) <span class="tag asm">ASSUMED</span></h3>
+<p>
+Dilution uncertainty is dominated by the pipettes/volumetric flasks used in the sample dilution chain.
+For a typical chain of three dilution steps (e.g., 1:10, 1:10, 1:10), and assuming a relative standard
+uncertainty of ≈2.5 % per step (from calibration certificate + temperature + operator), the combined
+dilution uncertainty is:
+</p>
+<div class="formula">
+u_dil,rel  =  sqrt( 3 × 2.5² % )  ≈  4.3 %
+</div>
+<p>Replace with your own gravimetric / certificate-based value.</p>
+
+<h3>6.4 Sample repeatability, \(u_{rep}\) <span class="tag asm">ASSUMED</span></h3>
+<p>
+For product samples, the within-run repeatability of the reported EU/mL (or EU/mg) is normally obtained
+from <strong>n ≥ 6 independent replicate determinations</strong> on the same sample:
+</p>
+<div class="formula">
+u_rep,rel  =  RSD_replicates / sqrt( n )
+</div>
+<p>
+For this draft, a product-sample RSD of <strong>15 %</strong> (typical for BET in complex matrices) with
+<strong>n = 6</strong> replicates is used, giving \(u_{rep,rel} = 15\,\% / \sqrt{6} \approx 6.1\,\%\).
+If the reported result is the <em>mean</em> of the replicates, use the standard uncertainty of the mean.
+For a single reported well, use the full RSD (15 %).
+<strong>This component must be replaced by your actual product data.</strong>
+</p>
+
+<h3>6.5 Product-matrix recovery, \(u_{rec}\) <span class="tag asm">ASSUMED</span></h3>
+<p>
+Spike recovery is performed in the actual product matrix. If the mean recovery is \(R\) and the
+standard deviation of recoveries across \(n_{rec}\) independent spike determinations is \(s_R\):
+</p>
+<div class="formula">
+u_rec,rel  =  s_R / ( R · sqrt( n_rec ) )
+</div>
+<p>
+For this draft: assumed \(s_R = 20\,\%\), \(R = 100\,\%\), \(n_{rec} = 3\) ⇒
+\(u_{rec,rel} \approx 11.5\,\%\).
+The actual recovery and its standard deviation must come from the product validation study.
+</p>
+
+<h3>6.6 Incubation temperature, \(u_{temp}\) <span class="tag asm">ASSUMED</span></h3>
+<p>
+The report records 36.9–37.0 °C, i.e., a half-range of 0.05 °C around 36.95 °C.
+If the temperature sensitivity of the onset time is \(S_T\) (%/°C), then:
+</p>
+<div class="formula">
+u_temp,rel  =  S_T · ( 0.05 / √3 )
+</div>
+<p>
+For this draft, an illustrative \(S_T = 2\,\%/\text{°C}\) is used, giving \(u_{temp,rel} \approx 0.06\,\%\).
+A conservative placeholder of <strong>1.0 %</strong> is used in the budget.
+The value should be confirmed from manufacturer data or an in-house temperature-challenge study.
+</p>
+
+<h3>6.7 Intermediate precision, \(u_{int}\) <span class="tag asm">ASSUMED</span></h3>
+<p>
+Reproducibility contributions from different analysts, days and reagent lots (beyond within-run
+repeatability) are estimated from an intermediate-precision study:
+</p>
+<div class="formula">
+u_int,rel  =  RSD_intermediate
+</div>
+<p>
+A placeholder of <strong>8.0 %</strong> is used in the draft budget.
+Replace with the RSD obtained from your intermediate-precision experiment.
+</p>
+
+<!-- ===================== 7. BUDGET TABLE ===================== -->
+<h2>7. Uncertainty Budget (mid-curve, duplicate sample wells)</h2>
+<p>All components are expressed as relative standard uncertainties (%). Contributions to variance are
+proportional to the square of each component.</p>
+
+<table class="data">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Uncertainty component</th>
+      <th>Symbol</th>
+      <th class="num">u<sub>rel</sub> (%)</th>
+      <th class="num">u<sub>rel</sub>² (%²)</th>
+      <th class="num">% of total variance</th>
+      <th>Source / basis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td><td>Standard-curve calibration</td><td>\(u_{cal}\)</td>
+      <td class="num">10.0</td><td class="num">100.0</td><td class="num">18.3</td>
+      <td><span class="tag rep">FROM REPORT</span> m = 2, C = 0.5 EU/mL</td>
+    </tr>
+    <tr>
+      <td>2</td><td>CSE potency / assignment</td><td>\(u_{CSE}\)</td>
+      <td class="num">2.5</td><td class="num">6.25</td><td class="num">1.1</td>
+      <td><span class="tag asm">ASSUMED</span> U = 5 %, k = 2</td>
+    </tr>
+    <tr>
+      <td>3</td><td>Dilution / pipetting</td><td>\(u_{dil}\)</td>
+      <td class="num">4.3</td><td class="num">18.5</td><td class="num">3.4</td>
+      <td><span class="tag asm">ASSUMED</span> 3 steps × 2.5 % RSS</td>
+    </tr>
+    <tr>
+      <td>4</td><td>Sample repeatability</td><td>\(u_{rep}\)</td>
+      <td class="num">6.1</td><td class="num">37.2</td><td class="num">6.8</td>
+      <td><span class="tag asm">ASSUMED</span> RSD 15 %, n = 6</td>
+    </tr>
+    <tr>
+      <td>5</td><td>Product-matrix recovery</td><td>\(u_{rec}\)</td>
+      <td class="num">11.5</td><td class="num">132.3</td><td class="num">24.2</td>
+      <td><span class="tag asm">ASSUMED</span> s_R = 20 %, n = 3</td>
+    </tr>
+    <tr>
+      <td>6</td><td>Incubation temperature</td><td>\(u_{temp}\)</td>
+      <td class="num">1.0</td><td class="num">1.0</td><td class="num">0.2</td>
+      <td><span class="tag asm">ASSUMED</span> conservative</td>
+    </tr>
+    <tr>
+      <td>7</td><td>Intermediate precision</td><td>\(u_{int}\)</td>
+      <td class="num">8.0</td><td class="num">64.0</td><td class="num">11.7</td>
+      <td><span class="tag asm">ASSUMED</span> RSD 8 %</td>
+    </tr>
+    <tr style="font-weight:700; background:#e8eef7;">
+      <td colspan="3">Combined relative standard uncertainty, \(u_{c,rel}\)</td>
+      <td class="num">—</td>
+      <td class="num">359.3</td>
+      <td class="num">100.0</td>
+      <td>sqrt(Σ u²)</td>
+    </tr>
+    <tr style="font-weight:700; background:#dbeafe;">
+      <td colspan="3">Expanded uncertainty, \(U = 2 \cdot u_c\)</td>
+      <td class="num" colspan="3" style="text-align:right;">≈ 37.9 %</td>
+      <td>k = 2 (≈95 %)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="mono" style="font-size:12.5px; color:#555;">
+Note: the sum of the variance column is 100 + 6.25 + 18.49 + 37.21 + 132.25 + 1.00 + 64.00 = <strong>359.20</strong>.
+\(u_{c,rel} = \sqrt{359.20} \approx 18.95 \%\). \(U_{rel} = 2 \times 18.95 \% = 37.9 \%\).
+The row values above are rounded to one decimal; the combined value is computed from the unrounded squares.
+</p>
+
+<!-- ===================== 8. CONTRIBUTION CHART ===================== -->
+<h2>8. Contribution Analysis</h2>
+<p>Bar chart of the percentage of total variance contributed by each component (desktop view).</p>
+
+<div class="figure">
+  <div style="max-width:640px; margin:0 auto; text-align:left; font-size:13px;">
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>1. Standard curve</span><span>18.3 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:18.3%;"></div></div>
+    </div>
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>2. CSE</span><span>1.1 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:1.1%;"></div></div>
+    </div>
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>3. Dilution</span><span>3.4 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:3.4%;"></div></div>
+    </div>
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>4. Sample repeatability</span><span>6.8 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:6.8%;"></div></div>
+    </div>
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>5. Recovery</span><span>24.2 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:24.2%;"></div></div>
+    </div>
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>6. Temperature</span><span>0.2 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:0.2%;"></div></div>
+    </div>
+    <div style="margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;"><span>7. Intermediate precision</span><span>11.7 %</span></div>
+      <div class="bar-wrap"><div class="bar" style="width:11.7%;"></div></div>
+    </div>
+  </div>
+  <div class="caption">
+    In this draft budget, <strong>recovery</strong> and <strong>standard-curve calibration</strong> dominate.
+    Once real sample-repeatability and recovery data are available, sample-related components usually
+    dominate the budget for BET.
+  </div>
+</div>
+
+<!-- ===================== 9. UNCERTAINTY STATEMENT ===================== -->
+<h2>9. Uncertainty Statement (draft)</h2>
+<div class="callout ok">
+  <p style="margin:0 0 8px;">
+    For a kinetic chromogenic BET result obtained in aqueous sample matrix, with duplicate sample wells
+    and interpolation in the 0.0100–50.0 EU/mL calibrated range near 0.5 EU/mL, the relative
+    <strong>combined standard uncertainty</strong> is:
+  </p>
+  <p class="mono" style="font-size:15px; margin:6px 0;">
+    u<sub>c,rel</sub>(C)  ≈  19.0 %
+  </p>
+  <p style="margin:6px 0;">The <strong>expanded relative uncertainty</strong> at approximately 95 % confidence is:</p>
+  <p class="mono" style="font-size:15px; margin:6px 0;">
+    U<sub>rel</sub>  =  k · u<sub>c,rel</sub>  =  2 × 19.0 %  ≈  37.9 %
+  </p>
+  <p style="margin:8px 0 0;">
+    Reported as: <em>C</em> = <em>C</em><sub>measured</sub> ± 37.9 % (relative, k = 2).
+  </p>
+</div>
+
+<p>
+<strong>Status.</strong> This statement is a <strong>draft</strong>. The four components marked
+<span class="tag asm">ASSUMED</span> (CSE, dilution, sample repeatability, recovery, temperature, intermediate precision)
+must be replaced by the laboratory's own validated values. Until then, this statement is
+<strong>not</strong> traceable to the laboratory's product-specific validation data and
+<strong>must not be issued to customers</strong>.
+</p>
+
+<!-- ===================== 10. DATA PROVENANCE ===================== -->
+<h2>10. Data Provenance Summary</h2>
+<table class="data">
+  <thead>
+    <tr><th>Input</th><th>Value used</th><th>Provenance</th><th>Action</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Slope</td><td class="num">−0.226</td><td><span class="tag rep">FROM REPORT</span></td><td>None — traceable to record</td></tr>
+    <tr><td>Intercept</td><td class="num">3.075</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
+    <tr><td>r</td><td class="num">−0.999</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
+    <tr><td>N, replicates</td><td class="num">20 (5 × 4)</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
+    <tr><td>s<sub>y/x</sub></td><td class="num">0.0132</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
+    <tr><td>x̄, S<sub>xx</sub></td><td class="num">−0.2408, 35.47</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
+    <tr><td>CSE U, k</td><td class="num">5 %, 2</td><td><span class="tag asm">ASSUMED</span></td><td>Attach CSE certificate; use its U/k</td></tr>
+    <tr><td>Dilution steps / per-step uncertainty</td><td class="num">3 × 2.5 %</td><td><span class="tag asm">ASSUMED</span></td><td>Use pipette certificates + gravimetric data</td></tr>
+    <tr><td>Sample RSD, n</td><td class="num">15 %, 6</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product replicate data</td></tr>
+    <tr><td>Recovery s<sub>R</sub>, n</td><td class="num">20 %, 3</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product spike-recovery data</td></tr>
+    <tr><td>Temperature sensitivity</td><td class="num">2 %/°C</td><td><span class="tag asm">ASSUMED</span></td><td>Manufacturer data or in-house study</td></tr>
+    <tr><td>Intermediate RSD</td><td class="num">8 %</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with intermediate-precision study</td></tr>
+  </tbody>
+</table>
+
+<!-- ===================== 11. LIMITATIONS ===================== -->
+<h2>11. Limitations and Required Actions</h2>
+<ol>
+  <li>The Lysate Verification report is <strong>not</strong> a product-specific validation report and cannot alone
+      support a customer-facing MU statement.</li>
+  <li>The standard-curve component \(u_{cal}\) is <strong>valid only within the calibrated range</strong> 0.0100–50.0 EU/mL.
+      Results outside this range (including “&lt; lowest standard”) must be reported qualitatively
+      (e.g., “less than 0.0100 EU/mL”) and must not carry this MU statement.</li>
+  <li>The budget is expressed for <strong>aqueous samples</strong> (water matrix). For product matrices
+      (e.g., parenterals, biologicals), the recovery component must be re-derived from that product’s
+      own spike-recovery data.</li>
+  <li>The budget assumes <strong>duplicate sample wells</strong>. If single-well results are reported,
+      use the m = 1 column of Section 6.1 (u<sub>cal</sub> ≈ 13.8 %), which increases the combined
+      uncertainty accordingly.</li>
+  <li>The CSE, dilution, recovery, sample-repeatability and intermediate-precision components
+      are placeholders in this draft. The budget is complete in structure but not in traceability.</li>
+  <li>The temperature sensitivity coefficient is assumed; a small temperature-challenge experiment
+      (e.g., 36.5, 37.0, 37.5 °C) is recommended to confirm \(S_T\).</li>
+  <li>Reassess the budget whenever a new CSE lot, lysate lot, reader, analyst or product matrix
+      is introduced, and at least annually.</li>
+</ol>
+
+<!-- ===================== 12. SIGN-OFF ===================== -->
+<h2>12. Approval</h2>
+<table class="data">
+  <thead>
+    <tr><th>Role</th><th>Name</th><th>Signature</th><th>Date</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Prepared by</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>Technical reviewer</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>Quality manager</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  </tbody>
+</table>
+
+<div class="sig">
+  <div><div class="line"></div>Prepared by (Analyst)</div>
+  <div><div class="line"></div>Reviewed by (Technical)</div>
+  <div><div class="line"></div>Approved by (QA)</div>
+</div>
+
+<!-- ===================== APPENDIX A ===================== -->
+<h2>Appendix A — Derivation of \(s_{y/x}\), \(\bar x\), \(S_{xx}\)</h2>
+
+<h3>A.1 Standard data (from the report)</h3>
+<table class="data">
+  <thead>
+    <tr>
+      <th class="center">C (EU/mL)</th><th class="center">x = log₁₀ C</th>
+      <th>Reaction times (s)</th>
+      <th class="num">log₁₀ t values</th>
+      <th class="num">mean log₁₀ t</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="center">0.0100</td><td class="center">−2.000</td>
+      <td class="mono">3325, 3450, 3466, 3378</td>
+      <td class="num mono">3.5218, 3.5378, 3.5398, 3.5287</td>
+      <td class="num">3.5320</td>
+    </tr>
+    <tr>
+      <td class="center">0.0500</td><td class="center">−1.301</td>
+      <td class="mono">2409, 2346, 2340, 2420</td>
+      <td class="num mono">3.3818, 3.3703, 3.3692, 3.3838</td>
+      <td class="num">3.3763</td>
+    </tr>
+    <tr>
+      <td class="center">0.500</td><td class="center">−0.301</td>
+      <td class="mono">1358, 1312, 1356, 1353</td>
+      <td class="num mono">3.1329, 3.1179, 3.1323, 3.1313</td>
+      <td class="num">3.1286</td>
+    </tr>
+    <tr>
+      <td class="center">5.00</td><td class="center">0.699</td>
+      <td class="mono">827, 797, 805, 797</td>
+      <td class="num mono">2.9175, 2.9015, 2.9058, 2.9015</td>
+      <td class="num">2.9066</td>
+    </tr>
+    <tr>
+      <td class="center">50.0</td><td class="center">1.699</td>
+      <td class="mono">492, 517, 501, 510</td>
+      <td class="num mono">2.6920, 2.7135, 2.6998, 2.7076</td>
+      <td class="num">2.7032</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>A.2 Residual standard deviation</h3>
+<div class="formula">
+SSE  =  Σ (log₁₀ tᵢ − ŷᵢ)²  ≈  0.003146
+df   =  N − 2  =  20 − 2  =  18
+s_y/x  =  √( SSE / 18 )  ≈  0.01322
+</div>
+
+<h3>A.3 S<sub>xx</sub></h3>
+<div class="formula">
+x̄   =  −0.2408
+S_xx  =  Σ (xᵢ − x̄)²  ≈  35.47
+</div>
+
+<h3>A.4 Worked calibration uncertainty at C = 0.500 EU/mL, m = 2</h3>
+<div class="formula">
+u_cal(log₁₀C)  =  (0.01322 / 0.226) · √( 1/2 + 1/20 + (−0.30103 + 0.2408)² / 35.47 )
+               =  0.05850 · √( 0.500 + 0.050 + 0.000102 )
+               =  0.05850 · 0.7417
+               =  0.04338
+u_cal,rel(C)   =  2.3026 · 0.04338  =  0.0999  ≈  10.0 %
+</div>
+
+<!-- ===================== APPENDIX B ===================== -->
+<h2>Appendix B — Calculation of the Combined and Expanded Uncertainty</h2>
+<div class="formula">
+u_c,rel  =  √( u_cal² + u_CSE² + u_dil² + u_rep² + u_rec² + u_temp² + u_int² )
+         =  √( 10.0² + 2.5² + 4.3² + 6.1² + 11.5² + 1.0² + 8.0² )
+         =  √( 100 + 6.25 + 18.49 + 37.21 + 132.25 + 1.00 + 64.00 )
+         =  √( 359.20 )
+         ≈  18.95 %
+
+U_rel (k = 2)  =  2 × 18.95 %  ≈  37.9 %
+</div>
+
+<p class="mono" style="font-size:12.5px;">
+Note: the sample-repeatability component is entered as the standard uncertainty of the mean of
+6 replicates (15 % / √6 = 6.1 %). If a single well is reported instead, the component becomes 15 %
+and the combined uncertainty rises to ≈ √(100 + 6.25 + 18.49 + 225 + 132.25 + 1 + 64) ≈ 23.4 %,
+with U(k=2) ≈ 46.8 %.
+</p>
+
+<div class="footer">
+  <strong>MU-BET-KC-001 Rev. 00 (Draft)</strong> — Prepared for internal review under ISO/IEC 17025:2017 clause 7.6.
+  Values marked “Assumed” are illustrative placeholders and must be replaced by laboratory-validated data before
+  customer-facing use. Retain with the Lysate Verification record S/N 195023 (run 11 May 2026).
 </div>
 
 </body>
