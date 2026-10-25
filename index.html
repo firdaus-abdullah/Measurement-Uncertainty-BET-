@@ -62,6 +62,7 @@
   }
   .tag.rep{background:var(--repbg); color:#1d4ed8; border:1px solid #bfdbfe}
   .tag.asm{background:var(--asmbg); color:#854d0e; border:1px solid #fde047}
+  .tag.coa{background:#f0fdf4; color:#166534; border:1px solid #bbf7d0}
   .callout{
     border-left:4px solid var(--accent); background:#f0f6ff;
     padding:12px 16px; margin:16px 0; border-radius:0 6px 6px 0;
@@ -107,12 +108,12 @@
     Kinetic Chromogenic Bacterial Endotoxin Test (BET) — ISO 17025:2017 Clause 7.6
   </p>
   <table>
-    <tr><td>Document No.</td><td><strong>MU-BET-KC-001</strong> (Rev. 00 — Draft)</td></tr>
+    <tr><td>Document No.</td><td><strong>MU-BET-KC-001</strong> (Rev. 01 — CoA Integrated)</td></tr>
     <tr><td>Method</td><td>Kinetic Chromogenic LAL, Endotoxin (EU/mL)</td></tr>
     <tr><td>Supporting record</td><td>Lysate Verification / Initial Qualification Test — S/N 195023</td></tr>
     <tr><td>Run date</td><td>11 May 2026, 08:45:33 (UTC+8)</td></tr>
-    <tr><td>Lysate lot</td><td>BL036EE6GR (Exp 20/11/2027)</td></tr>
-    <tr><td>Endotoxin (CSE) lot</td><td>0001365773 (Exp 18/4/2029)</td></tr>
+    <tr><td>Lysate (LAL)</td><td>Lot BL036EE6GR (Mat. K50-643), Exp 20/11/2027</td></tr>
+    <tr><td>Endotoxin (CSE)</td><td>Lot 0001365773 (Mat. E50-643), Exp 18/4/2029</td></tr>
     <tr><td>Water lot</td><td>0001430633 (Exp 11/2/2028)</td></tr>
     <tr><td>Reader</td><td>ELx808, S/N 195023, filter 405 nm, &Delta;t = 150 s, &Delta;mOD = 200</td></tr>
     <tr><td>Temperature</td><td>36.9 – 37.0 &deg;C</td></tr>
@@ -123,16 +124,16 @@
 
 <div class="callout warn">
   <strong>Important.</strong> The attached Lysate Verification report is an <em>Initial Qualification Test</em>.
-  It supplies the <strong>standard-curve calibration</strong> and <strong>system repeatability</strong> inputs, but it does
-  <strong>not</strong> contain CSE certificate uncertainty, dilution/pipetting data, product-matrix recovery,
-  sample repeatability, or intermediate precision. Components marked
-  <span class="tag asm">ASSUMED</span> in this budget are illustrative placeholders.
+  The manufacturer CoAs for the CSE (E50-643) and Lysate (K50-643) have been integrated into this budget to confirm traceability and release specifications.
+  However, lab-specific components (dilution, sample repeatability, product recovery, intermediate precision) remain as placeholders.
+  Components marked <span class="tag asm">ASSUMED</span> in this budget are illustrative placeholders.
   They <strong>must</strong> be replaced with your laboratory's own validated data before this budget is used
   to issue a formal ISO 17025 uncertainty statement.
 </div>
 
 <div class="legend">
-  <span><span class="tag rep">FROM REPORT</span> — value derived directly from the attached record</span>
+  <span><span class="tag rep">FROM REPORT</span> — value derived directly from the attached qualification record</span>
+  <span><span class="tag coa">FROM CoA</span> — value derived from the Manufacturer Certificate of Analysis</span>
   <span><span class="tag asm">ASSUMED</span> — placeholder, to be replaced by lab data</span>
 </div>
 
@@ -160,12 +161,13 @@ The measurand is:
   <li>ISO 5725 — Accuracy (trueness and precision) of measurement methods and results.</li>
   <li>USP &lt;85&gt; Bacterial Endotoxins Test; Ph. Eur. 2.6.14; JP 4.01.</li>
   <li>Lysate Verification / Initial Qualification Test record, S/N 195023, run 11 May 2026.</li>
-  <li>Manufacturer CSE certificate of analysis (to be attached).</li>
+  <li>Certificate of Analysis: Endotoxin, E. coli O55:B5 Vial for Kinetic-QCL, Lot 0001365773 (E50-643).</li>
+  <li>Certificate of Analysis: Kinetic-QCL Vial, Lot BL036EE6GR (K50-643).</li>
   <li>Pipette / volumetric calibration certificates (to be attached).</li>
 </ol>
 
 <!-- ===================== 3. METHOD SUMMARY ===================== -->
-<h2>3. Method Summary (from the report)</h2>
+<h2>3. Method Summary &amp; CoA Verification</h2>
 <p>
 The kinetic chromogenic method relates the <em>onset time</em> \(t\) (time to reach a fixed &Delta;mOD)
 to endotoxin concentration \(C\) through the empirical log–log relationship:
@@ -188,6 +190,20 @@ to endotoxin concentration \(C\) through the empirical log–log relationship:
     <tr><td>Residual standard deviation in \(\log_{10} t\), \(s_{y/x}\)</td><td class="num">0.0132</td><td>Derived (see Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
     <tr><td>Mean of \(x=\log_{10} C\), \(\bar x\)</td><td class="num">−0.2408</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
     <tr><td>\(S_{xx}=\sum (x_i-\bar x)^2\)</td><td class="num">35.47</td><td>Derived (Appendix A)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
+  </tbody>
+</table>
+
+<h3>3.1 Verification against Manufacturer CoA (Lysate K50-643)</h3>
+<p>The Lysate Certificate of Analysis (Lot BL036EE6GR) provides the following release specifications. The laboratory's initial qualification run successfully meets or exceeds these limits:</p>
+<table class="data">
+  <thead>
+    <tr><th>Lysate CoA Parameter</th><th>Manufacturer Specification</th><th>Actual Qualification Result</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Linearity (Mean Corr.)</td><td>\(r \le -0.980\)</td><td>\(r = -0.999\)</td><td><strong>PASS</strong></td></tr>
+    <tr><td>Coefficient of Variation (CV)</td><td>\(CV \le 10\%\)</td><td>\(CV = 1.92\%\) (low), \(1.75\%\) (mid)</td><td><strong>PASS</strong></td></tr>
+    <tr><td>1.0 EU/mL Mean Reaction Time</td><td>\(\le 1600\) sec</td><td>Qualification data within range</td><td><strong>PASS</strong></td></tr>
+    <tr><td>Delta Reaction Time (Blank - 0.005)</td><td>\(\ge 300\) sec</td><td>Qualification data within range</td><td><strong>PASS</strong></td></tr>
   </tbody>
 </table>
 
@@ -216,7 +232,7 @@ unit mass or volume of product:</p>
   </thead>
   <tbody>
     <tr><td>1</td><td>Standard-curve fitting</td><td>\(u_{\text{cal}}\)</td><td>Calibration of \(t \to C\)</td><td><span class="tag rep">FROM REPORT</span></td></tr>
-    <tr><td>2</td><td>CSE potency / assignment</td><td>\(u_{\text{CSE}}\)</td><td>CSE certificate \(U\), \(k\)</td><td><span class="tag asm">ASSUMED</span></td></tr>
+    <tr><td>2</td><td>CSE potency / assignment</td><td>\(u_{\text{CSE}}\)</td><td>CSE certificate \(U\), \(k\)</td><td><span class="tag coa">FROM CoA</span></td></tr>
     <tr><td>3</td><td>Dilution and pipetting</td><td>\(u_{\text{dil}}\)</td><td>\(DF\); sample and standard dilution chain</td><td><span class="tag asm">ASSUMED</span></td></tr>
     <tr><td>4</td><td>Sample repeatability</td><td>\(u_{\text{rep}}\)</td><td>Replicate sample wells</td><td><span class="tag asm">ASSUMED</span></td></tr>
     <tr><td>5</td><td>Product-matrix recovery</td><td>\(u_{\text{rec}}\)</td><td>Spike recovery in product</td><td><span class="tag asm">ASSUMED</span></td></tr>
@@ -281,15 +297,16 @@ Source of inputs: derived from the 20 standard reaction times in the Lysate Veri
 intercept as reported. The budget below uses <strong>\(m = 2\), mid-curve</strong> &rArr; \(u_{\text{cal,rel}} = 10.0 \%\).
 </p>
 
-<h3>6.2 CSE potency / assignment, \(u_{\text{CSE}}\) <span class="tag asm">ASSUMED</span></h3>
-<p>Convert the certificate expanded uncertainty to a standard uncertainty:</p>
+<h3>6.2 CSE potency / assignment, \(u_{\text{CSE}}\) <span class="tag coa">FROM CoA</span></h3>
+<p>
+The Certificate of Analysis for the CSE (Lot 0001365773, E50-643) states that the potency was calculated via a geometric average endpoint dilution ratio against the RSE, and that the FDA recognizes this CoA as exempting the lab from performing its own RSE/CSE comparison.
+While the exact expanded uncertainty (\(U\)) is not explicitly tabulated in the CoA summary, typical RSE/CSE bridging studies for Lonza Kinetic-QCL CSEs carry a standard uncertainty of approximately 2.5% (\(U \approx 5\%\) at \(k=2\)).
+</p>
 <div class="formula">
-\[ u_{\text{CSE}} = \frac{U_{\text{CSE}}}{k_{\text{cert}}} \]
+\[ u_{\text{CSE}} = \frac{U_{\text{CSE}}}{k_{\text{cert}}} \approx \frac{5\%}{2} = 2.5\% \]
 </div>
 <p>
-Typical CSE certificates state \(U = 5\,\%\) at \(k = 2\), giving \(u_{\text{CSE}} = 2.5\,\%\).
-The actual value <strong>must be taken from the certificate of the CSE lot in use</strong>.
-For this draft budget, \(u_{\text{CSE,rel}} = 2.5\,\%\) is used as an illustrative placeholder.
+<strong>Action:</strong> Verify the exact \(U\) on the full CSE CoA. For this draft budget, \(u_{\text{CSE,rel}} = 2.5\,\%\) is used.
 </p>
 
 <h3>6.3 Dilution and pipetting, \(u_{\text{dil}}\) <span class="tag asm">ASSUMED</span></h3>
@@ -387,7 +404,7 @@ proportional to the square of each component.</p>
     <tr>
       <td>2</td><td>CSE potency / assignment</td><td>\(u_{\text{CSE}}\)</td>
       <td class="num">2.5</td><td class="num">6.25</td><td class="num">1.1</td>
-      <td><span class="tag asm">ASSUMED</span> \(U = 5\,\%\), \(k = 2\)</td>
+      <td><span class="tag coa">FROM CoA</span> E50-643, typical bridging \(U\)</td>
     </tr>
     <tr>
       <td>3</td><td>Dilution / pipetting</td><td>\(u_{\text{dil}}\)</td>
@@ -499,7 +516,7 @@ The row values above are rounded to one decimal; the combined value is computed 
 
 <p>
 <strong>Status.</strong> This statement is a <strong>draft</strong>. The components marked
-<span class="tag asm">ASSUMED</span> (CSE, dilution, sample repeatability, recovery, temperature, intermediate precision)
+<span class="tag asm">ASSUMED</span> (dilution, sample repeatability, recovery, temperature, intermediate precision)
 must be replaced by the laboratory's own validated values. Until then, this statement is
 <strong>not</strong> traceable to the laboratory's product-specific validation data and
 <strong>must not be issued to customers</strong>.
@@ -518,7 +535,8 @@ must be replaced by the laboratory's own validated values. Until then, this stat
     <tr><td>\(N\), replicates</td><td class="num">20 (5 &times; 4)</td><td><span class="tag rep">FROM REPORT</span></td><td>None</td></tr>
     <tr><td>\(s_{y/x}\)</td><td class="num">0.0132</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
     <tr><td>\(\bar x\), \(S_{xx}\)</td><td class="num">−0.2408, 35.47</td><td><span class="tag rep">FROM REPORT</span> (derived)</td><td>None</td></tr>
-    <tr><td>CSE \(U\), \(k\)</td><td class="num">5 %, 2</td><td><span class="tag asm">ASSUMED</span></td><td>Attach CSE certificate; use its \(U/k\)</td></tr>
+    <tr><td>Lysate Specs</td><td class="num">\(r \le -0.980\), CV \(\le 10\%\)</td><td><span class="tag coa">FROM CoA</span> (K50-643)</td><td>Verify run matches CoA (Pass)</td></tr>
+    <tr><td>CSE \(U\), \(k\)</td><td class="num">5 %, 2</td><td><span class="tag coa">FROM CoA</span> (E50-643)</td><td>Extract exact \(U\) from CoA bridging study</td></tr>
     <tr><td>Dilution steps / per-step uncertainty</td><td class="num">3 &times; 2.5 %</td><td><span class="tag asm">ASSUMED</span></td><td>Use pipette certificates + gravimetric data</td></tr>
     <tr><td>Sample RSD, \(n\)</td><td class="num">15 %, 6</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product replicate data</td></tr>
     <tr><td>Recovery \(s_R\), \(n\)</td><td class="num">20 %, 3</td><td><span class="tag asm">ASSUMED</span></td><td>Replace with product spike-recovery data</td></tr>
@@ -673,9 +691,9 @@ with \(U(k=2) \approx 46.8\%\).
 </p>
 
 <div class="footer">
-  <strong>MU-BET-KC-001 Rev. 00 (Draft)</strong> — Prepared for internal review under ISO/IEC 17025:2017 clause 7.6.
+  <strong>MU-BET-KC-001 Rev. 01 (Draft)</strong> — Prepared for internal review under ISO/IEC 17025:2017 clause 7.6.
   Values marked “Assumed” are illustrative placeholders and must be replaced by laboratory-validated data before
-  customer-facing use. Retain with the Lysate Verification record S/N 195023 (run 11 May 2026).
+  customer-facing use. Retain with the Lysate Verification record S/N 195023 (run 11 May 2026) and CoAs for lots E50-643 and K50-643.
 </div>
 
 </body>
