@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DK/QCM/R/025-02 — Measurement Uncertainty Report — Bacterial Endotoxin Test</title>
+<title>DK/QCM/R/025-03 — Measurement Uncertainty Report — Bacterial Endotoxin Test</title>
 
 <!-- DOCX generation libraries -->
 <script src="https://cdn.jsdelivr.net/npm/html-docx-js@0.3.1/dist/html-docx.js"></script>
@@ -177,8 +177,8 @@ h4{
 .eq{
   margin:12px 0;
   padding:10px 14px;
-  background:#ffffff;          /* plain white */
-  border-left:none;            /* no accent bar */
+  background:#ffffff;
+  border-left:none;
   font-family:"Times New Roman", Times, serif;
   font-size:12pt;
   overflow-x:auto;
@@ -375,9 +375,9 @@ li{margin:4px 0;}
     <tbody>
       <tr><th style="width:30%">Report Number</th><td>DK/QCM/R/025</td></tr>
       <tr><th>Title</th><td>Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic Method)</td></tr>
-      <tr><th>Version</th><td>02 — revised to include CSE and LAL CoA traceability, and to combine both ELx808 microplate readers used in routine testing</td></tr>
-      <tr><th>Effective Date</th><td>09 September 2026 &nbsp;·&nbsp; Revision Date: 18 October 2026</td></tr>
-      <tr><th>Supersedes</th><td>Version 01 (single-reader, conservative approach)</td></tr>
+      <tr><th>Version</th><td>03 — dual-reader pooled approach retained; CSE potency uncertainty component removed from the uncertainty model</td></tr>
+      <tr><th>Effective Date</th><td>09 September 2026 &nbsp;·&nbsp; Revision Date: 26 October 2026</td></tr>
+      <tr><th>Supersedes</th><td>Version 02 (dual-reader pooled approach with CSE assessment)</td></tr>
       <tr><th>Product / Test</th><td>Haemodialysis Concentrated Solution — Bacterial Endotoxin Test (BET), kinetic chromogenic</td></tr>
       <tr><th>Instruments in Scope</th><td>
         ELx808 Microplate Reader, QC/M/001 14 (A) — repeatability, linearity and intercept bias per Appendix 1<br>
@@ -599,7 +599,7 @@ li{margin:4px 0;}
     RSE/CSE comparison test, as detailed on the CoA. The CoA states that the EU/mL potency is
     calculated from the ratio of the geometric mean endpoint dilution of the RSE and CSE. Because
     the CoA exempts the user laboratory from repeating this comparison, the assigned potency is
-    used as stated and is treated as a Type B component — see Section 5.2.
+    used as stated on the CoA; its traceability is documented in this section and in Section 3.3.
   </p>
 
   <h3>3.5 CoA Summary — LAL Reagent K50-643 / Batch BL036EE6GR</h3>
@@ -692,7 +692,7 @@ li{margin:4px 0;}
   </p>
   <div class="eq">
     <i>u</i><sub>c,rel</sub>(<i>C</i>) =
-    √ [ <i>u</i><sub>rel,pip</sub>² + <i>u</i><sub>rel,cal</sub>² + <i>u</i><sub>rel,analyst</sub>² + <i>u</i><sub>rel,instr</sub>² + <i>u</i><sub>rel,CSE</sub>² ]
+    √ [ <i>u</i><sub>rel,pip</sub>² + <i>u</i><sub>rel,cal</sub>² + <i>u</i><sub>rel,analyst</sub>² + <i>u</i><sub>rel,instr</sub>² ]
     <span class="lbl">(5)</span>
   </div>
   <p>where:</p>
@@ -705,7 +705,6 @@ li{margin:4px 0;}
       <tr><td><i>u</i><sub>rel,cal</sub></td><td>Reagent / lysate calibration — standard uncertainty of interpolation from the regression line</td><td>Appendix 5</td></tr>
       <tr><td><i>u</i><sub>rel,analyst</sub></td><td>Analyst — intermediate precision, repeatability, calibration curve fit and bias</td><td>Appendix 3</td></tr>
       <tr><td><i>u</i><sub>rel,instr</sub></td><td>Microplate reader — <b>combined over both ELx808 units</b> (pooled within-reader plus between-reader)</td><td>Appendices 1 &amp; 2; Section 6.2</td></tr>
-      <tr><td><i>u</i><sub>rel,CSE</sub></td><td>Assigned potency of the CSE — see Section 5.2</td><td>CoA E50-643 (Type B)</td></tr>
     </tbody>
   </table>
   <p>The expanded uncertainty is then obtained using a coverage factor <i>k</i> = 2:</p>
@@ -763,13 +762,6 @@ li{margin:4px 0;}
         <td>Type A / B</td>
         <td>Quantified — combined over both readers</td>
         <td>Appendices 1 &amp; 2; Section 6.2</td>
-      </tr>
-      <tr>
-        <td>Reference standard endotoxin (CSE E50-643)</td>
-        <td>Assigned potency and purity of the CSE vial; traceability to RSE</td>
-        <td>Type B</td>
-        <td>Assessed — see Section 5.2</td>
-        <td>CoA E50-643</td>
       </tr>
       <tr>
         <td>Incubation temperature and time</td>
@@ -835,51 +827,11 @@ li{margin:4px 0;}
             <li>Standard curve preparation 0.001853</li>
           </ul>
         </li>
-        <li>Reference standard endotoxin (CSE E50-643) — <span class="tag amber">Assessed — not separately quantified</span>
-          <ul>
-            <li>Traceable to Lonza RSE via CoA E50-643</li>
-            <li>FDA-recognised exemption from in-house RSE/CSE comparison</li>
-            <li>Captured within the reagent/calibration component</li>
-          </ul>
-        </li>
       </ul>
     </li>
   </ul>
 
-  <h3>5.2 Reference standard endotoxin (CSE) assessment</h3>
-  <p>
-    The CSE (Lonza E50-643, Batch 0001365773) is the source of all endotoxin concentrations used in
-    this study. Its assigned potency, stated in EU/mL after reconstitution, is traceable to Lonza's
-    in-house RSE through the manufacturer's RSE/CSE comparison test. The CoA states that the FDA
-    recognises this comparison as exempting the user laboratory from having to perform an in-house
-    RSE/CSE comparison.
-  </p>
-  <p>
-    Accordingly, the CSE potency is used as stated on the CoA and is treated as a Type B input
-    quantity. Because the CoA does not state a numeric uncertainty on the assigned potency, and
-    because the potency assignment is embedded in the standard curve used to derive the
-    interpolation uncertainty, this contribution is <b>not separately quantified</b> in the budget.
-    It is considered to be covered by the reagent/calibration component (<i>u</i><sub>rel,cal</sub>,
-    Appendix 5) and by the analyst bias component (Appendix 3).
-  </p>
-
-  <div class="note">
-    <b>Basis for this disposition:</b> ISO/IEC 17025:2017 clause 7.6 requires that measurement
-    uncertainty be evaluated for all contributions that are significant. The CSE potency
-    contribution is not significant when compared with the reagent/calibration and analyst
-    components, and its inclusion at any reasonable magnitude would not change the reported
-    expanded uncertainty at two significant figures. The disposition is therefore documented for
-    transparency, and is reviewed whenever the CSE lot changes.
-  </div>
-
-  <div class="warn">
-    <b>Trigger for re-assessment:</b> If the CSE lot changes (for example, from Batch 0001365773 to
-    a new Lonza batch), or if the CoA begins to state a numeric potency uncertainty, this assessment
-    must be repeated and <i>u</i><sub>rel,CSE</sub> must be quantified and added to equation (5)
-    before the next report revision.
-  </div>
-
-  <h3>5.3 LAL reagent qualification consistency</h3>
+  <h3>5.2 LAL reagent qualification consistency</h3>
   <p>
     The CoA for the LAL reagent (K50-643, Batch BL036EE6GR) confirms that the lysate meets the
     linearity criterion (mean correlation <i>r</i> ≤ −0.980) and the plate CV criterion (≤ 10 %)
@@ -1004,13 +956,6 @@ li{margin:4px 0;}
         <td class="num">—</td>
         <td class="num"><b>0.0486</b></td>
         <td>Section 6.2</td>
-      </tr>
-      <tr>
-        <td>CSE (E50-643)</td>
-        <td>Assigned potency traceability</td>
-        <td class="num">—</td>
-        <td class="num"><b>Not separately quantified</b></td>
-        <td>Section 5.2</td>
       </tr>
     </tbody>
   </table>
@@ -1151,9 +1096,8 @@ li{margin:4px 0;}
       The relative expanded uncertainty of a reported endotoxin concentration is 28 % of the
       reported value. This applies equally to the sample result and to the PPC result, and
       equally to results generated on reader (A) and on reader (B). The absolute expanded
-      uncertainty is obtained by multiplying the reported concentration by 0.28. The CSE potency
-      is included by traceability to Lonza's RSE via CoA E50-643, and its contribution is captured
-      within the reagent/calibration component (Section 5.2).
+      uncertainty is obtained by multiplying the reported concentration by 0.28. Reference-material
+      traceability for the CSE and LAL reagent is documented in Section 3.3.
     </span>
   </div>
 
@@ -1239,12 +1183,6 @@ li{margin:4px 0;}
         <td class="num">0.02</td>
       </tr>
       <tr>
-        <td>CSE potency (E50-643)</td>
-        <td class="num">—</td>
-        <td class="num">Captured within reagent/calibration</td>
-        <td class="num">—</td>
-      </tr>
-      <tr>
         <td><b>Combined standard uncertainty</b></td>
         <td class="num"><b>0.1413</b></td>
         <td class="num"><b>1.995 × 10<sup>−2</sup></b></td>
@@ -1289,16 +1227,9 @@ li{margin:4px 0;}
     used.
   </p>
   <p>
-    The <b>CSE potency</b> is not separately quantified (Section 5.2), but is embedded in the
-    reagent/calibration component. This is consistent with the FDA-recognised exemption from
-    in-house RSE/CSE comparison documented on CoA E50-643, and with the observation that the
-    contribution would not be large enough to change the reported value at two significant figures.
-  </p>
-  <p>
     Consequently, any programme aimed at reducing the reported measurement uncertainty should focus
     on the calibration/regression performance of the reagent system and on analyst-related
-    precision, rather than on volumetric operations or on reader selection. Changing the CSE lot
-    should trigger a re-assessment of Section 5.2 before the next report revision.
+    precision, rather than on volumetric operations or on reader selection.
   </p>
 
   <!-- ============================================================
@@ -1352,7 +1283,6 @@ li{margin:4px 0;}
     <li>The evaluation uses representative mid-curve performance data (0.5 EU/mL) and may not fully represent performance at the extreme ends of the calibration range.</li>
     <li>Bias is evaluated from PPC recovery data across three lots and four analysts; it is treated as a precision component of the mean rather than as a corrected systematic effect.</li>
     <li>The reagent component is derived exclusively from the Initial Qualification Test (Lysate Verification) report and should be reviewed if the lysate supplier, lot or qualification data change.</li>
-    <li>The CSE contribution is not separately quantified (Section 5.2). If the CSE lot changes, or if the CoA begins to state a numeric potency uncertainty, the budget must be re-evaluated.</li>
     <li><b>The reader component represents the two ELx808 units currently in routine use.</b> The between-reader variance estimate (0.00156) is based on only two instruments and carries a high degree of statistical uncertainty; it is therefore treated as a small correction and does not dominate the reader contribution. If a third reader is introduced, the between-reader estimate should be recalculated with the larger instrument population.</li>
     <li>Both CoAs are electronic records generated from Lonza's Part 11-compliant system and are signed by the Lonza QA representative; printed copies are uncontrolled and the current electronic record held on file prevails.</li>
   </ul>
@@ -1426,7 +1356,7 @@ li{margin:4px 0;}
     <tbody>
       <tr>
         <td>New CSE lot (replaces E50-643 / 0001365773)</td>
-        <td>Re-qualify the new lot; reassess Section 5.2 and quantify <i>u</i><sub>rel,CSE</sub> if the CoA states a numeric uncertainty; update Tables 3.1 and 3.2; issue a report revision.</td>
+        <td>Re-qualify the new lot; update Tables 3.1 and 3.2 and the traceability statement in Section 3.4; issue a report revision.</td>
       </tr>
       <tr>
         <td>New LAL lysate lot (replaces K50-643 / BL036EE6GR)</td>
@@ -1434,7 +1364,7 @@ li{margin:4px 0;}
       </tr>
       <tr>
         <td>Change of CSE supplier or product code</td>
-        <td>Full re-evaluation of Sections 3.4, 5.2 and 5.3; confirm continued applicability of the RSE/CSE comparison exemption.</td>
+        <td>Full re-evaluation of Sections 3.3, 3.4 and 3.5; confirm continued applicability of the RSE/CSE comparison exemption.</td>
       </tr>
       <tr>
         <td><b>Introduction of an additional microplate reader, or withdrawal of reader (A) or (B)</b></td>
@@ -1485,6 +1415,12 @@ li{margin:4px 0;}
         <td><b>Revised to reflect that both ELx808 microplate readers, QC/M/001 14 (A) and QC/M/001 14 (B), are in routine use for BET testing.</b> Replaced the single-reader conservative approach with a dual-reader combination (pooled within-reader plus between-reader variance) in new Section 6.2 and Table 6.2. Updated Sections 1, 2, 4.4, 5.1, 5.2, 6.1, 7.1, 7.2, 8.1, 9.2, 10.1–10.4, and Tables 6.1, 7.1, 8.1, 10.1, 10.2 and 11.3. Reader component changed from 0.0497 to 0.0486; combined standard uncertainty from 0.1416 to 0.1413; expanded uncertainty unchanged at 0.28.</td>
         <td>QC Microbiology</td>
       </tr>
+      <tr>
+        <td>03</td>
+        <td>26 Oct 2026</td>
+        <td><b>Removed the CSE potency uncertainty component (<i>u</i><sub>rel,CSE</sub>) from the uncertainty model and all associated tables, the uncertainty tree and the budget.</b> CSE traceability remains documented as reference-material information only (Sections 3.3 and 3.4). Retained the dual-reader pooled approach (pooled within-reader plus between-reader variance). Updated Sections 3.4, 4.4, 5, 5.1, 5.2, 6.1, 8.1, 9.1, 10.2, 10.4 and 11.1. Numerical result unchanged: <i>u</i><sub>c,rel</sub> = 0.141; <i>U</i><sub>rel</sub> = 0.28 (<i>k</i> = 2).</td>
+        <td>QC Microbiology</td>
+      </tr>
     </tbody>
   </table>
 
@@ -1533,7 +1469,7 @@ li{margin:4px 0;}
   </table>
 
   <div class="footer-note">
-    DK/QCM/R/025 · Version 02 · Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic)<br>
+    DK/QCM/R/025 · Version 03 · Measurement Uncertainty Report — Bacterial Endotoxin Test (Kinetic Chromogenic)<br>
     Duopharma (M) Sdn Bhd · Quality Control Microbiology · Page 1 of 1 (electronic master copy)
   </div>
 
@@ -1623,7 +1559,7 @@ li{margin:4px 0;}
       + '<html>'
       + '<head>'
       +   '<meta charset="utf-8">'
-      +   '<title>DK/QCM/R/025-02 — Measurement Uncertainty Report — BET</title>'
+      +   '<title>DK/QCM/R/025-03 — Measurement Uncertainty Report — BET</title>'
       +   '<style>' + DOCX_CSS + '</style>'
       + '</head>'
       + '<body>' + content + '</body>'
@@ -1635,7 +1571,6 @@ li{margin:4px 0;}
       downloadBtn.disabled = true;
       downloadBtn.innerHTML = 'Generating DOCX…';
 
-      // Give the UI a tick to repaint
       setTimeout(function () {
         try {
           if (typeof htmlDocx === 'undefined' || typeof saveAs === 'undefined') {
@@ -1648,7 +1583,7 @@ li{margin:4px 0;}
             margins: { top: 1440, right: 1440, bottom: 1440, left: 1440, header: 720, footer: 720, gutter: 0 }
           });
 
-          var filename = 'DK-QCM-R-025-02_MU_Report_BET.docx';
+          var filename = 'DK-QCM-R-025-03_MU_Report_BET.docx';
           saveAs(blob, filename);
 
           showToast('DOCX downloaded successfully.', false);
