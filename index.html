@@ -173,21 +173,21 @@ h4{
   font-style:italic;
 }
 
-/* ---------- Equations ---------- */
+/* ---------- Equations: Times New Roman, 12pt, plain white ---------- */
 .eq{
   margin:12px 0;
   padding:10px 14px;
-  background:var(--band);
-  border-left:3px solid var(--accent);
-  font-family:"Cambria Math","Times New Roman",serif;
-  font-size:14.5px;
+  background:#ffffff;          /* plain white */
+  border-left:none;            /* no accent bar */
+  font-family:"Times New Roman", Times, serif;
+  font-size:12pt;
   overflow-x:auto;
 }
 .eq .lbl{
   float:right;
   color:var(--muted);
-  font-size:12px;
-  font-family:Arial, sans-serif;
+  font-size:10pt;
+  font-family:"Times New Roman", Times, serif;
 }
 sub,sup{font-size:72%;}
 
@@ -1558,6 +1558,7 @@ li{margin:4px 0;}
   }
 
   // DOCX-friendly CSS (no gradients, no flexbox, no CSS variables)
+  // Equations use Times New Roman 12pt and plain white background.
   var DOCX_CSS = ''
     + 'body{font-family:Calibri,Arial,Helvetica,sans-serif;font-size:11pt;color:#1a1a1a;line-height:1.4;}'
     + 'h1{font-size:18pt;color:#0b4f8a;margin:0 0 6pt 0;}'
@@ -1578,8 +1579,8 @@ li{margin:4px 0;}
     + '.doc-head .band{background-color:#0b4f8a;color:#ffffff;padding:6pt 10pt;font-size:10pt;font-weight:bold;letter-spacing:1pt;}'
     + '.doc-head h1{margin:10pt 10pt 4pt 10pt;}'
     + '.doc-head .sub{margin:0 10pt 10pt 10pt;color:#5a6472;font-size:10.5pt;}'
-    + '.eq{font-family:"Cambria Math","Times New Roman",serif;background-color:#f7f9fc;border-left:2pt solid #0b4f8a;padding:6pt 10pt;margin:8pt 0;}'
-    + '.eq .lbl{float:right;color:#5a6472;font-size:9.5pt;font-family:Arial,sans-serif;}'
+    + '.eq{font-family:"Times New Roman",Times,serif;font-size:12pt;background-color:#ffffff;border-left:none;padding:6pt 10pt;margin:8pt 0;}'
+    + '.eq .lbl{float:right;color:#5a6472;font-size:10pt;font-family:"Times New Roman",Times,serif;}'
     + '.note{border:0.75pt solid #d9c48a;background-color:#fdf8e8;padding:8pt 10pt;margin:10pt 0;font-size:10.5pt;}'
     + '.warn{border:0.75pt solid #e0a3a3;background-color:#fdf0f0;padding:8pt 10pt;margin:10pt 0;font-size:10.5pt;}'
     + '.ok{border:0.75pt solid #a9d3b7;background-color:#f0f9f3;padding:8pt 10pt;margin:10pt 0;font-size:10.5pt;}'
